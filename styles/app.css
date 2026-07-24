@@ -1,0 +1,711 @@
+/* ==========================================================================
+   ISS Orbital Tracker — glass HUD over a WebGL viewport
+   ========================================================================== */
+
+:root {
+  --bg: #04060d;
+  --glass: rgba(9, 17, 31, 0.52);
+  --glass-strong: rgba(9, 17, 31, 0.74);
+  --edge: rgba(122, 190, 255, 0.16);
+  --edge-bright: rgba(122, 190, 255, 0.34);
+
+  --ink: #dce9f7;
+  --ink-dim: #8ba2ba;
+  --ink-faint: #5d738d;
+
+  --accent: #4fd8ff;
+  --accent-deep: #1c9fd6;
+  --warn: #ffb454;
+  --bad: #ff5f6d;
+  --good: #52e3a4;
+
+  --font-ui: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  --font-mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, "Liberation Mono", monospace;
+
+  --radius: 14px;
+  --gap: 14px;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  height: 100%;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-ui);
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+#viewport {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  touch-action: none;
+}
+
+/* --------------------------------------------------------------------------
+   HUD scaffold
+   -------------------------------------------------------------------------- */
+
+.hud {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  gap: var(--gap);
+  padding: var(--gap);
+  padding: max(var(--gap), env(safe-area-inset-top)) max(var(--gap), env(safe-area-inset-right))
+           max(var(--gap), env(safe-area-inset-bottom)) max(var(--gap), env(safe-area-inset-left));
+  grid-template-columns: minmax(268px, 316px) 1fr minmax(240px, 288px);
+  grid-template-rows: auto auto 1fr auto;
+  grid-template-areas:
+    "mast     .        solar"
+    "primary  .        controls"
+    ".        .        ."
+    "status   status   status";
+  pointer-events: none;
+}
+
+.hud__masthead { grid-area: mast; }
+.panel--primary { grid-area: primary; }
+.panel--solar { grid-area: solar; }
+.panel--controls { grid-area: controls; }
+.hud__status { grid-area: status; }
+
+/* --------------------------------------------------------------------------
+   Glass panels
+   -------------------------------------------------------------------------- */
+
+.panel {
+  position: relative;
+  /* Hug content instead of stretching to the tallest panel in the grid row. */
+  align-self: start;
+  pointer-events: auto;
+  background: var(--glass);
+  border: 1px solid var(--edge);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
+  box-shadow:
+    0 18px 44px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.055);
+}
+
+/* Corner ticks — cheap way to read as instrumentation rather than a web card */
+.panel::before,
+.panel::after {
+  content: "";
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  border: 1px solid var(--edge-bright);
+  opacity: 0.75;
+  pointer-events: none;
+}
+.panel::before { top: 6px; left: 6px; border-right: 0; border-bottom: 0; border-radius: 3px 0 0 0; }
+.panel::after { bottom: 6px; right: 6px; border-left: 0; border-top: 0; border-radius: 0 0 3px 0; }
+
+.panel__title {
+  margin: 0 0 12px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  opacity: 0.85;
+}
+
+.panel__note {
+  margin: 12px 0 0;
+  font-size: 10.5px;
+  line-height: 1.45;
+  color: var(--ink-faint);
+}
+
+/* --------------------------------------------------------------------------
+   Masthead
+   -------------------------------------------------------------------------- */
+
+.hud__masthead {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+.masthead__row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.masthead__text { flex: 1; min-width: 0; }
+
+.masthead__collapse {
+  appearance: none;
+  flex: none;
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 1px solid var(--edge);
+  border-radius: 7px;
+  background: rgba(255, 255, 255, 0.035);
+  color: var(--ink-dim);
+  cursor: pointer;
+  transition: background 0.16s ease, color 0.16s ease, border-color 0.16s ease;
+}
+
+.masthead__collapse svg {
+  width: 15px;
+  height: 15px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+}
+
+.masthead__collapse:hover {
+  background: rgba(79, 216, 255, 0.14);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.masthead__collapse:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Collapsed: keep only the masthead and the status strip on screen. */
+.hud.is-collapsed .panel--primary,
+.hud.is-collapsed .panel--solar,
+.hud.is-collapsed .panel--controls {
+  display: none;
+}
+
+.masthead__mark svg {
+  width: 38px;
+  height: 38px;
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 1.5;
+  opacity: 0.9;
+}
+.masthead__mark .mark__beacon {
+  fill: var(--accent);
+  stroke: none;
+  animation: beacon 2.6s ease-in-out infinite;
+}
+
+@keyframes beacon {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.28; }
+}
+
+.masthead__text h1 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+}
+.masthead__text h1 span { color: var(--accent); }
+
+.masthead__text p {
+  margin: 2px 0 0;
+  font-size: 9.5px;
+  letter-spacing: 0.07em;
+  color: var(--ink-faint);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 6px 9px;
+  border: 1px solid var(--edge);
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.1em;
+  color: var(--ink-dim);
+  white-space: nowrap;
+}
+
+.link__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--ink-faint);
+  box-shadow: 0 0 8px currentColor;
+}
+
+.link[data-state="live"] { color: var(--good); border-color: rgba(82, 227, 164, 0.35); }
+.link[data-state="live"] .link__dot { background: var(--good); animation: beacon 2s ease-in-out infinite; }
+.link[data-state="stale"] { color: var(--warn); border-color: rgba(255, 180, 84, 0.35); }
+.link[data-state="stale"] .link__dot { background: var(--warn); }
+.link[data-state="lost"] { color: var(--bad); border-color: rgba(255, 95, 109, 0.35); }
+.link[data-state="lost"] .link__dot { background: var(--bad); }
+
+/* --------------------------------------------------------------------------
+   Coordinates and metrics
+   -------------------------------------------------------------------------- */
+
+.coordinate { margin-bottom: 10px; }
+
+.coordinate__label {
+  display: block;
+  font-size: 9.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.coordinate__value {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 27px;
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  font-variant-numeric: tabular-nums;
+  color: #f2f8ff;
+  text-shadow: 0 0 22px rgba(79, 216, 255, 0.28);
+}
+
+.coordinate__sub {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  color: var(--accent);
+  opacity: 0.7;
+  font-variant-numeric: tabular-nums;
+}
+
+.metrics--pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin: 14px 0 4px;
+  padding: 11px 0;
+  border-top: 1px solid var(--edge);
+  border-bottom: 1px solid var(--edge);
+}
+
+.metric__label {
+  display: block;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.metric__value {
+  font-family: var(--font-mono);
+  font-size: 19px;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink);
+}
+
+.metric--accent .metric__value { color: var(--accent); }
+
+.metric__unit {
+  font-size: 10px;
+  color: var(--ink-faint);
+  margin-left: 3px;
+}
+
+.readout { margin: 12px 0 0; }
+
+.readout > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+  padding: 3.5px 0;
+  font-size: 11px;
+}
+
+.readout dt {
+  color: var(--ink-faint);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.readout dd {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  color: var(--ink);
+  text-align: right;
+}
+
+/* --------------------------------------------------------------------------
+   Solar panel
+   -------------------------------------------------------------------------- */
+
+.clock {
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--edge);
+}
+
+.clock__value {
+  font-family: var(--font-mono);
+  font-size: 24px;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
+  color: #f2f8ff;
+  text-shadow: 0 0 20px rgba(79, 216, 255, 0.24);
+}
+
+.clock__zone {
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  color: var(--ink-faint);
+}
+
+.illumination {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  padding: 8px 10px;
+  border: 1px solid var(--edge);
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.illumination__dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--ink-faint);
+  box-shadow: 0 0 12px currentColor;
+  flex: none;
+}
+
+.illumination__text {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.06em;
+  color: var(--ink-dim);
+}
+
+.illumination[data-state="daylight"] .illumination__dot { background: #ffd479; }
+.illumination[data-state="daylight"] .illumination__text { color: #ffd479; }
+.illumination[data-state="visible"] .illumination__dot { background: var(--accent); }
+.illumination[data-state="visible"] .illumination__text { color: var(--accent); }
+.illumination[data-state="eclipsed"] .illumination__dot { background: #6b7f96; }
+
+/* --------------------------------------------------------------------------
+   Controls
+   -------------------------------------------------------------------------- */
+
+.buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.buttons button {
+  appearance: none;
+  padding: 8px 6px;
+  border: 1px solid var(--edge-bright);
+  border-radius: 8px;
+  background: rgba(79, 216, 255, 0.07);
+  color: var(--ink);
+  font-family: var(--font-ui);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: background 0.16s ease, border-color 0.16s ease, transform 0.08s ease;
+}
+
+.buttons button:hover {
+  background: rgba(79, 216, 255, 0.16);
+  border-color: var(--accent);
+}
+.buttons button:active { transform: translateY(1px); }
+
+.toggles {
+  display: grid;
+  gap: 1px;
+}
+
+.toggles label {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 4.5px 2px;
+  font-size: 11px;
+  color: var(--ink-dim);
+  cursor: pointer;
+  border-radius: 6px;
+  transition: color 0.15s ease;
+}
+
+.toggles label:hover { color: var(--ink); }
+
+.toggles input {
+  appearance: none;
+  width: 30px;
+  height: 16px;
+  flex: none;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--edge);
+  position: relative;
+  cursor: pointer;
+  transition: background 0.18s ease, border-color 0.18s ease;
+}
+
+.toggles input::after {
+  content: "";
+  position: absolute;
+  top: 1.5px;
+  left: 2px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--ink-faint);
+  transition: transform 0.18s cubic-bezier(0.3, 1.4, 0.5, 1), background 0.18s ease;
+}
+
+.toggles input:checked {
+  background: rgba(79, 216, 255, 0.24);
+  border-color: var(--accent);
+}
+.toggles input:checked::after {
+  transform: translateX(13px);
+  background: var(--accent);
+  box-shadow: 0 0 10px var(--accent);
+}
+
+.toggles input:focus-visible,
+.buttons button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   Status bar
+   -------------------------------------------------------------------------- */
+
+.hud__status {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 20px;
+  padding: 9px 16px;
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  color: var(--ink-faint);
+  text-transform: uppercase;
+}
+
+.hud__status b {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink-dim);
+  text-transform: none;
+}
+
+.status__source { margin-left: auto; opacity: 0.72; }
+
+/* --------------------------------------------------------------------------
+   Tracking reticle
+   -------------------------------------------------------------------------- */
+
+.reticle {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 62px;
+  height: 62px;
+  margin: -31px 0 0 -31px;
+  pointer-events: none;
+  will-change: transform;
+  transition: opacity 0.25s ease;
+}
+
+.reticle[hidden] { display: none; }
+
+.reticle svg {
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 1.6;
+  opacity: 0.7;
+  animation: spin 14s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.reticle__label {
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  transform: translateY(-50%);
+  margin-left: 4px;
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.18em;
+  color: var(--accent);
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+  white-space: nowrap;
+}
+
+/* --------------------------------------------------------------------------
+   Boot / fatal overlays
+   -------------------------------------------------------------------------- */
+
+.boot, .fatal {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(circle at 50% 45%, #0a1220 0%, #04060d 70%);
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+.boot[hidden], .fatal[hidden] { display: none; }
+
+.boot.is-done { opacity: 0; visibility: hidden; }
+
+.boot__inner, .fatal__inner {
+  text-align: center;
+  padding: 24px;
+  max-width: 460px;
+}
+
+.boot__ring {
+  width: 46px;
+  height: 46px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(79, 216, 255, 0.16);
+  border-top-color: var(--accent);
+  animation: spin 1.05s linear infinite;
+}
+
+.boot__title {
+  margin: 0;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.boot__detail {
+  margin: 7px 0 18px;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  color: var(--ink-faint);
+}
+
+.boot__bar {
+  height: 2px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+
+.boot__bar i {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, var(--accent-deep), var(--accent));
+  box-shadow: 0 0 12px var(--accent);
+  transition: width 0.35s ease;
+}
+
+.fatal__inner h2 {
+  margin: 0 0 10px;
+  font-size: 15px;
+  letter-spacing: 0.1em;
+  color: var(--bad);
+}
+
+.fatal__inner p {
+  margin: 0 0 12px;
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--ink-dim);
+}
+
+.fatal__hint { color: var(--ink-faint) !important; font-size: 11px !important; }
+
+.fatal code {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  padding: 1px 5px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.07);
+  color: var(--accent);
+}
+
+/* --------------------------------------------------------------------------
+   Responsive — stack the HUD and let it scroll on small screens
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 1000px) {
+  .hud {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas: "mast" "primary" "solar" "controls" "status";
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    pointer-events: auto;
+    background: linear-gradient(180deg, rgba(4, 6, 13, 0.55) 0%, rgba(4, 6, 13, 0) 22%);
+  }
+
+  /* Tighten everything so more of the globe stays visible behind the stack. */
+  .panel { padding: 11px 13px; }
+  .panel__title { margin-bottom: 9px; }
+  .coordinate { margin-bottom: 7px; }
+  .coordinate__value { font-size: 22px; }
+  .clock__value { font-size: 21px; }
+  .metrics--pair { margin: 11px 0 2px; padding: 9px 0; }
+  .readout > div { padding: 2.5px 0; }
+  .status__source { margin-left: 0; width: 100%; }
+}
+
+@media (max-height: 620px) and (min-width: 1001px) {
+  .panel { padding: 10px 12px; }
+  .coordinate__value { font-size: 22px; }
+  .clock__value { font-size: 20px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

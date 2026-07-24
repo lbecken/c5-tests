@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>ISS Orbital Tracker</title>
+  <meta name="description" content="Real-time 3D orbital tracker for the International Space Station, with a true solar ephemeris terminator." />
+  <link rel="stylesheet" href="styles/app.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='11' fill='none' stroke='%2340d4ff' stroke-width='2'/><circle cx='16' cy='5' r='3.2' fill='%2380f0ff'/></svg>" />
+
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "./vendor/three/three.module.js",
+        "three/addons/": "./vendor/three/addons/"
+      }
+    }
+  </script>
+</head>
+<body>
+  <canvas id="viewport"></canvas>
+
+  <!-- Marker that tracks the station's projected screen position -->
+  <div id="reticle" class="reticle" hidden>
+    <svg viewBox="0 0 100 100" aria-hidden="true">
+      <circle cx="50" cy="50" r="26" />
+      <path d="M50 6 V22 M50 78 V94 M6 50 H22 M78 50 H94" />
+    </svg>
+    <span class="reticle__label">ISS</span>
+  </div>
+
+  <main class="hud" id="hud">
+
+    <header class="hud__masthead panel">
+      <div class="masthead__row">
+        <div class="masthead__mark" aria-hidden="true">
+          <svg viewBox="0 0 44 44">
+            <ellipse cx="22" cy="22" rx="19" ry="7.5" transform="rotate(-28 22 22)" />
+            <circle cx="22" cy="22" r="9" />
+            <circle cx="35.5" cy="12.5" r="3.4" class="mark__beacon" />
+          </svg>
+        </div>
+        <div class="masthead__text">
+          <h1>ISS <span>&middot;</span> ZARYA</h1>
+          <p>NORAD 25544 &middot; Low Earth Orbit</p>
+        </div>
+        <button type="button" id="btn-panels" class="masthead__collapse"
+                aria-expanded="true" aria-controls="hud" title="Hide panels">
+          <svg viewBox="0 0 16 16" aria-hidden="true">
+            <path d="M2 4h12M2 8h12M2 12h12" />
+          </svg>
+          <span class="visually-hidden">Toggle telemetry panels</span>
+        </button>
+      </div>
+      <div class="link" id="link-badge" data-state="init">
+        <span class="link__dot"></span>
+        <span class="link__text" id="link-text">ACQUIRING</span>
+      </div>
+    </header>
+
+    <section class="panel panel--primary" aria-labelledby="primary-heading">
+      <h2 id="primary-heading" class="panel__title">Position Telemetry</h2>
+
+      <div class="coordinate">
+        <span class="coordinate__label">Latitude</span>
+        <span class="coordinate__value" id="lat-value">--.----&deg;</span>
+        <span class="coordinate__sub" id="lat-dms">&mdash;</span>
+      </div>
+
+      <div class="coordinate">
+        <span class="coordinate__label">Longitude</span>
+        <span class="coordinate__value" id="lon-value">--.----&deg;</span>
+        <span class="coordinate__sub" id="lon-dms">&mdash;</span>
+      </div>
+
+      <div class="metrics metrics--pair">
+        <div class="metric">
+          <span class="metric__label">Altitude</span>
+          <span class="metric__value" id="alt-value">&mdash;</span>
+          <span class="metric__unit">km</span>
+        </div>
+        <div class="metric metric--accent">
+          <span class="metric__label">Velocity</span>
+          <span class="metric__value" id="vel-value">&mdash;</span>
+          <span class="metric__unit">km/h</span>
+        </div>
+      </div>
+
+      <dl class="readout">
+        <div><dt>Orbital speed</dt><dd id="vel-kms">&mdash;</dd></div>
+        <div><dt>Ground speed</dt><dd id="ground-speed">&mdash;</dd></div>
+        <div><dt>Orbital period</dt><dd id="period">&mdash;</dd></div>
+        <div><dt>Orbit radius</dt><dd id="orbit-radius">&mdash;</dd></div>
+        <div><dt>Footprint radius</dt><dd id="footprint">&mdash;</dd></div>
+        <div><dt>Circular reference</dt><dd id="circular-ref">&mdash;</dd></div>
+      </dl>
+
+      <p class="panel__note" id="velocity-note">Velocity is differenced over a 90&nbsp;s baseline.</p>
+    </section>
+
+    <section class="panel panel--solar" aria-labelledby="solar-heading">
+      <h2 id="solar-heading" class="panel__title">Solar Ephemeris</h2>
+
+      <div class="clock">
+        <span class="clock__value" id="utc-clock">--:--:--</span>
+        <span class="clock__zone">UTC</span>
+      </div>
+
+      <dl class="readout">
+        <div><dt>Sub-solar lat</dt><dd id="solar-lat">&mdash;</dd></div>
+        <div><dt>Sub-solar lon</dt><dd id="solar-lon">&mdash;</dd></div>
+        <div><dt>Declination</dt><dd id="solar-decl">&mdash;</dd></div>
+        <div><dt>Equation of time</dt><dd id="solar-eot">&mdash;</dd></div>
+        <div><dt>Solar distance</dt><dd id="solar-dist">&mdash;</dd></div>
+        <div><dt>Sun elev. at nadir</dt><dd id="solar-elev">&mdash;</dd></div>
+      </dl>
+
+      <div class="illumination" id="illumination">
+        <span class="illumination__dot"></span>
+        <span class="illumination__text" id="illumination-text">&mdash;</span>
+      </div>
+
+      <p class="panel__note" id="ephemeris-check">Ephemeris computed locally from UTC.</p>
+    </section>
+
+    <section class="panel panel--controls" aria-labelledby="controls-heading">
+      <h2 id="controls-heading" class="panel__title">View</h2>
+
+      <div class="buttons">
+        <button type="button" id="btn-goto">Go to ISS</button>
+        <button type="button" id="btn-reset">Reset view</button>
+      </div>
+
+      <div class="toggles">
+        <label><input type="checkbox" id="tg-follow" /> <span>Follow station</span></label>
+        <label><input type="checkbox" id="tg-clouds" checked /> <span>Cloud layer</span></label>
+        <label><input type="checkbox" id="tg-atmos" checked /> <span>Atmosphere</span></label>
+        <label><input type="checkbox" id="tg-track" checked /> <span>Ground track</span></label>
+        <label><input type="checkbox" id="tg-predict" checked /> <span>Predicted path</span></label>
+        <label><input type="checkbox" id="tg-footprint" checked /> <span>Visibility footprint</span></label>
+        <label><input type="checkbox" id="tg-grid" /> <span>Graticule</span></label>
+        <label><input type="checkbox" id="tg-bloom" checked /> <span>Bloom</span></label>
+      </div>
+    </section>
+
+    <footer class="panel hud__status">
+      <span>Next fetch <b id="next-fetch">&mdash;</b></span>
+      <span>RTT <b id="rtt">&mdash;</b></span>
+      <span>Clock offset <b id="clock-offset">&mdash;</b></span>
+      <span class="status__source">Source: wheretheiss.at</span>
+    </footer>
+  </main>
+
+  <div class="boot" id="boot">
+    <div class="boot__inner">
+      <div class="boot__ring"></div>
+      <p class="boot__title">Initialising orbital tracker</p>
+      <p class="boot__detail" id="boot-detail">Loading Blue Marble imagery&hellip;</p>
+      <div class="boot__bar"><i id="boot-bar"></i></div>
+    </div>
+  </div>
+
+  <div class="fatal" id="fatal" hidden>
+    <div class="fatal__inner">
+      <h2>Unable to start</h2>
+      <p id="fatal-message"></p>
+      <p class="fatal__hint">
+        This page uses ES modules and must be served over HTTP.
+        From the project root run <code>python3 -m http.server 8000</code>
+        and open <code>http://localhost:8000</code>.
+      </p>
+    </div>
+  </div>
+
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>
