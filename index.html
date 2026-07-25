@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>dbdraw — ER diagrams from code</title>
+    <meta name="description" content="Write DBML, get an entity-relationship diagram." />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232563eb'/%3E%3Crect x='7' y='8' width='18' height='4' rx='1' fill='white'/%3E%3Crect x='7' y='14' width='18' height='3' rx='1' fill='white' opacity='.7'/%3E%3Crect x='7' y='19' width='18' height='3' rx='1' fill='white' opacity='.7'/%3E%3C/svg%3E"
+    />
+  </head>
+  <body>
+    <div id="app" class="app">
+      <header class="topbar">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span class="brand-name">dbdraw</span>
+        </div>
+
+        <div class="toolbar" role="toolbar" aria-label="Diagram controls">
+          <div class="toolbar-group">
+            <button type="button" data-action="zoom-out" title="Zoom out (Ctrl -)">−</button>
+            <button type="button" data-action="zoom-level" class="zoom-level" title="Reset zoom to 100%">100%</button>
+            <button type="button" data-action="zoom-in" title="Zoom in (Ctrl +)">+</button>
+            <button type="button" data-action="fit" title="Fit to screen (Ctrl 0)">Fit</button>
+          </div>
+
+          <div class="toolbar-group">
+            <button type="button" data-action="relayout" title="Re-run automatic layout">Auto&nbsp;layout</button>
+            <button type="button" data-action="search" title="Find a table (Ctrl F)">Find table</button>
+          </div>
+
+          <div class="toolbar-group">
+            <label class="file-button" title="Import a .dbml or .sql file">
+              Import
+              <input type="file" data-action="import" accept=".dbml,.sql,.txt" hidden />
+            </label>
+            <div class="menu" data-menu>
+              <button type="button" data-action="export-menu" aria-haspopup="true" aria-expanded="false">
+                Export ▾
+              </button>
+              <div class="menu-list" role="menu" hidden>
+                <button type="button" role="menuitem" data-action="export-svg">Diagram as SVG</button>
+                <button type="button" role="menuitem" data-action="export-png">Diagram as PNG</button>
+                <button type="button" role="menuitem" data-action="export-dbml">DBML file</button>
+                <button type="button" role="menuitem" data-action="export-postgres">PostgreSQL DDL</button>
+                <button type="button" role="menuitem" data-action="export-mysql">MySQL DDL</button>
+              </div>
+            </div>
+            <button type="button" data-action="theme" title="Toggle dark mode">Dark</button>
+          </div>
+        </div>
+      </header>
+
+      <main class="panes">
+        <section class="pane pane-editor" aria-label="DBML code">
+          <div class="pane-header">
+            <span class="pane-title">Code</span>
+            <span class="status" data-status aria-live="polite"></span>
+          </div>
+          <div class="editor-host" data-editor></div>
+          <footer class="pane-footer">
+            <span data-counts></span>
+            <button type="button" class="link-button" data-action="load-example">Load example</button>
+          </footer>
+        </section>
+
+        <div class="splitter" data-splitter role="separator" aria-orientation="vertical" tabindex="0"></div>
+
+        <section class="pane pane-diagram" aria-label="Diagram">
+          <div class="diagram-host" data-diagram></div>
+
+          <div class="search-panel" data-search hidden>
+            <input type="search" placeholder="Find a table…" data-search-input aria-label="Find a table" />
+            <ul class="search-results" data-search-results></ul>
+          </div>
+
+          <div class="legend" data-legend>
+            <span><b>1</b> one</span>
+            <span><b>*</b> many</span>
+            <span class="legend-hint">Drag to move · scroll to zoom · click to spotlight</span>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div class="toast" data-toast hidden></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

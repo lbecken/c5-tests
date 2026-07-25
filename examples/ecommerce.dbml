@@ -1,0 +1,127 @@
+// A small e-commerce schema showing off most of the DBML surface.
+// Edit anything on the left and the diagram redraws as you type.
+
+Project ecommerce {
+  database_type: 'PostgreSQL'
+  Note: 'Storefront, catalogue and fulfilment.'
+}
+
+TablePartial audit [headercolor: #4a5a6a] {
+  created_at timestamp [not null, default: `now()`]
+  updated_at timestamp
+}
+
+Enum order_status {
+  pending [note: 'Awaiting payment']
+  paid
+  shipped
+  cancelled
+}
+
+Table users as U [headercolor: #2563eb, note: 'Everyone with a login'] {
+  id integer [pk, increment]
+  email varchar(255) [not null, unique, note: 'Used to sign in']
+  full_name varchar(120)
+  country_code char(2)
+  ~audit
+
+  indexes {
+    email [name: 'idx_users_email', unique]
+    (country_code, full_name) [name: 'idx_users_country']
+  }
+}
+
+Table addresses [headercolor: #2563eb] {
+  id integer [pk, increment]
+  user_id integer [not null, ref: > U.id]
+  line1 varchar(200) [not null]
+  city varchar(80)
+  postcode varchar(16)
+  is_default boolean [default: false]
+}
+
+Table products [headercolor: #0f9d76] {
+  id integer [pk, increment]
+  sku varchar(40) [not null, unique]
+  name varchar(200) [not null]
+  price decimal(10,2) [not null, default: 0]
+  in_stock boolean [not null, default: true]
+  ~audit
+
+  Note: 'One row per sellable item.'
+}
+
+Table categories [headercolor: #0f9d76] {
+  id integer [pk, increment]
+  name varchar(80) [not null]
+  parent_id integer [ref: > categories.id, note: 'Self-reference for sub-categories']
+}
+
+Table product_categories [headercolor: #0f9d76] {
+  product_id integer [not null]
+  category_id integer [not null]
+
+  indexes {
+    (product_id, category_id) [pk]
+  }
+}
+
+Table orders [headercolor: #b45309] {
+  id integer [pk, increment]
+  user_id integer [not null]
+  address_id integer
+  status order_status [not null, default: 'pending']
+  placed_at timestamp [default: `now()`]
+  total decimal(10,2) [not null, default: 0]
+
+  indexes {
+    (user_id, status) [name: 'idx_orders_user_status']
+    placed_at
+  }
+}
+
+Table order_items [headercolor: #b45309] {
+  id integer [pk, increment]
+  order_id integer [not null]
+  product_id integer [not null]
+  quantity integer [not null, default: 1]
+  unit_price decimal(10,2) [not null]
+}
+
+Table shipments [headercolor: #b45309] {
+  id integer [pk, increment]
+  order_id integer [not null, unique]
+  carrier varchar(60)
+  tracking_code varchar(80)
+  shipped_at timestamp
+}
+
+Ref: orders.user_id > users.id [delete: cascade, update: no action]
+Ref: orders.address_id > addresses.id [delete: set null]
+Ref: order_items.order_id > orders.id [delete: cascade]
+Ref: order_items.product_id > products.id
+Ref: product_categories.product_id > products.id [delete: cascade]
+Ref: product_categories.category_id > categories.id [delete: cascade]
+Ref shipment_for_order: shipments.order_id - orders.id
+
+TableGroup catalogue [color: #0f9d76] {
+  products
+  categories
+  product_categories
+  Note: 'What we sell'
+}
+
+TableGroup fulfilment [color: #b45309] {
+  orders
+  order_items
+  shipments
+  Note: 'What we owe people'
+}
+
+Note roadmap {
+  '''
+  Next up:
+  - split shipping addresses from billing
+  - add a returns table
+  '''
+}
