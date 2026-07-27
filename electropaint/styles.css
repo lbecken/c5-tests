@@ -158,6 +158,31 @@ body.hide-cursor { cursor: none; }
 
 .idle-hide.idle { opacity: 0; }
 
+/* Frame-rate readout, shown only with ?fps. Deliberately plain — it exists to
+   be read off a photograph of a screen running as a real screensaver. */
+#fps {
+  position: fixed;
+  right: max(1.2rem, env(safe-area-inset-right));
+  bottom: max(1.2rem, env(safe-area-inset-bottom));
+  z-index: 25;
+  pointer-events: none;
+  padding: 0.35em 0.7em;
+  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.55);
+  color: var(--accent);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  font-variant-numeric: tabular-nums;
+}
+#fps[hidden] { display: none; }
+
+/* Screensaver mode: the ribbon and nothing else. */
+body.screensaver #hud,
+body.screensaver #toast,
+body.screensaver #panel,
+body.screensaver #help,
+body.screensaver #boot { display: none !important; }
+
 /* --------------------------------------------------------------- panel ---- */
 
 #panel {

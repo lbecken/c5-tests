@@ -7,8 +7,13 @@ const IDLE_AFTER = 2800; // ms of stillness before the chrome fades away
 /**
  * All DOM wiring. `app` supplies the state and the verbs; this file only knows
  * how to show them and how to turn clicks and keys back into calls.
+ *
+ * In screensaver mode there is nobody to click anything and nothing should be
+ * on screen but the ribbon, so the boot gate, the chrome and the panels are all
+ * skipped. Everything else still works — the keys remain useful for testing a
+ * build inside a real screensaver host.
  */
-export function setupUI(app) {
+export function setupUI(app, { screensaver = false } = {}) {
   const s = app.settings;
 
   // ------------------------------------------------------------ boot gate --
@@ -21,6 +26,15 @@ export function setupUI(app) {
     app.begin();
   };
   $('boot-start').addEventListener('click', start);
+
+  if (screensaver) {
+    boot.hidden = true;
+    boot.classList.add('gone');
+    document.body.classList.add('hide-cursor');
+    // Sound will only actually start if the host allows audio without a
+    // gesture; if it does not, this is a no-op rather than an error.
+    app.begin();
+  }
 
   // ---------------------------------------------------------------- toast --
 
@@ -57,6 +71,7 @@ export function setupUI(app) {
 
   const panel = $('panel');
   const setPanel = (open) => {
+    if (screensaver) return;
     panel.hidden = !open;
     if (open) kick();
   };
@@ -120,7 +135,11 @@ export function setupUI(app) {
   // ---------------------------------------------------------------- help ---
 
   const help = $('help');
-  const setHelp = (open) => { help.hidden = !open; if (open) kick(); };
+  const setHelp = (open) => {
+    if (screensaver) return;
+    help.hidden = !open;
+    if (open) kick();
+  };
   $('help-close').addEventListener('click', () => setHelp(false));
   help.addEventListener('click', (e) => { if (e.target === help) setHelp(false); });
 
@@ -129,6 +148,7 @@ export function setupUI(app) {
   const fades = [...document.querySelectorAll('.idle-hide')];
   let idleTimer = null;
   function kick() {
+    if (screensaver) return;
     fades.forEach((el) => el.classList.remove('idle'));
     document.body.classList.remove('hide-cursor');
     clearTimeout(idleTimer);

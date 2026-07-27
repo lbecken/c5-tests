@@ -22,22 +22,109 @@ const DEFAULTS = {
   volume: 0.55,
 };
 
-function loadSettings() {
-  const s = { ...DEFAULTS };
-  try {
-    const raw = localStorage.getItem(STORE_KEY);
-    if (raw) Object.assign(s, JSON.parse(raw));
-  } catch { /* private mode, corrupt value — defaults are fine */ }
-  // Never trust what came out of storage.
-  s.count = Math.min(420, Math.max(24, Number(s.count) || DEFAULTS.count));
+const CAMERAS = ['drift', 'orbit', 'inside', 'manual'];
+
+/**
+ * Query string overrides.
+ *
+ * A screensaver host has no UI and no way to click anything, so everything the
+ * panel can do has to be reachable from the URL as well. This is also how the
+ * native wrappers will eventually pass their configuration in.
+ */
+const QUERY = {
+  count: ['count', Number],
+  size: ['size', Number],
+  tempo: ['tempo', Number],
+  bloom: ['bloom', Number],
+  trails: ['trails', Number],
+  edge: ['edge', Number],
+  volume: ['volume', Number],
+  cycle: ['cycleLen', Number],
+  shape: ['shape', String],
+  camera: ['camera', String],
+  fill: ['fill', bool],
+  sound: ['sound', bool],
+  auto: ['autoCycle', bool],
+};
+
+function bool(v) {
+  return !(v === '0' || v === 'false' || v === 'no' || v === 'off');
+}
+
+/** Present and not switched off — `?screensaver`, `?screensaver=1`, `?fps`. */
+function flagSet(params, name) {
+  return params.has(name) && bool(params.get(name));
+}
+
+function clamp(s) {
+  s.count = Math.min(420, Math.max(24, Math.round(Number(s.count)) || DEFAULTS.count));
   s.cycleLen = Math.min(120, Math.max(8, Number(s.cycleLen) || DEFAULTS.cycleLen));
+  s.size = Math.min(2.5, Math.max(0.2, Number(s.size) || DEFAULTS.size));
+  s.tempo = Math.min(3, Math.max(0.1, Number(s.tempo) || DEFAULTS.tempo));
+  s.bloom = Math.min(2.5, Math.max(0, Number(s.bloom) ?? DEFAULTS.bloom));
+  s.trails = Math.min(0.97, Math.max(0, Number(s.trails) ?? DEFAULTS.trails));
+  s.edge = Math.min(1, Math.max(0, Number(s.edge) ?? DEFAULTS.edge));
+  s.volume = Math.min(1, Math.max(0, Number(s.volume) ?? DEFAULTS.volume));
   if (s.shape !== 'quad') s.shape = 'triangle';
-  if (!['drift', 'orbit', 'inside', 'manual'].includes(s.camera)) s.camera = 'drift';
+  if (!CAMERAS.includes(s.camera)) s.camera = 'drift';
   return s;
+}
+
+/**
+ * In screensaver mode we deliberately ignore stored settings: whatever you last
+ * fiddled with in a browser tab should not decide what the screensaver looks
+ * like. Defaults, then the URL, and nothing else.
+ */
+function loadSettings(params, screensaver) {
+  const s = { ...DEFAULTS };
+
+  if (!screensaver) {
+    try {
+      const raw = localStorage.getItem(STORE_KEY);
+      if (raw) Object.assign(s, JSON.parse(raw));
+    } catch { /* private mode, corrupt value — defaults are fine */ }
+  }
+
+  for (const [param, [key, parse]] of Object.entries(QUERY)) {
+    if (params.has(param)) s[key] = parse(params.get(param));
+  }
+
+  return clamp(s);
 }
 
 function saveSettings(s) {
   try { localStorage.setItem(STORE_KEY, JSON.stringify(s)); } catch { /* ignore */ }
+}
+
+/**
+ * Rolling frame-rate readout, shown only with `?fps`.
+ *
+ * The sustained minimum matters more than the instantaneous rate — a
+ * screensaver that averages 60 but hitches every few seconds is worse than one
+ * that sits flat at 45 — so both are reported.
+ */
+function makeFpsMeter(el) {
+  const WINDOW = 500;   // ms per sample
+  const SETTLE = 2000;  // ignore shader compilation and first uploads
+  let frames = 0;
+  let since = performance.now();
+  const started = since;
+  let worst = Infinity;
+
+  return (now) => {
+    frames++;
+    const elapsed = now - since;
+    if (elapsed < WINDOW) return;
+
+    const fps = (frames * 1000) / elapsed;
+    if (now - started > SETTLE) worst = Math.min(worst, fps);
+    el.textContent = worst < Infinity
+      ? `${fps.toFixed(0)} fps  ·  min ${worst.toFixed(0)}`
+      : `${fps.toFixed(0)} fps`;
+
+    frames = 0;
+    since = now;
+  };
 }
 
 function boot() {
@@ -53,10 +140,19 @@ function boot() {
     return;
   }
 
-  const settings = loadSettings();
+  const params = new URLSearchParams(location.search);
+  const screensaver = flagSet(params, 'screensaver') || flagSet(params, 'kiosk');
+
+  const settings = loadSettings(params, screensaver);
   const stage = new Stage(canvas);
   const system = new WingSystem(settings.count);
   const score = new Score();
+
+  if (screensaver) document.body.classList.add('screensaver');
+
+  const fpsEl = document.getElementById('fps');
+  const fpsMeter = flagSet(params, 'fps') ? makeFpsMeter(fpsEl) : null;
+  if (fpsMeter) fpsEl.hidden = false;
 
   let paused = false;
   let started = false;
@@ -86,14 +182,14 @@ function boot() {
     set(key, value, { persist = true } = {}) {
       settings[key] = value;
       applySetting(key);
-      if (persist) saveSettings(settings);
+      if (persist && !screensaver) saveSettings(settings);
       app.syncUI();
     },
 
     reset() {
       Object.assign(settings, DEFAULTS);
       for (const k of Object.keys(DEFAULTS)) applySetting(k);
-      saveSettings(settings);
+      if (!screensaver) saveSettings(settings);
       app.syncUI();
       app.toast('Defaults restored');
     },
@@ -164,12 +260,20 @@ function boot() {
     applySetting(k);
   }
 
-  setupUI(app);
+  setupUI(app, { screensaver });
   // A handle for poking at the running piece from the console.
   window.electropaint = { app, stage, system, score };
 
-  // Start on a random choreography so two runs never open the same way.
-  const opener = Math.floor(Math.random() * CHOREOGRAPHIES.length);
+  // Start on a random choreography so two runs never open the same way —
+  // unless ?choreo= names one, by index or by name.
+  let opener = Math.floor(Math.random() * CHOREOGRAPHIES.length);
+  if (params.has('choreo')) {
+    const want = params.get('choreo').trim().toLowerCase();
+    const byName = CHOREOGRAPHIES.findIndex((c) => c.name.toLowerCase() === want);
+    const byIndex = Number.isFinite(Number(want)) ? Number(want) - 1 : -1;
+    const found = byName >= 0 ? byName : byIndex;
+    if (found >= 0 && found < CHOREOGRAPHIES.length) opener = found;
+  }
   system.setChoreography(opener, 0.001);
   stage.setChoreoLook(system.choreography);
   score.setChord(system.choreography.chord, opener);
@@ -195,7 +299,11 @@ function boot() {
 
   function frame(now) {
     requestAnimationFrame(frame);
-    if (document.hidden) return;
+    if (fpsMeter) fpsMeter(now);
+    // Note for the native wrappers: screensaver hosts have been known to leave
+    // document.hidden true, which would stop us dead. Screensaver mode ignores
+    // it and relies on the host to stop rendering us.
+    if (document.hidden && !screensaver) return;
 
     const dt = Math.min(0.1, (now - last) / 1000);
     last = now;

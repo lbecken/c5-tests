@@ -119,6 +119,27 @@ Drag to look around, scroll to zoom. The panel exposes polygon count, size,
 tempo, bloom, trail length, edge glow, cycle length and volume; settings persist
 in `localStorage`.
 
+## Running it headless
+
+Everything the panel does is also reachable from the query string, because a
+screensaver host has no way to click anything:
+
+```
+?screensaver=1      auto-start, no chrome, no cursor, ignore stored settings
+?fps=1              frame-rate readout, current and sustained minimum
+?choreo=knot        start on a named choreography (or a number, 1-9)
+?count=240&shape=quad&camera=orbit&auto=0&bloom=0.6&trails=0.5
+```
+
+Also accepted: `size`, `tempo`, `edge`, `fill`, `sound`, `volume`, `cycle`.
+
+`?screensaver=1` deliberately starts from defaults rather than whatever you last
+left in the panel, and never writes back — what you fiddled with in a browser
+tab should not decide what the screensaver looks like.
+
+See [PHASE0.md](PHASE0.md) for using this to test the app inside a real
+screensaver host on Windows and macOS.
+
 ## How it is put together
 
 | File | |
