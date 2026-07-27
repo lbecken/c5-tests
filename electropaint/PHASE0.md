@@ -90,7 +90,33 @@ not a block — More info → Run anyway.
 
 ---
 
-## macOS 12 / 13
+## macOS
+
+> ### Read this first if you are on Tahoe 26.4
+>
+> **macOS 26.4 has a regression that breaks every WKWebView-based screensaver,
+> including this one.** Web view content disappears after exactly three seconds
+> inside a legacy ScreenSaver view hierarchy. It works on 26.3.1 and fails on
+> 26.4. Filed as FB22353950 with a reproducer; Apple DTS has acknowledged it on
+> the [developer forums](https://developer.apple.com/forums/thread/820860) and
+> offered **no workaround**, suggesting instead that people file an enhancement
+> request for a ScreenSaver API based on app extensions.
+>
+> So on 26.4 the expected outcome of this test is: renders correctly, then
+> blanks after ~3 seconds. That is Apple's bug, not ours, and no version of the
+> wrapper can fix it.
+>
+> It is still worth running, for two reasons: the frame rate during those three
+> seconds is real data, and confirming the clean three-second signature rules
+> our own code out. If it fails some *other* way, that is worth knowing too.
+>
+> The implication for the plan is that on current macOS the web-view route is a
+> dead end, and a native Metal `.saver` — which does not touch WebKit and is
+> unaffected by this — becomes the realistic option rather than the cautious
+> one.
+
+On macOS 12 / 13 none of the above applies: those predate both the Sonoma
+breakage and this one, and the web view route works.
 
 **Wrapper:** [liquidx/webviewscreensaver](https://github.com/liquidx/webviewscreensaver).
 Take the newest release from its [Releases](https://github.com/liquidx/webviewscreensaver/releases)
@@ -103,10 +129,19 @@ project has already absorbed the breakage that would otherwise sink this
 approach. On 12/13 you are below all of that anyway.
 
 1. Unzip and copy `WebViewScreenSaver.saver` to `~/Library/Screen Savers/`
-   (create the folder if needed).
-2. If Gatekeeper complains, clear the quarantine flag:
+   (create the folder if needed). Or `brew install --cask webviewscreensaver`.
+
+   Note that the project's README still shows `--no-quarantine`. That flag was
+   deprecated in Homebrew 4.7 and **removed in 5.0.0**, so it now fails with
+   `invalid option` — leave it off and clear quarantine by hand below.
+2. The build is only ad-hoc signed, so Gatekeeper will likely block it silently.
+   Clear the quarantine flag on both the installed copy and, if you used
+   Homebrew, the Caskroom original:
    ```sh
+   xattr -r  ~/Library/Screen\ Savers/WebViewScreenSaver.saver   # inspect
    xattr -dr com.apple.quarantine ~/Library/Screen\ Savers/WebViewScreenSaver.saver
+   xattr -dr com.apple.quarantine "$(brew --caskroom)/webviewscreensaver"
+   killall legacyScreenSaver
    ```
 3. Ventura (13): System Settings → Screen Saver.
    Monterey (12): System Preferences → Desktop & Screen Saver → Screen Saver.
@@ -157,9 +192,14 @@ The point of this phase is numbers and specifics, not an impression.
   the list for that platform, at least for macOS where the host caps things
   more aggressively.
 
-- **Black screen on macOS** → the `document.visibilityState` bug. It would mean
-  the wrapper's fix does not cover our case, and Phase 3 carries the shim
-  itself (override `Document.prototype.visibilityState` at document-start).
+- **Blanks after ~3 seconds on macOS 26.4** → Apple's FB22353950 regression,
+  not ours. Confirms the web view route is unavailable on current macOS and
+  that Phase 3 should be the native Metal port.
+
+- **Black screen immediately on macOS 12/13** → the `document.visibilityState`
+  bug. It would mean the wrapper's fix does not cover our case, and a web-view
+  Phase 3 would carry the shim itself (override
+  `Document.prototype.visibilityState` at document-start).
 
 - **Preview pane broken** → expected and cheap to handle: Phases 2 and 3 detect
   preview mode and run a deliberately reduced configuration.
