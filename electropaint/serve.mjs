@@ -48,7 +48,14 @@ createServer(async (req, res) => {
     res.writeHead(200, {
       'Content-Type': TYPES[extname(path)] || 'application/octet-stream',
       'Content-Length': info.size,
-      'Cache-Control': 'no-cache',
+      // no-store, not no-cache: "no-cache" still permits storing the response
+      // and only asks for revalidation, which embedded web views are happy to
+      // skip. Screensaver hosts are the worst offenders — a WKWebView inside
+      // legacyScreenSaver will happily serve a build from an hour ago with no
+      // developer tools available to notice.
+      'Cache-Control': 'no-store, no-cache, must-revalidate, max-age=0',
+      'Pragma': 'no-cache',
+      'Expires': '0',
     });
     createReadStream(path).pipe(res);
   } catch {

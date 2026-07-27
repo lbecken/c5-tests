@@ -22,10 +22,28 @@ yet — no point building it if Phase 0 says the whole approach is a dead end.)
 
 ```sh
 cd electropaint
+git pull           # ?screensaver= and ?fps= only exist from fa27832 onward
 npm start          # serves on http://localhost:8080
 ```
 
 Leave that running. It keeps serving while the screensaver is up.
+
+### If you see the "Begin" button, it is caching
+
+The server sends `no-store`, but a web view that already cached an older build
+will keep serving it, and inside a screensaver there are no developer tools to
+notice. Fastest fix while iterating is to bump a throwaway parameter on the
+URL — `&v=2`, `&v=3` — which the app ignores and the cache does not.
+
+To clear it properly, quit the host and delete its regenerable caches (your
+configured URL lives elsewhere, under `Preferences/ByHost`, and is not touched):
+
+```sh
+killall legacyScreenSaver
+ls ~/Library/Containers/com.apple.ScreenSaver.Engine.legacyScreenSaver/Data/Library
+rm -rf ~/Library/Containers/com.apple.ScreenSaver.Engine.legacyScreenSaver/Data/Library/Caches
+rm -rf ~/Library/Containers/com.apple.ScreenSaver.Engine.legacyScreenSaver/Data/Library/WebKit
+```
 
 The first load fetches three.js from a CDN, so the machine needs to be online
 once. To avoid that:
