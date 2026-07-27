@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ElectroPaint — SGI IRIX screensaver, reimagined</title>
+<meta name="description" content="A WebGL homage to the Silicon Graphics IRIX ElectroPaint screensaver: flying triangles in endless choreography.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><polygon points='50,12 88,80 12,80' fill='none' stroke='%2300e5ff' stroke-width='9'/></svg>">
+<link rel="stylesheet" href="./styles.css">
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.185.1/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.185.1/examples/jsm/"
+  }
+}
+</script>
+</head>
+<body>
+
+<canvas id="stage"></canvas>
+
+<div id="boot">
+  <div class="boot-inner">
+    <svg class="boot-mark" viewBox="0 0 100 100" aria-hidden="true">
+      <polygon points="50,10 90,82 10,82"/>
+      <polygon points="50,28 76,74 24,74"/>
+    </svg>
+    <h1>ElectroPaint</h1>
+    <p class="sub">Silicon Graphics IRIX &middot; reimagined for the web</p>
+    <button id="boot-start" type="button">Begin</button>
+    <p class="hint">Press <kbd>H</kbd> any time for controls</p>
+  </div>
+</div>
+
+<div id="hud" class="idle-hide">
+  <div id="choreo-name"><span class="label">choreography</span><span class="value">&mdash;</span></div>
+</div>
+
+<div id="toast" role="status" aria-live="polite"></div>
+
+<aside id="panel" class="idle-hide" hidden>
+  <header>
+    <h2>Controls</h2>
+    <button id="panel-close" type="button" aria-label="Close controls">&times;</button>
+  </header>
+
+  <section>
+    <h3>Choreography</h3>
+    <div id="choreo-list" class="chips"></div>
+    <label class="check"><input type="checkbox" id="auto-cycle" checked><span>Auto&#8209;cycle every <output id="cycle-secs">30</output>s</span></label>
+    <label class="range"><span>Cycle length</span><input type="range" id="cycle-len" min="8" max="120" step="1" value="30"></label>
+  </section>
+
+  <section>
+    <h3>Form</h3>
+    <label class="range"><span>Polygons <output id="out-count"></output></span><input type="range" id="count" min="24" max="420" step="2"></label>
+    <label class="range"><span>Size <output id="out-size"></output></span><input type="range" id="size" min="0.2" max="2.5" step="0.05"></label>
+    <label class="range"><span>Tempo <output id="out-speed"></output></span><input type="range" id="speed" min="0.1" max="3" step="0.05"></label>
+    <div class="seg" id="shape-seg">
+      <button type="button" data-shape="triangle" class="on">Triangles</button>
+      <button type="button" data-shape="quad">Quads</button>
+    </div>
+  </section>
+
+  <section>
+    <h3>Light</h3>
+    <label class="range"><span>Bloom <output id="out-bloom"></output></span><input type="range" id="bloom" min="0" max="2.5" step="0.05"></label>
+    <label class="range"><span>Trails <output id="out-trails"></output></span><input type="range" id="trails" min="0" max="0.97" step="0.01"></label>
+    <label class="range"><span>Edge glow <output id="out-edge"></output></span><input type="range" id="edge" min="0" max="1" step="0.02"></label>
+    <label class="check"><input type="checkbox" id="fill" checked><span>Filled faces</span></label>
+  </section>
+
+  <section>
+    <h3>Camera</h3>
+    <div class="seg" id="cam-seg">
+      <button type="button" data-cam="drift" class="on">Drift</button>
+      <button type="button" data-cam="orbit">Orbit</button>
+      <button type="button" data-cam="inside">Fly&#8209;through</button>
+      <button type="button" data-cam="manual">Manual</button>
+    </div>
+  </section>
+
+  <section>
+    <h3>Sound</h3>
+    <label class="check"><input type="checkbox" id="sound"><span>Generative score</span></label>
+    <label class="range"><span>Volume <output id="out-vol"></output></span><input type="range" id="vol" min="0" max="1" step="0.02"></label>
+  </section>
+
+  <footer>
+    <button id="btn-reset" type="button">Reset defaults</button>
+  </footer>
+</aside>
+
+<div id="help" hidden>
+  <div class="help-card">
+    <h2>ElectroPaint</h2>
+    <p class="blurb">
+      An homage to <em>ElectroPaint</em>, the screensaver David&nbsp;A.&nbsp;Tristram wrote for
+      Silicon&nbsp;Graphics IRIX workstations. A stack of flying polygons is dragged through a
+      slowly&nbsp;wandering parameter space; because every polygon reads the parameters a little
+      later than the one ahead of it, the whole ribbon breathes in a travelling wave.
+    </p>
+    <table>
+      <tr><td><kbd>Space</kbd></td><td>Next choreography</td></tr>
+      <tr><td><kbd>1</kbd>&hellip;<kbd>9</kbd></td><td>Jump to a choreography</td></tr>
+      <tr><td><kbd>A</kbd></td><td>Toggle auto&#8209;cycle</td></tr>
+      <tr><td><kbd>C</kbd></td><td>Cycle camera mode</td></tr>
+      <tr><td><kbd>S</kbd></td><td>Sound on / off</td></tr>
+      <tr><td><kbd>O</kbd></td><td>Controls panel</td></tr>
+      <tr><td><kbd>W</kbd></td><td>Wireframe</td></tr>
+      <tr><td><kbd>T</kbd></td><td>Triangles / quads</td></tr>
+      <tr><td><kbd>F</kbd></td><td>Fullscreen</td></tr>
+      <tr><td><kbd>P</kbd></td><td>Pause / resume</td></tr>
+      <tr><td><kbd>R</kbd></td><td>Reseed the ribbon</td></tr>
+      <tr><td><kbd>H</kbd> / <kbd>?</kbd></td><td>This panel</td></tr>
+    </table>
+    <p class="drag">Drag to look around &middot; scroll to zoom (switches camera to Manual)</p>
+    <button id="help-close" type="button">Close</button>
+  </div>
+</div>
+
+<div id="nogl" hidden>
+  <p><strong>WebGL 2 unavailable.</strong> ElectroPaint needs a WebGL&nbsp;2 capable browser.</p>
+</div>
+
+<script type="module">
+  // Loaded dynamically so that a failure in the module graph — most likely the
+  // CDN fetch of three.js — says so, rather than leaving a black page.
+  import('./src/main.js').catch((err) => {
+    console.error(err);
+    document.getElementById('boot').hidden = true;
+    const panel = document.getElementById('nogl');
+    panel.innerHTML =
+      '<p><strong>Could not load three.js.</strong><br>'
+      + 'ElectroPaint fetches it from a CDN on first load. Check the network '
+      + 'connection, or see the README for running fully offline.</p>';
+    panel.hidden = false;
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "name": "electropaint",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A WebGL homage to the Silicon Graphics IRIX ElectroPaint screensaver.",
+  "type": "module",
+  "scripts": {
+    "start": "node serve.mjs",
+    "dev": "node serve.mjs 8080",
+    "vendor": "npm install three@0.185.1"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
