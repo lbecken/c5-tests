@@ -110,31 +110,38 @@ not a block — More info → Run anyway.
 
 ## macOS
 
-> ### Read this first if you are on Tahoe 26.4
+> ### Tahoe 26.4 — tested, and it works
 >
-> **macOS 26.4 has a regression that breaks every WKWebView-based screensaver,
-> including this one.** Web view content disappears after exactly three seconds
-> inside a legacy ScreenSaver view hierarchy. It works on 26.3.1 and fails on
-> 26.4. Filed as FB22353950 with a reproducer; Apple DTS has acknowledged it on
-> the [developer forums](https://developer.apple.com/forums/thread/820860) and
-> offered **no workaround**, suggesting instead that people file an enhancement
-> request for a ScreenSaver API based on app extensions.
+> **Result (26.4, WebViewScreenSaver 2.5): ran clean for 5 minutes.** No blanking.
 >
-> So on 26.4 the expected outcome of this test is: renders correctly, then
-> blanks after ~3 seconds. That is Apple's bug, not ours, and no version of the
-> wrapper can fix it.
+> This contradicts what we expected. There is a reported regression in macOS
+> 26.4 where WKWebView content disappears after about three seconds inside a
+> legacy ScreenSaver view hierarchy — filed as FB22353950 with a reproducer,
+> acknowledged by Apple DTS on the [developer forums](https://developer.apple.com/forums/thread/820860),
+> with no workaround offered. Working from that, we predicted this test would
+> fail. It did not.
 >
-> It is still worth running, for two reasons: the frame rate during those three
-> seconds is real data, and confirming the clean three-second signature rules
-> our own code out. If it fails some *other* way, that is worth knowing too.
+> The most plausible explanation is that the behaviour is gated on the SDK the
+> bundle was **built** against, which is a common way for macOS to phase in
+> changes. The reporter's project was built with Xcode 26.4 and failed on 26.4
+> while working on 26.3.1; WebViewScreenSaver 2.5 predates that SDK. If so, a
+> `.saver` we compile ourselves against a current SDK could hit the bug that
+> this prebuilt one sidesteps.
 >
-> The implication for the plan is that on current macOS the web-view route is a
-> dead end, and a native Metal `.saver` — which does not touch WebKit and is
-> unaffected by this — becomes the realistic option rather than the cautious
-> one.
+> That is a hypothesis, not a finding. It is worth settling before Phase 3
+> commits to an approach, because it decides whether we can build our own web
+> view `.saver` at all or have to pin an older deployment SDK. Check what the
+> working bundle was built against:
+>
+> ```sh
+> otool -l ~/Library/Screen\ Savers/WebViewScreenSaver.saver/Contents/MacOS/WebViewScreenSaver \
+>   | grep -A4 LC_BUILD_VERSION
+> ```
+>
+> The `sdk` line is the number that matters.
 
-On macOS 12 / 13 none of the above applies: those predate both the Sonoma
-breakage and this one, and the web view route works.
+On macOS 12 / 13 none of this applies at all: those predate both the Sonoma
+breakage and the 26.4 one.
 
 **Wrapper:** [liquidx/webviewscreensaver](https://github.com/liquidx/webviewscreensaver).
 Take the newest release from its [Releases](https://github.com/liquidx/webviewscreensaver/releases)
@@ -211,8 +218,9 @@ The point of this phase is numbers and specifics, not an impression.
   more aggressively.
 
 - **Blanks after ~3 seconds on macOS 26.4** → Apple's FB22353950 regression,
-  not ours. Confirms the web view route is unavailable on current macOS and
-  that Phase 3 should be the native Metal port.
+  not ours. *Not observed in testing* — 26.4 with WebViewScreenSaver 2.5 ran
+  clean for 5 minutes. If it does show up on another machine or another
+  wrapper, the SDK-gating hypothesis above is the first thing to check.
 
 - **Black screen immediately on macOS 12/13** → the `document.visibilityState`
   bug. It would mean the wrapper's fix does not cover our case, and a web-view
