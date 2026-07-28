@@ -176,3 +176,8 @@ WebGL 2. A message is shown if it is unavailable.
 
 *ElectroPaint* is by **David A. Tristram**, written at Silicon Graphics. This is
 an independent reimplementation, not a port — none of the original code is used.
+
+See:
+https://www.youtube.com/watch?v=cXHq5PwjNVc
+https://www.youtube.com/watch?v=tf5xnR_Qj6Y
+https://www.youtube.com/watch?v=hs0uSD4SHf0
