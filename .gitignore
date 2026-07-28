@@ -1,5 +1,30 @@
-node_modules/
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+.coverage
+htmlcov/
+dist/
+build/
+
+# Application state: generated audio, database, exports
+runtime/*
+!runtime/.gitkeep
+
+# Model weights are downloaded, not committed
+models/kokoro/
+
+# Local configuration
+.env
+
+# Editors and OS
 .DS_Store
 *.log
 .vscode/
 .idea/
+node_modules/

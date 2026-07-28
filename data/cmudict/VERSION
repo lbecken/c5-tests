@@ -1,0 +1,7 @@
+name: cmudict
+source: https://github.com/cmusphinx/cmudict
+file: cmudict.dict
+revision: master@2026-07-28
+sha256: 81917843c7f44ce2b094ac63873c2c7a4cf802040792c455ba3ca406891c3d22
+entries_lines: 135166
+license: LICENSE (BSD-2-Clause style, Carnegie Mellon University)
