@@ -2,7 +2,7 @@
 
 import { Screen, Presenter, THEMES, C, W, H, textCentred, text } from './pixels.js';
 import { Demon, pose, lerpPose } from './demon.js';
-import { MOVES, MOVE_BY_CODE, sampleMove, routineAt, routineBeats } from './moves.js';
+import { MOVES, MOVE_BY_CODE, sampleMove, routineAt, routineBeats, routineTapOffsets } from './moves.js';
 import { Stage, FLOOR_Y } from './stage.js';
 import { Sound, REST, HOLD, toEvents, noteName } from './audio.js';
 import { TUNES, ROUTINES } from './tunes.js';
@@ -24,6 +24,7 @@ const state = {
   repeats: 4,
   taps: true,
   reopenAt: 0,         // clock time to raise the curtain again after a show
+  prevBeat: 0,         // last frame's beat position, for firing tap accents
   preview: null,       // move code being rehearsed in the dance editor
   musicPlay: null,     // { start, bps }
   show: null,
@@ -83,6 +84,8 @@ function startShow() {
   const bowBeats = Math.max(4, Math.ceil(bps * MIN_BOW_SECONDS));
   state.show = { t0, musicStart, bps, showBeats, bowBeats, events, ptr: 0, phase: 'raise' };
   state.reopenAt = 0;
+  state.prevBeat = 0;
+  demon.snapTo(idlePose(clock));
   setMode('perform', true);
   updatePerformButtons();
 }
@@ -137,18 +140,41 @@ function updateShow() {
 // Posing
 // ---------------------------------------------------------------------------
 function idlePose(t) {
-  const b = Math.sin(t * 2.1);
-  const b2 = Math.sin(t * 1.3 + 1);
+  // Weight rocks slowly from foot to foot, the shoulders counter it, and every
+  // few seconds he taps a toe out of sheer impatience.
+  const sway = Math.sin(t * 1.15);
+  const b = Math.sin(t * 2.3);
+  const ph = (t % 3.4) / 3.4;
+  const kick = ph < 0.12 ? Math.sin((ph / 0.12) * Math.PI) : 0;
   return pose({
-    crouch: 0.06 + b * 0.05,
-    lean: b2 * 0.035,
-    head: -b2 * 0.05,
-    armL: [0.30 + b * 0.06, 0.30 + b * 0.05],
-    armR: [-0.30 - b * 0.06, -0.30 - b * 0.05],
-    legL: [0.07, 0.05, 0],
-    legR: [-0.07, 0.05, 0],
-    tail: 0.4 + Math.sin(t * 1.7) * 0.5,
+    weight: sway * 0.55,
+    crouch: 0.05 + Math.abs(b) * 0.05,
+    lean: -sway * 0.05,
+    head: sway * 0.07,
+    twist: -sway * 0.18,
+    shTilt: -sway * 0.05,
+    armL: [0.30 + sway * 0.10, 0.28 + b * 0.05],
+    armR: [-0.30 + sway * 0.10, -0.28 + b * 0.05],
+    legR: [-0.14 - kick * 0.10, 0.05 + kick * 0.55, -kick * 0.35],
+    tail: 0.35 + Math.sin(t * 1.7) * 0.55,
   });
+}
+
+/**
+ * Fire a shoe-tap impulse into the rig for every tap crossed since the last
+ * frame. This is what makes the whole body punch on the beat rather than only
+ * the foot that made the sound.
+ */
+function fireAccents(prevBeat, beat, offsets, period) {
+  if (!offsets.length || period <= 0 || beat <= prevBeat) return;
+  const first = Math.floor(prevBeat / period);
+  const last = Math.floor(beat / period);
+  for (let l = first; l <= last; l++) {
+    for (const o of offsets) {
+      const at = l * period + o;
+      if (at > prevBeat && at <= beat) demon.accent(0.85);
+    }
+  }
 }
 
 /** Fold a travelling position back onto the stage so he never walks off. */
@@ -170,6 +196,9 @@ function currentPose(t, dt) {
       return p;
     }
     if (s.phase === 'dance') {
+      const total = routineBeats(state.codes);
+      fireAccents(Math.max(0, state.prevBeat), Math.max(0, beat), routineTapOffsets(state.codes), total);
+      state.prevBeat = Math.max(0, beat);
       const at = routineAt(state.codes, Math.max(0, beat));
       if (at) {
         const p = { ...sampleMove(at.move, at.local) };
@@ -189,6 +218,8 @@ function currentPose(t, dt) {
     if (state.preview) {
       const m = MOVE_BY_CODE[state.preview];
       const bps = bpmFor(state.speed) / 60;
+      fireAccents(state.prevBeat, t * bps, m.taps, m.beats);
+      state.prevBeat = t * bps;
       const local = (t * bps) % m.beats;
       const p = { ...sampleMove(m, local) };
       p.x = foldX(p.x, 40);
@@ -196,6 +227,8 @@ function currentPose(t, dt) {
     }
     if (routineBeats(state.codes)) {
       const bps = bpmFor(state.speed) / 60;
+      fireAccents(state.prevBeat, t * bps, routineTapOffsets(state.codes), routineBeats(state.codes));
+      state.prevBeat = t * bps;
       const at = routineAt(state.codes, t * bps);
       if (at) {
         const p = { ...sampleMove(at.move, at.local) };
@@ -213,9 +246,11 @@ function currentPose(t, dt) {
     const beat = (sound.ctx.currentTime - state.musicPlay.start) * bps;
     const ph = (beat % 2) / 2;
     const bounce = Math.abs(Math.sin(ph * Math.PI));
+    const side = beat % 4 < 2 ? 1 : -1;
     return lerpPose(idlePose(t), pose({
-      crouch: 0.35, y: -2, armL: [0.9, 0.2], armR: [-0.9, -0.2], head: 0.06, tail: -0.6,
-    }), bounce * 0.55);
+      crouch: 0.34, y: -1.5, weight: 0.55 * side, twist: -0.25 * side, head: 0.06 * side,
+      armL: [0.85, 0.25], armR: [-0.85, -0.25], tail: -0.6 * side,
+    }), bounce * 0.6);
   }
 
   return idlePose(t);
@@ -245,15 +280,14 @@ function frame(now) {
   }
 
   stage.update(dt);
-  const p = currentPose(clock, dt);
-  demon.update(dt, p);
+  demon.update(dt, currentPose(clock, dt));
 
   stage.drawBack(scr);
 
   // Hide the performer behind the curtain as it flies in and out.
   const curtainBottom = 8 + stage.curtain * (FLOOR_Y + 4);
   scr.clip(Math.ceil(curtainBottom) - 1, H);
-  demon.draw(scr, p, W / 2, FLOOR_Y + 3, 1);
+  demon.draw(scr, W / 2, FLOOR_Y + 3, 1);
   scr.noClip();
 
   stage.drawFront(scr);
@@ -438,12 +472,7 @@ function playMusic() {
 function stopMusic() {
   state.musicPlay = null;
   $('music-play').textContent = '▶ Play';
-  // Notes already scheduled will ring out briefly; that's the cassette life.
-  if (sound.ctx) {
-    sound.master.gain.setValueAtTime(sound.master.gain.value, sound.ctx.currentTime);
-    sound.master.gain.linearRampToValueAtTime(0, sound.ctx.currentTime + 0.05);
-    sound.master.gain.setValueAtTime(sound.muted ? 0 : sound.volume, sound.ctx.currentTime + 0.35);
-  }
+  sound.hush();
 }
 
 // ---------------------------------------------------------------------------
@@ -675,6 +704,15 @@ function init() {
   $('opt-mute').onchange = (e) => { sound.setMuted(e.target.checked); };
   $('opt-volume').oninput = (e) => { sound.setVolume(e.target.value / 100); $('vol-val').textContent = e.target.value; };
 
+  // Sound: browsers hold the audio clock shut until a gesture, so nudge it on
+  // every interaction and say so plainly if it is still closed.
+  sound.onStateChange = updateSoundNotice;
+  const wake = () => { sound.ensure(); updateSoundNotice(); };
+  window.addEventListener('pointerdown', wake);
+  window.addEventListener('keydown', wake);
+  document.addEventListener('visibilitychange', () => { if (!document.hidden) wake(); });
+  updateSoundNotice();
+
   // Keyboard.
   window.addEventListener('keydown', onKey);
 
@@ -686,6 +724,11 @@ function init() {
 
   setMode('menu');
   requestAnimationFrame((t) => { last = t; frame(t); });
+}
+
+function updateSoundNotice() {
+  const el = $('sound-notice');
+  if (el) el.classList.toggle('hidden', !sound.ctx || sound.running);
 }
 
 function updatePerformStatus() {

@@ -1,10 +1,19 @@
 // demon.js — the star of the show.
 //
-// Rather than a fixed sprite sheet, the demon is a small skeleton posed from
-// interpolated keyframes and rasterised into the pixel buffer as tapered
-// capsules. That buys us fluid in-between frames (the thing Christopherson's
-// original was famous for) and secondary motion on the tail and ears, from a
-// budget of a few hundred lines.
+// The demon is a small skeleton posed from keyframes and rasterised into the
+// pixel buffer as tapered capsules. Three things do most of the work for how
+// alive he looks, and none of them live in the keyframes:
+//
+//   1. OVERLAPPING ACTION. Every channel is driven through its own spring.
+//      Hips are stiff, the torso looser, the head and hands looser still, so a
+//      movement cascades outward from the body instead of every joint snapping
+//      in lockstep. That is the difference between a puppet and a dancer.
+//   2. SNAP. Those springs are under-damped, so keyframes can be written as
+//      near-steps — hold, jump, hold — and the spring supplies the fast attack
+//      and the small overshoot on the way out. That is cartoon timing.
+//   3. CONTRAPPOSTO. A `weight` channel says which foot he is standing on, and
+//      the rig shifts the hips over that foot, raises the weight-bearing hip
+//      and drops the opposite shoulder, all automatically.
 //
 // Angle convention: every joint angle is measured from "straight down" (or
 // "straight up" for the torso and head), and a POSITIVE angle rotates towards
@@ -42,6 +51,10 @@ export function neutralPose() {
     lean: 0,        // torso lean, + = towards screen-left
     turn: 0,        // rotation about the body's vertical axis, radians
     head: 0,        // head tilt
+    weight: 0,      // -1 = standing on the screen-left foot, +1 = screen-right
+    hipTilt: 0,     // + = screen-right hip rides high
+    shTilt: 0,      // + = screen-right shoulder rides high
+    twist: 0,       // shoulders rotated against the hips
     armL: [0.30, 0.28],   // [shoulder, elbow]
     armR: [-0.30, -0.28],
     legL: [0.14, -0.05, 0],   // [hip, knee, ankle]
@@ -52,7 +65,8 @@ export function neutralPose() {
   };
 }
 
-const NUM_KEYS = ['x', 'y', 'crouch', 'lean', 'turn', 'head', 'tail', 'squash'];
+const NUM_KEYS = ['x', 'y', 'crouch', 'lean', 'turn', 'head', 'weight',
+                  'hipTilt', 'shTilt', 'twist', 'tail', 'squash'];
 const ARM_KEYS = ['armL', 'armR'];
 const LEG_KEYS = ['legL', 'legR'];
 
@@ -79,6 +93,10 @@ export function mirrorPose(p) {
   o.turn = -p.turn;
   o.head = -p.head;
   o.tail = -p.tail;
+  o.weight = -p.weight;
+  o.hipTilt = -p.hipTilt;
+  o.shTilt = -p.shTilt;
+  o.twist = -p.twist;
   o.armL = [-p.armR[0], -p.armR[1]];
   o.armR = [-p.armL[0], -p.armL[1]];
   o.legL = [-p.legR[0], -p.legR[1], -p.legR[2]];
@@ -92,9 +110,82 @@ export function pose(partial) {
 }
 
 // ---------------------------------------------------------------------------
-// Secondary motion: the tail and ears lag behind the body, which is most of
-// what makes the little guy feel alive.
+// Springs
 // ---------------------------------------------------------------------------
+// Stiffness and damping ratio per channel. Low stiffness = more drag; damping
+// below 1 = overshoot. This table IS the follow-through: hips and legs arrive
+// first, the torso next, the head and hands last.
+const SPRING = {
+  x:       [1100, 1.00],
+  y:       [1800, 1.00],
+  crouch:  [ 900, 0.85],
+  turn:    [1400, 1.00],
+  squash:  [1100, 0.70],
+  weight:  [ 620, 0.85],
+  hipTilt: [ 560, 0.80],
+  lean:    [ 400, 0.68],
+  shTilt:  [ 360, 0.58],
+  twist:   [ 340, 0.60],
+  head:    [ 340, 0.55],
+  tail:    [ 300, 0.55],
+  legHip:  [ 780, 0.86],
+  legKnee: [ 640, 0.80],
+  legAnk:  [ 470, 0.68],
+  armSh:   [ 330, 0.58],
+  armEl:   [ 210, 0.48],
+};
+
+/** One under-damped spring, sub-stepped so it stays stable at any frame rate. */
+function springStep(x, v, target, k, z, dt) {
+  const c = 2 * z * Math.sqrt(k);
+  const steps = Math.max(1, Math.ceil(dt * 240));
+  const h = dt / steps;
+  for (let i = 0; i < steps; i++) {
+    v = (v + (target - x) * k * h) / (1 + c * h);
+    x += v * h;
+  }
+  return [x, v];
+}
+
+class PoseSpring {
+  constructor(initial) {
+    this.p = { ...initial };
+    this.v = {};
+    for (const k of NUM_KEYS) this.v[k] = 0;
+    for (const k of ARM_KEYS) { this.p[k] = initial[k].slice(); this.v[k] = [0, 0]; }
+    for (const k of LEG_KEYS) { this.p[k] = initial[k].slice(); this.v[k] = [0, 0, 0]; }
+  }
+
+  update(dt, target) {
+    for (const k of NUM_KEYS) {
+      const [ks, z] = SPRING[k];
+      [this.p[k], this.v[k]] = springStep(this.p[k], this.v[k], target[k], ks, z, dt);
+    }
+    for (const k of ARM_KEYS) {
+      for (let i = 0; i < 2; i++) {
+        const [ks, z] = i === 0 ? SPRING.armSh : SPRING.armEl;
+        [this.p[k][i], this.v[k][i]] = springStep(this.p[k][i], this.v[k][i], target[k][i], ks, z, dt);
+      }
+    }
+    for (const k of LEG_KEYS) {
+      for (let i = 0; i < 3; i++) {
+        const [ks, z] = i === 0 ? SPRING.legHip : i === 1 ? SPRING.legKnee : SPRING.legAnk;
+        [this.p[k][i], this.v[k][i]] = springStep(this.p[k][i], this.v[k][i], target[k][i], ks, z, dt);
+      }
+    }
+    this.p.face = target.face;
+  }
+
+  /** Drop everything onto the target instantly (used when he re-enters). */
+  snapTo(target) {
+    for (const k of NUM_KEYS) { this.p[k] = target[k]; this.v[k] = 0; }
+    for (const k of ARM_KEYS) { this.p[k] = target[k].slice(); this.v[k] = [0, 0]; }
+    for (const k of LEG_KEYS) { this.p[k] = target[k].slice(); this.v[k] = [0, 0, 0]; }
+    this.p.face = target.face;
+  }
+}
+
+/** A chain of springs — the tail and the ears trail behind the body. */
 export class Wobble {
   constructor(n, stiffness, damping) {
     this.a = new Float32Array(n);
@@ -113,79 +204,119 @@ export class Wobble {
   }
 }
 
+// ---------------------------------------------------------------------------
+
 export class Demon {
   constructor() {
-    this.tail = new Wobble(7, 110, 8);
+    this.spring = new PoseSpring(neutralPose());
+    this.tail = new Wobble(6, 115, 8);
     this.ear = new Wobble(2, 130, 9);
     this.blink = 0;
     this.blinkTimer = 1 + Math.random() * 3;
     this.prevX = 0;
     this.sway = 0;
+    // Impulse spring: every shoe tap punches this and it rings down.
+    this.punch = 0;
+    this.punchV = 0;
+    this.handTrail = [null, null];
   }
 
-  update(dt, p) {
+  /** Called on a foot-strike — a compression that ripples out through the body. */
+  accent(power = 1) {
+    this.punchV += 26 * power;
+  }
+
+  update(dt, target) {
+    this.spring.update(dt, target);
+    const p = this.spring.p;
+
+    [this.punch, this.punchV] = springStep(this.punch, this.punchV, 0, 900, 0.42, dt);
+
     this.tail.update(dt, p.tail);
-    this.ear.update(dt, p.lean * 1.1 + p.head * 0.7);
+    this.ear.update(dt, p.lean * 1.1 + p.head * 0.7 - this.punch * 0.5);
+
     this.blinkTimer -= dt;
     if (this.blinkTimer <= 0) {
       this.blink = 0.14;
       this.blinkTimer = 1.6 + Math.random() * 3.4;
     }
     if (this.blink > 0) this.blink -= dt;
+
     const vx = (p.x - this.prevX) / Math.max(dt, 1e-4);
     this.prevX = p.x;
     this.sway += (Math.max(-1, Math.min(1, vx / 70)) - this.sway) * Math.min(1, dt * 8);
   }
 
+  snapTo(target) {
+    this.spring.snapTo(target);
+    this.prevX = target.x;
+    this.punch = 0;
+    this.punchV = 0;
+  }
+
   /** Draw the demon standing on the floor line `ay`, centred on `ax`. */
-  draw(scr, p, ax, ay, scale = 1) {
+  draw(scr, ax, ay, scale = 1) {
     const s = scale;
+    const p = this.spring.p;
     const face = Math.cos(p.turn);      // +1 facing us, -1 back to us
     const side = Math.sin(p.turn);
     const wide = Math.abs(face);        // body flattens as he turns
     const facingUs = face > -0.02;
 
-    const vScale = 1 - p.squash * 0.16;
-    const hScale = 1 + p.squash * 0.14;
+    // The tap impulse compresses him, then springs past on the way back.
+    const squash = p.squash + this.punch * 0.030;
+    const vScale = 1 - squash * 0.16;
+    const hScale = 1 + squash * 0.14;
 
     const bx = ax + p.x * s;
     const groundY = ay + p.y * s;
-    const hipY = groundY - (P.hipHeight - p.crouch * 12) * vScale * s;
-    const hipX = bx + this.sway * 1.4 * s;
+    const hipY = groundY - (P.hipHeight - p.crouch * 12 - this.punch * 0.11) * vScale * s;
+    // Contrapposto: the pelvis rides over the supporting foot.
+    const hipX = bx + (this.sway * 1.4 + p.weight * 3.2) * s;
 
     const torsoLen = P.torso * vScale * s;
     const ta = p.lean;
-    const shX = hipX + sn(ta) * torsoLen;
+    const shX = hipX + sn(ta) * torsoLen + p.twist * 2.2 * s * wide;
     const shY = hipY - cs(ta) * torsoLen;
 
     const headA = ta + p.head;
     const headDist = P.neck * s + P.headR * s * 0.8;
-    const hx = shX + sn(headA) * headDist;
+    const hx = shX + sn(headA) * headDist - p.twist * 0.9 * s * wide;
     const hy = shY - cs(headA) * headDist;
 
-    const shoulderSpread = 10.5 * (0.3 + 0.7 * wide) * hScale * s;
-    const hipSpread = 11 * (0.3 + 0.7 * wide) * hScale * s;
-    const shLx = shX - shoulderSpread * 0.5;
-    const shRx = shX + shoulderSpread * 0.5;
-    const hipLx = hipX - hipSpread * 0.5;
-    const hipRx = hipX + hipSpread * 0.5;
+    // Weight-bearing hip rides high; the opposite shoulder drops.
+    const hipTilt = p.hipTilt + p.weight * 0.11;
+    const shTilt = p.shTilt - p.weight * 0.075 - p.twist * 0.05;
 
-    // Forward kinematics for each leg, then an IK pass that plants the foot
-    // on the boards whenever he is meant to be standing on them.
+    const spreadK = (0.3 + 0.7 * wide) * hScale * s;
+    const shoulderSpread = 10.5 * spreadK * Math.cos(p.twist * 0.5);
+    const hipSpread = 11 * spreadK;
+
+    const shLx = shX - Math.cos(shTilt) * shoulderSpread * 0.5;
+    const shLy = shY + Math.sin(shTilt) * shoulderSpread * 0.5;
+    const shRx = shX + Math.cos(shTilt) * shoulderSpread * 0.5;
+    const shRy = shY - Math.sin(shTilt) * shoulderSpread * 0.5;
+    const hipLx = hipX - Math.cos(hipTilt) * hipSpread * 0.5;
+    const hipLy = hipY + Math.sin(hipTilt) * hipSpread * 0.5;
+    const hipRx = hipX + Math.cos(hipTilt) * hipSpread * 0.5;
+    const hipRy = hipY - Math.sin(hipTilt) * hipSpread * 0.5;
+
+    // Forward kinematics per leg, then an IK pass that plants the foot on the
+    // boards whenever he is meant to be standing on them.
     const grounded = p.y > -2;
     const l1 = P.thigh * s;
     const l2 = P.shin * s;
-    const solveLeg = (anchorX, [hipA, kneeA, ankleA]) => {
+    const solveLeg = (anchorX, anchorY, [hipA, kneeA, ankleA]) => {
       const a1 = ta * 0.25 + hipA;
       let kx = anchorX + sn(a1) * l1;
-      let ky = hipY + cs(a1) * l1;
+      let ky = anchorY + cs(a1) * l1;
       const a2 = a1 + kneeA;
       let fx = kx + sn(a2) * l2;
       let fy = ky + cs(a2) * l2;
       if (grounded && fy > ay) {
-        const bend = Math.sign((kx - anchorX) * (fy - ky) - (ky - hipY) * (fx - kx)) || 1;
+        const bend = Math.sign((kx - anchorX) * (fy - ky) - (ky - anchorY) * (fx - kx)) || 1;
         const dx = fx - anchorX;
-        const dy = ay - hipY;
+        const dy = ay - anchorY;
         let d = Math.hypot(dx, dy);
         d = Math.max(Math.abs(l1 - l2) + 0.01, Math.min(l1 + l2 - 0.01, d));
         const base = Math.atan2(dy, dx);
@@ -193,23 +324,27 @@ export class Demon {
         const alpha = Math.acos(Math.max(-1, Math.min(1, cosA)));
         const ka = base - bend * alpha;
         kx = anchorX + Math.cos(ka) * l1;
-        ky = hipY + Math.sin(ka) * l1;
+        ky = anchorY + Math.sin(ka) * l1;
         fx = anchorX + Math.cos(base) * d;
-        fy = hipY + Math.sin(base) * d;
+        fy = anchorY + Math.sin(base) * d;
       }
-      return { kx, ky, fx, fy, ankle: ankleA + kneeA * 0.15 };
+      return { hx: anchorX, hy: anchorY, kx, ky, fx, fy, ankle: ankleA + kneeA * 0.15 };
     };
 
     // Depth ordering: when he turns his back the limbs swap over.
     const nearIsRight = side <= 0;
     const legFar = nearIsRight
-      ? { k: solveLeg(hipLx, p.legL), sg: -1 }
-      : { k: solveLeg(hipRx, p.legR), sg: 1 };
+      ? { k: solveLeg(hipLx, hipLy, p.legL), sg: -1 }
+      : { k: solveLeg(hipRx, hipRy, p.legR), sg: 1 };
     const legNear = nearIsRight
-      ? { k: solveLeg(hipRx, p.legR), sg: 1 }
-      : { k: solveLeg(hipLx, p.legL), sg: -1 };
-    const armFar = nearIsRight ? { a: p.armL, x: shLx } : { a: p.armR, x: shRx };
-    const armNear = nearIsRight ? { a: p.armR, x: shRx } : { a: p.armL, x: shLx };
+      ? { k: solveLeg(hipRx, hipRy, p.legR), sg: 1 }
+      : { k: solveLeg(hipLx, hipLy, p.legL), sg: -1 };
+    const armFar = nearIsRight
+      ? { a: p.armL, x: shLx, y: shLy, i: 0 }
+      : { a: p.armR, x: shRx, y: shRy, i: 1 };
+    const armNear = nearIsRight
+      ? { a: p.armR, x: shRx, y: shRy, i: 1 }
+      : { a: p.armL, x: shLx, y: shLy, i: 0 };
 
     // Shadow, tightening as he lands.
     const air = Math.max(0, -p.y);
@@ -218,52 +353,66 @@ export class Demon {
 
     this.drawTail(scr, hipX - side * 4 * s, hipY + 1 * s, s, side, wide);
 
-    this.drawLeg(scr, hipX, hipY, legFar.k, s, C.SKIN_D, INK, wide, legFar.sg, true);
-    this.drawArm(scr, armFar.x, shY + 1.5 * s, armFar.a, s, ta, C.SKIN_D, INK);
+    this.drawLeg(scr, legFar.k, s, C.SKIN_D, INK, wide, legFar.sg, true);
+    this.drawArm(scr, armFar.x, armFar.y + 1.5 * s, armFar.a, s, ta, C.SKIN_D, INK, armFar.i, true);
 
-    this.drawTorso(scr, hipX, hipY, shX, shY, s, wide, hScale);
+    this.drawTorso(scr, hipX, hipY, shX, shY, shLx, shLy, shRx, shRy, s, wide, hScale);
 
-    this.drawLeg(scr, hipX, hipY, legNear.k, s, C.SKIN, INK, wide, legNear.sg, false);
+    this.drawLeg(scr, legNear.k, s, C.SKIN, INK, wide, legNear.sg, false);
     this.drawHead(scr, hx, hy, headA, s, face, wide, facingUs, p.face);
-    this.drawArm(scr, armNear.x, shY + 1.5 * s, armNear.a, s, ta, C.SKIN, INK);
+    this.drawArm(scr, armNear.x, armNear.y + 1.5 * s, armNear.a, s, ta, C.SKIN, INK, armNear.i, false);
   }
 
-  drawTorso(scr, hipX, hipY, shX, shY, s, wide, hScale) {
+  drawTorso(scr, hipX, hipY, shX, shY, shLx, shLy, shRx, shRy, s, wide, hScale) {
     const narrow = 0.35 + 0.65 * wide;
     const wHip = 4.9 * narrow * hScale * s;
     const wChest = 7.2 * narrow * hScale * s;
     const mx = (hipX + shX) / 2;
     const my = (hipY + shY) / 2;
-    // Outline pass, then the fill, for a clean pixel-art edge.
     scr.taper(hipX, hipY + 1.5 * s, wHip + s, mx, my, wChest + s, INK);
     scr.taper(mx, my, wChest + s, shX, shY - s, wChest * 0.85 + s, INK);
     scr.taper(hipX, hipY + 1.5 * s, wHip, mx, my, wChest, C.SKIN);
     scr.taper(mx, my, wChest, shX, shY - s, wChest * 0.85, C.SKIN);
+    // Collar line, tilted with the shoulders — this is what sells the twist.
+    scr.taper(shLx, shLy, 2.2 * s, shRx, shRy, 2.2 * s, INK);
+    scr.taper(shLx, shLy, 1.5 * s, shRx, shRy, 1.5 * s, C.SKIN);
     if (wide > 0.3) {
-      // Rim light down one side of the body, catching the wing spotlight.
       scr.taper(hipX - wHip * 0.45, hipY, 1.0 * s, mx - wChest * 0.5, my, 1.2 * s, C.SKIN_L);
       scr.taper(mx - wChest * 0.5, my, 1.2 * s, shX - wChest * 0.45, shY, 1.0 * s, C.SKIN_L);
-      // Chest tuft.
       scr.poly([[shX, shY + 1 * s], [shX - 2.4 * s * wide, shY + 6 * s], [shX + 2.4 * s * wide, shY + 6 * s]], C.SKIN_D);
     }
   }
 
-  drawArm(scr, sx, sy, [sh, el], s, lean, col, shade) {
+  drawArm(scr, sx, sy, [sh, el], s, lean, col, ink, slot, far) {
     const a1 = lean * 0.35 + sh;
     const ex = sx + sn(a1) * P.upperArm * s;
     const ey = sy + cs(a1) * P.upperArm * s;
     const a2 = a1 + el;
     const wx = ex + sn(a2) * P.foreArm * s;
     const wy = ey + cs(a2) * P.foreArm * s;
-    scr.taper(sx, sy, 3.0 * s, ex, ey, 2.4 * s, shade);
-    scr.taper(ex, ey, 2.4 * s, wx, wy, 2.0 * s, shade);
+
+    // Smear: a fast-moving hand leaves a ghost behind it — the cheap 2D trick
+    // for reading a snappy movement at low frame counts.
+    const prev = this.handTrail[slot];
+    if (prev && !far) {
+      const d = Math.hypot(wx - prev[0], wy - prev[1]);
+      if (d > 3.4 * s) {
+        for (let i = 1; i <= 2; i++) {
+          const t = i / 3;
+          scr.disc(wx + (prev[0] - wx) * t, wy + (prev[1] - wy) * t, (1.5 - t * 0.6) * s, C.SKIN_D);
+        }
+      }
+    }
+    this.handTrail[slot] = [wx, wy];
+
+    scr.taper(sx, sy, 3.0 * s, ex, ey, 2.4 * s, ink);
+    scr.taper(ex, ey, 2.4 * s, wx, wy, 2.0 * s, ink);
     scr.taper(sx, sy, 2.1 * s, ex, ey, 1.6 * s, col);
     scr.taper(ex, ey, 1.6 * s, wx, wy, 1.25 * s, col);
-    // Three-fingered hand.
-    scr.disc(wx, wy, 2.6 * s, shade);
+    scr.disc(wx, wy, 2.6 * s, ink);
     for (let i = -1; i <= 1; i++) {
       const fa = a2 + i * 0.6;
-      scr.taper(wx, wy, 1.5 * s, wx + sn(fa) * 3.6 * s, wy + cs(fa) * 3.6 * s, 0.9 * s, shade);
+      scr.taper(wx, wy, 1.5 * s, wx + sn(fa) * 3.6 * s, wy + cs(fa) * 3.6 * s, 0.9 * s, ink);
     }
     scr.disc(wx, wy, 1.9 * s, col);
     for (let i = -1; i <= 1; i++) {
@@ -272,9 +421,8 @@ export class Demon {
     }
   }
 
-  drawLeg(scr, hipCentreX, hy, k, s, col, ink, wide, sideSign, far) {
-    const { kx, ky, fx, fy } = k;
-    const hx = hipCentreX + (kx - hipCentreX) * 0.18;
+  drawLeg(scr, k, s, col, ink, wide, sideSign, far) {
+    const { hx, hy, kx, ky, fx, fy } = k;
     scr.taper(hx, hy, 3.9 * s, kx, ky, 3.0 * s, ink);
     scr.taper(kx, ky, 3.0 * s, fx, fy, 2.4 * s, ink);
     scr.taper(hx, hy, 3.0 * s, kx, ky, 2.1 * s, col);
@@ -297,14 +445,12 @@ export class Demon {
     const heelY = fy - dy * back;
     const toeX = fx + dx * len;
     const toeY = fy + dy * len;
-    const shell = [
+    scr.poly([
       [heelX + nx * up, heelY + ny * up],
       [toeX + nx * up * 0.5, toeY + ny * up * 0.5],
       [toeX + dx * 0.5 * s, toeY + dy * 0.5 * s + 1.6 * s],
       [heelX, heelY + 2.0 * s],
-    ];
-    scr.poly(shell, C.DARK);
-    // Highlight along the top of the shoe and a bright metal tap at the toe.
+    ], C.DARK);
     scr.line(heelX + nx * up, heelY + ny * up - 1, toeX + nx * up * 0.5, toeY + ny * up * 0.5 - 1, far ? C.DARK : C.MID);
     if (!far) {
       scr.disc(toeX, toeY + 0.8 * s, 1.1 * s, C.MID);
@@ -313,14 +459,13 @@ export class Demon {
   }
 
   drawTail(scr, x, y, s, side, wide) {
-    // Hangs behind him, sweeping out and curling up at the tip.
     const dir = side >= 0 ? -1 : 1;
     const reach = 0.5 + 0.5 * wide;
     let px = x + dir * 2.5 * s;
     let py = y;
     let ang = 1.45 + this.tail.a[0] * 0.22;
     const pts = [[px, py]];
-    const segLen = 5.6 * s;
+    const segLen = 5.1 * s;
     for (let i = 0; i < this.tail.a.length; i++) {
       ang += -0.36 + this.tail.a[i] * 0.22;
       px += dir * Math.cos(ang) * segLen * reach;
@@ -329,12 +474,11 @@ export class Demon {
     }
     for (const [pass, grow] of [[INK, 0.9], [C.SKIN, 0]]) {
       for (let i = 0; i + 1 < pts.length; i++) {
-        const r0 = (2.8 - i * 0.28) * s + grow * s;
-        const r1 = (2.8 - (i + 1) * 0.28) * s + grow * s;
+        const r0 = (2.6 - i * 0.30) * s + grow * s;
+        const r1 = (2.6 - (i + 1) * 0.30) * s + grow * s;
         scr.taper(pts[i][0], pts[i][1], r0, pts[i + 1][0], pts[i + 1][1], r1, pass);
       }
     }
-    // Spade tip.
     const tip = pts[pts.length - 1];
     const prev = pts[pts.length - 2];
     const a = Math.atan2(tip[1] - prev[1], tip[0] - prev[0]);
@@ -356,7 +500,6 @@ export class Demon {
     const rx = P.headR * s * (0.58 + 0.42 * Math.max(0.3, wide));
     const ry = P.headR * s * 0.95;
 
-    // Ears: modest triangles that flick with a lag.
     const earLag = this.ear.a[1];
     for (const dir of [-1, 1]) {
       const showing = 0.45 + 0.55 * wide;
@@ -368,11 +511,9 @@ export class Demon {
       scr.poly([[ex, ey - 2.0 * s], [tipX - dir * 1.3 * s, tipY + 0.3 * s], [ex, ey + 2.0 * s]], C.SKIN);
     }
 
-    // Head.
     scr.ellipse(hx, hy, rx + s * 0.9, ry + s * 0.9, INK);
     scr.ellipse(hx, hy, rx, ry, C.SKIN);
 
-    // Horns, curving up and out from the brow.
     for (const dir of [-1, 1]) {
       const showing = 0.5 + 0.5 * wide;
       const bxp = hx + dir * rx * 0.52;
@@ -420,7 +561,6 @@ export class Demon {
       scr.taper(ex - 2.8 * s, browY + tiltA, 0.9 * s, ex + 2.4 * s, browY - tiltA, 0.7 * s, C.SKIN_D);
     }
 
-    // Snout and grin.
     const mY = hy + ry * 0.44;
     scr.ellipse(hx, mY - 1.6 * s, 1.7 * s, 1.2 * s, C.SKIN_D);
     if (expr === 'wow') {

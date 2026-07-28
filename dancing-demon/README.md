@@ -39,7 +39,7 @@ The structure is faithful; the execution is not pretending to be a 1979 emulator
 | Original | Here |
 | --- | --- |
 | 128×48 block graphics | 192×120 square pixels, nearest-neighbour upscaled, with CRT bloom and scanlines |
-| Fixed animation frames | A posed skeleton with interpolated keyframes, spring-driven tail and ears, and IK that plants his feet on the boards |
+| Fixed animation frames | A posed skeleton: per-joint springs for overlapping action and snap, automatic contrapposto, and IK that plants his feet on the boards |
 | Eighteen lettered steps | Eighteen lettered steps, `A` to `R`, mirrored in pairs |
 | One note per count | One note per count — plus a **Hold** symbol, so melodies can breathe |
 | Cassette save | Browser storage, or a copy-and-paste "cassette code" |
@@ -78,10 +78,28 @@ A few notes on the interesting bits:
 - **Colour is semantic.** Everything is drawn into slots like `SKIN`, `CURTAIN`, `GLOW`; a theme is
   just a mapping from those slots to RGB. That is why one set of drawing code produces both the
   monochrome phosphor look and the colourised one.
-- **The demon is posed, not drawn.** Each step is a handful of keyframes; a smoothstep between them
-  produces the in-betweens. The tail and ears are spring chains that lag the body, and a two-bone
-  IK pass fixes up the legs so a crouch bends the knees instead of sinking his shoes through the
-  stage.
+- **The demon is posed, not drawn** — and the interesting part is what happens *after* the
+  keyframes. Every channel is driven through its own spring, stiff at the hips and progressively
+  looser out through the torso, head and hands. That produces **overlapping action** for free: a
+  movement ripples outward instead of every joint arriving together, which is the single biggest
+  difference between a puppet and a dancer. The springs are also under-damped, so the keyframes can
+  be written as near-steps — hold, jump, hold — and the spring supplies the fast attack and the
+  overshoot. That is cartoon timing, and it is why the steps read as snappy rather than floaty.
+- **Weight is a first-class channel.** A `weight` value says which foot he is standing on, and the
+  rig automatically shifts the pelvis over that foot, raises the weight-bearing hip and drops the
+  opposite shoulder — textbook contrapposto. A separate `twist` counter-rotates the shoulders
+  against the hips. Between them, he stops looking like he is balancing on both feet at once.
+- **The steps are real tap vocabulary.** A *shuffle* is a brush out and a spank back that carries no
+  weight, so he stays planted on the other leg and does not travel. A *flap* is a brush plus a step
+  onto that foot, so the weight transfers and he does travel. A *stomp* puts the whole foot down
+  with the weight behind it. Each is written pose-to-pose — anticipation against the direction of
+  travel, a hard snap to the extreme on the beat, then a settle — and every foot-strike punches an
+  impulse spring that compresses the whole body, so he hits the beat with more than his shoe.
+- **A two-bone IK pass** fixes up the legs so a crouch bends the knees instead of sinking his shoes
+  through the stage.
+- **The tune is the lead voice.** Music and effects sit on separate buses with the taps well under
+  the melody, and the master runs through a soft clipper — which both puts back the overdriven bite
+  the cassette port had and makes the square wave carry on a laptop speaker.
 - **The show runs on the audio clock.** Notes and taps are pre-computed into a sorted event list and
   fed to Web Audio about 400 ms ahead of the playhead; the animation reads its beat position from
   `AudioContext.currentTime`, so the dancing cannot drift away from the music.

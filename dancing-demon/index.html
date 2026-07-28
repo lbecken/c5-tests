@@ -22,6 +22,7 @@
       <div class="bezel-label">RADIO SHACK <span>TRS-80</span> VIDEO DISPLAY</div>
     </div>
     <div id="hud" class="hud"></div>
+    <div id="sound-notice" class="notice hidden">🔇 Sound is blocked by the browser — click anywhere to switch it on</div>
   </div>
 
   <nav class="tabs" id="tabs">
@@ -45,8 +46,11 @@
         </p>
         <p>
           This is that toy, rebuilt for the browser. Same shape, same monochrome phosphor,
-          same eighteen steps &mdash; but the demon is posed from interpolated keyframes, so he moves
-          the way the original always looked like it was trying to.
+          same eighteen steps &mdash; but the demon is a rig rather than a sprite sheet. Every joint
+          rides its own spring, so a movement cascades out from the hips to the hands
+          instead of every part snapping at once, and a <em>weight</em> channel shifts his hips over
+          whichever foot he is standing on. The steps are real tap vocabulary: a shuffle
+          carries no weight, a flap does, which is why one travels and the other does not.
         </p>
         <h2>How to put on a show</h2>
         <ol class="steps">
@@ -160,8 +164,8 @@
       <label>Display
         <select id="opt-theme"></select>
       </label>
-      <label>Volume <span id="vol-val" class="tag">60</span>
-        <input type="range" id="opt-volume" min="0" max="100" value="60">
+      <label>Volume <span id="vol-val" class="tag">75</span>
+        <input type="range" id="opt-volume" min="0" max="100" value="75">
       </label>
       <label class="check"><input type="checkbox" id="opt-crt" checked> CRT glow &amp; scanlines</label>
       <label class="check"><input type="checkbox" id="opt-mute"> Mute everything</label>

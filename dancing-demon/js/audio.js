@@ -10,8 +10,9 @@ export class Sound {
     this.ctx = null;
     this.master = null;
     this.muted = false;
-    this.volume = 0.6;
+    this.volume = 0.75;
     this.noiseBuf = null;
+    this.onStateChange = null;
   }
 
   ensure() {
@@ -20,17 +21,47 @@ export class Sound {
       this.ctx = new AC();
       this.master = this.ctx.createGain();
       this.master.gain.value = this.muted ? 0 : this.volume;
+
+      // Voices land on their own buses so the tune always sits on top of the
+      // shoe taps rather than underneath them.
+      this.musicBus = this.ctx.createGain();
+      this.musicBus.gain.value = 1.0;
+      this.sfxBus = this.ctx.createGain();
+      this.sfxBus.gain.value = 0.42;
+
       // A gentle low-pass keeps the square wave from being fatiguing without
-      // sanding off its character.
+      // sanding off its character...
       this.filter = this.ctx.createBiquadFilter();
       this.filter.type = 'lowpass';
-      this.filter.frequency.value = 5200;
-      this.filter.Q.value = 0.6;
-      this.filter.connect(this.master);
+      this.filter.frequency.value = 6400;
+      this.filter.Q.value = 0.8;
+
+      // ...and a soft clipper puts back the overdriven bite the cassette port
+      // had, which is also what makes it carry on a laptop speaker.
+      this.drive = this.ctx.createWaveShaper();
+      const n = 1024;
+      const curve = new Float32Array(n);
+      for (let i = 0; i < n; i++) {
+        const x = (i / (n - 1)) * 2 - 1;
+        curve[i] = Math.tanh(x * 2.1) / Math.tanh(2.1);
+      }
+      this.drive.curve = curve;
+      this.drive.oversample = '2x';
+
+      this.musicBus.connect(this.filter);
+      this.sfxBus.connect(this.filter);
+      this.filter.connect(this.drive);
+      this.drive.connect(this.master);
       this.master.connect(this.ctx.destination);
       this.noiseBuf = this.makeNoise();
+      this.ctx.onstatechange = () => this.onStateChange && this.onStateChange(this.ctx.state);
     }
-    if (this.ctx.state === 'suspended') this.ctx.resume();
+    if (this.ctx.state !== 'running') {
+      this.ctx.resume().then(
+        () => this.onStateChange && this.onStateChange(this.ctx.state),
+        () => this.onStateChange && this.onStateChange(this.ctx.state),
+      );
+    }
     return this.ctx;
   }
 
@@ -52,12 +83,16 @@ export class Sound {
     if (this.master && !this.muted) this.master.gain.value = v;
   }
 
+  get running() {
+    return !!this.ctx && this.ctx.state === 'running';
+  }
+
   get now() {
     return this.ensure().currentTime;
   }
 
   /** One square-wave note. `dur` in seconds. */
-  note(midi, when, dur, gain = 0.22) {
+  note(midi, when, dur, gain = 0.40) {
     const ctx = this.ensure();
     when = Math.max(when, ctx.currentTime + 0.001);
     dur = Math.max(0.04, dur);
@@ -74,7 +109,7 @@ export class Sound {
     g.gain.exponentialRampToValueAtTime(0.0008, when + dur);
 
     osc.connect(g);
-    g.connect(this.filter);
+    g.connect(this.musicBus);
     osc.start(when);
     osc.stop(when + dur + 0.02);
   }
@@ -87,21 +122,31 @@ export class Sound {
     src.buffer = this.noiseBuf;
     const bp = ctx.createBiquadFilter();
     bp.type = 'bandpass';
-    bp.frequency.value = 2400 * bright;
-    bp.Q.value = 1.4;
+    bp.frequency.value = 2100 * bright;
+    bp.Q.value = 2.6;
     const g = ctx.createGain();
-    g.gain.setValueAtTime(0.16, when);
-    g.gain.exponentialRampToValueAtTime(0.0006, when + 0.055);
+    g.gain.setValueAtTime(0.30, when);
+    g.gain.exponentialRampToValueAtTime(0.0006, when + 0.032);
     src.connect(bp);
     bp.connect(g);
-    g.connect(this.filter);
+    g.connect(this.sfxBus);
     src.start(when);
-    src.stop(when + 0.09);
+    src.stop(when + 0.06);
   }
 
   /** UI blip. */
   blip(midi = 84, dur = 0.05) {
-    this.note(midi, this.now, dur, 0.12);
+    this.note(midi, this.now, dur, 0.18);
+  }
+
+  /** Stop every note currently ringing (used by the editor's Stop button). */
+  hush() {
+    if (!this.ctx) return;
+    const t = this.ctx.currentTime;
+    this.musicBus.gain.cancelScheduledValues(t);
+    this.musicBus.gain.setValueAtTime(this.musicBus.gain.value, t);
+    this.musicBus.gain.linearRampToValueAtTime(0.0001, t + 0.04);
+    this.musicBus.gain.setValueAtTime(1.0, t + 0.30);
   }
 
   /** Curtain rumble. */
@@ -117,11 +162,11 @@ export class Sound {
     lp.frequency.linearRampToValueAtTime(up ? 900 : 400, when + 1.4);
     const g = ctx.createGain();
     g.gain.setValueAtTime(0, when);
-    g.gain.linearRampToValueAtTime(0.07, when + 0.2);
+    g.gain.linearRampToValueAtTime(0.10, when + 0.2);
     g.gain.linearRampToValueAtTime(0, when + 1.5);
     src.connect(lp);
     lp.connect(g);
-    g.connect(this.filter);
+    g.connect(this.sfxBus);
     src.start(when);
     src.stop(when + 1.6);
   }
@@ -139,12 +184,12 @@ export class Sound {
     hp.Q.value = 0.5;
     const g = ctx.createGain();
     g.gain.setValueAtTime(0, when);
-    g.gain.linearRampToValueAtTime(0.13, when + 0.25);
-    g.gain.setValueAtTime(0.13, when + dur * 0.5);
+    g.gain.linearRampToValueAtTime(0.16, when + 0.25);
+    g.gain.setValueAtTime(0.16, when + dur * 0.5);
     g.gain.linearRampToValueAtTime(0, when + dur);
     src.connect(hp);
     hp.connect(g);
-    g.connect(this.filter);
+    g.connect(this.sfxBus);
     src.start(when);
     src.stop(when + dur + 0.1);
   }
