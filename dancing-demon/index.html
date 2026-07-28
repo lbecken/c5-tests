@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Dancing Demon — a web recreation</title>
+<meta name="description" content="A browser recreation of Leo Christopherson's 1979 TRS-80 classic: compose a tune, choreograph a routine, and let the little demon tap-dance it.">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='14' font-size='14'>😈</text></svg>">
+</head>
+<body>
+
+<header class="topbar">
+  <h1>The Dancing Demon</h1>
+  <p class="sub">A web recreation of Leo Christopherson&rsquo;s 1979 TRS-80 classic &mdash; compose a tune, choreograph the steps, raise the curtain.</p>
+</header>
+
+<main>
+  <div class="screen-wrap">
+    <div class="bezel">
+      <div class="canvas-host"><canvas id="screen"></canvas></div>
+      <div class="bezel-label">RADIO SHACK <span>TRS-80</span> VIDEO DISPLAY</div>
+    </div>
+    <div id="hud" class="hud"></div>
+  </div>
+
+  <nav class="tabs" id="tabs">
+    <button data-mode="menu" class="active">Menu</button>
+    <button data-mode="music"><b>1</b> Music</button>
+    <button data-mode="dance"><b>2</b> Dance</button>
+    <button data-mode="perform"><b>3</b> Perform</button>
+    <button data-mode="tape"><b>4</b> Tape</button>
+    <button data-mode="options">Options</button>
+  </nav>
+
+  <section class="panel" id="panel-menu">
+    <div class="cols">
+      <div>
+        <h2>What this is</h2>
+        <p>
+          In 1979 Leo Christopherson wrote an animated tap-dancing demon for the TRS-80 Model I &mdash;
+          a machine with 128&times;48 block graphics and a speaker driven off the cassette port.
+          It was not really a game: you typed in a tune one note per count, strung together
+          eighteen lettered dance steps, chose a speed, and the curtain went up.
+        </p>
+        <p>
+          This is that toy, rebuilt for the browser. Same shape, same monochrome phosphor,
+          same eighteen steps &mdash; but the demon is posed from interpolated keyframes, so he moves
+          the way the original always looked like it was trying to.
+        </p>
+        <h2>How to put on a show</h2>
+        <ol class="steps">
+          <li><b>Music</b> &mdash; tap out a melody, or load one of the built-in tunes.</li>
+          <li><b>Dance</b> &mdash; stack up steps by letter. Hover one to watch him rehearse it.</li>
+          <li><b>Perform</b> &mdash; pick a speed and a repeat count, then hit <em>Raise the curtain</em>.</li>
+        </ol>
+      </div>
+      <div>
+        <h2>Straight to the show</h2>
+        <p class="muted">Loads a tune and a routine and runs it.</p>
+        <div class="btnrow" id="quickstart"></div>
+        <h2>Credits &amp; sources</h2>
+        <ul class="links">
+          <li>Original: <b>Dancing Demon</b>, Leo Christopherson &amp; Radio Shack, 1979&ndash;80 (TRS-80 Model I). Later released into the public domain.</li>
+          <li><a href="https://archive.org/details/Dancing_Demon_1980_Tandy" target="_blank" rel="noopener">Original Tandy manual (Internet Archive)</a></li>
+          <li><a href="https://www.gamedeveloper.com/audio/exploring-the-oddities-and-almost-classics-of-the-trs-80" target="_blank" rel="noopener">Game Developer: oddities of the TRS-80</a></li>
+          <li><a href="http://48k.ca/dandem2.html" target="_blank" rel="noopener">48k.ca: the Doubled Dancing Demon reverse-engineering</a></li>
+        </ul>
+        <p class="muted small">This is an homage written from scratch. No original code or assets are used.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel hidden" id="panel-music">
+    <h2>1 &mdash; Enter the music</h2>
+    <p class="muted">
+      One note per count, exactly like the original. <b>Rest</b> holds the silence,
+      <b>Hold</b> extends the note before it. Play it back with the space bar.
+    </p>
+    <div class="strip-head">
+      <span id="music-count" class="tag">0 / 255 counts</span>
+      <div class="btnrow">
+        <button id="music-play">▶ Play</button>
+        <button id="music-rest">Rest ·</button>
+        <button id="music-hold">Hold —</button>
+        <button id="music-back">⌫ Back</button>
+        <button id="music-clear" class="danger">Clear</button>
+        <label class="inline">Load
+          <select id="music-preset"></select>
+        </label>
+      </div>
+    </div>
+    <div class="strip" id="music-strip"></div>
+    <div class="piano" id="piano"></div>
+    <p class="muted small">Computer keys: <kbd>Z S X D C V G B H N J M</kbd> for the lower octave, <kbd>Q 2 W 3 E R 5 T 6 Y 7 U</kbd> for the upper, <kbd>,</kbd> rest, <kbd>.</kbd> hold, <kbd>⌫</kbd> backspace.</p>
+  </section>
+
+  <section class="panel hidden" id="panel-dance">
+    <h2>2 &mdash; Enter the dance</h2>
+    <p class="muted">
+      Eighteen steps, lettered <b>A</b> to <b>R</b>, paired left and right just like the manual.
+      Hover or focus a step to watch him rehearse it on stage.
+    </p>
+    <div class="strip-head">
+      <span id="dance-count" class="tag">0 steps · 0 counts</span>
+      <div class="btnrow">
+        <button id="dance-back">⌫ Back</button>
+        <button id="dance-clear" class="danger">Clear</button>
+        <button id="dance-random">🎲 Improvise</button>
+        <label class="inline">Load
+          <select id="dance-preset"></select>
+        </label>
+      </div>
+    </div>
+    <div class="strip" id="dance-strip"></div>
+    <div class="moves" id="moves"></div>
+  </section>
+
+  <section class="panel hidden" id="panel-perform">
+    <h2>3 &mdash; Perform</h2>
+    <div class="controls">
+      <label>Speed <span id="speed-val" class="tag">128</span>
+        <input type="range" id="speed" min="1" max="255" value="128">
+        <span class="muted small">1 &ndash; 255, as printed in the manual</span>
+      </label>
+      <label>Repeats <span id="repeat-val" class="tag">4</span>
+        <input type="range" id="repeats" min="1" max="16" value="4">
+        <span class="muted small">times through the routine</span>
+      </label>
+      <label class="check"><input type="checkbox" id="opt-taps" checked> Shoe taps</label>
+    </div>
+    <div class="btnrow big">
+      <button id="go" class="primary">🎭 Raise the curtain</button>
+      <button id="stop">■ Stop</button>
+    </div>
+    <p id="perform-status" class="muted"></p>
+  </section>
+
+  <section class="panel hidden" id="panel-tape">
+    <h2>4 &mdash; Tape</h2>
+    <p class="muted">The original saved your work to cassette. This saves to your browser, or to a
+      short code you can paste anywhere.</p>
+    <div class="btnrow">
+      <input type="text" id="save-name" placeholder="Name this show" maxlength="28">
+      <button id="save-btn" class="primary">💾 Save</button>
+    </div>
+    <div id="save-list" class="savelist"></div>
+    <h3>Cassette code</h3>
+    <div class="btnrow">
+      <button id="export-btn">Copy current show</button>
+      <button id="import-btn">Load from the box below</button>
+    </div>
+    <textarea id="tape-code" rows="3" spellcheck="false" placeholder="Paste a show code here"></textarea>
+    <p id="tape-status" class="muted small"></p>
+  </section>
+
+  <section class="panel hidden" id="panel-options">
+    <h2>Options</h2>
+    <div class="controls">
+      <label>Display
+        <select id="opt-theme"></select>
+      </label>
+      <label>Volume <span id="vol-val" class="tag">60</span>
+        <input type="range" id="opt-volume" min="0" max="100" value="60">
+      </label>
+      <label class="check"><input type="checkbox" id="opt-crt" checked> CRT glow &amp; scanlines</label>
+      <label class="check"><input type="checkbox" id="opt-mute"> Mute everything</label>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>Built as an homage. The original <i>Dancing Demon</i> is by Leo Christopherson (1979).</p>
+</footer>
+
+<script type="module" src="js/app.js"></script>
+</body>
+</html>
