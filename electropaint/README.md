@@ -4,30 +4,36 @@ A WebGL homage to **ElectroPaint**, the screensaver David A. Tristram wrote for
 Silicon Graphics IRIX workstations — a ribbon of flying polygons that never
 stops rearranging itself.
 
-Open `index.html` over http and it runs. No build step, no install.
+## Two ways to run it
+
+**Just open the built file.** `dist/electropaint.html` is one self-contained
+page — three.js, all the source, the CSS, everything inlined. No server, no
+install, no network. Double-click it. `dist/electropaint-screensaver.html` is
+the same thing with screensaver mode baked in: no start button, no chrome, no
+cursor, and no query string needed.
+
+**Or run from source**, which is nicer to develop against:
 
 ```sh
 npm start          # http://localhost:8080
-# or: python3 -m http.server 8080
 ```
 
-ES modules will not load over `file://`, so it does need a server. `three` is
-pulled from a CDN via the import map in `index.html`, so the first load needs
-network access; after that the browser cache covers it. If the fetch fails the
-page says so rather than going black.
+ES modules will not load over `file://`, so the source form needs a server, and
+`index.html` pulls three.js from a CDN via an import map — so that form wants
+network access on first load. If the fetch fails the page says so rather than
+going black.
 
-To run with no network at all:
+### Rebuilding the single file
 
 ```sh
-npm run vendor     # installs three 0.185.1 locally
+npm install
+npm run build
 ```
 
-then point the import map in `index.html` at the copy on disk:
-
-```json
-"three": "./node_modules/three/build/three.module.js",
-"three/addons/": "./node_modules/three/examples/jsm/"
-```
+`build.mjs` bundles everything through esbuild into an IIFE and inlines it, then
+asserts that no external reference survived. The two files in `dist/` are
+committed so they can be pulled straight onto a machine that has no toolchain —
+they are build artifacts, refreshed deliberately rather than on every edit.
 
 ---
 
@@ -151,6 +157,8 @@ screensaver host on Windows and macOS.
 | `src/audio.js` | The generative score |
 | `src/ui.js` | DOM wiring |
 | `src/main.js` | Settings, the frame loop, auto-cycle |
+| `build.mjs` | Flattens all of the above into one dependency-free HTML file |
+| `serve.mjs` | Zero-dependency static server for developing against the source |
 
 The whole ribbon is a single `InstancedMesh`; the simulation writes transforms
 and colours into flat `Float32Array`s which are blitted into the instance

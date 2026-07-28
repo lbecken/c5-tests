@@ -15,10 +15,12 @@ Everything below assumes the branch `claude/sgi-electropaint-screensaver-es4xen`
 
 ## Prep — serve the app (both platforms)
 
-The app still needs `http://`: ES modules will not load over `file://`, so the
-page cannot yet be handed to a wrapper as a bare file. (Phase 1 fixes exactly
-this by producing a single self-contained `.html`. It is deliberately not done
-yet — no point building it if Phase 0 says the whole approach is a dead end.)
+> **Superseded by Phase 1.** There is now a single self-contained file, so a
+> wrapper can be pointed straight at `dist/electropaint-screensaver.html` with
+> no server, no network and no query string. The instructions below still work
+> and are kept because serving the source is easier to iterate against.
+
+The source form needs `http://`: ES modules will not load over `file://`.
 
 ```sh
 cd electropaint

@@ -141,7 +141,12 @@ function boot() {
   }
 
   const params = new URLSearchParams(location.search);
-  const screensaver = flagSet(params, 'screensaver') || flagSet(params, 'kiosk');
+  // The built screensaver page sets this global, so a native wrapper can point
+  // at a plain file path. Query strings survive a round trip through a
+  // preferences pane much less reliably than a filename does.
+  const screensaver = window.ELECTROPAINT_SCREENSAVER === true
+    || flagSet(params, 'screensaver')
+    || flagSet(params, 'kiosk');
 
   const settings = loadSettings(params, screensaver);
   const stage = new Stage(canvas);
