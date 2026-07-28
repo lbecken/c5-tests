@@ -183,6 +183,32 @@ killall legacyScreenSaver
 
 ---
 
+## Results
+
+| | macOS | Windows |
+|---|---|---|
+| Version | Tahoe **26.4** | not yet tested |
+| Wrapper | WebViewScreenSaver 2.5 | leo-goo web-page-screensaver-webview2 |
+| Renders | yes | — |
+| Frame rate | **60 / min 60** at default settings | — |
+| Natural trigger | works (not just Preview) | — |
+| Sustained | 5+ min, no blanking, no decay | — |
+
+**macOS: pass, decisively.** A sustained minimum of 60 means the frame budget is
+not a constraint at the current defaults, so the screensaver build can ship the
+same numbers as the browser build rather than a cut-down set. It also means the
+polygon count is nowhere near the ceiling — headroom exists if we ever want it.
+
+Still open on macOS, none of them blocking:
+
+- Multi-monitor behaviour, and scaling on a non-Retina external display.
+- The `otool` SDK check above, which decides whether a `.saver` we build
+  ourselves must pin an older deployment SDK to avoid FB22353950.
+- Behaviour on the second Mac (Sonoma 14 or Sequoia 15 — worth running `sw_vers`,
+  as those are different releases with different prospects here).
+
+---
+
 ## What to record
 
 The point of this phase is numbers and specifics, not an impression.
