@@ -166,10 +166,16 @@ class JobService:
 
         self._jobs.set_status(job_id, JobStatus.RUNNING)
         sentences = {s.id: s for s in self._documents.sentences(job.document_id)}
-        pending = self._pending_units(sentences, resolver)
+        planned = self._plan_chunks(tuple(sentences.values()), resolver)
+        pending = self._pending_units(planned, sentences)
 
-        completed = job.completed_units
-        failed = job.failed_units
+        # Completed work is derived from stored unit state rather than the job's
+        # counters, and the failure count starts at zero: units that failed in an
+        # earlier attempt are in `pending` and are about to be retried, so
+        # carrying their old failures forward would leave a fully synthesized
+        # document permanently marked as failed.
+        completed = len(planned) - len(pending)
+        failed = 0
         cache_hits = job.cache_hits
         synthesized = job.synthesized_units
         cancelled = False
@@ -280,15 +286,14 @@ class JobService:
 
     def _pending_units(
         self,
+        planned: tuple[SynthesisChunk, ...],
         sentences: dict[str, Sentence],
-        resolver: PronunciationResolver,
     ) -> tuple[SynthesisChunk, ...]:
         """Return the chunks still to process, skipping completed ones.
 
-        Recomputing the plan and consulting stored state is what allows a job
-        interrupted by a restart to resume where it stopped.
+        Consulting stored unit state is what allows a job interrupted by a
+        restart to resume where it stopped.
         """
-        planned = self._plan_chunks(tuple(sentences.values()), resolver)
         done = {
             (record.sentence_id, record.chunk_index)
             for sentence_id in sentences

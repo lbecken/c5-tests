@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>reader-tts</title>
+  <!-- An empty icon keeps the browser from requesting a favicon that the
+       local server does not serve. -->
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <header class="bar">
+    <h1>Dictionary-Controlled Reader</h1>
+    <div class="status" id="health" role="status">Checking engine&hellip;</div>
+  </header>
+
+  <main>
+    <!-- 1. Input -->
+    <section class="panel" id="panel-input">
+      <h2>1. Text</h2>
+      <label for="title">Title</label>
+      <input type="text" id="title" maxlength="300" placeholder="Untitled document">
+
+      <label for="text">Text to read</label>
+      <textarea id="text" rows="12" spellcheck="false"
+        placeholder="Paste plain English prose. Numbers, abbreviations and symbols are not supported in Version 1."></textarea>
+
+      <p class="counts" id="counts">0 characters &middot; 0 words &middot; 0 sentences</p>
+      <div class="actions">
+        <button type="button" id="validate" class="primary">Validate</button>
+        <button type="button" id="load-sample">Load sample</button>
+        <button type="button" id="clear">Clear</button>
+      </div>
+    </section>
+
+    <!-- 2. Validation -->
+    <section class="panel" id="panel-validation">
+      <h2>2. Validation</h2>
+      <p class="hint" id="validation-empty">Validate the text to see coverage and issues.</p>
+
+      <div id="validation-body" hidden>
+        <div class="stats" id="validation-stats"></div>
+        <div class="coverage"><div class="coverage-bar" id="coverage-bar"></div></div>
+        <p class="coverage-label" id="coverage-label"></p>
+        <div class="issues" id="issues"></div>
+      </div>
+    </section>
+
+    <!-- 3. Voice and synthesis -->
+    <section class="panel" id="panel-synthesis">
+      <h2>3. Speech</h2>
+      <div class="row">
+        <div class="field">
+          <label for="voice">Voice</label>
+          <select id="voice"></select>
+        </div>
+        <div class="field">
+          <label for="speed">Speed <span id="speed-value">1.00</span>&times;</label>
+          <input type="range" id="speed" min="0.75" max="1.25" step="0.05" value="1">
+        </div>
+        <div class="field">
+          <label for="mode">Validation</label>
+          <select id="mode">
+            <option value="practical">Practical</option>
+            <option value="strict">Strict</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button type="button" id="generate" class="primary" disabled>Generate speech</button>
+        <button type="button" id="cancel" hidden>Cancel</button>
+      </div>
+
+      <div id="progress-area" hidden>
+        <div class="progress"><div class="progress-bar" id="progress-bar"></div></div>
+        <p class="hint" id="progress-label"></p>
+      </div>
+    </section>
+
+    <!-- 4. Reader -->
+    <section class="panel wide" id="panel-reader">
+      <h2>4. Reader</h2>
+      <p class="hint" id="reader-empty">Generated sentences appear here.</p>
+
+      <div id="reader-body" hidden>
+        <div class="transport">
+          <button type="button" id="previous" title="Previous sentence">&#9664;&#9664;</button>
+          <button type="button" id="play" class="primary" title="Play or pause">Play</button>
+          <button type="button" id="next" title="Next sentence">&#9654;&#9654;</button>
+          <input type="range" id="timeline" min="0" max="1000" value="0" step="1">
+          <span class="time" id="time">0:00 / 0:00</span>
+        </div>
+
+        <div class="transport">
+          <button type="button" id="regenerate">Regenerate sentence</button>
+          <button type="button" id="edit-pronunciation">Edit pronunciation</button>
+          <button type="button" id="export">Export document</button>
+          <span class="hint" id="export-status"></span>
+        </div>
+
+        <ol class="sentences" id="sentences"></ol>
+      </div>
+    </section>
+  </main>
+
+  <!-- Pronunciation editor -->
+  <dialog id="pronunciation-dialog">
+    <form method="dialog" id="pronunciation-form">
+      <h3>Pronunciation</h3>
+      <label for="pron-word">Word</label>
+      <input type="text" id="pron-word" maxlength="100" required>
+
+      <div id="pron-variants" class="variants"></div>
+
+      <label for="pron-arpabet">ARPAbet</label>
+      <input type="text" id="pron-arpabet" maxlength="400" placeholder="L EH1 D">
+
+      <label for="pron-spelling">Synthesis spelling (optional)</label>
+      <input type="text" id="pron-spelling" maxlength="200" placeholder="led">
+      <p class="hint">
+        The synthesis spelling is what actually steers the engine in Version 1:
+        the ARPAbet is recorded for inspection, but the neural model keeps its
+        own phonemizer.
+      </p>
+
+      <p class="error" id="pron-error" hidden></p>
+      <menu>
+        <button type="button" id="pron-cancel">Cancel</button>
+        <button type="button" id="pron-save" class="primary">Save override</button>
+      </menu>
+    </form>
+  </dialog>
+
+  <audio id="player" preload="auto"></audio>
+  <audio id="preloader" preload="auto"></audio>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
