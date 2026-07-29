@@ -68,9 +68,7 @@ class ExportService:
 
     # --- Creation ------------------------------------------------------------------
 
-    def export_document(
-        self, document_id: str, voice_id: str, speed: float
-    ) -> Export:
+    def export_document(self, document_id: str, voice_id: str, speed: float) -> Export:
         """Export every sentence of a document."""
         sentences = self._documents.sentences(document_id)
         return self._export(document_id, sentences, ExportScope.DOCUMENT, voice_id, speed)

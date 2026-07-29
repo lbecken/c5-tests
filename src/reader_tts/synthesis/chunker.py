@@ -26,8 +26,24 @@ from reader_tts.text.tokenizer import tokenize
 _SPLIT_PRIORITY: Final = (";", ":", chars.EM_DASH, chars.EN_DASH, ",")
 
 #: Conjunctions used only when no punctuation boundary exists.
-_CONJUNCTIONS: Final = frozenset({"and", "but", "or", "nor", "for", "so", "yet", "because",
-                                  "although", "though", "while", "which", "that", "when"})
+_CONJUNCTIONS: Final = frozenset(
+    {
+        "and",
+        "but",
+        "or",
+        "nor",
+        "for",
+        "so",
+        "yet",
+        "because",
+        "although",
+        "though",
+        "while",
+        "which",
+        "that",
+        "when",
+    }
+)
 
 
 @dataclass(frozen=True, slots=True)

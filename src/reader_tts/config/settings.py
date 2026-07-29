@@ -96,9 +96,7 @@ class Settings(BaseSettings):
             # honoured but the operator is told what they have done.
             import logging
 
-            logging.getLogger(__name__).warning(
-                "server_bind_non_local", extra={"host": self.host}
-            )
+            logging.getLogger(__name__).warning("server_bind_non_local", extra={"host": self.host})
         return self
 
     # --- Derived paths -------------------------------------------------------

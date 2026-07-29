@@ -120,9 +120,7 @@ class JobRepository:
 
     def is_cancelled(self, job_id: str) -> bool:
         """Whether a job has been cancelled by the user."""
-        row = self._database.query_one(
-            "SELECT status FROM synthesis_jobs WHERE id = ?", (job_id,)
-        )
+        row = self._database.query_one("SELECT status FROM synthesis_jobs WHERE id = ?", (job_id,))
         return row is not None and row["status"] == JobStatus.CANCELLED.value
 
     # --- Sentence audio ------------------------------------------------------------
@@ -173,9 +171,7 @@ class JobRepository:
 
     def clear_sentence_audio(self, sentence_id: str) -> None:
         """Remove every chunk record for one sentence."""
-        self._database.execute(
-            "DELETE FROM sentence_audio WHERE sentence_id = ?", (sentence_id,)
-        )
+        self._database.execute("DELETE FROM sentence_audio WHERE sentence_id = ?", (sentence_id,))
 
     def completed_duration(self, document_id: str) -> float:
         """Total duration of the audio generated for a document so far."""

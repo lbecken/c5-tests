@@ -59,9 +59,7 @@ def cancel_job(job_id: str, services: Services) -> JobResponse:
     response_model=ExportOut,
     status_code=status.HTTP_201_CREATED,
 )
-def create_export(
-    document_id: str, request: CreateExportRequest, services: Services
-) -> ExportOut:
+def create_export(document_id: str, request: CreateExportRequest, services: Services) -> ExportOut:
     """Render a sentence, a paragraph or the whole document to a WAV file."""
     if request.scope is ExportScope.SENTENCE:
         if not request.sentence_id:
@@ -84,8 +82,7 @@ def create_export(
 def list_exports(document_id: str, services: Services) -> list[ExportOut]:
     """List every export of one document, newest first."""
     return [
-        ExportOut.from_domain(export)
-        for export in services.exports.list_for_document(document_id)
+        ExportOut.from_domain(export) for export in services.exports.list_for_document(document_id)
     ]
 
 

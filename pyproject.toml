@@ -77,7 +77,9 @@ ignore_missing_imports = true
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-addopts = "-q --strict-markers"
+# The real-model tests are excluded by default so the ordinary suite needs
+# neither the model nor several minutes. Run them with: pytest -m real_tts
+addopts = '-q --strict-markers -m "not real_tts"'
 markers = [
     "real_tts: tests that require the real Kokoro model and weights (deselect with '-m \"not real_tts\"')",
     "slow: long-running tests",

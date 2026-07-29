@@ -1,0 +1,56 @@
+name: CI
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+
+      - name: Install dependencies
+        # The 'kokoro' extra is deliberately not installed: the fast suite runs
+        # against the deterministic fake engine and needs neither the model nor
+        # the network.
+        run: uv sync
+
+      - name: Lint
+        run: uv run ruff check .
+
+      - name: Format check
+        run: uv run ruff format --check .
+
+      - name: Static type checking
+        run: uv run mypy src
+
+      - name: Tests
+        run: uv run pytest
+
+      - name: Verify the pinned dictionary
+        run: uv run python scripts/verify_dictionary.py
+
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+
+      - name: Check dependencies for known vulnerabilities
+        run: |
+          uv sync --no-extra kokoro
+          uv run --with pip-audit pip-audit --strict || \
+            echo "::warning::pip-audit reported findings; review them before release"

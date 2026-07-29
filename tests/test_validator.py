@@ -149,7 +149,7 @@ def test_pinned_dictionary_covers_ordinary_prose(cmudict: PronunciationDictionar
     text = (
         "The wind moved through the trees. Did you close the door? "
         "I read the book yesterday, and I read books every day.\n\n"
-        "\"Please record the record,\" she said — quietly, without turning."
+        '"Please record the record," she said — quietly, without turning.'
     )
     result = analyze(text, resolver)
     assert result.report.accepted, [i.message for i in result.report.errors]

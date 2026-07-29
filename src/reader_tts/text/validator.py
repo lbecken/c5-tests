@@ -215,9 +215,7 @@ def _unsupported_token_issue(token: Token) -> ValidationIssue:
     )
 
 
-def _sentence_issues(
-    sentences: tuple[Sentence, ...], hard_max_chars: int
-) -> list[ValidationIssue]:
+def _sentence_issues(sentences: tuple[Sentence, ...], hard_max_chars: int) -> list[ValidationIssue]:
     issues: list[ValidationIssue] = []
     for sentence in sentences:
         if not any(chars.is_letter(char) for char in sentence.text):

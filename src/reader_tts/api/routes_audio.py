@@ -112,8 +112,10 @@ def regenerate_sentence(
 
     latest = services.job_repository.latest_for_document(sentence.document_id)
     voice = request.voice_id or (latest.voice_id if latest else services.settings.default_voice)
-    speed = request.speed if request.speed is not None else (
-        latest.speed if latest else services.settings.default_speed
+    speed = (
+        request.speed
+        if request.speed is not None
+        else (latest.speed if latest else services.settings.default_speed)
     )
 
     records = services.jobs.regenerate_sentence(

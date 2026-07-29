@@ -53,9 +53,7 @@ def get_document(document_id: str, services: Services) -> DocumentResponse:
     document = services.documents.get(document_id)
     sentences = services.documents.sentences(document_id)
     audio = services.job_repository.document_audio(document_id)
-    statuses = {
-        sentence_id: _combine(records) for sentence_id, records in audio.items()
-    }
+    statuses = {sentence_id: _combine(records) for sentence_id, records in audio.items()}
     return DocumentResponse.from_domain(document, sentences, statuses)
 
 

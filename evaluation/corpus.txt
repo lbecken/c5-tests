@@ -1,0 +1,92 @@
+# Listening-evaluation corpus.
+#
+# One item per line. Lines beginning with '#' are comments and are ignored.
+# Every line uses only supported dictionary words, standard punctuation and no
+# numbers, abbreviations or symbols.
+#
+# This file also serves as the quality test set required by the acceptance
+# criteria: more than two hundred ordinary dictionary words across more than
+# forty sentences.
+
+# --- Short common sentences ---------------------------------------------------
+The cat sat on the mat.
+The wind moved through the trees.
+She opened the window and listened.
+He walked home in the rain.
+The kettle boiled and then went quiet.
+Morning light fell across the floor.
+The dog slept beside the fire.
+They waited for the bus together.
+A small bird landed on the fence.
+The room smelled of coffee and paper.
+
+# --- Questions ------------------------------------------------------------------
+Did you close the door?
+Where did you put the keys?
+Are you certain that this is the right way?
+How long have you been standing there?
+Would you like me to read it again?
+
+# --- Exclamations and emphasis -------------------------------------------------
+Stop!
+What a strange and lovely evening!
+Look at the size of that tree!
+
+# --- Quotation -------------------------------------------------------------------
+"Please record the record," she said.
+He answered, "I have already read the letter."
+"Come in," said the old man, "and close the door behind you."
+She whispered, "The wind is rising."
+
+# --- Repeated ambiguous words ------------------------------------------------------
+I read the book yesterday.
+I read books every day.
+Please record the record.
+The record shows that they did record it.
+The wind was strong, so we had to wind the rope around the post.
+Lead the way, and mind the lead pipe.
+Do not desert me in the desert.
+The dove dove into the bushes.
+They present the present to the winner.
+Close the door and stand close to me.
+She will object to that object.
+A tear rolled down her cheek before she saw the tear in the paper.
+He does not know what the does are doing.
+They live in a house where live music is played.
+
+# --- Contractions -------------------------------------------------------------------
+I don't think that's a good idea.
+We can't stay here, and you shouldn't either.
+It's been a long day, hasn't it?
+You're right, but I'm not certain he's ready.
+They've gone, and we won't see them again.
+
+# --- Hyphenated compounds ------------------------------------------------------------
+My mother-in-law arrived on a well-worn bicycle.
+The blue-green water looked cold and deep.
+It was a self-evident, well-meaning suggestion.
+He gave a long-winded, half-hearted explanation.
+
+# --- Punctuation variety ---------------------------------------------------------------
+He came; she left: they waited.
+The plan was simple — walk in, look around, and walk out again.
+Three things mattered: the light, the silence, and the cold.
+She paused (only for a moment) and then continued.
+It was late, very late, and nobody was awake.
+
+# --- Long sentences ----------------------------------------------------------------------
+The wind moved through the trees along the edge of the field, and although the light was already fading, she kept walking, past the gate and the low stone wall, until the path turned and the house came into view.
+He had been told, more than once and by people who ought to have known better, that the road was closed, that nothing waited at the end of it, and that turning back would cost him nothing at all; he went anyway.
+When the rain finally stopped and the clouds began to break apart over the hills, the whole valley seemed to hold its breath, as if waiting to see whether the light would last or whether the grey would close in again before evening.
+
+# --- Paragraph flow ---------------------------------------------------------------------
+The house stood at the end of a narrow lane. Its windows were dark. Nobody had lived there for years, and the garden had grown wild around the door.
+She knocked once. Then she knocked again, harder. The sound carried further than she expected, and somewhere behind the house a bird rose out of the hedge.
+Inside, the air was still and cold. Dust lay across every surface. A single chair faced the empty fireplace, as though someone had sat down and simply never got up again.
+
+# --- Public-domain prose --------------------------------------------------------------------
+It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife.
+Call me Ishmael.
+It was the best of times, it was the worst of times.
+Happy families are all alike; every unhappy family is unhappy in its own way.
+In the beginning the world was without form, and darkness was upon the face of the deep.

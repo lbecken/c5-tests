@@ -48,9 +48,7 @@ def create_document(client: TestClient, text: str = SAMPLE_TEXT) -> str:
     return str(response.json()["id"])
 
 
-def synthesize(
-    client: TestClient, document_id: str, voice: str = "af_heart"
-) -> dict[str, object]:
+def synthesize(client: TestClient, document_id: str, voice: str = "af_heart") -> dict[str, object]:
     response = client.post(
         f"/api/v1/documents/{document_id}/synthesis-jobs",
         json={"voice_id": voice, "speed": 1.0},
@@ -95,18 +93,14 @@ def test_index_page_is_served(client: TestClient) -> None:
 
 
 def test_validate_accepts_clean_text(client: TestClient) -> None:
-    payload = client.post(
-        "/api/v1/validate", json={"text": "The cat sat on the mat."}
-    ).json()
+    payload = client.post("/api/v1/validate", json={"text": "The cat sat on the mat."}).json()
     assert payload["accepted"] is True
     assert payload["statistics"]["words"] == 6
     assert len(payload["sentences"]) == 1
 
 
 def test_validate_reports_unknown_words_with_offsets(client: TestClient) -> None:
-    payload = client.post(
-        "/api/v1/validate", json={"text": "The frobnicator sat."}
-    ).json()
+    payload = client.post("/api/v1/validate", json={"text": "The frobnicator sat."}).json()
     assert payload["accepted"] is False
     issue = payload["issues"][0]
     assert issue["code"] == "unknown_word"
@@ -449,7 +443,7 @@ def test_oversized_request_is_rejected(client: TestClient) -> None:
 def test_errors_never_leak_a_stack_trace(client: TestClient) -> None:
     body = client.get("/api/v1/documents/nope").text
     assert "Traceback" not in body
-    assert "File \"" not in body
+    assert 'File "' not in body
 
 
 def test_static_assets_are_served(client: TestClient) -> None:

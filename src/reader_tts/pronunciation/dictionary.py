@@ -86,9 +86,7 @@ class PronunciationDictionary:
             if entry is None:
                 return None
             phonemes.extend(entry.pronunciations[0].phonemes)
-        return CompoundResolution(
-            word=word, components=components, phonemes=tuple(phonemes)
-        )
+        return CompoundResolution(word=word, components=components, phonemes=tuple(phonemes))
 
     def pronunciations(self, normalized_word: str) -> tuple[Pronunciation, ...]:
         """Return every dictionary pronunciation for *normalized_word*."""

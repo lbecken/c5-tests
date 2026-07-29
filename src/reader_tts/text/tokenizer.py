@@ -59,9 +59,7 @@ def tokenize(canonical: str, normalized: str | None = None) -> tuple[Token, ...]
                 if _PARAGRAPH_BREAK.fullmatch(norm[position:end])
                 else TokenKind.WHITESPACE
             )
-            tokens.append(
-                Token(raw=raw, normalized=raw, kind=kind, span=TextSpan(position, end))
-            )
+            tokens.append(Token(raw=raw, normalized=raw, kind=kind, span=TextSpan(position, end)))
             position = end
             continue
 

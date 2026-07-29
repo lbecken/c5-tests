@@ -221,9 +221,7 @@ class DocumentResponse(BaseModel):
             text_hash=document.text_hash,
             created_at=document.created_at.isoformat(),
             sentences=[
-                SentenceOut.from_domain(
-                    sentence, lookup.get(sentence.id, SentenceStatus.PENDING)
-                )
+                SentenceOut.from_domain(sentence, lookup.get(sentence.id, SentenceStatus.PENDING))
                 for sentence in sentences
             ],
         )

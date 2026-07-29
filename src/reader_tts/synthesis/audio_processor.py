@@ -77,8 +77,7 @@ def validate_audio(
     stats = measure(samples, sample_rate)
     if stats.duration_seconds < min_duration:
         raise AudioValidationError(
-            f"output is implausibly short: {stats.duration_seconds:.3f}s "
-            f"for {len(text)} characters"
+            f"output is implausibly short: {stats.duration_seconds:.3f}s for {len(text)} characters"
         )
     if stats.duration_seconds > max_duration:
         raise AudioValidationError(

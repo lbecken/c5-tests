@@ -19,9 +19,7 @@ class CleanupResult:
     freed_bytes: int
 
 
-def collect_statistics(
-    repository: CacheRepository, store: AudioFileStore
-) -> CacheStatistics:
+def collect_statistics(repository: CacheRepository, store: AudioFileStore) -> CacheStatistics:
     """Summarize the cache, including records and files that disagree."""
     entries, total_bytes, total_seconds = repository.totals()
     recorded = set(repository.all_keys())

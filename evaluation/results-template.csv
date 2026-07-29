@@ -1,0 +1,4 @@
+index,text,words,accepted,unknown_words,ambiguous_words,audio_file,duration_seconds,engine,model,voice,speed,word_intelligibility,pronunciation_correctness,sentence_rhythm,pause_appropriateness,voice_consistency,long_form_comfort,notes
+1,The cat sat on the mat.,6,True,0,2,runtime/evaluation/001.wav,1.85,kokoro,kokoro-82m,af_heart,1.00,,,,,,,
+2,The wind moved through the trees.,6,True,0,3,runtime/evaluation/002.wav,2.30,kokoro,kokoro-82m,af_heart,1.00,,,,,,,
+3,,,,,,,,,,,,,,,,,,"Scores are 1-5; see rubric.md. Leave long_form_comfort blank per line and score it once per voice."

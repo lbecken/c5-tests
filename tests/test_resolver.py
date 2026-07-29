@@ -53,9 +53,7 @@ def test_document_override_beats_global(
     sample_dictionary: PronunciationDictionary, overrides: OverrideRepository
 ) -> None:
     overrides.upsert("READ", ["R", "EH1", "D"])
-    overrides.upsert(
-        "READ", ["R", "IY1", "D"], scope=OverrideScope.DOCUMENT, document_id="doc-1"
-    )
+    overrides.upsert("READ", ["R", "IY1", "D"], scope=OverrideScope.DOCUMENT, document_id="doc-1")
     resolver = PronunciationResolver(sample_dictionary, overrides, document_id="doc-1")
     resolved = resolver.resolve("READ")
     assert resolved.source is PronunciationSource.DOCUMENT_OVERRIDE
@@ -76,9 +74,7 @@ def test_override_beats_user_variant(
     sample_dictionary: PronunciationDictionary, overrides: OverrideRepository
 ) -> None:
     overrides.upsert("READ", ["R", "EH1", "D"])
-    resolver = PronunciationResolver(
-        sample_dictionary, overrides, variant_selections={"READ": 0}
-    )
+    resolver = PronunciationResolver(sample_dictionary, overrides, variant_selections={"READ": 0})
     assert resolver.resolve("READ").source is PronunciationSource.GLOBAL_OVERRIDE
 
 
