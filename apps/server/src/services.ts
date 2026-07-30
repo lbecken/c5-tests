@@ -111,8 +111,12 @@ export async function getChangeset(
   from: string,
   to: string,
   paths?: string[],
+  options: DiffOptions = {},
 ): Promise<ChangesetResponse> {
-  const changes = await repo.changedFiles(from, to, { paths });
+  const changes = await repo.changedFiles(from, to, {
+    paths,
+    algorithm: options.algorithm ?? 'histogram',
+  });
   let additions = 0;
   let deletions = 0;
   for (const change of changes) {

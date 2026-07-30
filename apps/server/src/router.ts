@@ -198,7 +198,13 @@ export function createRouter(sessions: SessionStore): (context: RequestContext) 
     const from = context.query.get('from');
     const to = context.query.get('to');
     if (!from || !to) throw new HttpError(400, 'from and to revisions are required');
-    return getChangeset(repo, from, to, context.query.getAll('path'));
+    return getChangeset(
+      repo,
+      from,
+      to,
+      context.query.getAll('path'),
+      diffOptionsFrom(context.query),
+    );
   });
 
   on('GET', '/repos/:id/diff', async (context, params) => {

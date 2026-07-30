@@ -476,10 +476,19 @@ export class Repository {
   async changedFiles(
     from: string,
     to: string,
-    options: { findRenames?: boolean; paths?: string[] } = {},
+    options: {
+      findRenames?: boolean;
+      paths?: string[];
+      /**
+       * Must match the algorithm the file's diff will be rendered with,
+       * otherwise the line counts in a file list disagree with the diff the
+       * user opens from it.
+       */
+      algorithm?: 'histogram' | 'myers';
+    } = {},
   ): Promise<FileChange[]> {
     const range = this.diffRangeArgs(from, to);
-    const common = ['-z', '--no-color'];
+    const common = ['-z', '--no-color', `--diff-algorithm=${options.algorithm ?? 'histogram'}`];
     if (options.findRenames !== false) common.push('--find-renames', '--find-copies');
     const paths = options.paths && options.paths.length > 0 ? ['--', ...options.paths] : [];
 
