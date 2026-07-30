@@ -1,5 +1,14 @@
 node_modules/
+dist/
+build/
+out/
+release/
+coverage/
+*.tsbuildinfo
 .DS_Store
 *.log
 .vscode/
 .idea/
+.vite/
+.env
+.env.local

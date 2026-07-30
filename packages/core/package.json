@@ -1,0 +1,19 @@
+{
+  "name": "@gitscope/core",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts",
+    "./diff": "./src/diff/index.ts",
+    "./merge": "./src/merge/index.ts",
+    "./git": "./src/git/index.ts",
+    "./graph": "./src/graph/index.ts"
+  },
+  "scripts": {
+    "build": "tsc -b",
+    "test": "vitest run"
+  }
+}
