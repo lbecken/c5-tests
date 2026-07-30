@@ -1,9 +1,17 @@
-import { readdir, stat } from 'node:fs/promises';
+import { readdir, readFile, stat } from 'node:fs/promises';
 import { homedir } from 'node:os';
 import { isAbsolute, join, resolve } from 'node:path';
 
-import { layoutGraph, Repository, type DiffOptions, type Ref } from '@gitscope/core';
+import {
+  decodeBlob,
+  layoutGraph,
+  operations,
+  Repository,
+  type DiffOptions,
+  type Ref,
+} from '@gitscope/core';
 
+import { compareDirectories, copyEntry, deleteEntry } from './directories.js';
 import { languageOf } from './language.js';
 import { getChangeset, getConflict, getFileDiff } from './services.js';
 import type { SessionStore } from './session.js';
@@ -272,6 +280,177 @@ export function createRouter(sessions: SessionStore): (context: RequestContext) 
     const conflict = await getConflict(repo, path);
     if (!conflict) throw new HttpError(404, `${path} is not conflicted`);
     return conflict;
+  });
+
+  /**
+   * Write operations.
+   *
+   * All of them go through one endpoint with a discriminated payload so that
+   * the set of things this server can change to a repository is enumerable in
+   * one place, and so the UI cannot invent a command by string concatenation.
+   */
+  on('POST', '/repos/:id/op', async (context, params) => {
+    const repo = sessionOf(params).repo;
+    const body = context.body as { op?: string; [key: string]: unknown } | null;
+    const op = body?.op;
+    if (typeof op !== 'string') throw new HttpError(400, 'an operation name is required');
+
+    const paths = Array.isArray(body?.paths) ? (body.paths as string[]) : [];
+    const text = (name: string): string => {
+      const value = body?.[name];
+      if (typeof value !== 'string') throw new HttpError(400, `${name} is required`);
+      return value;
+    };
+    const flag = (name: string): boolean => body?.[name] === true;
+
+    switch (op) {
+      case 'stage':
+        return operations.stage(repo, paths);
+      case 'unstage':
+        return operations.unstage(repo, paths);
+      case 'discard':
+        return operations.discardChanges(repo, paths);
+      case 'apply-patch':
+        return operations.applyPatch(repo, text('patch'), {
+          reverse: flag('reverse'),
+          cached: flag('cached'),
+        });
+      case 'commit':
+        return operations.commit(repo, {
+          message: text('message'),
+          amend: flag('amend'),
+          all: flag('all'),
+          signoff: flag('signoff'),
+          allowEmpty: flag('allowEmpty'),
+        });
+      case 'create-branch':
+        return operations.createBranch(
+          repo,
+          text('name'),
+          typeof body?.startPoint === 'string' ? body.startPoint : undefined,
+          body?.checkout !== false,
+        );
+      case 'delete-branch':
+        return operations.deleteBranch(repo, text('name'), flag('force'));
+      case 'rename-branch':
+        return operations.renameBranch(repo, text('from'), text('to'));
+      case 'checkout':
+        return operations.checkout(repo, text('target'));
+      case 'create-tag':
+        return operations.createTag(
+          repo,
+          text('name'),
+          typeof body?.target === 'string' ? body.target : undefined,
+          typeof body?.message === 'string' ? body.message : undefined,
+        );
+      case 'delete-tag':
+        return operations.deleteTag(repo, text('name'));
+      case 'stash-push':
+        return operations.stashPush(repo, {
+          message: typeof body?.message === 'string' ? body.message : undefined,
+          includeUntracked: flag('includeUntracked'),
+          keepIndex: flag('keepIndex'),
+        });
+      case 'stash-apply':
+        return operations.stashApply(repo, text('ref'), flag('drop'));
+      case 'stash-drop':
+        return operations.stashDrop(repo, text('ref'));
+      case 'merge':
+        return operations.merge(repo, text('target'), {
+          noFastForward: flag('noFastForward'),
+          squash: flag('squash'),
+        });
+      case 'rebase':
+        return operations.rebase(repo, text('onto'), { interactive: flag('interactive') });
+      case 'cherry-pick':
+        return operations.cherryPick(repo, (body?.oids as string[]) ?? []);
+      case 'revert':
+        return operations.revert(repo, (body?.oids as string[]) ?? []);
+      case 'operation-action':
+        return operations.continueOperation(
+          repo,
+          text('operation') as 'merge' | 'rebase' | 'cherry-pick' | 'revert',
+          text('action') as 'continue' | 'abort' | 'skip',
+        );
+      case 'fetch':
+        return operations.fetch(
+          repo,
+          typeof body?.remote === 'string' ? body.remote : undefined,
+          body?.prune !== false,
+        );
+      case 'pull':
+        return operations.pull(repo, {
+          rebase: flag('rebase'),
+          remote: typeof body?.remote === 'string' ? body.remote : undefined,
+          branch: typeof body?.branch === 'string' ? body.branch : undefined,
+        });
+      case 'push':
+        return operations.push(repo, {
+          remote: typeof body?.remote === 'string' ? body.remote : undefined,
+          branch: typeof body?.branch === 'string' ? body.branch : undefined,
+          setUpstream: flag('setUpstream'),
+          force: flag('force'),
+        });
+      case 'resolve':
+        return operations.resolveConflict(repo, text('path'), text('content'));
+      case 'take-side':
+        return operations.takeSide(repo, text('path'), text('side') as 'ours' | 'theirs');
+      default:
+        throw new HttpError(400, `unknown operation ${op}`);
+    }
+  });
+
+  on('GET', '/repos/:id/stashes', async (_context, params) =>
+    operations.stashList(sessionOf(params).repo),
+  );
+
+  on('GET', '/fs/compare', async (context) => {
+    const left = context.query.get('left');
+    const right = context.query.get('right');
+    if (!left || !right) throw new HttpError(400, 'left and right folders are required');
+    return compareDirectories(left, right, {
+      ignore: context.query.getAll('ignore'),
+      quick: context.query.get('quick') === 'true',
+    });
+  });
+
+  on('POST', '/fs/copy', async (context) => {
+    const body = context.body as {
+      left?: string;
+      right?: string;
+      path?: string;
+      direction?: 'to-right' | 'to-left';
+    } | null;
+    if (!body?.left || !body.right || !body.path || !body.direction) {
+      throw new HttpError(400, 'left, right, path and direction are required');
+    }
+    return copyEntry(body.left, body.right, body.path, body.direction);
+  });
+
+  on('POST', '/fs/delete', async (context) => {
+    const body = context.body as { root?: string; path?: string } | null;
+    if (!body?.root || !body.path) throw new HttpError(400, 'root and path are required');
+    return deleteEntry(body.root, body.path);
+  });
+
+  on('GET', '/fs/file', async (context) => {
+    const path = context.query.get('path');
+    if (!path) throw new HttpError(400, 'path is required');
+    try {
+      const data = await readFile(resolve(path));
+      const decoded = decodeBlob(data);
+      return {
+        path,
+        text: decoded.text,
+        size: data.length,
+        isBinary: decoded.isBinary,
+        encoding: decoded.encoding,
+        noFinalNewline: decoded.noFinalNewline,
+        language: languageOf(path),
+      };
+    } catch (error) {
+      throw new HttpError(404, (error as Error).message);
+    }
   });
 
   // Directory listing, so the web build can offer an "open repository" browser

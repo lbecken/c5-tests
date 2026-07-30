@@ -1286,3 +1286,620 @@
 .tk-punct {
   color: var(--syn-punct);
 }
+
+/* ---------------------------------------------------------------- splitter */
+
+.splitter {
+  flex: none;
+  background: var(--border);
+  transition: background var(--transition);
+}
+
+.splitter:hover {
+  background: var(--accent);
+}
+
+.splitter[data-orientation='horizontal'] {
+  width: 4px;
+  cursor: col-resize;
+}
+
+.splitter[data-orientation='vertical'] {
+  height: 4px;
+  cursor: row-resize;
+}
+
+/* ------------------------------------------------------------------- graph */
+
+.graph-view {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+}
+
+.graph-top {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.graph-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+  flex: none;
+}
+
+.graph-search {
+  display: flex;
+  gap: 6px;
+  flex: 1;
+  max-width: 620px;
+}
+
+.graph-search .input {
+  flex: 1;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.graph-count {
+  color: var(--text-faint);
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.graph-scroll {
+  flex: 1;
+  overflow: auto;
+  position: relative;
+}
+
+.graph-row {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-right: 12px;
+  text-align: left;
+  border-bottom: 1px solid transparent;
+}
+
+.graph-row:hover {
+  background: var(--bg-hover);
+}
+
+.graph-row[data-selected='yes'] {
+  background: var(--bg-selected);
+}
+
+.graph-lane-cell {
+  flex: none;
+  display: flex;
+  align-items: center;
+}
+
+.graph-lanes {
+  display: block;
+}
+
+.graph-refs {
+  display: flex;
+  gap: 3px;
+  flex: none;
+  max-width: 280px;
+  overflow: hidden;
+}
+
+.graph-subject {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.graph-author {
+  width: 140px;
+  flex: none;
+  color: var(--text-muted);
+  font-size: 11px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.graph-date {
+  width: 110px;
+  flex: none;
+  color: var(--text-faint);
+  font-size: 11px;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.graph-oid {
+  width: 70px;
+  flex: none;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-faint);
+  text-align: right;
+}
+
+.graph-more {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.graph-bottom {
+  flex: none;
+  display: flex;
+  min-height: 0;
+  border-top: 1px solid var(--border);
+}
+
+.graph-bottom > .changeset {
+  flex: 1;
+}
+
+/* ------------------------------------------------------------ text compare */
+
+.text-compare {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+}
+
+.compare-inputs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+  flex: none;
+}
+
+.compare-input {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.compare-input-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.compare-textarea {
+  height: 110px;
+  resize: vertical;
+  padding: 6px 8px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  background: var(--bg-raised);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  outline: none;
+}
+
+.compare-textarea:focus {
+  border-color: var(--accent);
+}
+
+.compare-revision {
+  display: flex;
+  gap: 6px;
+}
+
+.compare-revision .input {
+  flex: 1;
+  min-width: 0;
+}
+
+.compare-summary {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 12px;
+  border-bottom: 1px solid var(--border);
+  font-size: 12px;
+  flex: none;
+}
+
+/* ------------------------------------------------------------------- merge */
+
+.merge-view {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+}
+
+.merge-files {
+  display: flex;
+  gap: 4px;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+  overflow-x: auto;
+  flex: none;
+}
+
+.merge-file {
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-strong);
+  white-space: nowrap;
+  font-family: var(--font-mono);
+  font-size: 11px;
+}
+
+.merge-file[data-selected='yes'] {
+  background: var(--bg-selected);
+  border-color: var(--accent);
+}
+
+.merge-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  background: var(--bg);
+  z-index: 3;
+  flex: none;
+}
+
+.merge-status {
+  font-weight: 600;
+  color: var(--del-fg);
+}
+
+.merge-status[data-clean='yes'] {
+  color: var(--add-fg);
+}
+
+.merge-error {
+  padding: 8px 12px;
+  background: var(--del-bg);
+  color: var(--del-fg);
+  font-size: 12px;
+}
+
+.merge-context {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  padding: 12px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-sunken);
+}
+
+.merge-context h3 {
+  margin: 0 0 8px;
+  font-size: 12px;
+}
+
+.merge-context section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.merge-context p {
+  margin: 0;
+  font-size: 12px;
+}
+
+.merge-side-diff {
+  height: 320px;
+  display: flex;
+  border-bottom: 1px solid var(--border);
+}
+
+.merge-regions {
+  display: flex;
+  flex-direction: column;
+  padding: 0 0 40px;
+}
+
+.merge-stable {
+  margin: 0;
+  padding: 2px 12px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: var(--line-height);
+  color: var(--text-muted);
+  white-space: pre;
+  overflow-x: auto;
+}
+
+.merge-line {
+  display: block;
+  white-space: pre;
+}
+
+.merge-line.empty {
+  color: var(--text-faint);
+  font-style: italic;
+}
+
+.merge-conflict {
+  margin: 10px 12px;
+  border: 1px solid var(--conflict-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.merge-conflict[data-resolved='yes'] {
+  border-color: var(--add-bg-strong);
+}
+
+.merge-conflict-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  background: var(--conflict-bg);
+  border-bottom: 1px solid var(--border);
+}
+
+.merge-conflict[data-resolved='yes'] .merge-conflict-head {
+  background: var(--add-bg);
+}
+
+.merge-conflict-label {
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.merge-panes {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  border-bottom: 1px solid var(--border);
+}
+
+.merge-pane {
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--border);
+  min-width: 0;
+}
+
+.merge-pane:last-child {
+  border-right: none;
+}
+
+.merge-pane-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  padding: 3px 8px;
+  background: var(--bg-sunken);
+  border-bottom: 1px solid var(--border);
+  font-size: 11px;
+}
+
+.merge-pane[data-side='ours'] .merge-pane-head {
+  background: var(--del-gutter);
+}
+
+.merge-pane[data-side='theirs'] .merge-pane-head {
+  background: var(--add-gutter);
+}
+
+.merge-pane-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.merge-pane-body {
+  margin: 0;
+  padding: 4px 8px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: var(--line-height);
+  overflow-x: auto;
+  max-height: 260px;
+}
+
+.merge-result {
+  margin: 0;
+  padding: 6px 10px;
+  background: var(--add-bg);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: var(--line-height);
+  overflow-x: auto;
+  max-height: 300px;
+}
+
+.merge-editor {
+  width: 100%;
+  min-height: 120px;
+  padding: 6px 10px;
+  border: none;
+  border-top: 1px solid var(--border);
+  background: var(--bg-raised);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: var(--line-height);
+  resize: vertical;
+  outline: none;
+}
+
+.merge-unresolved {
+  padding: 8px 10px;
+  font-size: 12px;
+  color: var(--text-muted);
+  background: var(--bg-sunken);
+}
+
+/* -------------------------------------------------------- folder compare */
+
+.dir-compare {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+}
+
+.dir-inputs {
+  display: flex;
+  gap: 8px;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+  flex: none;
+}
+
+.dir-inputs .input {
+  flex: 1;
+}
+
+.dir-message {
+  padding: 6px 12px;
+  font-size: 12px;
+  color: var(--text-muted);
+  background: var(--bg-sunken);
+  border-bottom: 1px solid var(--border);
+}
+
+.dir-body {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+}
+
+.dir-tree {
+  width: 420px;
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--border);
+  background: var(--bg-sunken);
+}
+
+.dir-tree-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  border-bottom: 1px solid var(--border);
+}
+
+.dir-totals {
+  display: flex;
+  gap: 6px;
+  font-size: 11px;
+  margin-left: auto;
+}
+
+.count-mod {
+  color: var(--mod-fg);
+}
+
+.dir-tree-list {
+  flex: 1;
+  overflow: auto;
+}
+
+.dir-entry {
+  display: flex;
+  align-items: center;
+  border-left: 2px solid transparent;
+}
+
+.dir-entry:hover {
+  background: var(--bg-hover);
+}
+
+.dir-entry[data-selected='yes'] {
+  background: var(--bg-selected);
+  border-left-color: var(--accent);
+}
+
+.dir-entry[data-status='added'] .dir-name {
+  color: var(--add-fg);
+}
+
+.dir-entry[data-status='removed'] .dir-name {
+  color: var(--del-fg);
+}
+
+.dir-entry[data-status='modified'] .dir-name {
+  color: var(--mod-fg);
+}
+
+.dir-entry[data-status='same'] .dir-name {
+  color: var(--text-muted);
+}
+
+.dir-entry-main {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex: 1;
+  min-width: 0;
+  padding: 4px 8px;
+  text-align: left;
+  font-size: 12px;
+}
+
+.dir-icon {
+  color: var(--text-faint);
+  width: 10px;
+  flex: none;
+  font-size: 9px;
+}
+
+.dir-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dir-size {
+  margin-left: auto;
+  font-size: 10px;
+  color: var(--text-faint);
+  white-space: nowrap;
+  flex: none;
+}
+
+.dir-actions {
+  display: flex;
+  gap: 1px;
+  flex: none;
+  padding-right: 4px;
+}
+
+.dir-preview {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}

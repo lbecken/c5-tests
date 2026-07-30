@@ -9,16 +9,21 @@
     ".": "./src/index.ts",
     "./protocol": "./src/protocol.ts"
   },
+  "bin": {
+    "gitscope-server": "./dist/gitscope-server.mjs"
+  },
   "scripts": {
-    "build": "tsc -b",
-    "dev": "node --experimental-strip-types src/cli.ts",
-    "start": "node --experimental-strip-types src/cli.ts"
+    "build": "node build.mjs",
+    "typecheck": "tsc -b",
+    "dev": "node build.mjs && node dist/gitscope-server.mjs",
+    "start": "node dist/gitscope-server.mjs"
   },
   "dependencies": {
     "@gitscope/core": "workspace:*",
     "ws": "^8.18.0"
   },
   "devDependencies": {
-    "@types/ws": "^8.5.13"
+    "@types/ws": "^8.5.13",
+    "esbuild": "^0.24.2"
   }
 }

@@ -5,7 +5,11 @@ import { RepoPicker } from './components/RepoPicker';
 import { Sidebar } from './components/Sidebar';
 import { TitleBar } from './components/TitleBar';
 import { ChangesetView } from './components/changeset/ChangesetView';
+import { TextCompareView } from './components/compare/TextCompareView';
+import { DirectoryCompareView } from './components/directories/DirectoryCompareView';
+import { GraphView } from './components/graph/GraphView';
 import { FileHistoryView } from './components/history/FileHistoryView';
+import { MergeView } from './components/merge/MergeView';
 import { CommitView } from './components/views/CommitView';
 import { WorkingCopyView } from './components/views/WorkingCopyView';
 import { useRepoStore } from './store/repo';
@@ -78,12 +82,13 @@ function ViewSwitch({
       );
     case 'history':
       return <FileHistoryView repoId={repoId} path={view.path} revision={revision} />;
-    default:
-      return (
-        <div className="empty-state">
-          This view is not available yet.
-          <div className="empty-detail">It arrives in a later milestone.</div>
-        </div>
-      );
+    case 'graph':
+      return <GraphView repoId={repoId} selected={view.selected} revision={revision} />;
+    case 'conflicts':
+      return <MergeView repoId={repoId} path={view.path} revision={revision} />;
+    case 'compare':
+      return <TextCompareView repoId={repoId} left={view.left} right={view.right} />;
+    case 'directories':
+      return <DirectoryCompareView left={view.left} right={view.right} />;
   }
 }

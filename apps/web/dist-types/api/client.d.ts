@@ -45,9 +45,36 @@ export declare const api: {
     }) => Promise<FileHistoryResponse>;
     tree: (id: string, rev: string, path?: string) => Promise<TreeResponse>;
     conflict: (id: string, path: string) => Promise<ConflictResponse>;
+    /** Every repository-changing action goes through this one endpoint. */
+    operation: (id: string, payload: Record<string, unknown> & {
+        op: string;
+    }) => Promise<{
+        ok: boolean;
+        message: string;
+    }>;
+    stashes: (id: string) => Promise<{
+        ref: string;
+        message: string;
+        date: string;
+    }[]>;
     compareDirectories: (left: string, right: string, options?: {
         ignore?: string[];
     }) => Promise<DirectoryCompareResponse>;
+    /** Read a file from the filesystem, outside any repository. */
+    readFsFile: (path: string) => Promise<BlobResponse>;
+    copyPath: (payload: {
+        left: string;
+        right: string;
+        path: string;
+        direction: "to-right" | "to-left";
+    }) => Promise<{
+        ok: boolean;
+        message: string;
+    }>;
+    deletePath: (root: string, path: string) => Promise<{
+        ok: boolean;
+        message: string;
+    }>;
     browse: (path?: string) => Promise<{
         path: string;
         parent: string;

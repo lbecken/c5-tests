@@ -74,6 +74,10 @@ beforeAll(async () => {
   page.on('console', (message) => {
     if (message.type() === 'error') failures.push(message.text());
   });
+  // Record the URL too: "404" on its own is not something you can act on.
+  page.on('response', (response) => {
+    if (response.status() >= 400) failures.push(`${response.status()} ${response.url()}`);
+  });
   (page as Page & { failures: string[] }).failures = failures;
 
   await page.goto(server.url);

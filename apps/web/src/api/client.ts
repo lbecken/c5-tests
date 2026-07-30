@@ -132,8 +132,39 @@ export const api = {
   conflict: (id: string, path: string) =>
     request<ConflictResponse>(`/repos/${id}/conflict${query({ path })}`),
 
+  /** Every repository-changing action goes through this one endpoint. */
+  operation: (id: string, payload: Record<string, unknown> & { op: string }) =>
+    request<{ ok: boolean; message: string }>(`/repos/${id}/op`, {
+      method: 'POST',
+      body: JSON.stringify(payload),
+    }),
+
+  stashes: (id: string) =>
+    request<Array<{ ref: string; message: string; date: string }>>(`/repos/${id}/stashes`),
+
   compareDirectories: (left: string, right: string, options: { ignore?: string[] } = {}) =>
     request<DirectoryCompareResponse>(`/fs/compare${query({ left, right, ...options })}`),
+
+  /** Read a file from the filesystem, outside any repository. */
+  readFsFile: (path: string) =>
+    request<BlobResponse>(`/fs/file${query({ path })}`),
+
+  copyPath: (payload: {
+    left: string;
+    right: string;
+    path: string;
+    direction: 'to-right' | 'to-left';
+  }) =>
+    request<{ ok: boolean; message: string }>('/fs/copy', {
+      method: 'POST',
+      body: JSON.stringify(payload),
+    }),
+
+  deletePath: (root: string, path: string) =>
+    request<{ ok: boolean; message: string }>('/fs/delete', {
+      method: 'POST',
+      body: JSON.stringify({ root, path }),
+    }),
 
   browse: (path?: string) =>
     request<{

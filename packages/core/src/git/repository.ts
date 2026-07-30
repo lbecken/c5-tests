@@ -93,6 +93,19 @@ export class Repository {
     return runGit(args, { cwd: this.root, throwOnError });
   }
 
+  /**
+   * Run an arbitrary git command in this repository. Used by the write
+   * operations, which live outside this class so that the read model stays
+   * readable.
+   */
+  exec(args: string[], options: { throwOnError?: boolean; input?: Buffer | string } = {}) {
+    return runGit(args, {
+      cwd: this.root,
+      throwOnError: options.throwOnError ?? true,
+      input: options.input,
+    });
+  }
+
   private async text(args: string[], throwOnError = true): Promise<string> {
     const result = await this.run(args, throwOnError);
     return result.stdout.toString('utf8');
