@@ -36,10 +36,19 @@ export type View = {
     kind: 'compare';
     left?: string;
     right?: string;
+    leftFile?: string;
+    rightFile?: string;
 } | {
     kind: 'directories';
     left?: string;
     right?: string;
+} | {
+    kind: 'file-merge';
+    base: string;
+    local: string;
+    remote: string;
+    output: string;
+    intentId?: string;
 };
 interface RepoStoreState {
     repo?: RepoSummary;

@@ -1,0 +1,21 @@
+{
+  "name": "@gitscope/desktop",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Gitscope — diff and merge with deep git integration",
+  "main": "dist/main.cjs",
+  "scripts": {
+    "build": "node build.mjs",
+    "typecheck": "tsc -b",
+    "start": "electron .",
+    "package": "node build.mjs && electron-builder --dir"
+  },
+  "dependencies": {
+    "@gitscope/core": "workspace:*",
+    "@gitscope/server": "workspace:*"
+  },
+  "devDependencies": {
+    "electron": "^33.3.1",
+    "esbuild": "^0.24.2"
+  }
+}

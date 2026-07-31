@@ -13,3 +13,4 @@ coverage/
 .env
 .env.local
 test-output/
+dist-types/

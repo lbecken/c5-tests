@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react';
 
 import type { Ref } from '@gitscope/core';
 
+import { api } from '../api/client';
 import { useRepoStore, type View } from '../store/repo';
 
 interface Section {
@@ -24,6 +25,27 @@ export function Sidebar() {
   const navigate = useRepoStore((state) => state.navigate);
   const [collapsed, setCollapsed] = useState<ReadonlySet<string>>(() => new Set(['remote']));
   const [filter, setFilter] = useState('');
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState<string | undefined>();
+  const repoId = repo?.id;
+  const refresh = useRepoStore((store) => store.refresh);
+
+  const act = async (payload: Record<string, unknown> & { op: string }): Promise<void> => {
+    if (!repoId) return;
+    setBusy(true);
+    setError(undefined);
+    try {
+      const result = await api.operation(repoId, payload);
+      if (!result.ok) setError(result.message);
+      await refresh();
+    } catch (cause) {
+      setError((cause as Error).message);
+    } finally {
+      setBusy(false);
+    }
+  };
+
+  const checkout = (target: string): Promise<void> => act({ op: 'checkout', target });
 
   const grouped = useMemo(() => {
     const needle = filter.trim().toLowerCase();
@@ -121,7 +143,27 @@ export function Sidebar() {
           onChange={(event) => setFilter(event.target.value)}
           spellCheck={false}
         />
+        <button
+          type="button"
+          className="icon-button"
+          disabled={busy}
+          title="Create a branch here"
+          onClick={() => {
+            const name = window.prompt('New branch name');
+            if (name && name.trim().length > 0) {
+              void act({ op: 'create-branch', name: name.trim(), checkout: true });
+            }
+          }}
+        >
+          +
+        </button>
       </div>
+
+      {error ? (
+        <button type="button" className="sidebar-error" onClick={() => setError(undefined)} title={error}>
+          {error.split('\n')[0]}
+        </button>
+      ) : null}
 
       <div className="sidebar-refs">
         {SECTIONS.map((section) => {
@@ -139,22 +181,39 @@ export function Sidebar() {
               </button>
               {!isCollapsed
                 ? items.map((ref) => (
-                    <button
-                      type="button"
-                      key={ref.fullName}
-                      className="sidebar-ref"
-                      data-head={ref.isHead ? 'yes' : 'no'}
-                      onClick={() => navigate({ kind: 'graph', selected: ref.targetOid })}
-                      title={`${ref.fullName}${ref.subject ? ` — ${ref.subject}` : ''}`}
-                    >
-                      <span className="sidebar-ref-name">{ref.name}</span>
-                      {ref.ahead || ref.behind ? (
-                        <span className="track">
-                          {ref.ahead ? `↑${ref.ahead}` : ''}
-                          {ref.behind ? `↓${ref.behind}` : ''}
-                        </span>
+                    <div key={ref.fullName} className="sidebar-ref-row">
+                      <button
+                        type="button"
+                        className="sidebar-ref"
+                        data-head={ref.isHead ? 'yes' : 'no'}
+                        onClick={() => navigate({ kind: 'graph', selected: ref.targetOid })}
+                        onDoubleClick={() => void checkout(ref.kind === 'remote' ? ref.name : ref.name)}
+                        title={`${ref.fullName}${ref.subject ? ` — ${ref.subject}` : ''}\nDouble-click to check out`}
+                      >
+                        <span className="sidebar-ref-name">{ref.name}</span>
+                        {ref.ahead || ref.behind ? (
+                          <span className="track">
+                            {ref.ahead ? `↑${ref.ahead}` : ''}
+                            {ref.behind ? `↓${ref.behind}` : ''}
+                          </span>
+                        ) : null}
+                      </button>
+                      {ref.kind === 'branch' && !ref.isHead ? (
+                        <button
+                          type="button"
+                          className="icon-button danger tiny"
+                          disabled={busy}
+                          title={`Delete branch ${ref.name}`}
+                          onClick={() => {
+                            if (window.confirm(`Delete the branch "${ref.name}"?`)) {
+                              void act({ op: 'delete-branch', name: ref.name });
+                            }
+                          }}
+                        >
+                          ×
+                        </button>
                       ) : null}
-                    </button>
+                    </div>
                   ))
                 : null}
             </div>

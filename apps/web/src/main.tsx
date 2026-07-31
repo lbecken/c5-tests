@@ -15,6 +15,12 @@ import './styles/app.css';
  */
 declare global {
   interface Window {
+    /** Present only in the desktop build; see apps/desktop/src/preload.ts. */
+    gitscopeDesktop?: {
+      isDesktop: true;
+      platform: string;
+      openRepositoryDialog: () => Promise<void>;
+    };
     __gitscope?: {
       navigate: (view: View) => void;
       openRepo: (path: string) => Promise<void>;

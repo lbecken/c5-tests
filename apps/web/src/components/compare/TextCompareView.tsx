@@ -1,4 +1,4 @@
-import { useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 
 import { buildTextDiff, splitLines } from '@gitscope/core/diff';
 
@@ -11,11 +11,15 @@ interface Props {
   repoId?: string;
   left?: string;
   right?: string;
+  /** Absolute paths, used when the comparison came from the command line. */
+  leftFile?: string;
+  rightFile?: string;
 }
 
 type Source =
   | { kind: 'text'; value: string }
-  | { kind: 'revision'; rev: string; path: string };
+  | { kind: 'revision'; rev: string; path: string }
+  | { kind: 'file'; path: string };
 
 /**
  * Compare any two pieces of text: pasted content, or any path at any revision.
@@ -25,13 +29,17 @@ type Source =
  * and then diffed the same way, which keeps both halves of this view identical
  * below the input controls.
  */
-export function TextCompareView({ repoId, left, right }: Props) {
-  const [leftSource, setLeftSource] = useState<Source>(
-    left ? { kind: 'revision', rev: 'HEAD', path: left } : { kind: 'text', value: '' },
+export function TextCompareView({ repoId, left, right, leftFile, rightFile }: Props) {
+  const [leftSource, setLeftSource] = useState<Source>(() => initial(left, leftFile, 'HEAD'));
+  const [rightSource, setRightSource] = useState<Source>(() =>
+    initial(right, rightFile, ':worktree'),
   );
-  const [rightSource, setRightSource] = useState<Source>(
-    right ? { kind: 'revision', rev: ':worktree', path: right } : { kind: 'text', value: '' },
-  );
+
+  // A hand-off from the command line replaces whatever was on screen.
+  useEffect(() => {
+    if (leftFile) setLeftSource({ kind: 'file', path: leftFile });
+    if (rightFile) setRightSource({ kind: 'file', path: rightFile });
+  }, [leftFile, rightFile]);
   const options = useSettings((state) => state.diffOptions);
   const whitespace = useSettings((state) => state.whitespace);
   const context = useSettings((state) => state.context);
@@ -41,6 +49,10 @@ export function TextCompareView({ repoId, left, right }: Props) {
     async () => {
       const read = async (source: Source): Promise<string> => {
         if (source.kind === 'text') return source.value;
+        if (source.kind === 'file') {
+          const blob = await api.readFsFile(source.path);
+          return blob.text ?? '';
+        }
         if (!repoId) return '';
         const blob = await api.file(repoId, source.rev, source.path);
         return blob.text ?? '';
@@ -61,15 +73,10 @@ export function TextCompareView({ repoId, left, right }: Props) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loaded.data, whitespace, context]);
 
-  const language = useMemo(() => {
-    const path =
-      rightSource.kind === 'revision'
-        ? rightSource.path
-        : leftSource.kind === 'revision'
-          ? leftSource.path
-          : '';
-    return guessLanguage(path);
-  }, [leftSource, rightSource]);
+  const language = useMemo(
+    () => guessLanguage(pathOf(rightSource) || pathOf(leftSource)),
+    [leftSource, rightSource],
+  );
 
   return (
     <div className="text-compare">
@@ -124,7 +131,19 @@ export function TextCompareView({ repoId, left, right }: Props) {
 }
 
 function describe(source: Source): string {
-  return source.kind === 'text' ? 'Pasted text' : `${source.rev} — ${source.path}`;
+  if (source.kind === 'text') return 'Pasted text';
+  if (source.kind === 'file') return source.path;
+  return `${source.rev} — ${source.path}`;
+}
+
+function pathOf(source: Source): string {
+  return source.kind === 'text' ? '' : source.path;
+}
+
+function initial(repoPath: string | undefined, filePath: string | undefined, rev: string): Source {
+  if (filePath) return { kind: 'file', path: filePath };
+  if (repoPath) return { kind: 'revision', rev, path: repoPath };
+  return { kind: 'text', value: '' };
 }
 
 function SourceInput({
@@ -157,6 +176,14 @@ function SourceInput({
             disabled={!repoAvailable}
             title={repoAvailable ? 'Compare a file from the repository' : 'No repository open'}
           >
+            Revision
+          </button>
+          <button
+            type="button"
+            data-active={source.kind === 'file' ? 'yes' : 'no'}
+            onClick={() => onChange({ kind: 'file', path: '' })}
+            title="Compare a file on disk"
+          >
             File
           </button>
         </div>
@@ -169,6 +196,14 @@ function SourceInput({
           placeholder="Paste or type…"
           spellCheck={false}
           onChange={(event) => onChange({ kind: 'text', value: event.target.value })}
+        />
+      ) : source.kind === 'file' ? (
+        <input
+          className="input"
+          value={source.path}
+          placeholder="/absolute/path/to/file"
+          spellCheck={false}
+          onChange={(event) => onChange({ kind: 'file', path: event.target.value })}
         />
       ) : (
         <div className="compare-revision">

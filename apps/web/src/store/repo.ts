@@ -20,8 +20,16 @@ export type View =
   | { kind: 'changeset'; from: string; to: string; path?: string }
   | { kind: 'history'; path: string; from?: string; to?: string }
   | { kind: 'conflicts'; path?: string }
-  | { kind: 'compare'; left?: string; right?: string }
-  | { kind: 'directories'; left?: string; right?: string };
+  | { kind: 'compare'; left?: string; right?: string; leftFile?: string; rightFile?: string }
+  | { kind: 'directories'; left?: string; right?: string }
+  | {
+      kind: 'file-merge';
+      base: string;
+      local: string;
+      remote: string;
+      output: string;
+      intentId?: string;
+    };
 
 interface RepoStoreState {
   repo?: RepoSummary;

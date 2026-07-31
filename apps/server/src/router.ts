@@ -1,17 +1,20 @@
-import { readdir, readFile, stat } from 'node:fs/promises';
+import { readdir, readFile, stat, writeFile } from 'node:fs/promises';
 import { homedir } from 'node:os';
 import { isAbsolute, join, resolve } from 'node:path';
 
 import {
   decodeBlob,
   layoutGraph,
+  merge3,
   operations,
   Repository,
+  splitLines,
   type DiffOptions,
   type Ref,
 } from '@gitscope/core';
 
 import { compareDirectories, copyEntry, deleteEntry } from './directories.js';
+import type { IntentRegistry } from './intents.js';
 import { languageOf } from './language.js';
 import { getChangeset, getConflict, getFileDiff } from './services.js';
 import type { SessionStore } from './session.js';
@@ -81,7 +84,10 @@ function intParam(query: URLSearchParams, name: string, fallback: number): numbe
   return Number.isFinite(parsed) ? parsed : fallback;
 }
 
-export function createRouter(sessions: SessionStore): (context: RequestContext) => Promise<unknown> {
+export function createRouter(
+  sessions: SessionStore,
+  intents: IntentRegistry,
+): (context: RequestContext) => Promise<unknown> {
   const routes: Route[] = [];
 
   const on = (method: string, pattern: string, handler: Handler): void => {
@@ -403,6 +409,70 @@ export function createRouter(sessions: SessionStore): (context: RequestContext) 
   on('GET', '/repos/:id/stashes', async (_context, params) =>
     operations.stashList(sessionOf(params).repo),
   );
+
+  /**
+   * Three-way merge of three files on disk, for `git mergetool`. Shaped like
+   * the repository conflict response so the UI renders it with the same view.
+   */
+  on('GET', '/fs/merge', async (context) => {
+    const read = async (name: string): Promise<string[]> => {
+      const path = context.query.get(name);
+      if (!path) throw new HttpError(400, `${name} is required`);
+      try {
+        const decoded = decodeBlob(await readFile(resolve(path)));
+        return decoded.text === undefined ? [] : splitLines(decoded.text).lines;
+      } catch (error) {
+        throw new HttpError(404, `cannot read ${name}: ${(error as Error).message}`);
+      }
+    };
+    const [base, ours, theirs] = await Promise.all([read('base'), read('local'), read('remote')]);
+    const merged = merge3(base, ours, theirs);
+    return {
+      path: context.query.get('output') ?? context.query.get('local') ?? '',
+      regions: merged.regions,
+      base,
+      ours,
+      theirs,
+      conflictCount: merged.conflictCount,
+      labels: {
+        ours: context.query.get('localLabel') ?? 'Local',
+        theirs: context.query.get('remoteLabel') ?? 'Remote',
+        base: context.query.get('baseLabel') ?? 'Base',
+      },
+      oursCommits: [],
+      theirsCommits: [],
+    };
+  });
+
+  on('POST', '/fs/write', async (context) => {
+    const body = context.body as { path?: string; content?: string } | null;
+    if (typeof body?.path !== 'string' || typeof body.content !== 'string') {
+      throw new HttpError(400, 'path and content are required');
+    }
+    try {
+      await writeFile(resolve(body.path), body.content, 'utf8');
+      return { ok: true, message: `wrote ${body.path}` };
+    } catch (error) {
+      return { ok: false, message: (error as Error).message };
+    }
+  });
+
+  // --- command-line hand-offs -------------------------------------------
+
+  on('GET', '/intents', async () => intents.pending());
+
+  on('POST', '/intents', async (context) => {
+    const body = context.body as { kind?: string; payload?: Record<string, unknown> } | null;
+    if (!body?.kind) throw new HttpError(400, 'an intent kind is required');
+    return intents.create(body.kind as never, body.payload ?? {});
+  });
+
+  on('GET', '/intents/:id/wait', async (_context, params) => intents.wait(params.id ?? ''));
+
+  on('POST', '/intents/:id/complete', async (context, params) => {
+    const body = context.body as { saved?: boolean } | null;
+    return { ok: intents.complete(params.id ?? '', body?.saved === true) };
+  });
 
   on('GET', '/fs/compare', async (context) => {
     const left = context.query.get('left');

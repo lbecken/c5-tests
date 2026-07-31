@@ -2,6 +2,9 @@ interface Props {
     repoId?: string;
     left?: string;
     right?: string;
+    /** Absolute paths, used when the comparison came from the command line. */
+    leftFile?: string;
+    rightFile?: string;
 }
 /**
  * Compare any two pieces of text: pasted content, or any path at any revision.
@@ -11,6 +14,6 @@ interface Props {
  * and then diffed the same way, which keeps both halves of this view identical
  * below the input controls.
  */
-export declare function TextCompareView({ repoId, left, right }: Props): import("react").JSX.Element;
+export declare function TextCompareView({ repoId, left, right, leftFile, rightFile }: Props): import("react").JSX.Element;
 export {};
 //# sourceMappingURL=TextCompareView.d.ts.map

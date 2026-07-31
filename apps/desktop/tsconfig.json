@@ -1,0 +1,12 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "./dist-types",
+    "rootDir": "./src",
+    "types": ["node"],
+    "module": "Preserve",
+    "moduleResolution": "Bundler"
+  },
+  "include": ["src/**/*"],
+  "references": [{ "path": "../../packages/core" }, { "path": "../server" }]
+}

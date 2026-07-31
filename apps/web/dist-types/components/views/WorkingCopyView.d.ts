@@ -4,9 +4,9 @@ interface Props {
     revision: number;
 }
 /**
- * What you have changed but not yet committed, as a changeset. The three scopes
- * map onto the three comparisons git can express, named the way people think
- * about them rather than the way the flags are spelled.
+ * The working copy as a staging area: what is staged, what is not, and a
+ * commit box — with every file still opening in the same diff view used
+ * everywhere else.
  */
 export declare function WorkingCopyView({ repoId, path, revision }: Props): import("react").JSX.Element;
 export {};

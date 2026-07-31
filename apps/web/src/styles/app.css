@@ -32,21 +32,45 @@
   border-bottom: 1px solid var(--border);
   background: var(--bg-sunken);
   flex: none;
+  flex-wrap: nowrap;
+  /* Dragging the window by its chrome, for the frameless desktop build. */
+  -webkit-app-region: drag;
+}
+
+/* Leave room for the macOS traffic lights under `titleBarStyle: hiddenInset`. */
+.app[data-platform='darwin'] .title-bar {
+  padding-left: 82px;
+}
+
+.title-bar button,
+.title-bar input,
+.title-bar select {
+  -webkit-app-region: no-drag;
 }
 
 .title-bar-nav {
   display: flex;
   gap: 2px;
+  flex: none;
 }
 
 .title-bar-location {
   flex: 1;
+  min-width: 0;
   text-align: center;
   color: var(--text-muted);
   font-weight: 500;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.title-bar-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: none;
+  flex-wrap: nowrap;
 }
 
 /* ------------------------------------------------------------------ sidebar */
@@ -1902,4 +1926,227 @@
   min-width: 0;
   display: flex;
   flex-direction: column;
+}
+
+/* --------------------------------------------------------------- staging */
+
+.staging-section {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid var(--border);
+  min-height: 0;
+  max-height: 40%;
+}
+
+.staging-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  flex: none;
+}
+
+.staging-title {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-faint);
+}
+
+.staging-count {
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.staging-head .link {
+  margin-left: auto;
+  font-size: 11px;
+}
+
+.staging-list {
+  overflow-y: auto;
+  flex: 1;
+  min-height: 0;
+}
+
+.staging-empty {
+  padding: 8px 12px;
+  font-size: 11px;
+  color: var(--text-faint);
+}
+
+.file-entry.static {
+  position: static;
+  transform: none !important;
+  height: auto;
+  padding: 0;
+}
+
+.file-entry-main {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  min-width: 0;
+  padding: 5px 4px 5px 10px;
+  text-align: left;
+}
+
+.file-actions {
+  display: flex;
+  gap: 1px;
+  flex: none;
+  padding-right: 6px;
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+
+.file-entry:hover .file-actions,
+.file-entry[data-selected='yes'] .file-actions {
+  opacity: 1;
+}
+
+.icon-button.danger:hover:not(:disabled) {
+  background: var(--del-bg);
+  color: var(--del-fg);
+}
+
+.icon-button.tiny {
+  width: 18px;
+  height: 18px;
+  font-size: 12px;
+}
+
+.conflict-callout {
+  display: block;
+  width: 100%;
+  padding: 8px 12px;
+  background: var(--del-bg);
+  color: var(--del-fg);
+  font-weight: 600;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+/* ------------------------------------------------------------ commit panel */
+
+.commit-panel {
+  margin-top: auto;
+  border-top: 1px solid var(--border);
+  background: var(--bg);
+  flex: none;
+}
+
+.commit-message {
+  width: 100%;
+  min-height: 76px;
+  padding: 8px 10px;
+  border: none;
+  background: transparent;
+  color: var(--text);
+  resize: vertical;
+  outline: none;
+  font-family: var(--font-ui);
+}
+
+.commit-panel-foot {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px 8px;
+}
+
+.commit-length {
+  font-size: 10px;
+  color: var(--text-faint);
+  font-variant-numeric: tabular-nums;
+}
+
+.commit-length[data-long='yes'] {
+  color: var(--mod-fg);
+}
+
+.commit-error {
+  padding: 6px 10px;
+  font-size: 11px;
+  color: var(--del-fg);
+  background: var(--del-bg);
+  white-space: pre-wrap;
+}
+
+/* -------------------------------------------------------- operation banner */
+
+.operation-banner {
+  padding: 8px 10px;
+  background: var(--mod-bg);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: none;
+}
+
+.operation-banner-text {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--mod-fg);
+  flex-wrap: wrap;
+}
+
+.operation-banner-actions {
+  display: flex;
+  gap: 6px;
+}
+
+/* ----------------------------------------------------------- remote actions */
+
+.remote-actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.remote-error,
+.sidebar-error {
+  max-width: 220px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--del-fg);
+  font-size: 11px;
+  padding: 2px 6px;
+  background: var(--del-bg);
+  border-radius: var(--radius-sm);
+}
+
+.sidebar-error {
+  display: block;
+  margin: 4px 8px;
+  max-width: none;
+  text-align: left;
+}
+
+.sidebar-filter {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.sidebar-ref-row {
+  display: flex;
+  align-items: center;
+}
+
+.sidebar-ref-row .icon-button {
+  opacity: 0;
+  flex: none;
+}
+
+.sidebar-ref-row:hover .icon-button {
+  opacity: 1;
 }

@@ -130,8 +130,16 @@ export interface TreeResponse {
   entries: TreeEntry[];
 }
 
+export interface PendingIntent {
+  id: string;
+  kind: 'compare-files' | 'merge-files' | 'open-repo';
+  payload: Record<string, unknown>;
+  createdAt: number;
+}
+
 export type ServerEvent =
   | { type: 'repo-changed'; repoId: string; reasons: ChangeReason[] }
+  | { type: 'intent'; intent: PendingIntent }
   | { type: 'error'; message: string };
 
 export type ChangeReason = 'worktree' | 'index' | 'refs' | 'head' | 'operation';

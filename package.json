@@ -7,12 +7,21 @@
     "node": ">=20"
   },
   "scripts": {
-    "build": "pnpm -r --filter './packages/*' build",
-    "test": "vitest run",
+    "build": "pnpm run build:web && pnpm run build:server && pnpm run build:cli && pnpm run build:desktop",
+    "build:web": "pnpm --filter @gitscope/web build",
+    "build:server": "pnpm --filter @gitscope/server build",
+    "build:cli": "pnpm --filter @gitscope/cli build",
+    "build:desktop": "pnpm --filter @gitscope/desktop build",
+    "test": "xvfb-run -a vitest run",
+    "test:unit": "vitest run packages/core apps/server",
+    "test:ui": "vitest run apps/web",
+    "test:desktop": "xvfb-run -a vitest run apps/desktop",
     "test:watch": "vitest",
-    "typecheck": "tsc -b --pretty",
+    "typecheck": "tsc -b packages/core apps/server apps/web packages/cli apps/desktop --pretty",
+    "check": "pnpm run typecheck && pnpm run build:web && pnpm run test",
     "dev": "pnpm --filter @gitscope/web dev",
-    "serve": "pnpm --filter @gitscope/server dev"
+    "serve": "pnpm --filter @gitscope/server dev",
+    "app": "pnpm run build && pnpm --filter @gitscope/desktop start"
   },
   "devDependencies": {
     "@types/node": "^22.10.2",

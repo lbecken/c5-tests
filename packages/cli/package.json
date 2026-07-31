@@ -1,0 +1,21 @@
+{
+  "name": "@gitscope/cli",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "bin": {
+    "gsc": "./dist/gsc.mjs"
+  },
+  "main": "./src/index.ts",
+  "scripts": {
+    "build": "node build.mjs",
+    "typecheck": "tsc -b"
+  },
+  "dependencies": {
+    "@gitscope/core": "workspace:*",
+    "@gitscope/server": "workspace:*"
+  },
+  "devDependencies": {
+    "esbuild": "^0.24.2"
+  }
+}

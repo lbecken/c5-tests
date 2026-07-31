@@ -10,6 +10,7 @@ import type {
   OpenRepoResponse,
   RepoSummary,
   ServerEvent,
+  PendingIntent,
   StatusResponse,
   TreeResponse,
 } from '@gitscope/server/protocol';
@@ -144,6 +145,29 @@ export const api = {
 
   compareDirectories: (left: string, right: string, options: { ignore?: string[] } = {}) =>
     request<DirectoryCompareResponse>(`/fs/compare${query({ left, right, ...options })}`),
+
+  mergeFiles: (params: {
+    base: string;
+    local: string;
+    remote: string;
+    output?: string;
+    localLabel?: string;
+    remoteLabel?: string;
+  }) => request<ConflictResponse>(`/fs/merge${query(params)}`),
+
+  writeFile: (path: string, content: string) =>
+    request<{ ok: boolean; message: string }>('/fs/write', {
+      method: 'POST',
+      body: JSON.stringify({ path, content }),
+    }),
+
+  completeIntent: (id: string, saved: boolean) =>
+    request<{ ok: boolean }>(`/intents/${id}/complete`, {
+      method: 'POST',
+      body: JSON.stringify({ saved }),
+    }),
+
+  pendingIntents: () => request<PendingIntent[]>('/intents'),
 
   /** Read a file from the filesystem, outside any repository. */
   readFsFile: (path: string) =>

@@ -1,4 +1,4 @@
-import type { BlobResponse, ChangesetResponse, CommitDetail, ConflictResponse, DirectoryCompareResponse, FileDiffResponse, FileHistoryResponse, LogResponse, OpenRepoResponse, RepoSummary, ServerEvent, StatusResponse, TreeResponse } from '@gitscope/server/protocol';
+import type { BlobResponse, ChangesetResponse, CommitDetail, ConflictResponse, DirectoryCompareResponse, FileDiffResponse, FileHistoryResponse, LogResponse, OpenRepoResponse, RepoSummary, ServerEvent, PendingIntent, StatusResponse, TreeResponse } from '@gitscope/server/protocol';
 import type { DiffOptions, Ref, Remote, RepoState } from '@gitscope/core';
 /** Typed client for the local server. Every call goes through `request`. */
 export declare class ApiError extends Error {
@@ -60,6 +60,22 @@ export declare const api: {
     compareDirectories: (left: string, right: string, options?: {
         ignore?: string[];
     }) => Promise<DirectoryCompareResponse>;
+    mergeFiles: (params: {
+        base: string;
+        local: string;
+        remote: string;
+        output?: string;
+        localLabel?: string;
+        remoteLabel?: string;
+    }) => Promise<ConflictResponse>;
+    writeFile: (path: string, content: string) => Promise<{
+        ok: boolean;
+        message: string;
+    }>;
+    completeIntent: (id: string, saved: boolean) => Promise<{
+        ok: boolean;
+    }>;
+    pendingIntents: () => Promise<PendingIntent[]>;
     /** Read a file from the filesystem, outside any repository. */
     readFsFile: (path: string) => Promise<BlobResponse>;
     copyPath: (payload: {

@@ -1,3 +1,4 @@
+import { RemoteActions } from './RemoteActions';
 import { useRepoStore } from '../store/repo';
 import { useSettings, type Theme } from '../store/settings';
 
@@ -9,6 +10,7 @@ const THEMES: Array<{ value: Theme; label: string }> = [
 
 /** Back/forward, the current location, and global preferences. */
 export function TitleBar() {
+  const repo = useRepoStore((state) => state.repo);
   const view = useRepoStore((state) => state.view);
   const back = useRepoStore((state) => state.back);
   const forward = useRepoStore((state) => state.forward);
@@ -43,6 +45,7 @@ export function TitleBar() {
       <div className="title-bar-location">{describe(view)}</div>
 
       <div className="title-bar-actions">
+        {repo ? <RemoteActions repoId={repo.id} /> : null}
         <div className="segmented small">
           {THEMES.map((option) => (
             <button
@@ -78,5 +81,7 @@ function describe(view: ReturnType<typeof useRepoStore.getState>['view']): strin
       return 'Text compare';
     case 'directories':
       return 'Folder compare';
+    case 'file-merge':
+      return `Merging ${view.output}`;
   }
 }

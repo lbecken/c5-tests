@@ -5,6 +5,7 @@ import { extname, join, normalize, resolve } from 'node:path';
 
 import { WebSocketServer, type WebSocket } from 'ws';
 
+import { IntentRegistry } from './intents.js';
 import { createRouter, HttpError, type RequestContext } from './router.js';
 import { SessionStore } from './session.js';
 import type { ServerEvent } from './protocol.js';
@@ -23,6 +24,7 @@ export interface RunningServer {
   port: number;
   url: string;
   sessions: SessionStore;
+  intents: IntentRegistry;
   close(): Promise<void>;
 }
 
@@ -116,7 +118,8 @@ async function serveStatic(
 
 export async function startServer(options: ServerOptions = {}): Promise<RunningServer> {
   const sessions = new SessionStore();
-  const route = createRouter(sessions);
+  const intents = new IntentRegistry();
+  const route = createRouter(sessions, intents);
 
   for (const path of options.openPaths ?? []) {
     try {
@@ -183,6 +186,10 @@ export async function startServer(options: ServerOptions = {}): Promise<RunningS
     const send = (event: ServerEvent): void => {
       if (ws.readyState === ws.OPEN) ws.send(JSON.stringify(event));
     };
+
+    // Every window hears about command-line hand-offs, whichever repository
+    // it happens to have open.
+    unsubscribes.push(intents.subscribe((intent) => send({ type: 'intent', intent })));
     for (const repoId of repoIds) {
       const session = sessions.get(repoId);
       if (!session) {
@@ -211,9 +218,13 @@ export async function startServer(options: ServerOptions = {}): Promise<RunningS
     port,
     url: `http://${options.host ?? '127.0.0.1'}:${port}`,
     sessions,
+    intents,
     close: async () => {
       wss.close();
       sessions.closeAll();
+      // Long-poll hand-offs hold a connection open by design, so shutting down
+      // has to drop them rather than wait for them.
+      server.closeAllConnections?.();
       await new Promise<void>((done) => server.close(() => done()));
     },
   };
