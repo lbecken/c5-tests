@@ -225,6 +225,13 @@ def build_manifest() -> dict:
             sfx.setdefault(name, {"file": f"effects/{name}.mp3", "used_in": []})
             sfx[name]["used_in"].append(lid)
 
+    # Ambience beds are referenced from characters.json (ambiences[].bed), never from a
+    # line's fx array, so they have to be collected separately or they never get made.
+    for amb in C["characters"]["ambiences"].values():
+        bed = amb.get("bed")
+        if bed and bed != "none":
+            sfx.setdefault(bed, {"file": f"effects/{bed}.mp3", "used_in": ["<ambience bed>"]})
+
     return {
         "generated_from": "game/content/*.json",
         "output_format": OUTPUT_FORMAT,

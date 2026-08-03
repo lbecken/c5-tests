@@ -7247,6 +7247,54 @@
       "used_in": [
         "EP_01"
       ]
+    },
+    "amb_control_room": {
+      "file": "effects/amb_control_room.mp3",
+      "used_in": [
+        "<ambience bed>"
+      ]
+    },
+    "amb_decode_booth": {
+      "file": "effects/amb_decode_booth.mp3",
+      "used_in": [
+        "<ambience bed>"
+      ]
+    },
+    "amb_security": {
+      "file": "effects/amb_security.mp3",
+      "used_in": [
+        "<ambience bed>"
+      ]
+    },
+    "amb_machine_bay": {
+      "file": "effects/amb_machine_bay.mp3",
+      "used_in": [
+        "<ambience bed>"
+      ]
+    },
+    "amb_anechoic": {
+      "file": "effects/amb_anechoic.mp3",
+      "used_in": [
+        "<ambience bed>"
+      ]
+    },
+    "amb_shortwave": {
+      "file": "effects/amb_shortwave.mp3",
+      "used_in": [
+        "<ambience bed>"
+      ]
+    },
+    "amb_tape_hiss": {
+      "file": "effects/amb_tape_hiss.mp3",
+      "used_in": [
+        "<ambience bed>"
+      ]
+    },
+    "amb_corridor": {
+      "file": "effects/amb_corridor.mp3",
+      "used_in": [
+        "<ambience bed>"
+      ]
     }
   },
   "music": {
