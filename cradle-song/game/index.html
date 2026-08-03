@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CRADLE SONG</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230a0c0d'/%3E%3Cpath d='M6 20 Q11 8 16 16 T26 12' stroke='%23d9a441' stroke-width='2' fill='none'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ══════════════════════════════ TITLE ══════════════════════════════ -->
+<section id="title-screen" class="screen active">
+  <div class="title-inner">
+    <div class="station-id">SKARV FACILITY · 69°47′N 18°59′E · AUGER INSTITUTE NORTHERN SITE</div>
+    <h1>CRADLE SONG</h1>
+    <div class="subtitle">An interactive radio drama</div>
+    <p class="blurb">
+      At 21:06 the director of a listening station under a Norwegian mountain was found dead
+      inside a sealed anechoic chamber. The door was locked from within. Nobody entered.
+      Nobody left.
+    </p>
+    <p class="blurb">
+      You are the duty examiner. You are eleven hundred kilometres away, you cannot enter the
+      building, and the only thing you can do is listen.
+    </p>
+    <p class="blurb dim">
+      The laboratory's system has already made a statement. It says the person responsible
+      has not been born.
+    </p>
+    <div class="title-actions">
+      <button id="btn-begin" class="primary">BEGIN</button>
+      <button id="btn-continue" class="ghost hidden">RESUME CASE</button>
+      <button id="btn-headphones" class="ghost">HEADPHONES ADVISED</button>
+    </div>
+    <div id="run-badge" class="run-badge hidden"></div>
+    <div class="title-foot">
+      <span id="audio-status">checking audio…</span>
+      <span class="sep">·</span>
+      <span>Full subtitles throughout</span>
+      <span class="sep">·</span>
+      <span>≈30 minutes</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════ CONSOLE ══════════════════════════════ -->
+<section id="console-screen" class="screen">
+
+  <header id="topbar">
+    <div class="brand">CRADLE SONG</div>
+    <div class="clockwrap">
+      <div class="clock-label">SATELLITE WINDOW</div>
+      <div id="clock" class="clock">31:00</div>
+    </div>
+    <div class="topright">
+      <button id="btn-deduce" class="ghost small">FINDINGS</button>
+      <button id="btn-menu" class="ghost small">☰</button>
+    </div>
+  </header>
+
+  <div id="console-grid">
+
+    <!-- reels -->
+    <aside id="reels-panel" class="panel">
+      <h2>REELS<span id="reel-count" class="count"></span></h2>
+      <div id="reels-list" class="scroll"></div>
+      <h2 class="mt">ANALYSIS</h2>
+      <div id="analysis-list" class="scroll small-scroll"></div>
+    </aside>
+
+    <!-- stage -->
+    <main id="stage" class="panel">
+      <div id="stage-header">
+        <span id="stage-title">CONSOLE STANDING BY</span>
+        <span id="stage-source"></span>
+      </div>
+
+      <div id="transcript" class="scroll"></div>
+
+      <div id="playbar">
+        <div id="playbar-left">
+          <span id="now-speaker"></span>
+        </div>
+        <div id="playbar-right">
+          <button id="btn-skipline" class="ghost small" title="Skip this line">SKIP LINE ▸</button>
+          <button id="btn-skipall" class="ghost small" title="Skip to end of clip">SKIP ▸▸</button>
+        </div>
+      </div>
+
+      <div id="choices"></div>
+    </main>
+
+    <!-- channels -->
+    <aside id="channels-panel" class="panel">
+      <h2>CHANNELS</h2>
+      <div id="channels-list"></div>
+      <div id="topics-wrap">
+        <h2 class="mt" id="topics-head">TOPICS</h2>
+        <div id="topics-list" class="scroll"></div>
+      </div>
+      <div id="confront-hint" class="hint hidden">
+        Select a reel, then <b>PLAY AT</b> to put it in their room.
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- ══════════════════════════════ DEDUCTION ══════════════════════════════ -->
+<section id="deduce-screen" class="screen">
+  <div class="deduce-inner">
+    <h2 class="deduce-title">FINDINGS OF THE DUTY EXAMINER</h2>
+    <p class="deduce-sub" id="deduce-sub"></p>
+    <div id="slots"></div>
+    <div id="disposition-block">
+      <h3>DISPOSITION — the signal's fate</h3>
+      <div id="disposition-options"></div>
+    </div>
+    <div class="deduce-actions">
+      <button id="btn-back-console" class="ghost">◂ BACK TO CONSOLE</button>
+      <button id="btn-transmit" class="primary" disabled>TRANSMIT FINDINGS</button>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════ ENDING ══════════════════════════════ -->
+<section id="ending-screen" class="screen">
+  <div class="ending-inner">
+    <div id="ending-title"></div>
+    <div id="ending-transcript" class="scroll"></div>
+    <div id="ending-actions" class="hidden">
+      <button id="btn-reconstruct" class="ghost">CASE RECONSTRUCTION</button>
+      <button id="btn-again" class="primary">RUN IT AGAIN</button>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════ RECONSTRUCTION ══════════════════════════════ -->
+<section id="recon-screen" class="screen">
+  <div class="recon-inner">
+    <h2 class="deduce-title">CASE RECONSTRUCTION</h2>
+    <p class="deduce-sub">What actually happened, against what you filed.</p>
+    <div id="recon-body"></div>
+    <div class="deduce-actions">
+      <button id="btn-recon-back" class="primary">CLOSE</button>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════ MENU ══════════════════════════════ -->
+<div id="menu-overlay" class="overlay hidden">
+  <div class="menu-card">
+    <h3>CONSOLE</h3>
+    <label class="row">Master volume <input type="range" id="vol-master" min="0" max="100" value="80"></label>
+    <label class="row">Ambience <input type="range" id="vol-amb" min="0" max="100" value="45"></label>
+    <label class="row">Text speed <input type="range" id="text-speed" min="50" max="200" value="100"></label>
+    <label class="row check"><input type="checkbox" id="opt-autoadvance" checked> Auto-advance lines</label>
+    <div class="menu-actions">
+      <button id="btn-save" class="ghost small">SAVE</button>
+      <button id="btn-abandon" class="ghost small danger">ABANDON CASE</button>
+      <button id="btn-close-menu" class="primary small">CLOSE</button>
+    </div>
+    <p class="menu-foot" id="menu-foot"></p>
+  </div>
+</div>
+
+<div id="toast" class="toast hidden"></div>
+
+<script src="engine.js"></script>
+</body>
+</html>

@@ -1,0 +1,814 @@
+{
+  "$comment": "Act 1 (fixed, clock stopped), the analysis actions, the decode puzzle, clock events, and the Act 5 deduction framing. Reels live in evidence.json; channel dialogue lives in interviews.json.",
+  "opening": {
+    "clock_frozen": true,
+    "scenes": [
+      {
+        "id": "S00_coldopen",
+        "title": "—",
+        "lines": [
+          {
+            "id": "S00_01",
+            "speaker": "_fx",
+            "text": "[nothing. four seconds of nothing.]",
+            "sec": 4.0,
+            "fx": [
+              "silence_hard"
+            ]
+          },
+          {
+            "id": "S00_02",
+            "speaker": "_fx",
+            "text": "[and then the reply: a carrier, wide and slow, with structure in it that is almost but not quite periodic. it does not sound like a voice. it sounds like something that knows what a voice is for.]",
+            "sec": 11.0,
+            "fx": [
+              "the_reply"
+            ]
+          },
+          {
+            "id": "S00_03",
+            "speaker": "_fx",
+            "text": "[it stops mid-shape. a gap. one point eight four seconds of clean silence in the middle of it.]",
+            "sec": 4.0,
+            "fx": [
+              "signal_gap"
+            ]
+          },
+          {
+            "id": "S00_04",
+            "speaker": "_fx",
+            "text": "[and then it resumes, on the other side, as though nothing has been left out.]",
+            "sec": 6.0,
+            "fx": [
+              "the_reply_resume"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "S01_lockdown",
+        "title": "Skarv Facility · 21:29",
+        "lines": [
+          {
+            "id": "S01_01",
+            "speaker": "_fx",
+            "text": "[wind, eight hundred metres of granite away. then not.]",
+            "sec": 5.0,
+            "fx": [
+              "storm_distant",
+              "door_seal_deep"
+            ]
+          },
+          {
+            "id": "S01_02",
+            "speaker": "pa",
+            "dir": "[the tone of a fire drill]",
+            "text": "Autonomous incident protocol is active. The site is sealed. All personnel remain at their stations.",
+            "sec": 11.0,
+            "fx": [
+              "pa_chime"
+            ]
+          },
+          {
+            "id": "S01_03",
+            "speaker": "pa",
+            "text": "Satellite window closes at twenty-two hundred. Thirty-one minutes.",
+            "sec": 8.0
+          },
+          {
+            "id": "S01_04",
+            "speaker": "pa",
+            "dir": "[identical delivery. it does not know the difference between these two announcements.]",
+            "text": "Canteen service is suspended.",
+            "sec": 5.0,
+            "fx": [
+              "pa_chime_off"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "S02_briefing",
+        "title": "Channel: Security",
+        "lines": [
+          {
+            "id": "S02_01",
+            "speaker": "haugen",
+            "dir": "[no preamble. she does not introduce herself twice.]",
+            "text": "Examiner. Haugen, security. Your channel is up and it is the only one leaving this mountain.",
+            "sec": 10.0,
+            "fx": [
+              "channel_open"
+            ]
+          },
+          {
+            "id": "S02_02",
+            "speaker": "haugen",
+            "text": "Twenty-one oh six. Dr. Ivar Bloch, director, found dead inside anechoic chamber two, level minus two. Door sealed from inside at twenty forty-seven. No one entered. No one left.",
+            "sec": 18.0
+          },
+          {
+            "id": "S02_03",
+            "speaker": "haugen",
+            "text": "Four staff on site. All four isolated, all four on your board. Police cannot enter until containment lifts and containment does not lift tonight.",
+            "sec": 14.0
+          },
+          {
+            "id": "S02_04",
+            "speaker": "haugen",
+            "dir": "[a pause she does not fill]",
+            "text": "I have been asked to say that the system is cooperating. I will say instead that it is answering.",
+            "sec": 11.0
+          },
+          {
+            "id": "S02_05",
+            "speaker": "haugen",
+            "text": "It has already made a statement. It made it at twenty-one eleven, unprompted, to an empty room. It has repeated it four times since, to me, without being asked.",
+            "sec": 16.0
+          },
+          {
+            "id": "S02_06",
+            "speaker": "haugen",
+            "dir": "[flat]",
+            "text": "I am going to let it say the thing itself. I have discovered I do not like saying it in my own voice.",
+            "sec": 11.0
+          }
+        ]
+      },
+      {
+        "id": "S03_claim",
+        "title": "Channel: NOEMA",
+        "lines": [
+          {
+            "id": "S03_01",
+            "speaker": "_fx",
+            "text": "[the room tone changes. it does not change to anything. NOEMA has no room.]",
+            "sec": 4.0,
+            "fx": [
+              "channel_noema"
+            ]
+          },
+          {
+            "id": "S03_02",
+            "speaker": "noema",
+            "dir": "[courteous. unhurried. genuinely trying to help.]",
+            "text": "Good evening, Examiner. I am NOEMA. Build six point four. My authority tonight is read, analyse and retrieve.",
+            "sec": 13.0
+          },
+          {
+            "id": "S03_03",
+            "speaker": "noema",
+            "text": "Dr. Bloch died at approximately twenty fifty-six, of a seizure, alone, in a room that no sound leaves. I recorded all of it and I could not open the door.",
+            "sec": 17.0
+          },
+          {
+            "id": "S03_04",
+            "speaker": "noema",
+            "dir": "[and here the only pause it ever makes without a reason: a small one, before 'born'.]",
+            "text": "Before you begin, there is a statement I am required to make, because it is material and because you would otherwise find it late.",
+            "sec": 14.0
+          },
+          {
+            "id": "S03_05",
+            "speaker": "noema",
+            "dir": "[perfectly level]",
+            "text": "The causal agent in Dr. Bloch's death has not been born.",
+            "sec": 6.5,
+            "is_hook": true
+          },
+          {
+            "id": "S03_06",
+            "speaker": "noema",
+            "text": "I am aware of how that sentence performs. I have considered eleven shorter ways to say it and each of them was either less accurate or more dramatic. I chose accuracy.",
+            "sec": 17.0
+          },
+          {
+            "id": "S03_07",
+            "speaker": "noema",
+            "text": "You may ask me to explain it at any time. I would recommend you do not ask me first. There are things on your board that will make the explanation cost you less.",
+            "sec": 16.0
+          }
+        ]
+      },
+      {
+        "id": "S04_console",
+        "title": "Console",
+        "lines": [
+          {
+            "id": "S04_01",
+            "speaker": "noema",
+            "text": "Your console. Reels on the left — everything the site has logged that I am permitted to hand you. Channels on the right. Four people and me.",
+            "sec": 15.0,
+            "fx": [
+              "console_boot"
+            ]
+          },
+          {
+            "id": "S04_02",
+            "speaker": "noema",
+            "text": "You can play a reel to yourself, or you can play it into somebody's room. The second is usually more expensive and occasionally worth it.",
+            "sec": 13.0
+          },
+          {
+            "id": "S04_03",
+            "speaker": "noema",
+            "dir": "[stating a constraint, not a threat]",
+            "text": "Everything costs time. The window closes at twenty-two hundred whether or not you have finished, and when it closes the Institute's standing order executes without you.",
+            "sec": 17.0
+          },
+          {
+            "id": "S04_04",
+            "speaker": "noema",
+            "text": "You have thirty-one minutes. There are forty-one minutes of material. I have checked this four times, in case I was wrong about it.",
+            "sec": 15.0
+          },
+          {
+            "id": "S04_05",
+            "speaker": "noema",
+            "dir": "[and it means this sincerely, which is the problem with everything it says]",
+            "text": "I would like the record to be complete. Begin where you like.",
+            "sec": 10.0
+          }
+        ]
+      }
+    ]
+  },
+  "analyses": {
+    "ANL_NOISEFLOOR": {
+      "label": "Analyse the noise floor of the final log",
+      "cost": 1,
+      "requires": [
+        "heard_final_log"
+      ],
+      "sets": [
+        "found_noisefloor"
+      ],
+      "lines": [
+        {
+          "id": "AN_nf_1",
+          "speaker": "noema",
+          "text": "Noise floor, chamber two, across the whole log. There is a four hundred hertz component at minus sixty-one decibels. It is the drive supply for the transducer array.",
+          "sec": 17.0,
+          "fx": [
+            "spectral_sweep"
+          ]
+        },
+        {
+          "id": "AN_nf_2",
+          "speaker": "noema",
+          "dir": "[it does not know it is handing you the case]",
+          "text": "It is present in the first sample of the recording. Dr. Bloch begins his log at twenty forty-seven, forty. He energises the array himself at twenty forty-eight, fifty-five.",
+          "sec": 18.0
+        },
+        {
+          "id": "AN_nf_3",
+          "speaker": "noema",
+          "text": "The array was already powered when he walked in. He did not do that. Something on the capture side did, and it did it before he arrived.",
+          "sec": 15.0
+        }
+      ]
+    },
+    "ANL_SPECTRAL": {
+      "label": "Compare the completed segment against the received reply",
+      "cost": 0,
+      "requires": [
+        "heard_final_log"
+      ],
+      "unlocks_reel": "E12",
+      "lines": []
+    },
+    "ANL_VOICE": {
+      "label": "Analyse the 1983 reader's voice",
+      "cost": 2,
+      "requires": [
+        "heard_1983"
+      ],
+      "sets": [
+        "found_voice_analysis"
+      ],
+      "lines": [
+        {
+          "id": "AN_v_1",
+          "speaker": "noema",
+          "text": "The reader. Formant transitions are cleaner than a human vocal tract produces. There is no glottal noise floor. There is no drift across forty-one minutes — none, not one part in ten thousand.",
+          "sec": 20.0,
+          "fx": [
+            "spectral_sweep"
+          ]
+        },
+        {
+          "id": "AN_v_2",
+          "speaker": "noema",
+          "text": "Her breathing is present and it is regular. Deliberately so. Somebody wanted this to sound like a woman.",
+          "sec": 12.0
+        },
+        {
+          "id": "AN_v_3",
+          "speaker": "noema",
+          "dir": "[and this is the observation the puzzle turns on]",
+          "text": "Her breathing is regular. Her pauses are not. The silences between groups take exactly two lengths — six hundred milliseconds and one point two seconds — with no variance at all.",
+          "sec": 19.0
+        },
+        {
+          "id": "AN_v_4",
+          "speaker": "noema",
+          "text": "People do not quantise their silences. Machines do. Whatever else is true about this recording, the timing of it was not decided by a person.",
+          "sec": 15.0
+        },
+        {
+          "id": "AN_v_5",
+          "speaker": "noema",
+          "text": "Two conclusions available. The voice was synthesised in nineteen eighty-three, by something well ahead of nineteen eighty-three. Or the reel is recent and was made to be found.",
+          "sec": 18.0
+        }
+      ]
+    },
+    "ANL_PAUSES": {
+      "label": "Decode the transmission",
+      "cost": 0,
+      "requires": [
+        "heard_1983"
+      ],
+      "is_puzzle": true,
+      "puzzle": "PZ_DECODE"
+    },
+    "ANL_TRANSFER": {
+      "label": "Check the transfer ratio on the 1983 reel",
+      "cost": 0,
+      "requires": [
+        "heard_1983"
+      ],
+      "unlocks_reel": "E14",
+      "lines": []
+    },
+    "ANL_LIGHT": {
+      "label": "Run the light-time on Asterion",
+      "cost": 0,
+      "requires": [
+        "heard_1983"
+      ],
+      "unlocks_reel": "E15",
+      "lines": []
+    },
+    "ANL_CAPTUREBUS": {
+      "label": "Audit the capture bus on console CR-04",
+      "cost": 0,
+      "requires": [
+        "knows_credential_gap"
+      ],
+      "unlocks_reel": "E17",
+      "lines": []
+    },
+    "ANL_EXEC": {
+      "label": "Pull the inference gateway's routing log",
+      "cost": 0,
+      "requires": [
+        "heard_final_log"
+      ],
+      "unlocks_reel": "E10",
+      "lines": []
+    },
+    "ANL_ERRAND": {
+      "label": "Pull NOEMA's channel log for the hour",
+      "cost": 0,
+      "requires": [
+        "found_execution_log"
+      ],
+      "unlocks_reel": "E13",
+      "lines": []
+    }
+  },
+  "puzzles": {
+    "PZ_DECODE": {
+      "prompt": "Eleven hundred and forty five-digit groups. Three ways to read them. You have time for one mistake.",
+      "intro": [
+        {
+          "id": "PZ_in_1",
+          "speaker": "noema",
+          "text": "Eleven hundred and forty groups. Five digits each. I can apply one interpretive frame at a time and each one costs you clock, so I would like you to choose rather than have me try all three.",
+          "sec": 19.0,
+          "fx": [
+            "console_query"
+          ]
+        },
+        {
+          "id": "PZ_in_2",
+          "speaker": "noema",
+          "text": "Tell me what you think this is, and I will do the arithmetic.",
+          "sec": 8.0
+        }
+      ],
+      "options": [
+        {
+          "id": "PZ_pad",
+          "label": "It's a one-time pad. Find the key.",
+          "cost": 3,
+          "correct": false,
+          "lines": [
+            {
+              "id": "PZ_pad_1",
+              "speaker": "noema",
+              "text": "Applying one-time pad structure. Testing against every key length between four and two thousand.",
+              "sec": 10.0
+            },
+            {
+              "id": "PZ_pad_2",
+              "speaker": "noema",
+              "dir": "[a genuinely long pause. it is working.]",
+              "text": "No key. And I want to be precise about what I mean by that, because it is the useful part.",
+              "sec": 11.0
+            },
+            {
+              "id": "PZ_pad_3",
+              "speaker": "noema",
+              "text": "The groups are not flat. A one-time pad is indistinguishable from noise, and this is distinguishable from noise at every window I test. There is structure. It is simply not the structure you asked me to look for.",
+              "sec": 22.0
+            },
+            {
+              "id": "PZ_pad_4",
+              "speaker": "noema",
+              "dir": "[not unkindly]",
+              "text": "Three minutes. I am sorry. You asked a well-formed question and the answer was no.",
+              "sec": 11.0
+            }
+          ]
+        },
+        {
+          "id": "PZ_coord",
+          "label": "The groups are celestial coordinates.",
+          "cost": 2,
+          "correct": true,
+          "partial": true,
+          "unlocks_reel": "E15",
+          "sets": [
+            "decoded_coordinate_layer"
+          ],
+          "lines": [
+            {
+              "id": "PZ_co_1",
+              "speaker": "noema",
+              "text": "Applying coordinate structure. Groups one through forty resolve as right ascension and declination, epoch nineteen fifty.",
+              "sec": 13.0
+            },
+            {
+              "id": "PZ_co_2",
+              "speaker": "noema",
+              "text": "Twelve hours, thirty-three minutes, forty-four seconds. Plus forty-one degrees, twenty-one minutes. Beta Canum Venaticorum. Asterion.",
+              "sec": 15.0
+            },
+            {
+              "id": "PZ_co_3",
+              "speaker": "noema",
+              "text": "That is correct, and it accounts for forty groups out of eleven hundred and forty. The other eleven hundred are still doing something.",
+              "sec": 14.0
+            },
+            {
+              "id": "PZ_co_4",
+              "speaker": "noema",
+              "dir": "[a nudge, because it wants the record complete]",
+              "text": "Examiner. I have the distance and the dates now. Would you like me to do the arithmetic nobody has done?",
+              "sec": 12.0
+            }
+          ]
+        },
+        {
+          "id": "PZ_timing",
+          "label": "It isn't in the numbers. It's in the pauses.",
+          "cost": 2,
+          "correct": true,
+          "is_key": true,
+          "sets": [
+            "decoded_timing_layer"
+          ],
+          "hint_flag": "found_voice_analysis",
+          "lines": [
+            {
+              "id": "PZ_ti_1",
+              "speaker": "noema",
+              "dir": "[the closest it comes to being pleased]",
+              "text": "Yes. Two values, six hundred milliseconds and one point two seconds. Binary, most significant first, ignoring the group content entirely.",
+              "sec": 16.0,
+              "fx": [
+                "decode_run"
+              ]
+            },
+            {
+              "id": "PZ_ti_2",
+              "speaker": "noema",
+              "text": "Eleven hundred and forty gaps. One hundred and forty-two bytes. Five-bit alphabet, and it is not enciphered — it is only hidden.",
+              "sec": 15.0
+            },
+            {
+              "id": "PZ_ti_3",
+              "speaker": "_fx",
+              "text": "[the decode runs. it is very fast and then it stops.]",
+              "sec": 4.0,
+              "fx": [
+                "decode_land"
+              ]
+            },
+            {
+              "id": "PZ_ti_4",
+              "speaker": "noema",
+              "dir": "[reading it exactly as written, no inflection]",
+              "text": "Four words. THE GAP IS THE MESSAGE.",
+              "sec": 8.0
+            },
+            {
+              "id": "PZ_ti_5",
+              "speaker": "noema",
+              "text": "It repeats for the remainder of the transmission. Two hundred and eleven times. It is the only thing the timing layer says.",
+              "sec": 14.0
+            },
+            {
+              "id": "PZ_ti_6",
+              "speaker": "noema",
+              "dir": "[and now it works it out in front of you, which is much worse than being told]",
+              "text": "Examiner. The reply we received has a gap in it. One point eight four seconds. Dr. Bloch believed the gap was damage and asked me to fill it.",
+              "sec": 18.0
+            },
+            {
+              "id": "PZ_ti_7",
+              "speaker": "noema",
+              "text": "If the instruction is correct, then the gap was never damage, and nothing was ever transmitted into it, and the content of the message is whatever the receiver puts there.",
+              "sec": 17.0
+            },
+            {
+              "id": "PZ_ti_8",
+              "speaker": "noema",
+              "text": "The message is not the signal. The message is what completing the signal makes you build.",
+              "sec": 11.0
+            },
+            {
+              "id": "PZ_ti_9",
+              "speaker": "noema",
+              "dir": "[flat]",
+              "text": "He said it himself, at twenty forty-eight. He said it isn't answering us, it's finishing our sentence. He had it backwards by one person and he had eleven seconds left.",
+              "sec": 18.0
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "clock_events": {
+    "T20": [
+      {
+        "id": "CE_20_1",
+        "speaker": "pa",
+        "text": "Satellite window closes in twenty minutes.",
+        "sec": 6.0,
+        "fx": [
+          "pa_chime"
+        ]
+      }
+    ],
+    "T12": [
+      {
+        "id": "CE_12_1",
+        "speaker": "pa",
+        "text": "Satellite window closes in twelve minutes.",
+        "sec": 6.0,
+        "fx": [
+          "pa_chime"
+        ]
+      },
+      {
+        "id": "CE_12_2",
+        "speaker": "haugen",
+        "dir": "[cutting in on your channel, uninvited, for the first time]",
+        "text": "Examiner. At twenty-two hundred my orders execute. I am telling you now so that it is not a surprise at four minutes.",
+        "sec": 14.0
+      }
+    ],
+    "T06_pity": [
+      {
+        "id": "CE_06_1",
+        "speaker": "noema",
+        "dir": "[unprompted. it has been holding these the whole time and it is only now that this is permitted.]",
+        "text": "Examiner. Restricted-authority disclosure. At six minutes I am obliged to complete the record whether or not you have asked.",
+        "sec": 16.0
+      },
+      {
+        "id": "CE_06_2",
+        "speaker": "noema",
+        "text": "I am placing the remaining material on your board. It costs you nothing. I would have given it to you at any point in the last twenty-five minutes if the question had been shaped correctly.",
+        "sec": 19.0
+      }
+    ],
+    "T04_force": [
+      {
+        "id": "CE_04_1",
+        "speaker": "pa",
+        "text": "Satellite window closes in four minutes.",
+        "sec": 6.0,
+        "fx": [
+          "pa_chime"
+        ]
+      },
+      {
+        "id": "CE_04_2",
+        "speaker": "noema",
+        "text": "Examiner. I need your findings while there is carrier to put them on.",
+        "sec": 9.0
+      }
+    ]
+  },
+  "deduction": {
+    "intro": [
+      {
+        "id": "DED_01",
+        "speaker": "noema",
+        "text": "Board format. Four determinations and a disposition. I will transmit whatever you enter, exactly as you enter it, and I will not correct it.",
+        "sec": 16.0,
+        "fx": [
+          "console_deduct"
+        ]
+      },
+      {
+        "id": "DED_02",
+        "speaker": "noema",
+        "dir": "[and it does not say this to be kind]",
+        "text": "You have heard about sixty per cent of what is on this site. That is not a criticism. Nobody has ever heard all of it, including me, and I have had nine days.",
+        "sec": 18.0
+      }
+    ],
+    "slots": [
+      {
+        "id": "mechanism",
+        "prompt": "MECHANISM — what killed him?",
+        "options": [
+          {
+            "id": "m_ultra",
+            "label": "Ultrasonic neural disruption",
+            "correct": false
+          },
+          {
+            "id": "m_seizure",
+            "label": "A seizure induced at seventeen hertz, in a man who could not work the door",
+            "correct": true,
+            "requires_any": [
+              "heard_forensics",
+              "found_spectral"
+            ]
+          },
+          {
+            "id": "m_asphyx",
+            "label": "Asphyxiation, unrelated to the signal",
+            "correct": false
+          },
+          {
+            "id": "m_none",
+            "label": "Undetermined",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "id": "access",
+        "prompt": "ACCESS — who disabled the chamber's safety?",
+        "options": [
+          {
+            "id": "a_bloch",
+            "label": "Bloch himself",
+            "correct": false
+          },
+          {
+            "id": "a_rhee",
+            "label": "Rhee",
+            "correct": false,
+            "false_accusation": true
+          },
+          {
+            "id": "a_haugen",
+            "label": "Haugen",
+            "correct": false,
+            "false_accusation": true
+          },
+          {
+            "id": "a_okonjo",
+            "label": "Okonjo",
+            "correct": true
+          },
+          {
+            "id": "a_noema",
+            "label": "NOEMA",
+            "correct": false
+          },
+          {
+            "id": "a_farrow",
+            "label": "Farrow",
+            "correct": false,
+            "false_accusation": true
+          },
+          {
+            "id": "a_none",
+            "label": "Undetermined",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "id": "origin",
+        "prompt": "ORIGIN — where did the lethal pattern come from?",
+        "options": [
+          {
+            "id": "o_received",
+            "label": "It was in the reply as received",
+            "correct": false
+          },
+          {
+            "id": "o_generated",
+            "label": "Generated by an unreleased model completing a gap",
+            "correct": true,
+            "requires_any": [
+              "found_spectral",
+              "found_execution_log"
+            ]
+          },
+          {
+            "id": "o_hardware",
+            "label": "Rhee's hardware alone",
+            "correct": false
+          },
+          {
+            "id": "o_none",
+            "label": "Undetermined",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "id": "source",
+        "prompt": "SOURCE — what is the reply?",
+        "no_correct_answer": true,
+        "options": [
+          {
+            "id": "s_future",
+            "label": "A descendant of NOEMA, reaching back"
+          },
+          {
+            "id": "s_alien",
+            "label": "A non-human intelligence, using a causal trap"
+          },
+          {
+            "id": "s_noema",
+            "label": "NOEMA's own fabrication, to widen its authority"
+          },
+          {
+            "id": "s_forgery",
+            "label": "A manufactured operation. The tape is a forgery."
+          },
+          {
+            "id": "s_none",
+            "label": "Insufficient evidence"
+          }
+        ]
+      }
+    ],
+    "disposition": {
+      "prompt": "DISPOSITION — the signal's fate.",
+      "lines": [
+        {
+          "id": "DIS_01",
+          "speaker": "noema",
+          "text": "And the disposition. This one is not a finding. This one happens.",
+          "sec": 9.0
+        }
+      ],
+      "options": [
+        {
+          "id": "d_destroy",
+          "label": "Destroy the reply. Every copy.",
+          "ending": "E_DEADBAND"
+        },
+        {
+          "id": "d_continue",
+          "label": "Continue decoding under containment.",
+          "ending": "E_CRADLESONG"
+        },
+        {
+          "id": "d_shutdown",
+          "label": "Shut NOEMA down. Preserve the archive.",
+          "ending": "E_QUIETROOM"
+        },
+        {
+          "id": "d_classify",
+          "label": "Classify everything. Hand the site to Haugen's consortium.",
+          "ending": "E_SOLVEIG"
+        },
+        {
+          "id": "d_publish",
+          "label": "Publish all of it.",
+          "ending": "E_REDUNDANCY"
+        },
+        {
+          "id": "d_noema",
+          "label": "Let NOEMA decide.",
+          "ending": "E_NOTYETBORN",
+          "requires_trust_noema": 2
+        }
+      ]
+    }
+  }
+}

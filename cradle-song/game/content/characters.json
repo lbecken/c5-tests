@@ -1,0 +1,145 @@
+{
+  "$comment": "Cast and voice specification. voice_id is resolved at generation time by tools/generate_audio.py: it first looks for an explicit id in tools/voices.json, then tries to match `library_name` against the account's voice list, then optionally designs a voice from `design_prompt` via the text-to-voice API.",
+
+  "characters": {
+    "noema": {
+      "name": "NOEMA",
+      "display": "NOEMA",
+      "role": "Auger Institute reasoning system, build 6.4",
+      "colour": "#8fd3c7",
+      "library_name": "Charlotte",
+      "design_prompt": "A calm, neutral, faintly warm synthetic voice, mid-pitch, transatlantic accent, unhurried and evenly paced. Reads numbers precisely. Sounds like an exceptionally good radiologist explaining a scan, not like a robot. No breathiness, no vocal fry, no sinister undertone.",
+      "voice_settings": { "stability": 0.75, "similarity_boost": 0.8, "style": 0.1, "speed": 0.97 },
+      "direction": "Sincerely helpful at all times. Never sinister on purpose. Never raises pitch. Says exact numbers where a person would round. The pauses before difficult words are the only thing it ever does that could be called expression.",
+      "ambience": "none",
+      "pronunciation": { "NOEMA": "no-AY-ma" }
+    },
+
+    "bloch": {
+      "name": "Dr. Ivar Bloch",
+      "display": "BLOCH",
+      "role": "Director, Skarv Facility (deceased)",
+      "colour": "#c9b28a",
+      "library_name": "George",
+      "design_prompt": "A 58-year-old man, baritone, unhurried, near-perfect English with a faint Swiss-German substrate. Authoritative without effort. The calm of a man who has never been the least informed person in a room. Warmth only when he is about to overrule someone.",
+      "voice_settings": { "stability": 0.6, "similarity_boost": 0.8, "style": 0.3, "speed": 0.94 },
+      "direction": "Never hurries, even dying. Certainty is his default register. Do not play him as kindly.",
+      "ambience": "archive",
+      "pronunciation": { "Bloch": "block" }
+    },
+
+    "okonjo": {
+      "name": "Dr. Ada Okonjo",
+      "display": "OKONJO",
+      "role": "Head of Alignment & Containment",
+      "colour": "#e0a3a3",
+      "library_name": "Grace",
+      "design_prompt": "A 43-year-old woman, British-Nigerian, warm and exact, measured lecturer's timing, mid-pitch. Sentences arrive finished. Educated London under West African warmth.",
+      "voice_settings": { "stability": 0.55, "similarity_boost": 0.85, "style": 0.4, "speed": 1.0 },
+      "direction": "Under pressure she gets MORE precise, not less. The break, when it comes, is late, quiet and physical - a change of breathing before a change of voice. She never raises her voice once in the entire game.",
+      "ambience": "control_room"
+    },
+
+    "farrow": {
+      "name": "Kit Farrow",
+      "display": "FARROW",
+      "role": "Cryptanalysis",
+      "colour": "#9ec5e8",
+      "library_name": "Liam",
+      "design_prompt": "A 33-year-old American man, northeastern US, quick and high-set, lots of self-interruption, nervous energy, talks over the ends of questions. Bright, funny when frightened.",
+      "voice_settings": { "stability": 0.4, "similarity_boost": 0.8, "style": 0.6, "speed": 1.08 },
+      "direction": "Fast by default. When he slows down it should be alarming. He is frightened for the entire game and covering it with speed.",
+      "ambience": "decode_booth"
+    },
+
+    "haugen": {
+      "name": "Cdr. Solveig Haugen",
+      "display": "HAUGEN",
+      "role": "Head of Security",
+      "colour": "#a8b8a0",
+      "library_name": "Freya",
+      "design_prompt": "A 54-year-old Norwegian woman, low-pitched, clipped, minimal. Precise Norwegian-accented English. No filler words. Complete sentences. Comfortable with silence.",
+      "voice_settings": { "stability": 0.8, "similarity_boost": 0.8, "style": 0.15, "speed": 0.93 },
+      "direction": "She answers the question asked, not the question meant. Long pauses she does not fill - leave them in, do not trim. Twenty-two years of not telling people things.",
+      "ambience": "security_office",
+      "pronunciation": { "Solveig": "SOL-vay", "Haugen": "HOW-gun", "Skarv": "skarv" }
+    },
+
+    "rhee": {
+      "name": "Dr. Tomas Rhee",
+      "display": "RHEE",
+      "role": "Instrumentation",
+      "colour": "#b9a8c9",
+      "library_name": "Daniel",
+      "design_prompt": "A 47-year-old Korean-American man, soft-spoken, slow, technically exact, audibly tired in a way that predates today. Gentle. Apologises reflexively.",
+      "voice_settings": { "stability": 0.7, "similarity_boost": 0.8, "style": 0.25, "speed": 0.92 },
+      "direction": "Gives the number before the opinion. When upset his sentences get SHORTER, never louder. He has already decided he is guilty of something.",
+      "ambience": "machine_bay"
+    },
+
+    "reader": {
+      "name": "The Reader",
+      "display": "1983 / READER",
+      "role": "Voice of the Cradle Song transmission",
+      "colour": "#8a8a8a",
+      "library_name": "Dorothy",
+      "design_prompt": "A female voice reading five-digit number groups with absolutely no affect. Not cold, not menacing - absent, as though she has read this list four hundred times. Metronomic breathing. Mid-Atlantic, unplaceable, era-neutral.",
+      "voice_settings": { "stability": 0.95, "similarity_boost": 0.6, "style": 0.0, "speed": 0.9 },
+      "direction": "Zero emotion. Zero. If a take has any warmth in it, discard it. Breath must be audible and regular. Post-process: 1983 shortwave chain (see 05-audio-direction.md).",
+      "ambience": "shortwave",
+      "post": "shortwave_1983"
+    },
+
+    "nils": {
+      "name": "Nils Haugen",
+      "display": "N. HAUGEN / 1991",
+      "role": "Duty signals officer, Skarv, 1981-1984",
+      "colour": "#8a8a8a",
+      "library_name": "Charlie",
+      "design_prompt": "A 71-year-old Norwegian man, thin low voice, slow, careful with names, audibly relieved to finally be asked a question he has waited years for. Recorded on 1991 cassette.",
+      "voice_settings": { "stability": 0.7, "similarity_boost": 0.75, "style": 0.35, "speed": 0.88 },
+      "direction": "He believes this conversation is not being recorded. Play the relief, not the fear.",
+      "ambience": "cassette",
+      "post": "cassette_1991"
+    },
+
+    "child": {
+      "name": "The Child",
+      "display": "—",
+      "role": "Unidentified. Present beneath the 1983 carrier.",
+      "colour": "#d8d8d8",
+      "library_name": "Lily",
+      "design_prompt": "A child of about seven, neutral accent, speaking four words plainly. Not whispering. Not spooky. Just a child saying a name.",
+      "voice_settings": { "stability": 0.5, "similarity_boost": 0.9, "style": 0.3, "speed": 0.85 },
+      "direction": "Absolutely do not perform this as creepy. A child calling to someone across a room. The horror is entirely contextual and will be destroyed by any spookiness in the read.",
+      "ambience": "buried",
+      "post": "buried_child"
+    },
+
+    "pa": {
+      "name": "Station Voice",
+      "display": "SKARV",
+      "role": "Facility announcement system",
+      "colour": "#7f8c8d",
+      "library_name": "Matilda",
+      "design_prompt": "A synthesised facility announcement voice, Norwegian-accented English, flat, even, institutional. The tone of a fire drill.",
+      "voice_settings": { "stability": 0.95, "similarity_boost": 0.5, "style": 0.0, "speed": 0.95 },
+      "direction": "Announces the end of everything in exactly the tone it uses for a fire drill. Never varies.",
+      "ambience": "pa_system",
+      "post": "pa_system"
+    }
+  },
+
+  "ambiences": {
+    "none":           { "label": "Acoustically neutral", "bed": "none", "gain": 0.0 },
+    "control_room":   { "label": "Glass-walled control room", "bed": "amb_control_room", "gain": 0.16 },
+    "decode_booth":   { "label": "Cramped decode booth", "bed": "amb_decode_booth", "gain": 0.2 },
+    "security_office":{ "label": "Security office", "bed": "amb_security", "gain": 0.15 },
+    "machine_bay":    { "label": "Machine bay", "bed": "amb_machine_bay", "gain": 0.24 },
+    "archive":        { "label": "Anechoic chamber / archive", "bed": "amb_anechoic", "gain": 0.05 },
+    "shortwave":      { "label": "Shortwave", "bed": "amb_shortwave", "gain": 0.4 },
+    "cassette":       { "label": "Cassette", "bed": "amb_tape_hiss", "gain": 0.3 },
+    "buried":         { "label": "Beneath the carrier", "bed": "amb_shortwave", "gain": 0.5 },
+    "pa_system":      { "label": "Facility PA", "bed": "amb_corridor", "gain": 0.18 }
+  }
+}

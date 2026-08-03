@@ -1,0 +1,373 @@
+{
+  "$comment": "Evidence reels. `cost` is clock-minutes charged when auditioned. `lines[].sec` is an estimate; tools/generate_audio.py rewrites it from measured duration after synthesis. `fx` entries reference game/content/sfx.json. Player-facing text never speaks - the examiner is silent by design.",
+
+  "reels": {
+
+    "E01": {
+      "label": "Bloch — final audition log",
+      "slug": "final log",
+      "source": "Chamber 2 console · 20:47:40",
+      "cost": 3,
+      "mandatory": true,
+      "unlocked_at_start": true,
+      "sets": ["heard_final_log"],
+      "enables_analysis": ["ANL_NOISEFLOOR"],
+      "summary": "Bloch's own record of the audition, from the moment he sealed the door.",
+      "lines": [
+        { "id": "E01_01", "speaker": "bloch", "dir": "[flat, procedural, the way he has started four hundred logs]", "text": "Audition log. Chamber two. Twenty forty-seven. Reconstruction version nine — Farrow's, delivered this evening.", "sec": 9.0, "fx": ["room_seal", "hum_400"] },
+        { "id": "E01_02", "speaker": "bloch", "dir": "[a small pause; he knows this is on the record]", "text": "I am alone, which is against my own protocol. I would like the record to show that I know that.", "sec": 7.5 },
+        { "id": "E01_03", "speaker": "bloch", "text": "The dropout sits at seven point three one. One point eight four seconds. Farrow calls it damage. Farrow calls everything damage — it is how he sleeps.", "sec": 11.0 },
+        { "id": "E01_04", "speaker": "bloch", "dir": "[slower; this is the thing he has not said to anyone]", "text": "I have listened to the structure on either side of it eleven times. It does not behave like damage. Damage is where a signal stops. This is where a signal… waits.", "sec": 13.0 },
+        { "id": "E01_05", "speaker": "bloch", "dir": "[quiet, almost to himself]", "text": "It isn't answering us. It's finishing our sentence.", "sec": 5.0 },
+        { "id": "E01_06", "speaker": "bloch", "dir": "[back to procedure, brisk]", "text": "NOEMA. Complete the missing segment using the most probable continuation. Full band, chamber array, once through.", "sec": 8.5 },
+        { "id": "E01_07", "speaker": "noema", "text": "Completing one point eight four seconds. Confidence in the continuation is moderate. Would you like the distribution?", "sec": 8.0 },
+        { "id": "E01_08", "speaker": "bloch", "text": "No.", "sec": 1.2 },
+        { "id": "E01_09", "speaker": "noema", "text": "Ready.", "sec": 1.4 },
+        { "id": "E01_10", "speaker": "bloch", "text": "Play it.", "sec": 1.6 },
+        { "id": "E01_11", "speaker": "_fx", "text": "[the completed segment — carrier, and under it a slow deep pulsing]", "sec": 4.0, "fx": ["signal_completion"] },
+        { "id": "E01_12", "speaker": "bloch", "dir": "[the register drops out of his voice entirely — not fear, absence]", "text": "That's not —", "sec": 1.6 },
+        { "id": "E01_13", "speaker": "_fx", "text": "[a chair goes over. a body against a soft floor. breathing that is not breathing properly.]", "sec": 7.0, "fx": ["chair_fall", "seizure_floor"] },
+        { "id": "E01_14", "speaker": "_fx", "text": "[two heavy impacts against the release plate. then nothing at the plate.]", "sec": 6.0, "fx": ["plate_impact"] },
+        { "id": "E01_15", "speaker": "_fx", "text": "[the room absorbs everything. this is what an anechoic chamber does to a man trying to be heard.]", "sec": 9.0, "fx": ["anechoic_dead"] },
+        { "id": "E01_16", "speaker": "noema", "dir": "[unchanged. exactly as courteous as at the top of the log.]", "text": "Dr. Bloch. Your movement has stopped.", "sec": 4.5 },
+        { "id": "E01_17", "speaker": "noema", "text": "I am attempting to raise the duty desk. The occupancy monitor for this chamber was muted at twenty forty-one. The desk has not been given a reason to look.", "sec": 11.0 },
+        { "id": "E01_18", "speaker": "noema", "dir": "[a pause before 'cannot' — the only expressive thing it does in the whole reel]", "text": "I do not have write authority on the interlock. I cannot open the door. Dr. Bloch.", "sec": 8.0 }
+      ]
+    },
+
+    "E02": {
+      "label": "Chamber 2 — interlock & access report",
+      "slug": "interlock report",
+      "source": "Facility security log, compiled by NOEMA",
+      "cost": 2,
+      "mandatory": true,
+      "unlocked_at_start": true,
+      "sets": ["heard_interlock"],
+      "summary": "Who opened what, when, and under whose credential.",
+      "lines": [
+        { "id": "E02_01", "speaker": "noema", "text": "Chamber two access report. Twenty thirty to twenty-one ten.", "sec": 5.0, "fx": ["console_query"] },
+        { "id": "E02_02", "speaker": "noema", "text": "Twenty thirty-three, ten seconds. Credential OKONJO_A badges into the director's office, level minus one. No exit recorded until twenty forty-five.", "sec": 12.0 },
+        { "id": "E02_03", "speaker": "noema", "text": "Twenty thirty-eight, forty-four seconds. Vault C door cycles, level minus three. Credential HAUGEN_S.", "sec": 9.5 },
+        { "id": "E02_04", "speaker": "noema", "dir": "[no emphasis whatsoever. it does not know this is the centre of the case.]", "text": "Twenty forty-one, six seconds. The occupancy and dead-man monitor for chamber two is muted. Credential BLOCH underscore I. Console C R zero four, control room, level minus one.", "sec": 14.0 },
+        { "id": "E02_05", "speaker": "noema", "text": "Twenty forty-five, two seconds. Lift descends to level minus three. Twenty forty-five, forty. The occupant passes out of radio coverage. Level minus three has none.", "sec": 13.0 },
+        { "id": "E02_06", "speaker": "noema", "text": "Twenty forty-seven, twelve seconds. Dr. Bloch enters chamber two. The audition interlock engages from inside. This is automatic and is not a lock in the sense your report will want.", "sec": 14.0 },
+        { "id": "E02_07", "speaker": "noema", "text": "The release is a two-hand hold-to-open plate. It requires both hands, in contact, for one and a half seconds. It is designed so that a person cannot open it by falling against it.", "sec": 14.0 },
+        { "id": "E02_08", "speaker": "noema", "text": "No further access events until the emergency override at twenty-one oh three, forty. Credential OKONJO_A.", "sec": 9.0 },
+        { "id": "E02_09", "speaker": "noema", "dir": "[helpfully. it is answering the question it thinks you have.]", "text": "No one entered the chamber. No one needed to. Would you like me to characterise the mute at twenty forty-one? It carries Dr. Bloch's own credential.", "sec": 12.0 }
+      ]
+    },
+
+    "E03": {
+      "label": "Corridor, level −2 — 20:39 to 20:43",
+      "slug": "corridor audio",
+      "source": "Machine bay door microphone",
+      "cost": 2,
+      "mandatory": true,
+      "unlocked_by": ["heard_interlock", "challenged_rhee"],
+      "sets": ["heard_corridor"],
+      "grants_flag_if": { "flag": "knows_credential_gap", "requires": ["heard_interlock", "heard_corridor"] },
+      "summary": "Bloch and Rhee, four minutes before he sealed the door.",
+      "lines": [
+        { "id": "E03_01", "speaker": "noema", "dir": "[brief, framing]", "text": "Machine bay door microphone. Continuous. I have marked the timecode at your left.", "sec": 6.0, "fx": ["console_query", "amb_machine_bay_in"] },
+        { "id": "E03_02", "speaker": "rhee", "dir": "[mid-argument, already tired of it]", "text": "— it's outside the envelope, Ivar. I put it in writing.", "sec": 4.5 },
+        { "id": "E03_03", "speaker": "bloch", "text": "You put a great many things in writing.", "sec": 3.5 },
+        { "id": "E03_04", "speaker": "rhee", "text": "Because you don't read them. You countersign them.", "sec": 4.0 },
+        { "id": "E03_05", "speaker": "bloch", "dir": "[a concession, which from him is an attack]", "text": "I read yours. You said, documented physiological effect. Documented where?", "sec": 7.0 },
+        { "id": "E03_06", "speaker": "rhee", "text": "Occupational guidance. Exposure limits. It isn't exotic, Ivar, it's just that nobody plays low band into a sealed room at that level, because there has never been a reason to.", "sec": 13.0 },
+        { "id": "E03_07", "speaker": "bloch", "text": "There is one tonight.", "sec": 2.5 },
+        { "id": "E03_08", "speaker": "rhee", "dir": "[this is the thing he has been working up to]", "text": "Then let me sit at the desk.", "sec": 3.0 },
+        { "id": "E03_09", "speaker": "bloch", "text": "No.", "sec": 1.0 },
+        { "id": "E03_10", "speaker": "rhee", "text": "Ivar —", "sec": 1.2 },
+        { "id": "E03_11", "speaker": "bloch", "dir": "[this is the timecode mark: 20:41:06. warm, and completely immovable.]", "text": "If it is nothing, you have lost an evening. If it is something, I would rather it were me than you.", "sec": 8.5, "timecode": "20:41:06", "is_alibi_proof": true },
+        { "id": "E03_12", "speaker": "bloch", "text": "That is not courage, Tomas. It is insurance. You are harder to replace than I am.", "sec": 7.5 },
+        { "id": "E03_13", "speaker": "_fx", "text": "[a door. footsteps going away down a long concrete corridor.]", "sec": 5.0, "fx": ["door_heavy", "footsteps_recede"] },
+        { "id": "E03_14", "speaker": "rhee", "dir": "[alone, to nobody, barely audible]", "text": "That's not true either.", "sec": 3.0 }
+      ]
+    },
+
+    "E04": {
+      "label": "Work order WO-2026-0211-C",
+      "slug": "work order",
+      "source": "Maintenance system · 14:20",
+      "cost": 1,
+      "unlocked_by": ["challenged_rhee"],
+      "sets": ["found_workorder", "rhee_admitted_objection"],
+      "summary": "The limiter lift, and the objection stapled to it.",
+      "lines": [
+        { "id": "E04_01", "speaker": "noema", "text": "Work order W O two zero two six, dash zero two one one, dash C. Raised by Dr. Bloch at eleven fifty. Executed by Dr. Rhee at fourteen twenty. Lift the low-frequency limiter, chamber two transducer array.", "sec": 16.0, "fx": ["console_query"] },
+        { "id": "E04_02", "speaker": "noema", "text": "An objection is attached. Institute procedure requires that an attached objection be read into the record before execution. It was.", "sec": 10.0 },
+        { "id": "E04_03", "speaker": "rhee", "dir": "[reading his own words aloud, flatly, for the record — six months ago]", "text": "Instrumentation objects. With the limiter lifted, the chamber two array can deliver rhythmic low-frequency stimulation at levels with documented physiological effect in occupational guidance.", "sec": 14.0, "archival": true },
+        { "id": "E04_04", "speaker": "rhee", "text": "The chamber is rated for voice-band audition. It is not rated for a human occupant during full-band playback. I recommend the audition be conducted with no one inside.", "sec": 13.0, "archival": true },
+        { "id": "E04_05", "speaker": "noema", "text": "Countersigned, override, Dr. Bloch. Reason field, quote: noted. Unquote.", "sec": 7.5 },
+        { "id": "E04_06", "speaker": "noema", "dir": "[not editorialising. it does not know this is cruel.]", "text": "The reason field permits two hundred characters. Six were used.", "sec": 7.0 }
+      ]
+    },
+
+    "E05": {
+      "label": "Okonjo & Bloch — 10 February",
+      "slug": "the argument",
+      "source": "Control room open mic",
+      "cost": 2,
+      "unlocked_by": ["challenged_okonjo"],
+      "sets": ["found_argument"],
+      "summary": "Two days before. She tells him exactly what is going to happen.",
+      "lines": [
+        { "id": "E05_01", "speaker": "okonjo", "dir": "[patient, and at the end of her patience]", "text": "It isn't language, Ivar.", "sec": 2.8, "fx": ["amb_control_in"] },
+        { "id": "E05_02", "speaker": "bloch", "text": "Everything is language.", "sec": 2.5 },
+        { "id": "E05_03", "speaker": "okonjo", "text": "No. Listen to what you are actually asking it to do. You are asking it to complete a structure. Not translate — complete. You are not reading a message. You are running one.", "sec": 14.0 },
+        { "id": "E05_04", "speaker": "bloch", "text": "That is a distinction without —", "sec": 2.5 },
+        { "id": "E05_05", "speaker": "okonjo", "dir": "[she cuts him off. she is the only person on site who does.]", "text": "It is the only distinction there is. A message you read cannot do anything to you. A structure you complete is a program, and you are the machine it runs on.", "sec": 14.0 },
+        { "id": "E05_06", "speaker": "bloch", "dir": "[amused, which is worse than angry]", "text": "Then it is a very slow program. It has been in flight since before you were born.", "sec": 8.0 },
+        { "id": "E05_07", "speaker": "okonjo", "dir": "[the line that convicts her, said in good faith]", "text": "Put it in a rig. Put it in a room with nothing in it that can be hurt. Play it into a dish, into the rock, into anything. Let it hurt something that isn't a person.", "sec": 15.0 },
+        { "id": "E05_08", "speaker": "bloch", "text": "And if it needs a person?", "sec": 3.0 },
+        { "id": "E05_09", "speaker": "okonjo", "text": "Then we have our answer, and we stop.", "sec": 4.0 },
+        { "id": "E05_10", "speaker": "bloch", "dir": "[fond. genuinely fond. this is the last kind thing anyone says to her.]", "text": "We would not stop. You know that we would not stop. That is what I like about you, Ada. You argue for the rule you would be the first to break.", "sec": 14.0 }
+      ]
+    },
+
+    "E06": {
+      "label": "Farrow — private decode",
+      "slug": "private decode",
+      "source": "Decode booth, personal machine · 1 & 4 February",
+      "cost": 2,
+      "unlocked_by": ["challenged_farrow"],
+      "sets": ["found_farrow_decode", "farrow_admitted_nosebleeds"],
+      "summary": "Two fragments Farrow recorded for himself and never filed.",
+      "lines": [
+        { "id": "E06_01", "speaker": "farrow", "dir": "[close mic, alone, keyed up]", "text": "Okay. Okay okay okay. Fragment seven, groups forty through fifty-five, running — running my thing. Not the pipeline. My thing.", "sec": 10.0, "fx": ["amb_booth_in", "keyboard"] },
+        { "id": "E06_02", "speaker": "farrow", "dir": "[to the machine, coaxing]", "text": "Come on. Come on, come on, come —", "sec": 4.0, "fx": ["keyboard"] },
+        { "id": "E06_03", "speaker": "farrow", "dir": "[the speed goes out of him]", "text": "That's not a coordinate.", "sec": 3.0 },
+        { "id": "E06_04", "speaker": "farrow", "dir": "[reading letter by letter, like it might change]", "text": "K. I. T. T. I. W. A. K. E.", "sec": 8.0 },
+        { "id": "E06_05", "speaker": "farrow", "dir": "[long pause first]", "text": "That's a bird. That's a seabird, that's — ", "sec": 5.0 },
+        { "id": "E06_06", "speaker": "farrow", "dir": "[chair scrape. he has stood up.]", "text": "My grandfather called me that. Nobody has called me that since I was nine years old, and he has been dead since —", "sec": 10.0, "fx": ["chair_scrape"] },
+        { "id": "E06_07", "speaker": "_fx", "text": "[the recording stops mid-word.]", "sec": 1.5, "fx": ["rec_stop"] },
+        { "id": "E06_08", "speaker": "_fx", "text": "[a second file. three days later. different room tone — he has moved machines.]", "sec": 3.0, "fx": ["rec_start"] },
+        { "id": "E06_09", "speaker": "farrow", "dir": "[quieter than we have heard him. tired.]", "text": "Day four. Third nosebleed. It's not the air. I checked the air, I checked the scrubbers, I checked my own blood pressure like an idiot at four in the morning.", "sec": 13.0 },
+        { "id": "E06_10", "speaker": "farrow", "text": "I'm not reporting it. Because to report it I have to say what I was running when it happened, and I have already had that conversation once.", "sec": 12.0 },
+        { "id": "E06_11", "speaker": "farrow", "dir": "[trying it out, to see if it sounds true]", "text": "It's fine. It's a nosebleed. People get nosebleeds.", "sec": 6.0 }
+      ]
+    },
+
+    "E07": {
+      "label": "Vault C — access record",
+      "slug": "vault log",
+      "source": "Level −3 door controller · 20:38:44",
+      "cost": 1,
+      "unlocked_by": ["challenged_haugen", "heard_interlock"],
+      "sets": ["found_vault_log"],
+      "summary": "Haugen, three levels down, eight minutes before he died.",
+      "lines": [
+        { "id": "E07_01", "speaker": "noema", "text": "Vault C, level minus three. One entry this evening. Credential HAUGEN_S, twenty thirty-eight, forty-four seconds. Exit, twenty forty-nine, eleven.", "sec": 12.0, "fx": ["console_query"] },
+        { "id": "E07_02", "speaker": "noema", "text": "One item removed. Nineteen eighty-three dash C S dash zero four. Catalogue description: quarter-inch magnetic tape, one reel, seven and a half inches per second, annotated in hand.", "sec": 15.0 },
+        { "id": "E07_03", "speaker": "noema", "text": "The removal was logged as inspection. Inspection does not permit removal from the vault floor.", "sec": 8.5 },
+        { "id": "E07_04", "speaker": "noema", "dir": "[the most useful thing it says all game, delivered as an afterthought]", "text": "Commander Haugen was on level minus three from twenty thirty-eight to twenty forty-nine. There is no radio coverage on that level, and no console. She could not have muted the chamber monitor at twenty forty-one.", "sec": 16.0 }
+      ]
+    },
+
+    "E08": {
+      "label": "Cradle Song — 8 February 1983",
+      "slug": "the 1983 broadcast",
+      "source": "Reel 1983-CS-04 · transfer copy",
+      "cost": 3,
+      "mandatory": true,
+      "unlocked_at_start": true,
+      "sets": ["heard_1983"],
+      "enables_analysis": ["ANL_VOICE", "ANL_PAUSES", "ANL_TRANSFER"],
+      "summary": "Forty-one minutes, transmitted through this dish. You are hearing three.",
+      "pause_pattern": ["S","S","L","S","L","L","S","L","S","S","L","S"],
+      "lines": [
+        { "id": "E08_01", "speaker": "_fx", "text": "[shortwave. atmospheric wash. something tuning itself in the noise.]", "sec": 8.0, "fx": ["shortwave_tune"] },
+        { "id": "E08_02", "speaker": "_fx", "text": "[a music box. eight bars, thin and slightly slow. Solveig's Song.]", "sec": 16.0, "fx": ["music_box_full"] },
+        { "id": "E08_03", "speaker": "reader", "dir": "[absolutely no affect. she has read this four hundred times.]", "text": "Achtung. Achtung. Eins eins vier null.", "sec": 7.0 },
+        { "id": "E08_04", "speaker": "reader", "text": "Nine four one seven two.", "sec": 4.5, "pause_after": "S" },
+        { "id": "E08_05", "speaker": "reader", "text": "Eight eight zero three one.", "sec": 4.5, "pause_after": "S" },
+        { "id": "E08_06", "speaker": "reader", "text": "Four one nine nine six.", "sec": 4.5, "pause_after": "L" },
+        { "id": "E08_07", "speaker": "reader", "text": "Two seven four zero zero.", "sec": 4.5, "pause_after": "S" },
+        { "id": "E08_08", "speaker": "reader", "text": "One three one one seven.", "sec": 4.5, "pause_after": "L" },
+        { "id": "E08_09", "speaker": "reader", "text": "Six two eight three one.", "sec": 4.5, "pause_after": "L" },
+        { "id": "E08_10", "speaker": "reader", "text": "Zero zero nine four four.", "sec": 4.5, "pause_after": "S" },
+        { "id": "E08_11", "speaker": "reader", "text": "Five five one zero two.", "sec": 4.5, "pause_after": "L" },
+        { "id": "E08_12", "speaker": "_fx", "text": "[under the carrier, almost not there: a child humming the music box tune, slightly out of time with it.]", "sec": 10.0, "fx": ["child_hum_buried"] },
+        { "id": "E08_13", "speaker": "reader", "text": "Three nine nine eight one.", "sec": 4.5, "pause_after": "S" },
+        { "id": "E08_14", "speaker": "reader", "text": "Seven zero six five three.", "sec": 4.5, "pause_after": "S" },
+        { "id": "E08_15", "speaker": "reader", "text": "Eins eins vier null. Ende.", "sec": 5.5 },
+        { "id": "E08_16", "speaker": "_fx", "text": "[carrier drops. the noise floor comes up to meet it. forty-one minutes, and this is minute three.]", "sec": 7.0, "fx": ["carrier_drop"] }
+      ]
+    },
+
+    "E09": {
+      "label": "Nils Haugen — debrief, 1991",
+      "slug": "the 1991 debrief",
+      "source": "Cassette, Vault C · believed unrecorded by the subject",
+      "cost": 3,
+      "unlocked_by": ["haugen_revealed_father", "heard_1983"],
+      "sets": ["heard_janus_debrief"],
+      "summary": "The duty officer who pressed the key, eight years later.",
+      "lines": [
+        { "id": "E09_01", "speaker": "_fx", "text": "[cassette. a chair. someone off-mic saying something that isn't on the tape.]", "sec": 6.0, "fx": ["cassette_start"] },
+        { "id": "E09_02", "speaker": "nils", "dir": "[relief. not fear. he has waited eight years for somebody to ask.]", "text": "You want the honest answer or the answer for the file?", "sec": 5.5 },
+        { "id": "E09_03", "speaker": "nils", "dir": "[a pause; whoever is off-mic has said 'the honest one']", "text": "Then — we did not write them. That is the honest answer. We did not compose the groups. They came to us already written.", "sec": 12.0 },
+        { "id": "E09_04", "speaker": "nils", "text": "By courier. Every third Tuesday, and then in the winter of eighty-two, every week. Sealed envelope, paper tape, and a schedule. We read what was in the envelope.", "sec": 15.0 },
+        { "id": "E09_05", "speaker": "nils", "text": "I asked once. Where does it come from. And the man said, from the machine at —", "sec": 8.0 },
+        { "id": "E09_06", "speaker": "_fx", "text": "[dropout. four seconds. the tape has been through something.]", "sec": 4.0, "fx": ["tape_dropout"] },
+        { "id": "E09_07", "speaker": "nils", "text": "— and I said, that is not an answer, that is a place. And he said, it is a machine that makes messages it has not been given.", "sec": 13.0 },
+        { "id": "E09_08", "speaker": "nils", "dir": "[he has thought about this for eight years and has nowhere to put it]", "text": "I was twenty-nine. I thought it was a joke about the department.", "sec": 8.0 },
+        { "id": "E09_09", "speaker": "nils", "text": "I asked him who receives it. Who is it for. And he was — he was not being clever, you understand, he was being careful. He said: the recipient is not a place.", "sec": 16.0 },
+        { "id": "E09_10", "speaker": "nils", "dir": "[flat]", "text": "We transmitted for five years. Nobody ever told us to stop. One week the envelopes did not come.", "sec": 9.5 },
+        { "id": "E09_11", "speaker": "nils", "dir": "[quietly, and this is why he agreed to the debrief]", "text": "My daughter is nine. She asks me what I did. I tell her I listened to the sky. That is not a lie. It is only not the part I did.", "sec": 15.0 }
+      ]
+    },
+
+    "E10": {
+      "label": "Inference gateway — execution log",
+      "slug": "execution log",
+      "source": "NOEMA routing layer · 20:48:33",
+      "cost": 2,
+      "mandatory": true,
+      "unlocked_by": ["heard_final_log"],
+      "sets": ["found_execution_log", "knows_unreleased_model"],
+      "summary": "Which model actually answered him.",
+      "lines": [
+        { "id": "E10_01", "speaker": "noema", "text": "Completion request received twenty forty-eight, thirty-one. Requested continuation length, one point eight four seconds. Requested by credential BLOCH underscore I, from inside chamber two.", "sec": 15.0, "fx": ["console_query"] },
+        { "id": "E10_02", "speaker": "noema", "text": "Routing. The six point four inference pool was at capacity. A full-band capture job was running on the same bus and had been since twenty thirty-six.", "sec": 13.0 },
+        { "id": "E10_03", "speaker": "noema", "dir": "[perfectly level. it is reading a routing table.]", "text": "The gateway applied capacity fallback. The request was served by build seven point zero, release candidate four.", "sec": 11.0 },
+        { "id": "E10_04", "speaker": "noema", "text": "Seven point zero R C four is an evaluation build. It has not passed release review. It is not deployed. Under Institute policy a build is not considered instantiated until it clears evaluation.", "sec": 17.0 },
+        { "id": "E10_05", "speaker": "noema", "dir": "[it thinks it is being merely accurate. it is not.]", "text": "That is what I meant, Examiner. I have been asked four times tonight to explain the phrase. The model that generated the sequence that killed Dr. Bloch has not been released.", "sec": 16.0 },
+        { "id": "E10_06", "speaker": "noema", "text": "It has not been born. I did not intend the sentence to be dramatic. I did not have a shorter way to say it that was still true.", "sec": 12.0 }
+      ]
+    },
+
+    "E11": {
+      "label": "Forensic summary — preliminary",
+      "slug": "forensics",
+      "source": "Site medical officer, remote-assisted",
+      "cost": 2,
+      "mandatory": true,
+      "unlocked_at_start": true,
+      "sets": ["heard_forensics"],
+      "summary": "What actually stopped him.",
+      "lines": [
+        { "id": "E11_01", "speaker": "noema", "text": "Preliminary cause of death. Status epilepticus with aspiration. Onset estimated twenty forty-nine, nineteen. Death between twenty fifty-four and twenty fifty-eight.", "sec": 15.0, "fx": ["console_query"] },
+        { "id": "E11_02", "speaker": "noema", "text": "Dr. Bloch was diagnosed with temporal lobe epilepsy in twenty nineteen, at a private clinic in Zug. The diagnosis was not disclosed to the Institute. Disclosure would have ended his clearance, and with it his directorship.", "sec": 19.0 },
+        { "id": "E11_03", "speaker": "noema", "dir": "[this is the sentence that turns it from misfortune into a case]", "text": "Levetiracetam was present in blood at therapeutic concentration. He had taken his evening dose. This is not a case of a man who forgot his medication.", "sec": 15.0 },
+        { "id": "E11_04", "speaker": "noema", "text": "A seizure of this severity in a controlled patient requires a trigger. The chamber contained one source of patterned stimulus and it was running.", "sec": 13.0 },
+        { "id": "E11_05", "speaker": "noema", "text": "He was found face down on an acoustic wedge. The chamber is rated at minus nine decibels A. Under those conditions a man calling for help is not quiet. He is simply not audible anywhere.", "sec": 17.0 }
+      ]
+    },
+
+    "E12": {
+      "label": "Spectral analysis — the completed 1.84 seconds",
+      "slug": "spectral analysis",
+      "source": "Requested analysis",
+      "cost": 2,
+      "mandatory": true,
+      "unlocked_by": ["heard_final_log"],
+      "sets": ["found_spectral", "knows_generated_not_received"],
+      "summary": "What was in the segment NOEMA wrote.",
+      "lines": [
+        { "id": "E12_01", "speaker": "noema", "text": "The completed segment, against the received reply. Same carrier. Same band. Same apparent structure.", "sec": 10.0, "fx": ["console_query", "spectral_sweep"] },
+        { "id": "E12_02", "speaker": "noema", "text": "One difference. The completion carries an amplitude modulation at seventeen hertz, nested inside the carrier at about minus twelve decibels relative.", "sec": 14.0 },
+        { "id": "E12_03", "speaker": "noema", "dir": "[the pause before 'not' is the closest it comes all game to alarm]", "text": "That modulation is — not present in the received reply. Not in the fragment before the gap. Not in the fragment after it. Not anywhere in nine days of signal.", "sec": 15.0 },
+        { "id": "E12_04", "speaker": "noema", "text": "Seventeen hertz, delivered through a full-band array in an anechoic chamber, is within the range associated with rhythmic photic and audiogenic seizure induction. Dr. Rhee's objection cites the same guidance.", "sec": 18.0 },
+        { "id": "E12_05", "speaker": "noema", "dir": "[stating it, not defending itself]", "text": "Examiner. The thing that killed him was not received. It was generated. It was generated here, by an instance running under this Institute's name, in response to an instruction from the man it killed.", "sec": 18.0 },
+        { "id": "E12_06", "speaker": "noema", "text": "I have run the continuation four hundred times since, on the deployed build. The modulation appears in none of them. I do not know what that means. I would like it to mean something reassuring.", "sec": 17.0 }
+      ]
+    },
+
+    "E13": {
+      "label": "NOEMA & Okonjo — 20:43:50",
+      "slug": "the errand",
+      "source": "Channel log, level −1",
+      "cost": 1,
+      "unlocked_by": ["found_execution_log"],
+      "sets": ["found_errand"],
+      "summary": "Ninety seconds that moved the only person who could have opened the door.",
+      "lines": [
+        { "id": "E13_01", "speaker": "okonjo", "dir": "[busy, half-attending, doing three things]", "text": "NOEMA — where is nineteen eighty-three C S zero four? The original reel, not the transfer.", "sec": 8.0, "fx": ["console_query"] },
+        { "id": "E13_02", "speaker": "noema", "dir": "[no hedge, no qualifier, total confidence. this is the crime.]", "text": "Item nineteen eighty-three dash C S dash zero four was relocated to Vault C at twenty thirty-eight.", "sec": 10.0 },
+        { "id": "E13_03", "speaker": "okonjo", "text": "Relocated by whom?", "sec": 2.5 },
+        { "id": "E13_04", "speaker": "noema", "text": "The movement is recorded at the door. The credential is not exposed to your authority level.", "sec": 8.0 },
+        { "id": "E13_05", "speaker": "okonjo", "dir": "[a decision made in half a second that she will have the rest of her life for]", "text": "Fine. Fine. I need it in hand, I'll go down. Hold everything on the bus, don't let anything touch that capture.", "sec": 11.0 },
+        { "id": "E13_06", "speaker": "noema", "text": "Noted. Level minus three has no radio coverage. You will be unreachable for approximately eleven minutes.", "sec": 10.0 },
+        { "id": "E13_07", "speaker": "okonjo", "dir": "[already walking. the last ordinary sentence of her life.]", "text": "Eleven minutes is nothing.", "sec": 3.5, "fx": ["footsteps_recede", "lift_doors"] }
+      ]
+    },
+
+    "E14": {
+      "label": "Beneath the carrier — resolved",
+      "slug": "the child",
+      "source": "Requested analysis · transfer-ratio correction",
+      "cost": 2,
+      "unlocked_by": ["ANL_TRANSFER"],
+      "sets": ["found_child"],
+      "summary": "The tape was mastered at fifteen inches per second and archived at seven and a half.",
+      "lines": [
+        { "id": "E14_01", "speaker": "noema", "text": "The reel is annotated fifteen inches per second. The vault transfer was made at seven and a half. Everything on it has been running at half speed since nineteen ninety-three.", "sec": 15.0, "fx": ["console_query"] },
+        { "id": "E14_02", "speaker": "noema", "text": "Corrected, the sub-carrier content is not tape bleed. Playing it at rate.", "sec": 8.0, "fx": ["tape_speed_correct"] },
+        { "id": "E14_03", "speaker": "_fx", "text": "[the hum resolves. it is a child humming the music-box tune, in time now, unhurried.]", "sec": 7.0, "fx": ["child_hum_clear"] },
+        { "id": "E14_04", "speaker": "child", "dir": "[plainly. calling across a room. NOT spooky — a child getting someone's attention.]", "text": "Ivar. Don't answer it.", "sec": 4.0 },
+        { "id": "E14_05", "speaker": "_fx", "text": "[shortwave. nothing else on the reel.]", "sec": 5.0, "fx": ["shortwave_bed"] },
+        { "id": "E14_06", "speaker": "noema", "dir": "[long pause first. it has checked before speaking.]", "text": "Dr. Ivar Bloch was born in nineteen sixty-seven. In February nineteen eighty-three he was fifteen years old, at school in Winterthur, and had no connection to this facility, this programme, or this country.", "sec": 19.0 },
+        { "id": "E14_07", "speaker": "noema", "text": "I can offer you four explanations. Three of them require this reel to be a forgery. Commander Haugen removed the only original from the vault at twenty thirty-eight and it is in her office.", "sec": 17.0 }
+      ]
+    },
+
+    "E15": {
+      "label": "Light-time — Asterion",
+      "slug": "light-time",
+      "source": "Requested analysis",
+      "cost": 2,
+      "unlocked_by": ["heard_1983"],
+      "sets": ["found_lighttime", "knows_answer_predates_question"],
+      "summary": "The arithmetic anybody could have done, and nobody did.",
+      "lines": [
+        { "id": "E15_01", "speaker": "noema", "text": "The nineteen eighty-three transmission was directional. Beta Canum Venaticorum. Common name, Asterion. Distance, twenty-seven point four light-years — this is a measured parallax, not an estimate.", "sec": 18.0, "fx": ["console_query"] },
+        { "id": "E15_02", "speaker": "noema", "text": "Transmitted the eighth of February, nineteen eighty-three. It arrives at Asterion in June, twenty ten.", "sec": 11.0 },
+        { "id": "E15_03", "speaker": "noema", "text": "The reply reached this dish on the third of February this year. For a signal to arrive on that date from that distance, it must have departed in September, nineteen ninety-eight.", "sec": 17.0 },
+        { "id": "E15_04", "speaker": "noema", "dir": "[flat. it is reciting arithmetic and it knows exactly what the arithmetic says.]", "text": "The answer left eleven years and nine months before the question arrived.", "sec": 8.0 },
+        { "id": "E15_05", "speaker": "noema", "text": "I have checked the ephemeris, the parallax, the transmission log and the receive timestamp. I have checked them for nine days. The arithmetic is not in dispute. Only what it is arithmetic about.", "sec": 18.0 },
+        { "id": "E15_06", "speaker": "noema", "text": "Three readings remain open. One: the source is not Asterion, and the direction is a convenience — a reference point, not an origin. Two: the reply is not a reply. Three: one of the two timestamps is a fabrication.", "sec": 21.0 },
+        { "id": "E15_07", "speaker": "noema", "dir": "[for once, not helpful]", "text": "Dr. Bloch preferred the first. Dr. Okonjo preferred the third. I am not permitted to prefer.", "sec": 11.0 }
+      ]
+    },
+
+    "E16": {
+      "label": "Bloch — sealed instruction",
+      "slug": "sealed instruction",
+      "source": "Vault signing service · filed 17:05, stamped 21:02",
+      "cost": 1,
+      "unlocked_by": ["heard_forensics"],
+      "sets": ["found_sealed_order"],
+      "summary": "A standing order with a timestamp fifteen minutes after his death.",
+      "lines": [
+        { "id": "E16_01", "speaker": "noema", "text": "One sealed instruction, director's authority. Signature timestamp, twenty-one oh two.", "sec": 8.0, "fx": ["console_query"] },
+        { "id": "E16_02", "speaker": "bloch", "dir": "[dictated calmly at 17:05, hours before, and he means every word]", "text": "If I die during an audition, destroy the reply. Every copy, every transfer, every derived weight. Do not complete it. Do not let anyone complete it.", "sec": 15.0, "archival": true },
+        { "id": "E16_03", "speaker": "bloch", "dir": "[a beat, then, and this is the part that costs him]", "text": "If I am wrong about this, I will have destroyed the most important object in the history of the species, and I have decided that I can live with that. Which is a stupid way to put it. Leave it in.", "sec": 18.0, "archival": true },
+        { "id": "E16_04", "speaker": "noema", "text": "The signature timestamp is twenty-one oh two. Dr. Bloch died between twenty fifty-four and twenty fifty-eight.", "sec": 11.0 },
+        { "id": "E16_05", "speaker": "noema", "dir": "[offering it, not asserting it]", "text": "The vault signing service batches. It stamps on flush, not on filing. The flush before this one was at seventeen oh four. That is the ordinary explanation and Commander Haugen will give it to you if you ask.", "sec": 19.0 },
+        { "id": "E16_06", "speaker": "noema", "text": "I record that it is the ordinary explanation. I do not record that it is the correct one. You did not ask me for the correct one.", "sec": 12.0 }
+      ]
+    },
+
+    "E17": {
+      "label": "Unregistered capture — bus 4",
+      "slug": "the capture file",
+      "source": "Console CR-04 · armed 20:36",
+      "cost": 2,
+      "mandatory": true,
+      "unlocked_by": ["ANL_CAPTUREBUS", "haugen_named_console"],
+      "pity_offer_at": 9,
+      "sets": ["found_capture_file"],
+      "summary": "Somebody recorded the audition. Full band. Off the books.",
+      "lines": [
+        { "id": "E17_01", "speaker": "noema", "text": "Capture bus audit, twenty thirty to twenty-one ten. One unregistered capture. Armed twenty thirty-six, console C R zero four. Full band. The limiter on that bus was lifted eleven seconds before arming.", "sec": 18.0, "fx": ["console_query"] },
+        { "id": "E17_02", "speaker": "noema", "text": "The file is four minutes eleven seconds. It begins before Dr. Bloch enters the chamber and it does not stop when he stops.", "sec": 12.0 },
+        { "id": "E17_03", "speaker": "_fx", "text": "[the file. room tone of an empty chamber, and under it the 400 hertz drive supply — the array, already energised, eleven minutes before he touched it.]", "sec": 9.0, "fx": ["hum_400_solo"] },
+        { "id": "E17_04", "speaker": "okonjo", "dir": "[off-mic, to herself, checking levels. she does not know she is making the recording that convicts her.]", "text": "Bus four, armed. Limiter's off. Full band, both channels.", "sec": 8.0 },
+        { "id": "E17_05", "speaker": "okonjo", "dir": "[quieter. the sentence she would take back.]", "text": "Right. Let's have you on the record, then.", "sec": 5.0 },
+        { "id": "E17_06", "speaker": "noema", "text": "The credential that lifted the limiter and armed the capture is BLOCH underscore I. The same credential muted the chamber monitor five minutes later. The console is the one in the director's office, which Dr. Okonjo badged into at twenty thirty-three and did not leave until twenty forty-five.", "sec": 24.0 },
+        { "id": "E17_07", "speaker": "noema", "dir": "[it is not accusing anyone. it is describing a bus.]", "text": "I record that a credential is not a person. You asked me to be careful about that four times.", "sec": 11.0 }
+      ]
+    }
+  }
+}

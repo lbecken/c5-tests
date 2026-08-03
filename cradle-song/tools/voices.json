@@ -1,0 +1,27 @@
+{
+  "_comment": [
+    "Explicit ElevenLabs voice-id overrides, checked first by generate_audio.py.",
+    "Run `python3 tools/generate_audio.py --voices` to see what resolves against your",
+    "account and to get a Voice Design prompt for anything that doesn't. Paste the ids here.",
+    "",
+    "Casting priorities, in order of how much they matter:",
+    "  1. NOEMA must sound courteous and sincerely helpful. Never sinister. If a take sounds",
+    "     ominous, it is wrong - the whole design depends on it being pleasant.",
+    "  2. The Reader must have zero affect. Not cold. Absent.",
+    "  3. The Child must not be spooky. A child calling across a room. The horror is context.",
+    "  4. All six principals must be distinguishable within two seconds, by voice alone.",
+    "",
+    "Delete the keys you have not filled in - an empty string is treated as unresolved."
+  ],
+
+  "noema": "",
+  "bloch": "",
+  "okonjo": "",
+  "farrow": "",
+  "haugen": "",
+  "rhee": "",
+  "reader": "",
+  "nils": "",
+  "child": "",
+  "pa": ""
+}
