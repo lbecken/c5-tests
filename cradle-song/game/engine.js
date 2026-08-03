@@ -82,10 +82,28 @@ const audio = {
   master: 0.8, amb: 0.45,
   cur: null, ambNode: null,
 
+  /** Dialogue lines resolve to their own clip; `_fx` lines to their first effect. */
   srcFor(line) {
     if (!audioManifest) return null;
+    if (line.speaker === '_fx') {
+      const name = (line.fx || [])[0];
+      const f = name && audioManifest.sfx && audioManifest.sfx[name];
+      return f ? `audio/${f}` : null;
+    }
     const a = audioManifest.assets && audioManifest.assets[line.id];
     return a ? `audio/${a.file}` : null;
+  },
+
+  /** One-shot effect layered under a spoken line (door, chime, query blip). */
+  layer(names) {
+    if (!audioManifest || !audioManifest.sfx) return;
+    for (const n of names || []) {
+      const f = audioManifest.sfx[n];
+      if (!f) continue;
+      const a = new Audio(`audio/${f}`);
+      a.volume = this.master * 0.55;
+      a.play().catch(() => {});
+    }
   },
 
   play(line) {
@@ -105,10 +123,11 @@ const audio = {
 
   ambience(bed) {
     if (!audioManifest || !bed || bed === 'none') { this.ambStop(); return; }
-    const src = `audio/ambience/${bed}.mp3`;
+    const file = audioManifest.sfx && audioManifest.sfx[bed];
+    if (!file) return;
     if (this.ambNode && this.ambNode.dataset.bed === bed) return;
     this.ambStop();
-    const a = new Audio(src);
+    const a = new Audio(`audio/${file}`);
     a.loop = true; a.volume = this.amb * 0.5; a.dataset.bed = bed;
     a.play().catch(() => {});
     this.ambNode = a;
@@ -189,6 +208,8 @@ async function playSequence(lines, target) {
 
     const ch = C.characters.characters[line.speaker];
     if (ch && ch.ambience) audio.ambience(C.characters.ambiences[ch.ambience]?.bed);
+    // Spoken lines can carry an effect cue too; layer it rather than replace the voice.
+    if (line.speaker !== '_fx') audio.layer(line.fx);
 
     const played = await audio.play(line);
     if (!played) {

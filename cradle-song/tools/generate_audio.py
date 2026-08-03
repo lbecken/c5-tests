@@ -117,7 +117,10 @@ def preflight() -> dict:
 def resolve_voices(verbose=False) -> dict:
     """tools/voices.json override → match by library_name → leave unresolved."""
     override_path = TOOLS / "voices.json"
-    override = json.loads(override_path.read_text()) if override_path.exists() else {}
+    raw = json.loads(override_path.read_text()) if override_path.exists() else {}
+    # blank entries and the comment block are not mappings
+    override = {k: v for k, v in raw.items()
+                if k != "_comment" and isinstance(v, str) and v.strip()}
 
     try:
         available = call("GET", "/v1/voices").json().get("voices", [])
@@ -352,18 +355,49 @@ MUSIC_CUES = {
 }
 
 
-def dialogue_prompt(asset: dict) -> str:
+# v3 reads bracketed text as an audio tag, but only reliably for SHORT ones. A long
+# prose direction like "[the register drops out of his voice entirely - not fear,
+# absence]" gets read aloud. So directions are condensed to a small vocabulary of
+# safe tags, and anything that doesn't map is dropped rather than risked.
+DIRECTION_TAGS = [
+    (r"\bwhisper", "whispers"),
+    (r"\bquiet|\bsmall\b|\bbarely|\bunder her breath|\bto herself|\bto himself", "quietly"),
+    (r"\bflat\b|\bflatly|\blevel\b|\bno affect|\bunchanged|\bprocedural", "flatly"),
+    (r"\bfast\b|\btoo fast|\bquick|\brushed|\bkeyed up|\bspeed", "rushed"),
+    (r"\bwarm|\bfond|\bkind", "warmly"),
+    (r"\btired|\bexhaust|\bweary", "tired"),
+    (r"\bamused|\bwry|\bdry\b", "amused"),
+    (r"\bbitter|\bhard\b|\bsharp", "clipped"),
+    (r"\bgentle|\bsoft", "gently"),
+    (r"\bshaken|\bbreaks?\b|\bcrack|\bbreathing changes|\bcosts him|\bgrief", "shaken"),
+    (r"\bpause|\bbeat\b|\bslow", "slowly"),
+    (r"\bcourteous|\bpolite|\bhelpful|\bsincere", "calm"),
+    (r"\bcut(s)? (him|her) off|\binterrupt", "urgent"),
+    (r"\bangry|\bloud|\braises", "firm"),
+]
+
+
+def condense_direction(d: str) -> str:
+    """Map a prose stage direction onto at most one safe v3 audio tag."""
+    if not d:
+        return ""
+    s = re.sub(r"\s+", " ", d.strip().strip("[]")).lower()
+    for pattern, tag in DIRECTION_TAGS:
+        if re.search(pattern, s):
+            return tag
+    return ""
+
+
+def dialogue_prompt(asset: dict, use_tags: bool = True) -> str:
     """
-    v3 takes inline audio tags. Direction is folded in as a bracketed tag rather
-    than spoken, and never leaks into the read.
+    Build the string sent to the synthesiser. Stage direction never appears
+    verbatim - it is condensed to a short tag or dropped entirely, so it can
+    never leak into the read.
     """
-    tag = ""
-    d = asset.get("direction", "").strip()
-    if d:
-        cleaned = d.strip("[]").strip()
-        cleaned = re.sub(r"\s+", " ", cleaned)
-        tag = f"[{cleaned}] "
-    return f"{tag}{asset['text']}"
+    if not use_tags:
+        return asset["text"]
+    tag = condense_direction(asset.get("direction", ""))
+    return f"[{tag}] {asset['text']}" if tag else asset["text"]
 
 
 # ═══════════════════════════════ generation ═══════════════════════════════
@@ -464,6 +498,48 @@ def gen_music(force=False):
         print("  the game remains fully playable without them.")
 
 
+def sync_durations(manifest):
+    """
+    Rewrite each line's `sec` in the content JSON from the measured length of its
+    audio. Keeps subtitle-mode timing, the clock costs and the runtime estimates
+    honest once real takes exist. CBR 128 kbps => 16000 bytes per second.
+    """
+    measured = {}
+    for lid, a in manifest["assets"].items():
+        f = AUDIO / a["file"]
+        if f.exists():
+            measured[lid] = round(f.stat().st_size / 16000.0, 1)
+    if not measured:
+        print("  no audio on disk; nothing to sync")
+        return
+
+    changed = 0
+
+    def visit(node):
+        nonlocal changed
+        if isinstance(node, dict):
+            if "id" in node and "speaker" in node and node["id"] in measured:
+                new = measured[node["id"]]
+                if node.get("sec") != new:
+                    node["sec"] = new
+                    changed += 1
+            for v in node.values():
+                visit(v)
+        elif isinstance(node, list):
+            for v in node:
+                visit(v)
+
+    for name in ("evidence", "interviews", "scenes", "endings"):
+        data = json.loads((CONTENT / f"{name}.json").read_text())
+        visit(data)
+        (CONTENT / f"{name}.json").write_text(
+            json.dumps(data, indent=2, ensure_ascii=False) + "\n")
+
+    total = sum(measured.values())
+    print(f"  synced {changed} durations from {len(measured)} clips "
+          f"({total/60:.1f} min of speech on disk)")
+
+
 def write_manifest(manifest):
     """Only assets that exist on disk are advertised to the engine."""
     live = {
@@ -495,6 +571,8 @@ def main():
     ap.add_argument("--limit", type=int, help="cap number of dialogue clips (for a test batch)")
     ap.add_argument("--force", action="store_true", help="regenerate existing files")
     ap.add_argument("--manifest-only", action="store_true")
+    ap.add_argument("--sync-durations", action="store_true",
+                    help="rewrite content `sec` values from measured audio lengths")
     args = ap.parse_args()
 
     manifest = build_manifest()
@@ -514,7 +592,9 @@ def main():
           f"+ music ~{len(MUSIC_CUES)*3000:,}")
     print(f"  estimated total:   ~{total_chars + n_sfx*200 + len(MUSIC_CUES)*3000:,}")
 
-    if args.manifest_only:
+    if args.manifest_only or args.sync_durations:
+        if args.sync_durations:
+            sync_durations(manifest)
         write_manifest(manifest)
         return
 
@@ -548,6 +628,7 @@ def main():
     if args.all or args.music:
         gen_music(force=args.force)
 
+    sync_durations(manifest)
     write_manifest(manifest)
     print("\nDone. Serve the game:  cd game && python3 -m http.server 8080")
 
