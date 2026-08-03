@@ -314,6 +314,19 @@ SFX_PROMPTS = {
     "amb_machine_bay_in": "Machine bay door microphone perspective",
 }
 
+# The music box is the title of the game, and three endings depend on the player
+# recognising the same eight bars. Six independent generations would produce six
+# different melodies, so the tune is rendered ONCE (music_box_full) and every other
+# appearance is that same render, varied by playback rate and level in the engine.
+# This is the only way to keep the motif actually being a motif.
+MUSIC_VARIANTS = {
+    "music_box_transmit":  {"source": "music_box_full", "rate": 0.92, "gain": 1.0},
+    "music_box_degrading": {"source": "music_box_full", "rate": 0.87, "gain": 0.8},
+    "music_box_new":       {"source": "music_box_full", "rate": 1.04, "gain": 0.6},
+    "music_box_far":       {"source": "music_box_full", "rate": 0.96, "gain": 0.38},
+    "music_box_far_end":   {"source": "music_box_full", "rate": 0.80, "gain": 0.3},
+}
+
 # Music-box cues are the title, so they are generated as music rather than SFX.
 MUSIC_CUES = {
     "music_box_full": {
@@ -480,24 +493,43 @@ def gen_sfx(manifest, only=None, force=False):
 
 
 def gen_music(force=False):
+    # Variants reuse a canonical render; never generate them.
     todo = [(n, c) for n, c in MUSIC_CUES.items()
-            if force or not (AUDIO / "effects" / f"{n}.mp3").exists()]
+            if n not in MUSIC_VARIANTS
+            and (force or not (AUDIO / "effects" / f"{n}.mp3").exists())]
     print(f"\nMUSIC — {len(todo)} cues")
     ok = fail = 0
     for i, (name, cue) in enumerate(todo, 1):
         out = AUDIO / "effects" / f"{name}.mp3"
         out.parent.mkdir(parents=True, exist_ok=True)
-        try:
+        def attempt(prompt):
             r = call("POST", "/v1/music", json_body={
-                "prompt": cue["prompt"],
-                "music_length_ms": cue["ms"],
-            }, stream=True)
+                "prompt": prompt, "music_length_ms": cue["ms"]}, stream=True, tries=1)
             out.write_bytes(r.content)
+            return len(r.content)
+
+        try:
+            n = attempt(cue["prompt"])
             ok += 1
-            print(f"  [{i:>2}/{len(todo)}] {name:<24} {len(r.content)//1024:>4} KB")
+            print(f"  [{i:>2}/{len(todo)}] {name:<24} {n//1024:>4} KB")
         except Exception as e:
-            fail += 1
-            print(f"  [{i:>2}/{len(todo)}] {name:<24} FAILED — {e}")
+            # Naming a real composition trips content moderation. The API hands back a
+            # rewritten prompt when it does; take it rather than failing the cue.
+            suggestion = None
+            m = re.search(r"'prompt_suggestion':\s*'([^']+)'", str(e))
+            if m:
+                suggestion = m.group(1)
+            if suggestion:
+                try:
+                    n = attempt(suggestion)
+                    ok += 1
+                    print(f"  [{i:>2}/{len(todo)}] {name:<24} {n//1024:>4} KB  (retried with API's rewritten prompt)")
+                except Exception as e2:
+                    fail += 1
+                    print(f"  [{i:>2}/{len(todo)}] {name:<24} FAILED after retry — {e2}")
+            else:
+                fail += 1
+                print(f"  [{i:>2}/{len(todo)}] {name:<24} FAILED — {e}")
         time.sleep(0.5)
     print(f"  → {ok} written, {fail} failed")
     if fail and ok == 0:
@@ -549,13 +581,24 @@ def sync_durations(manifest):
 
 def write_manifest(manifest):
     """Only assets that exist on disk are advertised to the engine."""
+    sfx = {n: s["file"] for n, s in manifest["sfx"].items()
+           if (AUDIO / s["file"]).exists()}
+
+    # Music-box variants point at the canonical render; the engine varies playback.
+    variants = {}
+    for name, v in MUSIC_VARIANTS.items():
+        src = AUDIO / "effects" / f"{v['source']}.mp3"
+        if src.exists():
+            sfx[name] = f"effects/{v['source']}.mp3"
+            variants[name] = {"rate": v["rate"], "gain": v["gain"]}
+
     live = {
         "output_format": manifest["output_format"],
         "assets": {lid: {"file": a["file"], "speaker": a["speaker"]}
                    for lid, a in manifest["assets"].items()
                    if (AUDIO / a["file"]).exists()},
-        "sfx": {n: s["file"] for n, s in manifest["sfx"].items()
-                if (AUDIO / s["file"]).exists()},
+        "sfx": sfx,
+        "variants": variants,
     }
     AUDIO.mkdir(parents=True, exist_ok=True)
     (AUDIO / "manifest.json").write_text(json.dumps(live, indent=2))

@@ -106,12 +106,21 @@ const audio = {
     }
   },
 
+  /** Music-box variants are the same render at a different rate and level. */
+  variantFor(line) {
+    const name = line.speaker === '_fx' ? (line.fx || [])[0] : null;
+    return (name && audioManifest && audioManifest.variants &&
+            audioManifest.variants[name]) || null;
+  },
+
   play(line) {
     return new Promise(resolve => {
       const src = this.srcFor(line);
       if (!src) { resolve(false); return; }
       const a = new Audio(src);
-      a.volume = this.master;
+      const v = this.variantFor(line);
+      a.volume = this.master * (v ? v.gain : 1);
+      if (v) a.playbackRate = v.rate;
       this.cur = a;
       a.onended = () => { this.cur = null; resolve(true); };
       a.onerror = () => { this.cur = null; resolve(false); };

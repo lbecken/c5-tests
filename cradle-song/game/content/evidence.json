@@ -1110,7 +1110,7 @@
           "speaker": "okonjo",
           "dir": "[already walking. the last ordinary sentence of her life.]",
           "text": "Eleven minutes is nothing.",
-          "sec": 3.5,
+          "sec": 2.1,
           "fx": [
             "footsteps_recede",
             "lift_doors"
@@ -1135,7 +1135,7 @@
           "id": "E14_01",
           "speaker": "noema",
           "text": "The reel is annotated fifteen inches per second. The vault transfer was made at seven and a half. Everything on it has been running at half speed since nineteen ninety-three.",
-          "sec": 15.0,
+          "sec": 10.2,
           "fx": [
             "console_query"
           ]
@@ -1144,7 +1144,7 @@
           "id": "E14_02",
           "speaker": "noema",
           "text": "Corrected, the sub-carrier content is not tape bleed. Playing it at rate.",
-          "sec": 8.0,
+          "sec": 5.3,
           "fx": [
             "tape_speed_correct"
           ]
@@ -1163,7 +1163,7 @@
           "speaker": "child",
           "dir": "[plainly. calling across a room. NOT spooky — a child getting someone's attention.]",
           "text": "Ivar. Don't answer it.",
-          "sec": 4.0
+          "sec": 2.1
         },
         {
           "id": "E14_05",
@@ -1179,13 +1179,13 @@
           "speaker": "noema",
           "dir": "[long pause first. it has checked before speaking.]",
           "text": "Dr. Ivar Bloch was born in nineteen sixty-seven. In February nineteen eighty-three he was fifteen years old, at school in Winterthur, and had no connection to this facility, this programme, or this country.",
-          "sec": 19.0
+          "sec": 13.4
         },
         {
           "id": "E14_07",
           "speaker": "noema",
           "text": "I can offer you four explanations. Three of them require this reel to be a forgery. Commander Haugen removed the only original from the vault at twenty thirty-eight and it is in her office.",
-          "sec": 17.0
+          "sec": 11.8
         }
       ]
     },
@@ -1207,7 +1207,7 @@
           "id": "E15_01",
           "speaker": "noema",
           "text": "The nineteen eighty-three transmission was directional. Beta Canum Venaticorum. Common name, Asterion. Distance, twenty-seven point four light-years — this is a measured parallax, not an estimate.",
-          "sec": 18.0,
+          "sec": 13.7,
           "fx": [
             "console_query"
           ]
@@ -1216,39 +1216,39 @@
           "id": "E15_02",
           "speaker": "noema",
           "text": "Transmitted the eighth of February, nineteen eighty-three. It arrives at Asterion in June, twenty ten.",
-          "sec": 11.0
+          "sec": 6.6
         },
         {
           "id": "E15_03",
           "speaker": "noema",
           "text": "The reply reached this dish on the third of February this year. For a signal to arrive on that date from that distance, it must have departed in September, nineteen ninety-eight.",
-          "sec": 17.0
+          "sec": 10.6
         },
         {
           "id": "E15_04",
           "speaker": "noema",
           "dir": "[flat. it is reciting arithmetic and it knows exactly what the arithmetic says.]",
           "text": "The answer left eleven years and nine months before the question arrived.",
-          "sec": 8.0
+          "sec": 4.8
         },
         {
           "id": "E15_05",
           "speaker": "noema",
           "text": "I have checked the ephemeris, the parallax, the transmission log and the receive timestamp. I have checked them for nine days. The arithmetic is not in dispute. Only what it is arithmetic about.",
-          "sec": 18.0
+          "sec": 12.1
         },
         {
           "id": "E15_06",
           "speaker": "noema",
           "text": "Three readings remain open. One: the source is not Asterion, and the direction is a convenience — a reference point, not an origin. Two: the reply is not a reply. Three: one of the two timestamps is a fabrication.",
-          "sec": 21.0
+          "sec": 17.2
         },
         {
           "id": "E15_07",
           "speaker": "noema",
           "dir": "[for once, not helpful]",
           "text": "Dr. Bloch preferred the first. Dr. Okonjo preferred the third. I am not permitted to prefer.",
-          "sec": 11.0
+          "sec": 6.9
         }
       ]
     },
@@ -1269,7 +1269,7 @@
           "id": "E16_01",
           "speaker": "noema",
           "text": "One sealed instruction, director's authority. Signature timestamp, twenty-one oh two.",
-          "sec": 8.0,
+          "sec": 5.7,
           "fx": [
             "console_query"
           ]
@@ -1279,7 +1279,7 @@
           "speaker": "bloch",
           "dir": "[dictated calmly at 17:05, hours before, and he means every word]",
           "text": "If I die during an audition, destroy the reply. Every copy, every transfer, every derived weight. Do not complete it. Do not let anyone complete it.",
-          "sec": 15.0,
+          "sec": 11.3,
           "archival": true
         },
         {
@@ -1287,27 +1287,27 @@
           "speaker": "bloch",
           "dir": "[a beat, then, and this is the part that costs him]",
           "text": "If I am wrong about this, I will have destroyed the most important object in the history of the species, and I have decided that I can live with that. Which is a stupid way to put it. Leave it in.",
-          "sec": 18.0,
+          "sec": 12.3,
           "archival": true
         },
         {
           "id": "E16_04",
           "speaker": "noema",
           "text": "The signature timestamp is twenty-one oh two. Dr. Bloch died between twenty fifty-four and twenty fifty-eight.",
-          "sec": 11.0
+          "sec": 7.4
         },
         {
           "id": "E16_05",
           "speaker": "noema",
           "dir": "[offering it, not asserting it]",
           "text": "The vault signing service batches. It stamps on flush, not on filing. The flush before this one was at seventeen oh four. That is the ordinary explanation and Commander Haugen will give it to you if you ask.",
-          "sec": 19.0
+          "sec": 12.7
         },
         {
           "id": "E16_06",
           "speaker": "noema",
           "text": "I record that it is the ordinary explanation. I do not record that it is the correct one. You did not ask me for the correct one.",
-          "sec": 12.0
+          "sec": 8.5
         }
       ]
     },
@@ -1331,7 +1331,7 @@
           "id": "E17_01",
           "speaker": "noema",
           "text": "Capture bus audit, twenty thirty to twenty-one ten. One unregistered capture. Armed twenty thirty-six, console C R zero four. Full band. The limiter on that bus was lifted eleven seconds before arming.",
-          "sec": 18.0,
+          "sec": 15.5,
           "fx": [
             "console_query"
           ]
@@ -1340,7 +1340,7 @@
           "id": "E17_02",
           "speaker": "noema",
           "text": "The file is four minutes eleven seconds. It begins before Dr. Bloch enters the chamber and it does not stop when he stops.",
-          "sec": 12.0
+          "sec": 8.2
         },
         {
           "id": "E17_03",
@@ -1356,20 +1356,20 @@
           "speaker": "okonjo",
           "dir": "[off-mic, to herself, checking levels. she does not know she is making the recording that convicts her.]",
           "text": "Bus four, armed. Limiter's off. Full band, both channels.",
-          "sec": 8.0
+          "sec": 4.7
         },
         {
           "id": "E17_05",
           "speaker": "okonjo",
           "dir": "[quieter. the sentence she would take back.]",
           "text": "Right. Let's have you on the record, then.",
-          "sec": 5.0
+          "sec": 2.5
         },
         {
           "id": "E17_06",
           "speaker": "noema",
           "text": "The credential that lifted the limiter and armed the capture is BLOCH underscore I. The same credential muted the chamber monitor five minutes later. The console is the one in the director's office, which Dr. Okonjo badged into at twenty thirty-three and did not leave until twenty forty-five.",
-          "sec": 24.0
+          "sec": 17.9
         },
         {
           "id": "E17_07",
