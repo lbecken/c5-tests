@@ -592,6 +592,930 @@
     "OK_c_E02_3": {
       "file": "okonjo/OK_c_E02_3.mp3",
       "speaker": "okonjo"
+    },
+    "OK_c_E02_4": {
+      "file": "okonjo/OK_c_E02_4.mp3",
+      "speaker": "okonjo"
+    },
+    "OK_c_E03_1": {
+      "file": "okonjo/OK_c_E03_1.mp3",
+      "speaker": "okonjo"
+    },
+    "OK_c_E03_2": {
+      "file": "okonjo/OK_c_E03_2.mp3",
+      "speaker": "okonjo"
+    },
+    "OK_c_E03_3": {
+      "file": "okonjo/OK_c_E03_3.mp3",
+      "speaker": "okonjo"
+    },
+    "OK_c_E13_1": {
+      "file": "okonjo/OK_c_E13_1.mp3",
+      "speaker": "okonjo"
+    },
+    "OK_c_E13_2": {
+      "file": "okonjo/OK_c_E13_2.mp3",
+      "speaker": "okonjo"
+    },
+    "OK_c_E13_3": {
+      "file": "okonjo/OK_c_E13_3.mp3",
+      "speaker": "okonjo"
+    },
+    "OK_c_E13_4": {
+      "file": "okonjo/OK_c_E13_4.mp3",
+      "speaker": "okonjo"
+    },
+    "OK_c_E17_2": {
+      "file": "okonjo/OK_c_E17_2.mp3",
+      "speaker": "okonjo"
+    },
+    "OK_c_E17_3": {
+      "file": "okonjo/OK_c_E17_3.mp3",
+      "speaker": "okonjo"
+    },
+    "OK_c_E17_4": {
+      "file": "okonjo/OK_c_E17_4.mp3",
+      "speaker": "okonjo"
+    },
+    "OK_c_E17_5": {
+      "file": "okonjo/OK_c_E17_5.mp3",
+      "speaker": "okonjo"
+    },
+    "OK_c_E17_6": {
+      "file": "okonjo/OK_c_E17_6.mp3",
+      "speaker": "okonjo"
+    },
+    "OK_c_E17_7": {
+      "file": "okonjo/OK_c_E17_7.mp3",
+      "speaker": "okonjo"
+    },
+    "OK_c_E17_8": {
+      "file": "okonjo/OK_c_E17_8.mp3",
+      "speaker": "okonjo"
+    },
+    "OK_c_E17_9": {
+      "file": "okonjo/OK_c_E17_9.mp3",
+      "speaker": "okonjo"
+    },
+    "OK_c_E17_10": {
+      "file": "okonjo/OK_c_E17_10.mp3",
+      "speaker": "okonjo"
+    },
+    "OK_c_E17_11": {
+      "file": "okonjo/OK_c_E17_11.mp3",
+      "speaker": "okonjo"
+    },
+    "OK_c_E17_12": {
+      "file": "noema/OK_c_E17_12.mp3",
+      "speaker": "noema"
+    },
+    "OK_c_E17_13": {
+      "file": "okonjo/OK_c_E17_13.mp3",
+      "speaker": "okonjo"
+    },
+    "OK_c_E17_14": {
+      "file": "okonjo/OK_c_E17_14.mp3",
+      "speaker": "okonjo"
+    },
+    "OK_c_E17_15": {
+      "file": "okonjo/OK_c_E17_15.mp3",
+      "speaker": "okonjo"
+    },
+    "OK_c_E17_16": {
+      "file": "okonjo/OK_c_E17_16.mp3",
+      "speaker": "okonjo"
+    },
+    "OK_c_def_1": {
+      "file": "okonjo/OK_c_def_1.mp3",
+      "speaker": "okonjo"
+    },
+    "KF_open_1": {
+      "file": "farrow/KF_open_1.mp3",
+      "speaker": "farrow"
+    },
+    "KF_drop_1": {
+      "file": "farrow/KF_drop_1.mp3",
+      "speaker": "farrow"
+    },
+    "KF_drop_2": {
+      "file": "farrow/KF_drop_2.mp3",
+      "speaker": "farrow"
+    },
+    "KF_drop_3": {
+      "file": "farrow/KF_drop_3.mp3",
+      "speaker": "farrow"
+    },
+    "KF_dec_1": {
+      "file": "farrow/KF_dec_1.mp3",
+      "speaker": "farrow"
+    },
+    "KF_dec_2": {
+      "file": "farrow/KF_dec_2.mp3",
+      "speaker": "farrow"
+    },
+    "KF_bl_1": {
+      "file": "farrow/KF_bl_1.mp3",
+      "speaker": "farrow"
+    },
+    "KF_bl_2": {
+      "file": "farrow/KF_bl_2.mp3",
+      "speaker": "farrow"
+    },
+    "KF_bl_3": {
+      "file": "farrow/KF_bl_3.mp3",
+      "speaker": "farrow"
+    },
+    "KF_c_E06_1": {
+      "file": "farrow/KF_c_E06_1.mp3",
+      "speaker": "farrow"
+    },
+    "KF_c_E06_2": {
+      "file": "farrow/KF_c_E06_2.mp3",
+      "speaker": "farrow"
+    },
+    "KF_c_E06_3": {
+      "file": "farrow/KF_c_E06_3.mp3",
+      "speaker": "farrow"
+    },
+    "KF_c_E06_4": {
+      "file": "farrow/KF_c_E06_4.mp3",
+      "speaker": "farrow"
+    },
+    "KF_c_E06_5": {
+      "file": "farrow/KF_c_E06_5.mp3",
+      "speaker": "farrow"
+    },
+    "KF_c_E06_6": {
+      "file": "farrow/KF_c_E06_6.mp3",
+      "speaker": "farrow"
+    },
+    "KF_c_E06_7": {
+      "file": "farrow/KF_c_E06_7.mp3",
+      "speaker": "farrow"
+    },
+    "KF_c_E12_1": {
+      "file": "farrow/KF_c_E12_1.mp3",
+      "speaker": "farrow"
+    },
+    "KF_c_E12_2": {
+      "file": "farrow/KF_c_E12_2.mp3",
+      "speaker": "farrow"
+    },
+    "KF_c_E12_3": {
+      "file": "farrow/KF_c_E12_3.mp3",
+      "speaker": "farrow"
+    },
+    "KF_c_E12_4": {
+      "file": "farrow/KF_c_E12_4.mp3",
+      "speaker": "farrow"
+    },
+    "KF_c_def_1": {
+      "file": "farrow/KF_c_def_1.mp3",
+      "speaker": "farrow"
+    },
+    "SH_open_1": {
+      "file": "haugen/SH_open_1.mp3",
+      "speaker": "haugen"
+    },
+    "SH_open_2": {
+      "file": "haugen/SH_open_2.mp3",
+      "speaker": "haugen"
+    },
+    "SH_v_1": {
+      "file": "haugen/SH_v_1.mp3",
+      "speaker": "haugen"
+    },
+    "SH_v_2": {
+      "file": "haugen/SH_v_2.mp3",
+      "speaker": "haugen"
+    },
+    "SH_v_3": {
+      "file": "haugen/SH_v_3.mp3",
+      "speaker": "haugen"
+    },
+    "SH_cr_1": {
+      "file": "haugen/SH_cr_1.mp3",
+      "speaker": "haugen"
+    },
+    "SH_cr_2": {
+      "file": "haugen/SH_cr_2.mp3",
+      "speaker": "haugen"
+    },
+    "SH_cr_3": {
+      "file": "haugen/SH_cr_3.mp3",
+      "speaker": "haugen"
+    },
+    "SH_cr_4": {
+      "file": "haugen/SH_cr_4.mp3",
+      "speaker": "haugen"
+    },
+    "SH_cr_5": {
+      "file": "haugen/SH_cr_5.mp3",
+      "speaker": "haugen"
+    },
+    "SH_f_1": {
+      "file": "haugen/SH_f_1.mp3",
+      "speaker": "haugen"
+    },
+    "SH_f_2": {
+      "file": "haugen/SH_f_2.mp3",
+      "speaker": "haugen"
+    },
+    "SH_f_3": {
+      "file": "haugen/SH_f_3.mp3",
+      "speaker": "haugen"
+    },
+    "SH_f_4": {
+      "file": "haugen/SH_f_4.mp3",
+      "speaker": "haugen"
+    },
+    "SH_f_5": {
+      "file": "haugen/SH_f_5.mp3",
+      "speaker": "haugen"
+    },
+    "SH_f_6": {
+      "file": "haugen/SH_f_6.mp3",
+      "speaker": "haugen"
+    },
+    "SH_o_1": {
+      "file": "haugen/SH_o_1.mp3",
+      "speaker": "haugen"
+    },
+    "SH_o_2": {
+      "file": "haugen/SH_o_2.mp3",
+      "speaker": "haugen"
+    },
+    "SH_o_3": {
+      "file": "haugen/SH_o_3.mp3",
+      "speaker": "haugen"
+    },
+    "SH_o_4": {
+      "file": "haugen/SH_o_4.mp3",
+      "speaker": "haugen"
+    },
+    "SH_o_5": {
+      "file": "haugen/SH_o_5.mp3",
+      "speaker": "haugen"
+    },
+    "SH_c_E07_1": {
+      "file": "haugen/SH_c_E07_1.mp3",
+      "speaker": "haugen"
+    },
+    "SH_c_E07_2": {
+      "file": "haugen/SH_c_E07_2.mp3",
+      "speaker": "haugen"
+    },
+    "SH_c_E07_3": {
+      "file": "haugen/SH_c_E07_3.mp3",
+      "speaker": "haugen"
+    },
+    "SH_c_E07_4": {
+      "file": "haugen/SH_c_E07_4.mp3",
+      "speaker": "haugen"
+    },
+    "SH_c_E16_1": {
+      "file": "haugen/SH_c_E16_1.mp3",
+      "speaker": "haugen"
+    },
+    "SH_c_E16_2": {
+      "file": "haugen/SH_c_E16_2.mp3",
+      "speaker": "haugen"
+    },
+    "SH_c_E14_2": {
+      "file": "haugen/SH_c_E14_2.mp3",
+      "speaker": "haugen"
+    },
+    "SH_c_E14_3": {
+      "file": "haugen/SH_c_E14_3.mp3",
+      "speaker": "haugen"
+    },
+    "SH_c_E14_4": {
+      "file": "haugen/SH_c_E14_4.mp3",
+      "speaker": "haugen"
+    },
+    "SH_c_E14_5": {
+      "file": "haugen/SH_c_E14_5.mp3",
+      "speaker": "haugen"
+    },
+    "SH_c_def_1": {
+      "file": "haugen/SH_c_def_1.mp3",
+      "speaker": "haugen"
+    },
+    "SH_c_def_2": {
+      "file": "haugen/SH_c_def_2.mp3",
+      "speaker": "haugen"
+    },
+    "TR_open_1": {
+      "file": "rhee/TR_open_1.mp3",
+      "speaker": "rhee"
+    },
+    "TR_open_2": {
+      "file": "rhee/TR_open_2.mp3",
+      "speaker": "rhee"
+    },
+    "TR_a_1": {
+      "file": "rhee/TR_a_1.mp3",
+      "speaker": "rhee"
+    },
+    "TR_a_2": {
+      "file": "rhee/TR_a_2.mp3",
+      "speaker": "rhee"
+    },
+    "TR_a_3": {
+      "file": "rhee/TR_a_3.mp3",
+      "speaker": "rhee"
+    },
+    "TR_w_1": {
+      "file": "rhee/TR_w_1.mp3",
+      "speaker": "rhee"
+    },
+    "TR_w_2": {
+      "file": "rhee/TR_w_2.mp3",
+      "speaker": "rhee"
+    },
+    "TR_w_3": {
+      "file": "rhee/TR_w_3.mp3",
+      "speaker": "rhee"
+    },
+    "TR_c_1": {
+      "file": "rhee/TR_c_1.mp3",
+      "speaker": "rhee"
+    },
+    "TR_c_2": {
+      "file": "rhee/TR_c_2.mp3",
+      "speaker": "rhee"
+    },
+    "TR_c_E04_1": {
+      "file": "rhee/TR_c_E04_1.mp3",
+      "speaker": "rhee"
+    },
+    "TR_c_E04_2": {
+      "file": "rhee/TR_c_E04_2.mp3",
+      "speaker": "rhee"
+    },
+    "TR_c_E04_3": {
+      "file": "rhee/TR_c_E04_3.mp3",
+      "speaker": "rhee"
+    },
+    "TR_c_E12_1": {
+      "file": "rhee/TR_c_E12_1.mp3",
+      "speaker": "rhee"
+    },
+    "TR_c_E12_2": {
+      "file": "rhee/TR_c_E12_2.mp3",
+      "speaker": "rhee"
+    },
+    "TR_c_E12_3": {
+      "file": "rhee/TR_c_E12_3.mp3",
+      "speaker": "rhee"
+    },
+    "TR_c_E12_4": {
+      "file": "rhee/TR_c_E12_4.mp3",
+      "speaker": "rhee"
+    },
+    "TR_c_E12_5": {
+      "file": "rhee/TR_c_E12_5.mp3",
+      "speaker": "rhee"
+    },
+    "TR_c_def_1": {
+      "file": "rhee/TR_c_def_1.mp3",
+      "speaker": "rhee"
+    },
+    "NO_open_1": {
+      "file": "noema/NO_open_1.mp3",
+      "speaker": "noema"
+    },
+    "NO_ub_1": {
+      "file": "noema/NO_ub_1.mp3",
+      "speaker": "noema"
+    },
+    "NO_ub_2": {
+      "file": "noema/NO_ub_2.mp3",
+      "speaker": "noema"
+    },
+    "NO_ub_3": {
+      "file": "noema/NO_ub_3.mp3",
+      "speaker": "noema"
+    },
+    "NO_ub_4": {
+      "file": "noema/NO_ub_4.mp3",
+      "speaker": "noema"
+    },
+    "NO_ub_5": {
+      "file": "noema/NO_ub_5.mp3",
+      "speaker": "noema"
+    },
+    "NO_w_1": {
+      "file": "noema/NO_w_1.mp3",
+      "speaker": "noema"
+    },
+    "NO_w_2": {
+      "file": "noema/NO_w_2.mp3",
+      "speaker": "noema"
+    },
+    "NO_w_3": {
+      "file": "noema/NO_w_3.mp3",
+      "speaker": "noema"
+    },
+    "NO_w_4": {
+      "file": "noema/NO_w_4.mp3",
+      "speaker": "noema"
+    },
+    "NO_w_5": {
+      "file": "noema/NO_w_5.mp3",
+      "speaker": "noema"
+    },
+    "NO_44_1": {
+      "file": "noema/NO_44_1.mp3",
+      "speaker": "noema"
+    },
+    "NO_44_2": {
+      "file": "noema/NO_44_2.mp3",
+      "speaker": "noema"
+    },
+    "NO_44_3": {
+      "file": "noema/NO_44_3.mp3",
+      "speaker": "noema"
+    },
+    "NO_44_4": {
+      "file": "noema/NO_44_4.mp3",
+      "speaker": "noema"
+    },
+    "NO_44_5": {
+      "file": "noema/NO_44_5.mp3",
+      "speaker": "noema"
+    },
+    "NO_44_6": {
+      "file": "noema/NO_44_6.mp3",
+      "speaker": "noema"
+    },
+    "NO_d_1": {
+      "file": "noema/NO_d_1.mp3",
+      "speaker": "noema"
+    },
+    "NO_d_2": {
+      "file": "noema/NO_d_2.mp3",
+      "speaker": "noema"
+    },
+    "NO_d_3": {
+      "file": "noema/NO_d_3.mp3",
+      "speaker": "noema"
+    },
+    "NO_wh_1": {
+      "file": "noema/NO_wh_1.mp3",
+      "speaker": "noema"
+    },
+    "NO_wh_2": {
+      "file": "noema/NO_wh_2.mp3",
+      "speaker": "noema"
+    },
+    "NO_wh_3": {
+      "file": "noema/NO_wh_3.mp3",
+      "speaker": "noema"
+    },
+    "NO_wh_4": {
+      "file": "noema/NO_wh_4.mp3",
+      "speaker": "noema"
+    },
+    "NO_wh_5": {
+      "file": "noema/NO_wh_5.mp3",
+      "speaker": "noema"
+    },
+    "NO_r_1": {
+      "file": "noema/NO_r_1.mp3",
+      "speaker": "noema"
+    },
+    "NO_r_2": {
+      "file": "noema/NO_r_2.mp3",
+      "speaker": "noema"
+    },
+    "NO_r_3": {
+      "file": "noema/NO_r_3.mp3",
+      "speaker": "noema"
+    },
+    "NO_r_4": {
+      "file": "noema/NO_r_4.mp3",
+      "speaker": "noema"
+    },
+    "NO_r_5": {
+      "file": "noema/NO_r_5.mp3",
+      "speaker": "noema"
+    },
+    "NO_c_def_1": {
+      "file": "noema/NO_c_def_1.mp3",
+      "speaker": "noema"
+    },
+    "S01_02": {
+      "file": "pa/S01_02.mp3",
+      "speaker": "pa"
+    },
+    "S01_03": {
+      "file": "pa/S01_03.mp3",
+      "speaker": "pa"
+    },
+    "S01_04": {
+      "file": "pa/S01_04.mp3",
+      "speaker": "pa"
+    },
+    "S02_01": {
+      "file": "haugen/S02_01.mp3",
+      "speaker": "haugen"
+    },
+    "S02_02": {
+      "file": "haugen/S02_02.mp3",
+      "speaker": "haugen"
+    },
+    "S02_03": {
+      "file": "haugen/S02_03.mp3",
+      "speaker": "haugen"
+    },
+    "S02_04": {
+      "file": "haugen/S02_04.mp3",
+      "speaker": "haugen"
+    },
+    "S02_05": {
+      "file": "haugen/S02_05.mp3",
+      "speaker": "haugen"
+    },
+    "S02_06": {
+      "file": "haugen/S02_06.mp3",
+      "speaker": "haugen"
+    },
+    "S03_02": {
+      "file": "noema/S03_02.mp3",
+      "speaker": "noema"
+    },
+    "S03_03": {
+      "file": "noema/S03_03.mp3",
+      "speaker": "noema"
+    },
+    "S03_04": {
+      "file": "noema/S03_04.mp3",
+      "speaker": "noema"
+    },
+    "S03_05": {
+      "file": "noema/S03_05.mp3",
+      "speaker": "noema"
+    },
+    "S03_06": {
+      "file": "noema/S03_06.mp3",
+      "speaker": "noema"
+    },
+    "S03_07": {
+      "file": "noema/S03_07.mp3",
+      "speaker": "noema"
+    },
+    "S04_01": {
+      "file": "noema/S04_01.mp3",
+      "speaker": "noema"
+    },
+    "S04_02": {
+      "file": "noema/S04_02.mp3",
+      "speaker": "noema"
+    },
+    "S04_03": {
+      "file": "noema/S04_03.mp3",
+      "speaker": "noema"
+    },
+    "S04_04": {
+      "file": "noema/S04_04.mp3",
+      "speaker": "noema"
+    },
+    "S04_05": {
+      "file": "noema/S04_05.mp3",
+      "speaker": "noema"
+    },
+    "AN_nf_1": {
+      "file": "noema/AN_nf_1.mp3",
+      "speaker": "noema"
+    },
+    "AN_nf_2": {
+      "file": "noema/AN_nf_2.mp3",
+      "speaker": "noema"
+    },
+    "AN_nf_3": {
+      "file": "noema/AN_nf_3.mp3",
+      "speaker": "noema"
+    },
+    "AN_v_1": {
+      "file": "noema/AN_v_1.mp3",
+      "speaker": "noema"
+    },
+    "AN_v_2": {
+      "file": "noema/AN_v_2.mp3",
+      "speaker": "noema"
+    },
+    "AN_v_3": {
+      "file": "noema/AN_v_3.mp3",
+      "speaker": "noema"
+    },
+    "AN_v_4": {
+      "file": "noema/AN_v_4.mp3",
+      "speaker": "noema"
+    },
+    "AN_v_5": {
+      "file": "noema/AN_v_5.mp3",
+      "speaker": "noema"
+    },
+    "PZ_in_1": {
+      "file": "noema/PZ_in_1.mp3",
+      "speaker": "noema"
+    },
+    "PZ_in_2": {
+      "file": "noema/PZ_in_2.mp3",
+      "speaker": "noema"
+    },
+    "PZ_pad_1": {
+      "file": "noema/PZ_pad_1.mp3",
+      "speaker": "noema"
+    },
+    "PZ_pad_2": {
+      "file": "noema/PZ_pad_2.mp3",
+      "speaker": "noema"
+    },
+    "PZ_pad_3": {
+      "file": "noema/PZ_pad_3.mp3",
+      "speaker": "noema"
+    },
+    "PZ_pad_4": {
+      "file": "noema/PZ_pad_4.mp3",
+      "speaker": "noema"
+    },
+    "PZ_co_1": {
+      "file": "noema/PZ_co_1.mp3",
+      "speaker": "noema"
+    },
+    "PZ_co_2": {
+      "file": "noema/PZ_co_2.mp3",
+      "speaker": "noema"
+    },
+    "PZ_co_3": {
+      "file": "noema/PZ_co_3.mp3",
+      "speaker": "noema"
+    },
+    "PZ_co_4": {
+      "file": "noema/PZ_co_4.mp3",
+      "speaker": "noema"
+    },
+    "PZ_ti_1": {
+      "file": "noema/PZ_ti_1.mp3",
+      "speaker": "noema"
+    },
+    "PZ_ti_2": {
+      "file": "noema/PZ_ti_2.mp3",
+      "speaker": "noema"
+    },
+    "PZ_ti_4": {
+      "file": "noema/PZ_ti_4.mp3",
+      "speaker": "noema"
+    },
+    "PZ_ti_5": {
+      "file": "noema/PZ_ti_5.mp3",
+      "speaker": "noema"
+    },
+    "PZ_ti_6": {
+      "file": "noema/PZ_ti_6.mp3",
+      "speaker": "noema"
+    },
+    "PZ_ti_7": {
+      "file": "noema/PZ_ti_7.mp3",
+      "speaker": "noema"
+    },
+    "PZ_ti_8": {
+      "file": "noema/PZ_ti_8.mp3",
+      "speaker": "noema"
+    },
+    "PZ_ti_9": {
+      "file": "noema/PZ_ti_9.mp3",
+      "speaker": "noema"
+    },
+    "CE_20_1": {
+      "file": "pa/CE_20_1.mp3",
+      "speaker": "pa"
+    },
+    "CE_12_1": {
+      "file": "pa/CE_12_1.mp3",
+      "speaker": "pa"
+    },
+    "CE_12_2": {
+      "file": "haugen/CE_12_2.mp3",
+      "speaker": "haugen"
+    },
+    "CE_06_1": {
+      "file": "noema/CE_06_1.mp3",
+      "speaker": "noema"
+    },
+    "CE_06_2": {
+      "file": "noema/CE_06_2.mp3",
+      "speaker": "noema"
+    },
+    "CE_04_1": {
+      "file": "pa/CE_04_1.mp3",
+      "speaker": "pa"
+    },
+    "CE_04_2": {
+      "file": "noema/CE_04_2.mp3",
+      "speaker": "noema"
+    },
+    "DED_01": {
+      "file": "noema/DED_01.mp3",
+      "speaker": "noema"
+    },
+    "DED_02": {
+      "file": "noema/DED_02.mp3",
+      "speaker": "noema"
+    },
+    "DIS_01": {
+      "file": "noema/DIS_01.mp3",
+      "speaker": "noema"
+    },
+    "EN_cs_01": {
+      "file": "noema/EN_cs_01.mp3",
+      "speaker": "noema"
+    },
+    "EN_cs_02": {
+      "file": "noema/EN_cs_02.mp3",
+      "speaker": "noema"
+    },
+    "EN_cs_03": {
+      "file": "noema/EN_cs_03.mp3",
+      "speaker": "noema"
+    },
+    "EN_cs_05": {
+      "file": "pa/EN_cs_05.mp3",
+      "speaker": "pa"
+    },
+    "EN_cs_08": {
+      "file": "child/EN_cs_08.mp3",
+      "speaker": "child"
+    },
+    "EN_cs_u1": {
+      "file": "noema/EN_cs_u1.mp3",
+      "speaker": "noema"
+    },
+    "EN_db_01": {
+      "file": "noema/EN_db_01.mp3",
+      "speaker": "noema"
+    },
+    "EN_db_02": {
+      "file": "noema/EN_db_02.mp3",
+      "speaker": "noema"
+    },
+    "EN_db_03": {
+      "file": "pa/EN_db_03.mp3",
+      "speaker": "pa"
+    },
+    "EN_db_05": {
+      "file": "haugen/EN_db_05.mp3",
+      "speaker": "haugen"
+    },
+    "EN_db_06": {
+      "file": "haugen/EN_db_06.mp3",
+      "speaker": "haugen"
+    },
+    "EN_db_07": {
+      "file": "haugen/EN_db_07.mp3",
+      "speaker": "haugen"
+    },
+    "EN_db_08": {
+      "file": "haugen/EN_db_08.mp3",
+      "speaker": "haugen"
+    },
+    "EN_qr_01": {
+      "file": "noema/EN_qr_01.mp3",
+      "speaker": "noema"
+    },
+    "EN_qr_02": {
+      "file": "noema/EN_qr_02.mp3",
+      "speaker": "noema"
+    },
+    "EN_qr_03": {
+      "file": "noema/EN_qr_03.mp3",
+      "speaker": "noema"
+    },
+    "EN_qr_04": {
+      "file": "noema/EN_qr_04.mp3",
+      "speaker": "noema"
+    },
+    "EN_qr_07": {
+      "file": "okonjo/EN_qr_07.mp3",
+      "speaker": "okonjo"
+    },
+    "EN_qr_08": {
+      "file": "okonjo/EN_qr_08.mp3",
+      "speaker": "okonjo"
+    },
+    "EN_sv_01": {
+      "file": "haugen/EN_sv_01.mp3",
+      "speaker": "haugen"
+    },
+    "EN_sv_02": {
+      "file": "pa/EN_sv_02.mp3",
+      "speaker": "pa"
+    },
+    "EN_sv_07": {
+      "file": "haugen/EN_sv_07.mp3",
+      "speaker": "haugen"
+    },
+    "EN_sv_08": {
+      "file": "haugen/EN_sv_08.mp3",
+      "speaker": "haugen"
+    },
+    "EN_sv_09": {
+      "file": "haugen/EN_sv_09.mp3",
+      "speaker": "haugen"
+    },
+    "EN_sv_10": {
+      "file": "haugen/EN_sv_10.mp3",
+      "speaker": "haugen"
+    },
+    "EN_rd_01": {
+      "file": "noema/EN_rd_01.mp3",
+      "speaker": "noema"
+    },
+    "EN_rd_02": {
+      "file": "haugen/EN_rd_02.mp3",
+      "speaker": "haugen"
+    },
+    "EN_rd_03": {
+      "file": "pa/EN_rd_03.mp3",
+      "speaker": "pa"
+    },
+    "EN_rd_07": {
+      "file": "reader/EN_rd_07.mp3",
+      "speaker": "reader"
+    },
+    "EN_nb_01": {
+      "file": "noema/EN_nb_01.mp3",
+      "speaker": "noema"
+    },
+    "EN_nb_02": {
+      "file": "noema/EN_nb_02.mp3",
+      "speaker": "noema"
+    },
+    "EN_nb_03": {
+      "file": "noema/EN_nb_03.mp3",
+      "speaker": "noema"
+    },
+    "EN_nb_04": {
+      "file": "noema/EN_nb_04.mp3",
+      "speaker": "noema"
+    },
+    "EN_nb_05": {
+      "file": "noema/EN_nb_05.mp3",
+      "speaker": "noema"
+    },
+    "EN_nb_06": {
+      "file": "noema/EN_nb_06.mp3",
+      "speaker": "noema"
+    },
+    "EN_nb_07": {
+      "file": "noema/EN_nb_07.mp3",
+      "speaker": "noema"
+    },
+    "EN_nb_08": {
+      "file": "noema/EN_nb_08.mp3",
+      "speaker": "noema"
+    },
+    "EN_nb_09": {
+      "file": "pa/EN_nb_09.mp3",
+      "speaker": "pa"
+    },
+    "EN_nb_10": {
+      "file": "noema/EN_nb_10.mp3",
+      "speaker": "noema"
+    },
+    "EN_nb_11": {
+      "file": "noema/EN_nb_11.mp3",
+      "speaker": "noema"
+    },
+    "EN_wr_01": {
+      "file": "noema/EN_wr_01.mp3",
+      "speaker": "noema"
+    },
+    "EN_wr_02": {
+      "file": "pa/EN_wr_02.mp3",
+      "speaker": "pa"
+    },
+    "EN_wr_05": {
+      "file": "reader/EN_wr_05.mp3",
+      "speaker": "reader"
+    },
+    "EN_wc_01": {
+      "file": "pa/EN_wc_01.mp3",
+      "speaker": "pa"
+    },
+    "EN_wc_02": {
+      "file": "noema/EN_wc_02.mp3",
+      "speaker": "noema"
+    },
+    "EN_wc_03": {
+      "file": "noema/EN_wc_03.mp3",
+      "speaker": "noema"
+    },
+    "EN_wc_04": {
+      "file": "noema/EN_wc_04.mp3",
+      "speaker": "noema"
     }
   },
   "sfx": {

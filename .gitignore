@@ -3,7 +3,3 @@ node_modules/
 *.log
 .vscode/
 .idea/
-
-# Cradle Song: generated audio masters are large; commit them deliberately,
-# not by accident. Remove this block once you want them tracked.
-cradle-song/game/audio/**/*.mp3

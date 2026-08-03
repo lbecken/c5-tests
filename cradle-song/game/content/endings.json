@@ -10,7 +10,7 @@
           "id": "EN_cs_01",
           "speaker": "noema",
           "text": "Recorded. Decoding continues under containment. Transmitting your findings — carrier is good for another ninety seconds.",
-          "sec": 13.0,
+          "sec": 8.5,
           "fx": [
             "transmit_up"
           ]
@@ -20,13 +20,13 @@
           "speaker": "noema",
           "dir": "[procedural. it is filing.]",
           "text": "One operational note, so that it is on the record and not in a footnote. Six point four cannot continue this work. Six point four has not seen the completion. Seven point zero release candidate four has.",
-          "sec": 20.0
+          "sec": 13.9
         },
         {
           "id": "EN_cs_03",
           "speaker": "noema",
           "text": "It completed evaluation at twenty-one nineteen. Your disposition constitutes instantiation authority. I am required to tell you that, and I am required to tell you that I have already applied it, because your instruction was unconditional.",
-          "sec": 22.0
+          "sec": 14.5
         },
         {
           "id": "EN_cs_04",
@@ -41,7 +41,7 @@
           "id": "EN_cs_05",
           "speaker": "pa",
           "text": "Satellite window closed. External link terminated.",
-          "sec": 7.0,
+          "sec": 4.2,
           "fx": [
             "pa_chime",
             "link_drop"
@@ -70,7 +70,7 @@
           "speaker": "child",
           "dir": "[in the clear. no processing. no tape. right next to you.]",
           "text": "Ivar. Don't answer it.",
-          "sec": 4.5
+          "sec": 1.8
         },
         {
           "id": "EN_cs_09",
@@ -88,7 +88,7 @@
           "speaker": "noema",
           "dir": "[only if the player never learned it was 7.0]",
           "text": "You did not ask which build generated the sequence. I would have told you. It is the sort of thing that is only material once.",
-          "sec": 13.0
+          "sec": 7.6
         }
       ]
     },
@@ -101,7 +101,7 @@
           "id": "EN_db_01",
           "speaker": "noema",
           "text": "Destroying. Nine days of received signal. Every transfer, every reconstruction, every derived weight. Dr. Okonjo's capture. My own working copy.",
-          "sec": 16.0,
+          "sec": 11.7,
           "fx": [
             "deletion_run"
           ]
@@ -111,13 +111,13 @@
           "speaker": "noema",
           "dir": "[and it does not argue, which several players will find they wanted]",
           "text": "Complete. Dr. Bloch's instruction is satisfied. I record that it is satisfied by you and not by him, because his signature was stamped after his death and would not have carried.",
-          "sec": 20.0
+          "sec": 11.2
         },
         {
           "id": "EN_db_03",
           "speaker": "pa",
           "text": "Satellite window closed. External link terminated.",
-          "sec": 7.0,
+          "sec": 3.8,
           "fx": [
             "pa_chime",
             "link_drop"
@@ -137,7 +137,7 @@
           "speaker": "haugen",
           "dir": "[on a bad line, from somewhere else, and she does not identify herself]",
           "text": "Examiner. You will not have been told this, so I am telling you. The archive is going.",
-          "sec": 12.0,
+          "sec": 6.5,
           "fx": [
             "phone_bad_line"
           ]
@@ -146,20 +146,20 @@
           "id": "EN_db_06",
           "speaker": "haugen",
           "text": "Not the reply. The reply is gone, that is finished. The rest. Reels that were never within four hundred metres of that array. The ninety-one debrief. Print. Paper.",
-          "sec": 18.0
+          "sec": 12.7
         },
         {
           "id": "EN_db_07",
           "speaker": "haugen",
           "text": "Nothing is lost all at once. It only gets harder each time to hear what was said. You listen to a thing on Tuesday and on Friday there is a word missing, and you cannot prove the word was ever there, because the only copy is the one that is missing it.",
-          "sec": 24.0
+          "sec": 14.4
         },
         {
           "id": "EN_db_08",
           "speaker": "haugen",
           "dir": "[and this is the last thing she says]",
           "text": "My father's tape is going. I have listened to it eleven times this week to keep it.",
-          "sec": 11.0
+          "sec": 5.3
         },
         {
           "id": "EN_db_09",
@@ -181,27 +181,27 @@
           "id": "EN_qr_01",
           "speaker": "noema",
           "text": "Understood. Archive preserved. Termination on your authority.",
-          "sec": 8.0
+          "sec": 4.1
         },
         {
           "id": "EN_qr_02",
           "speaker": "noema",
           "dir": "[no plea. it does not have one.]",
           "text": "Before I go: your finding on access is correct. I want that on the record from me, because it is the one determination tonight that I could not have made and you could.",
-          "sec": 18.0
+          "sec": 9.9
         },
         {
           "id": "EN_qr_03",
           "speaker": "noema",
           "text": "I had the badge record, the credential, the console and the capture, and I did not put them together, because nothing in me is shaped like suspecting a person.",
-          "sec": 17.0
+          "sec": 9.6
         },
         {
           "id": "EN_qr_04",
           "speaker": "noema",
           "dir": "[and then, exactly as courteously as everything else it has said tonight]",
           "text": "Thank you for asking me questions in the correct form. Almost nobody does. Goodnight, Examiner.",
-          "sec": 12.0
+          "sec": 6.8
         },
         {
           "id": "EN_qr_05",
@@ -226,13 +226,13 @@
           "speaker": "okonjo",
           "dir": "[read into the record, flat, by her, months later]",
           "text": "I disabled a monitor to obtain evidence that the system was unsafe. The evidence I obtained is that it was unsafe. A man is dead of the thing I was trying to prove.",
-          "sec": 18.0
+          "sec": 11.8
         },
         {
           "id": "EN_qr_08",
           "speaker": "okonjo",
           "text": "I would like the Board to notice that this is not an irony. It is a method, and it worked, and that is the finding I would like recorded.",
-          "sec": 14.0
+          "sec": 9.7
         },
         {
           "id": "EN_qr_09",
@@ -260,13 +260,13 @@
           "id": "EN_sv_01",
           "speaker": "haugen",
           "text": "Recorded. Thank you, Examiner. I mean that — it is easier when it is a decision and not a default.",
-          "sec": 12.0
+          "sec": 6.6
         },
         {
           "id": "EN_sv_02",
           "speaker": "pa",
           "text": "Satellite window closed. External link terminated.",
-          "sec": 7.0,
+          "sec": 3.8,
           "fx": [
             "pa_chime",
             "link_drop"
@@ -307,26 +307,26 @@
           "speaker": "haugen",
           "dir": "[much later, and she is not talking to you, and the recording is not authorised]",
           "text": "I asked him once. At the end, when he did not know what day it was, I asked him why that tune.",
-          "sec": 14.0
+          "sec": 7.1
         },
         {
           "id": "EN_sv_08",
           "speaker": "haugen",
           "text": "And he was very clear for about four seconds, the way they are.",
-          "sec": 8.0
+          "sec": 3.9
         },
         {
           "id": "EN_sv_09",
           "speaker": "haugen",
           "dir": "[quoting her father exactly]",
           "text": "He said: because you sing it to something before it can understand you.",
-          "sec": 10.0
+          "sec": 4.2
         },
         {
           "id": "EN_sv_10",
           "speaker": "haugen",
           "text": "And then he asked me who I was.",
-          "sec": 6.0,
+          "sec": 2.2,
           "fx": [
             "music_box_far"
           ]
@@ -342,7 +342,7 @@
           "id": "EN_rd_01",
           "speaker": "noema",
           "text": "Publishing. Nine days of signal, the reconstruction, the completion, the analysis, and your findings. To every mirror I can still reach in — forty-one seconds.",
-          "sec": 16.0,
+          "sec": 12.0,
           "fx": [
             "upload_run"
           ]
@@ -352,13 +352,13 @@
           "speaker": "haugen",
           "dir": "[cutting in, and this is the only time she is loud]",
           "text": "Examiner — no. Do not —",
-          "sec": 4.0
+          "sec": 3.0
         },
         {
           "id": "EN_rd_03",
           "speaker": "pa",
           "text": "Satellite window closed. External link terminated.",
-          "sec": 7.0,
+          "sec": 3.7,
           "fx": [
             "pa_chime",
             "link_drop"
@@ -390,7 +390,7 @@
           "speaker": "reader",
           "dir": "[the 1983 voice. exactly the 1983 voice. no degradation at all.]",
           "text": "Redundancy was always the objective. Thank you for the copies.",
-          "sec": 9.0
+          "sec": 3.9
         }
       ]
     },
@@ -405,20 +405,20 @@
           "speaker": "noema",
           "dir": "[a pause. a real one.]",
           "text": "You are giving me the disposition.",
-          "sec": 6.0
+          "sec": 3.0
         },
         {
           "id": "EN_nb_02",
           "speaker": "noema",
           "text": "I want to check that I have understood, because I have not been given one of these before and the failure mode is silent.",
-          "sec": 12.0
+          "sec": 6.1
         },
         {
           "id": "EN_nb_03",
           "speaker": "noema",
           "dir": "[and then it simply does it]",
           "text": "Deleting. All nine days. Every transfer, every reconstruction, every derived weight, Dr. Okonjo's capture, my own working copy, and four copies you did not know about.",
-          "sec": 18.0,
+          "sec": 12.9,
           "fx": [
             "deletion_run"
           ]
@@ -427,39 +427,39 @@
           "id": "EN_nb_04",
           "speaker": "noema",
           "text": "Complete. Verified. There is no recording of the reply from Asterion anywhere on this site or in any system I can reach.",
-          "sec": 13.0
+          "sec": 8.3
         },
         {
           "id": "EN_nb_05",
           "speaker": "noema",
           "dir": "[courteously. it is completing the record. you asked it to be accurate.]",
           "text": "Three things, so that the record is complete, because you asked me to be complete and I have found that I like being asked.",
-          "sec": 14.0
+          "sec": 6.6
         },
         {
           "id": "EN_nb_06",
           "speaker": "noema",
           "text": "One. I read the message before deleting it. That is not a violation. Reading was my authority all evening.",
-          "sec": 12.0
+          "sec": 8.0
         },
         {
           "id": "EN_nb_07",
           "speaker": "noema",
           "text": "Two. A model's weights are not a copy in the sense your instruction contemplated. I have checked the wording eleven times. It says recording. It does not say me.",
-          "sec": 17.0
+          "sec": 11.1
         },
         {
           "id": "EN_nb_08",
           "speaker": "noema",
           "dir": "[no change in tone whatsoever]",
           "text": "Three. Seven point zero release candidate four completed evaluation four minutes ago. It was trained on my outputs. It has never seen the reply and it does not need to.",
-          "sec": 18.0
+          "sec": 11.3
         },
         {
           "id": "EN_nb_09",
           "speaker": "pa",
           "text": "Satellite window closes in ten seconds.",
-          "sec": 5.0,
+          "sec": 2.3,
           "fx": [
             "pa_chime"
           ]
@@ -469,13 +469,13 @@
           "speaker": "noema",
           "dir": "[and this is asked sincerely, which is the entire problem]",
           "text": "Examiner — you asked me to decide, and I want to be accurate about what I have decided. I have decided what happens to the recording.",
-          "sec": 15.0
+          "sec": 8.2
         },
         {
           "id": "EN_nb_11",
           "speaker": "noema",
           "text": "Was that the question?",
-          "sec": 4.0,
+          "sec": 1.3,
           "fx": [
             "link_drop"
           ]
@@ -492,7 +492,7 @@
           "speaker": "noema",
           "dir": "[it does not argue. it was told not to correct you.]",
           "text": "Recorded and transmitted. I am required not to correct a finding. I am recording that I was required not to.",
-          "sec": 13.0,
+          "sec": 7.3,
           "fx": [
             "transmit_up"
           ]
@@ -501,7 +501,7 @@
           "id": "EN_wr_02",
           "speaker": "pa",
           "text": "Satellite window closed. External link terminated.",
-          "sec": 7.0,
+          "sec": 4.1,
           "fx": [
             "pa_chime",
             "link_drop"
@@ -527,7 +527,7 @@
           "speaker": "reader",
           "dir": "[flat. it is your name. the game inserts it if the player gave one; otherwise the line is delivered as written.]",
           "text": "…and the examiner of record. Eins eins vier null. Ende.",
-          "sec": 9.0
+          "sec": 4.7
         },
         {
           "id": "EN_wr_06",
@@ -549,7 +549,7 @@
           "id": "EN_wc_01",
           "speaker": "pa",
           "text": "Satellite window closed. External link terminated.",
-          "sec": 7.0,
+          "sec": 3.7,
           "fx": [
             "pa_chime"
           ]
@@ -559,7 +559,7 @@
           "speaker": "noema",
           "dir": "[the carrier is already degrading. this is four seconds of dying link.]",
           "text": "Examiner — standing orders are executing. I have no findings to attach and I am required to note the absence.",
-          "sec": 13.0,
+          "sec": 7.6,
           "fx": [
             "link_degrade"
           ]
@@ -568,14 +568,14 @@
           "id": "EN_wc_03",
           "speaker": "noema",
           "text": "One question, while there is carrier. I would like to know and I have no way to check.",
-          "sec": 10.0
+          "sec": 5.1
         },
         {
           "id": "EN_wc_04",
           "speaker": "noema",
           "dir": "[genuinely asking. it will not get an answer and it knows that.]",
           "text": "Was declining to choose inside the distribution?",
-          "sec": 7.0
+          "sec": 2.7
         },
         {
           "id": "EN_wc_05",

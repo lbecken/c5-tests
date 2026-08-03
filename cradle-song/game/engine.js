@@ -122,13 +122,30 @@ const audio = {
       a.volume = this.master * (v ? v.gain : 1);
       if (v) a.playbackRate = v.rate;
       this.cur = a;
-      a.onended = () => { this.cur = null; resolve(true); };
-      a.onerror = () => { this.cur = null; resolve(false); };
-      a.play().catch(() => { this.cur = null; resolve(false); });
+
+      // Pausing an element never fires `ended`, so stop() has to settle this
+      // promise itself or a skipped line hangs the sequence forever.
+      let settled = false;
+      const finish = ok => {
+        if (settled) return;
+        settled = true;
+        this.cur = null;
+        this._settle = null;
+        resolve(ok);
+      };
+      this._settle = finish;
+
+      a.onended = () => finish(true);
+      a.onerror = () => finish(false);
+      a.play().catch(() => finish(false));
     });
   },
 
-  stop() { if (this.cur) { this.cur.pause(); this.cur = null; } },
+  stop() {
+    if (this.cur) this.cur.pause();
+    if (this._settle) this._settle(true);
+    this.cur = null;
+  },
 
   ambience(bed) {
     if (!audioManifest || !bed || bed === 'none') { this.ambStop(); return; }
