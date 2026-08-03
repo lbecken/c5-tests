@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cradle Song — audition</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230a0c0d'/%3E%3Cpath d='M6 20 Q11 8 16 16 T26 12' stroke='%23d9a441' stroke-width='2' fill='none'/%3E%3C/svg%3E">
+<style>
+:root{--bg:#0a0c0d;--panel:#0d1113;--line:#1e2529;--line2:#2a3338;--ink:#c8d2d6;--dim:#6c7b82;--dimmer:#4a565c;--amber:#d9a441;--green:#7fb08a;--red:#c96a5f;
+--mono:ui-monospace,'SFMono-Regular','Menlo',monospace;--sans:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--mono);font-size:14px;line-height:1.55;padding:28px}
+h1{font-size:20px;letter-spacing:.24em;color:var(--amber);font-weight:400;margin-bottom:4px}
+.sub{font-size:12px;color:var(--dim);margin-bottom:22px;font-family:var(--sans)}
+.bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px;position:sticky;top:0;background:var(--bg);padding:10px 0;z-index:5;border-bottom:1px solid var(--line)}
+button{font-family:var(--mono);font-size:11px;letter-spacing:.08em;padding:7px 13px;border-radius:2px;cursor:pointer;
+background:transparent;border:1px solid var(--line2);color:var(--dim)}
+button:hover{color:var(--ink);border-color:var(--dim)}
+button.on{background:var(--amber);color:#100c04;border-color:var(--amber);font-weight:600}
+.grp{margin-bottom:34px}
+.grp h2{font-size:12px;letter-spacing:.2em;color:var(--amber);font-weight:400;padding-bottom:8px;border-bottom:1px solid var(--line);margin-bottom:6px;
+display:flex;justify-content:space-between;align-items:baseline}
+.grp h2 .meta{font-size:10px;color:var(--dimmer);letter-spacing:.08em}
+.grp .vd{font-family:var(--sans);font-size:12px;color:var(--dim);font-style:italic;margin:8px 0 14px;padding-left:12px;border-left:2px solid var(--line2)}
+.clip{display:grid;grid-template-columns:112px 240px 1fr;gap:14px;align-items:start;padding:9px 0;border-bottom:1px solid var(--line)}
+.clip.key{background:rgba(217,164,65,.05);border-left:2px solid var(--amber);padding-left:10px}
+.cid{font-size:10px;color:var(--dimmer);letter-spacing:.08em;padding-top:9px}
+.cid b{color:var(--amber);display:block;font-weight:400}
+audio{width:238px;height:32px}
+.txt{font-family:var(--sans);font-size:14px;color:#cdd7db}
+.dir{font-size:11px;color:var(--dimmer);font-style:italic;display:block;margin-bottom:3px}
+.tag{display:inline-block;font-family:var(--mono);font-size:9px;letter-spacing:.1em;color:var(--green);
+border:1px solid rgba(127,176,138,.3);padding:1px 5px;border-radius:2px;margin-left:6px}
+.miss{color:var(--red);font-size:11px;padding-top:9px}
+.dur{font-size:10px;color:var(--dimmer);padding-top:2px}
+.dur.long{color:var(--red)}
+.note{font-family:var(--sans);font-size:13px;color:var(--dim);background:rgba(217,164,65,.06);
+border-left:2px solid var(--amber);padding:12px 16px;margin-bottom:24px;line-height:1.7}
+@media(max-width:900px){.clip{grid-template-columns:1fr}audio{width:100%}}
+</style>
+</head>
+<body>
+<h1>AUDITION</h1>
+<div class="sub">Spot-check casting and reads. Nothing here is the game — this is a QA surface.</div>
+
+<div class="note">
+  <b>Check these six first.</b> They carry the most weight, and a wrong voice on any of them
+  costs more than everything else combined:
+  <b>S03_05</b> (NOEMA's hook — must sound courteous, <i>never</i> ominous) ·
+  <b>OK_c_E17_11</b> (Okonjo's break) ·
+  <b>E14_04</b> (the child — must not be spooky) ·
+  <b>E08_04</b> (the Reader — zero affect) ·
+  <b>E01_12</b> (Bloch, the moment it hits) ·
+  <b>KF_c_E06_7</b> (Farrow, slowed right down).
+  <br><br>
+  To recast anyone: edit <code>tools/voices.json</code>, then
+  <code>python3 tools/generate_audio.py --dialogue --only &lt;speaker&gt; --force</code>.
+</div>
+
+<div class="bar" id="bar"></div>
+<div id="out"></div>
+
+<script>
+const KEY = new Set(['S03_05','OK_c_E17_11','E14_04','E08_04','E01_12','KF_c_E06_7',
+                     'OK_c_E17_12','NO_44_6','E10_05','EN_nb_11','E15_04','E09_09']);
+let chars = null, man = null, filter = 'ALL';
+
+async function boot(){
+  chars = await (await fetch('content/characters.json')).json();
+  man   = await (await fetch('content/audio_manifest_full.json')).json();
+
+  const bySpk = {};
+  for (const [id,a] of Object.entries(man.assets)) (bySpk[a.speaker] ||= []).push([id,a]);
+
+  const bar = document.getElementById('bar');
+  const mk = (label, val) => {
+    const b = document.createElement('button');
+    b.textContent = label; b.onclick = () => { filter = val; render(bySpk); };
+    b.dataset.v = val; return b;
+  };
+  bar.appendChild(mk('ALL','ALL'));
+  bar.appendChild(mk('★ KEY LINES','KEY'));
+  for (const s of Object.keys(bySpk)) bar.appendChild(mk(chars.characters[s].display || s, s));
+  render(bySpk);
+}
+
+function render(bySpk){
+  document.querySelectorAll('#bar button').forEach(b => b.classList.toggle('on', b.dataset.v === filter));
+  const out = document.getElementById('out');
+  out.innerHTML = '';
+
+  for (const [spk, list] of Object.entries(bySpk)) {
+    if (filter !== 'ALL' && filter !== 'KEY' && filter !== spk) continue;
+    const rows = filter === 'KEY' ? list.filter(([id]) => KEY.has(id)) : list;
+    if (!rows.length) continue;
+
+    const c = chars.characters[spk];
+    const g = document.createElement('div'); g.className = 'grp';
+    const totalChars = rows.reduce((n,[,a]) => n + a.chars, 0);
+    g.innerHTML = `<h2>${c.name}<span class="meta">${rows.length} clips · ${totalChars.toLocaleString()} chars</span></h2>
+                   <div class="vd">${c.direction}</div>`;
+
+    for (const [id,a] of rows) {
+      const d = document.createElement('div');
+      d.className = 'clip' + (KEY.has(id) ? ' key' : '');
+      d.innerHTML = `
+        <div class="cid">${KEY.has(id) ? '<b>★ CHECK</b>' : ''}${id}
+          <div class="dur" data-for="${id}">—</div></div>
+        <div><audio controls preload="none" src="audio/${a.file}"
+             onerror="this.outerHTML='<span class=miss>not generated</span>'"></audio></div>
+        <div class="txt">${a.direction ? `<span class="dir">${a.direction}</span>` : ''}${a.text}</div>`;
+      g.appendChild(d);
+
+      // report measured vs expected so an over-long take (a spoken tag) is visible
+      fetch(`audio/${a.file}`, {method:'HEAD'}).then(r => {
+        const len = +r.headers.get('content-length');
+        if (!len) return;
+        const act = len/16000, el = d.querySelector(`.dur[data-for="${id}"]`);
+        const ratio = a.est_sec ? act/a.est_sec : 1;
+        el.textContent = `${act.toFixed(1)}s (${ratio.toFixed(2)}×)`;
+        if (ratio > 1.4) el.classList.add('long');
+      }).catch(()=>{});
+    }
+    out.appendChild(g);
+  }
+  if (!out.children.length) out.innerHTML = '<div class="note">Nothing generated for that filter yet.</div>';
+}
+boot();
+</script>
+</body>
+</html>
