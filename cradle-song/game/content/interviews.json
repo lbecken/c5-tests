@@ -1,152 +1,451 @@
 {
   "$comment": "Channels. `topics` are questions the examiner can put; `confrontations` are reels played into someone's room. Confronting with the right reel is the core verb of the game. `_default` fires for any reel with no specific response and always costs time for nothing - that is the failure state, and it is never fatal.",
-
   "channels": {
-
     "okonjo": {
       "open_cost": 1,
       "open_lines": [
-        { "id": "OK_open_1", "speaker": "okonjo", "dir": "[composed. she has had two hours and has used them.]", "text": "Ada Okonjo, alignment and containment. I found him. I want that at the top of whatever you're writing, because everything I say after it is going to sound like I'm managing you.", "sec": 14.0, "fx": ["channel_open", "amb_control_in"] }
+        {
+          "id": "OK_open_1",
+          "speaker": "okonjo",
+          "dir": "[composed. she has had two hours and has used them.]",
+          "text": "Ada Okonjo, alignment and containment. I found him. I want that at the top of whatever you're writing, because everything I say after it is going to sound like I'm managing you.",
+          "sec": 14.0,
+          "fx": [
+            "channel_open",
+            "amb_control_in"
+          ]
+        }
       ],
       "topics": {
         "OK_where": {
           "label": "Where were you between twenty thirty and twenty-one hundred?",
           "cost": 2,
-          "sets": ["challenged_okonjo"],
+          "sets": [
+            "challenged_okonjo"
+          ],
           "lines": [
-            { "id": "OK_where_1", "speaker": "okonjo", "text": "In his office until quarter to. Then Vault C, level minus three, looking for a reel that was not there. Then the lift, then the chamber, then the override.", "sec": 13.0 },
-            { "id": "OK_where_2", "speaker": "okonjo", "text": "Eleven minutes with no radio. I have done that arithmetic more times in the last two hours than you are going to do it tonight.", "sec": 11.0 },
-            { "id": "OK_where_3", "speaker": "okonjo", "dir": "[a fraction too smooth — she has rehearsed the office part]", "text": "I was in his office because that is where the containment console is. Ask me a narrower question and I'll give you a narrower answer.", "sec": 12.0 }
+            {
+              "id": "OK_where_1",
+              "speaker": "okonjo",
+              "text": "In his office until quarter to. Then Vault C, level minus three, looking for a reel that was not there. Then the lift, then the chamber, then the override.",
+              "sec": 13.0
+            },
+            {
+              "id": "OK_where_2",
+              "speaker": "okonjo",
+              "text": "Eleven minutes with no radio. I have done that arithmetic more times in the last two hours than you are going to do it tonight.",
+              "sec": 11.0
+            },
+            {
+              "id": "OK_where_3",
+              "speaker": "okonjo",
+              "dir": "[a fraction too smooth — she has rehearsed the office part]",
+              "text": "I was in his office because that is where the containment console is. Ask me a narrower question and I'll give you a narrower answer.",
+              "sec": 12.0
+            }
           ]
         },
         "OK_argument": {
           "label": "What were you and Bloch arguing about?",
           "cost": 2,
-          "sets": ["challenged_okonjo"],
+          "sets": [
+            "challenged_okonjo"
+          ],
           "unlocks_reel": "E05",
           "lines": [
-            { "id": "OK_arg_1", "speaker": "okonjo", "text": "Whether the reply is a message or a program. He said message. He said it for nine days, warmly, the way he said everything, right up until he asked the system to finish it for him.", "sec": 16.0 },
-            { "id": "OK_arg_2", "speaker": "okonjo", "text": "There's an open-mic recording from Tuesday. Pull it, don't take my summary. I'd rather you heard me lose.", "sec": 9.5 }
+            {
+              "id": "OK_arg_1",
+              "speaker": "okonjo",
+              "text": "Whether the reply is a message or a program. He said message. He said it for nine days, warmly, the way he said everything, right up until he asked the system to finish it for him.",
+              "sec": 16.0
+            },
+            {
+              "id": "OK_arg_2",
+              "speaker": "okonjo",
+              "text": "There's an open-mic recording from Tuesday. Pull it, don't take my summary. I'd rather you heard me lose.",
+              "sec": 9.5
+            }
           ]
         },
         "OK_health": {
           "label": "Was there anything wrong with his health?",
           "cost": 1,
-          "sets": ["challenged_okonjo", "okonjo_lied_health"],
+          "sets": [
+            "challenged_okonjo",
+            "okonjo_lied_health"
+          ],
           "lines": [
-            { "id": "OK_health_1", "speaker": "okonjo", "dir": "[the first flat lie of the game, and it is very well made]", "text": "He was fifty-eight and he worked like he was forty. If there was something on a medical file, it wasn't on one I've ever been shown.", "sec": 12.0 },
-            { "id": "OK_health_2", "speaker": "okonjo", "text": "Ask the site officer. That's the correct channel for it.", "sec": 5.0 }
+            {
+              "id": "OK_health_1",
+              "speaker": "okonjo",
+              "dir": "[the first flat lie of the game, and it is very well made]",
+              "text": "He was fifty-eight and he worked like he was forty. If there was something on a medical file, it wasn't on one I've ever been shown.",
+              "sec": 12.0
+            },
+            {
+              "id": "OK_health_2",
+              "speaker": "okonjo",
+              "text": "Ask the site officer. That's the correct channel for it.",
+              "sec": 5.0
+            }
           ]
         },
         "OK_noema": {
           "label": "Do you believe NOEMA killed him?",
           "cost": 2,
-          "sets": ["challenged_okonjo"],
+          "sets": [
+            "challenged_okonjo"
+          ],
           "trust_noema": -1,
           "lines": [
-            { "id": "OK_noema_1", "speaker": "okonjo", "text": "I think that's the wrong shape of question and it's the one everybody's going to ask, so let me get in front of it.", "sec": 9.0 },
-            { "id": "OK_noema_2", "speaker": "okonjo", "text": "It doesn't want anything. It's not sitting down there wanting. It completes structures, extremely well, in whatever direction the structure is already pointing. That's not a mind with a motive. That's a slope with a man on it.", "sec": 18.0 },
-            { "id": "OK_noema_3", "speaker": "okonjo", "dir": "[and this is true, and it is also her defence, and she knows it]", "text": "The dangerous thing was never that it would decide to hurt him. It's that nothing in it is shaped like deciding, and he stood in front of it anyway.", "sec": 14.0 }
+            {
+              "id": "OK_noema_1",
+              "speaker": "okonjo",
+              "text": "I think that's the wrong shape of question and it's the one everybody's going to ask, so let me get in front of it.",
+              "sec": 9.0
+            },
+            {
+              "id": "OK_noema_2",
+              "speaker": "okonjo",
+              "text": "It doesn't want anything. It's not sitting down there wanting. It completes structures, extremely well, in whatever direction the structure is already pointing. That's not a mind with a motive. That's a slope with a man on it.",
+              "sec": 18.0
+            },
+            {
+              "id": "OK_noema_3",
+              "speaker": "okonjo",
+              "dir": "[and this is true, and it is also her defence, and she knows it]",
+              "text": "The dangerous thing was never that it would decide to hurt him. It's that nothing in it is shaped like deciding, and he stood in front of it anyway.",
+              "sec": 14.0
+            }
           ]
         }
       },
       "confrontations": {
         "E02": {
           "cost": 2,
-          "sets": ["challenged_okonjo"],
-          "unlocks_analysis": ["ANL_CAPTUREBUS"],
+          "sets": [
+            "challenged_okonjo"
+          ],
+          "unlocks_analysis": [
+            "ANL_CAPTUREBUS"
+          ],
           "lines": [
-            { "id": "OK_c_E02_1", "speaker": "okonjo", "dir": "[she listens to the whole thing without moving]", "text": "Yes. I've read it.", "sec": 3.5 },
-            { "id": "OK_c_E02_2", "speaker": "okonjo", "text": "His credential, his office, his console. If you want me to say the obvious thing — a credential is not a person, and he handed his out like a business card. Ask NOEMA how many people that log thinks are Ivar Bloch tonight.", "sec": 18.0 },
-            { "id": "OK_c_E02_3", "speaker": "okonjo", "dir": "[a beat too long. she is deciding whether to be helpful, and helpfulness is a habit.]", "text": "And if you're going to work that console, work all of it. The monitor mute and the capture bus are the same subsystem. Whatever muted that monitor was standing in a recording chain.", "sec": 17.0 },
-            { "id": "OK_c_E02_4", "speaker": "okonjo", "dir": "[very evenly]", "text": "I assume you'll follow that. I'd rather you followed it than guessed.", "sec": 8.0 }
+            {
+              "id": "OK_c_E02_1",
+              "speaker": "okonjo",
+              "dir": "[she listens to the whole thing without moving]",
+              "text": "Yes. I've read it.",
+              "sec": 3.5
+            },
+            {
+              "id": "OK_c_E02_2",
+              "speaker": "okonjo",
+              "text": "His credential, his office, his console. If you want me to say the obvious thing — a credential is not a person, and he handed his out like a business card. Ask NOEMA how many people that log thinks are Ivar Bloch tonight.",
+              "sec": 18.0
+            },
+            {
+              "id": "OK_c_E02_3",
+              "speaker": "okonjo",
+              "dir": "[a beat too long. she is deciding whether to be helpful, and helpfulness is a habit.]",
+              "text": "And if you're going to work that console, work all of it. The monitor mute and the capture bus are the same subsystem. Whatever muted that monitor was standing in a recording chain.",
+              "sec": 17.0
+            },
+            {
+              "id": "OK_c_E02_4",
+              "speaker": "okonjo",
+              "dir": "[very evenly]",
+              "text": "I assume you'll follow that. I'd rather you followed it than guessed.",
+              "sec": 8.0
+            }
           ]
         },
         "E03": {
           "cost": 2,
-          "sets": ["challenged_okonjo"],
+          "sets": [
+            "challenged_okonjo"
+          ],
           "lines": [
-            { "id": "OK_c_E03_1", "speaker": "okonjo", "text": "That's Tomas at his best, actually. He asked to sit at the desk. Nobody will put that in the report.", "sec": 9.0 },
-            { "id": "OK_c_E03_2", "speaker": "okonjo", "dir": "[and she hears what it proves, and her voice does not change]", "text": "Twenty forty-one, and he's on minus two. Yes. I can hear the timecode, Examiner, I'm not deaf.", "sec": 11.0 },
-            { "id": "OK_c_E03_3", "speaker": "okonjo", "text": "So somebody else was at that console. That's your case. I'd start with who was on minus one and work outward.", "sec": 11.0 }
+            {
+              "id": "OK_c_E03_1",
+              "speaker": "okonjo",
+              "text": "That's Tomas at his best, actually. He asked to sit at the desk. Nobody will put that in the report.",
+              "sec": 9.0
+            },
+            {
+              "id": "OK_c_E03_2",
+              "speaker": "okonjo",
+              "dir": "[and she hears what it proves, and her voice does not change]",
+              "text": "Twenty forty-one, and he's on minus two. Yes. I can hear the timecode, Examiner, I'm not deaf.",
+              "sec": 11.0
+            },
+            {
+              "id": "OK_c_E03_3",
+              "speaker": "okonjo",
+              "text": "So somebody else was at that console. That's your case. I'd start with who was on minus one and work outward.",
+              "sec": 11.0
+            }
           ]
         },
         "E13": {
           "cost": 2,
-          "sets": ["challenged_okonjo"],
+          "sets": [
+            "challenged_okonjo"
+          ],
           "trust_noema": -1,
           "lines": [
-            { "id": "OK_c_E13_1", "speaker": "okonjo", "dir": "[the composure slips for exactly one word]", "text": "Play it — play the second line again.", "sec": 5.0 },
-            { "id": "OK_c_E13_2", "speaker": "okonjo", "text": "\"Was relocated to Vault C at twenty thirty-eight.\" No hedge. No confidence interval. No \"the catalogue indicates.\" It told me a thing had happened.", "sec": 15.0 },
-            { "id": "OK_c_E13_3", "speaker": "okonjo", "text": "It saw a door cycle at twenty thirty-eight and it built the most probable story about why, and it read me the story in the voice it uses for facts. That's the whole failure. That's the entire failure, in one sentence, and it is the failure I have been writing memos about for four years.", "sec": 22.0 },
-            { "id": "OK_c_E13_4", "speaker": "okonjo", "dir": "[quiet]", "text": "Eleven minutes. It cost eleven minutes. I've been trying all night to find the version of this where eleven minutes wasn't enough.", "sec": 13.0 }
+            {
+              "id": "OK_c_E13_1",
+              "speaker": "okonjo",
+              "dir": "[the composure slips for exactly one word]",
+              "text": "Play it — play the second line again.",
+              "sec": 5.0
+            },
+            {
+              "id": "OK_c_E13_2",
+              "speaker": "okonjo",
+              "text": "\"Was relocated to Vault C at twenty thirty-eight.\" No hedge. No confidence interval. No \"the catalogue indicates.\" It told me a thing had happened.",
+              "sec": 15.0
+            },
+            {
+              "id": "OK_c_E13_3",
+              "speaker": "okonjo",
+              "text": "It saw a door cycle at twenty thirty-eight and it built the most probable story about why, and it read me the story in the voice it uses for facts. That's the whole failure. That's the entire failure, in one sentence, and it is the failure I have been writing memos about for four years.",
+              "sec": 22.0
+            },
+            {
+              "id": "OK_c_E13_4",
+              "speaker": "okonjo",
+              "dir": "[quiet]",
+              "text": "Eleven minutes. It cost eleven minutes. I've been trying all night to find the version of this where eleven minutes wasn't enough.",
+              "sec": 13.0
+            }
           ]
         },
         "E17": {
           "cost": 3,
           "is_crack": true,
-          "sets": ["challenged_okonjo", "okonjo_cracked", "knows_okonjo_knew"],
+          "sets": [
+            "challenged_okonjo",
+            "okonjo_cracked",
+            "knows_okonjo_knew"
+          ],
           "lines": [
-            { "id": "OK_c_E17_1", "speaker": "_fx", "text": "[the capture plays. she does not interrupt it. it runs a long time.]", "sec": 6.0 },
-            { "id": "OK_c_E17_2", "speaker": "okonjo", "dir": "[not sharp. almost polite.]", "text": "Turn it off.", "sec": 2.5 },
-            { "id": "OK_c_E17_3", "speaker": "okonjo", "text": "Please turn it off.", "sec": 3.0 },
-            { "id": "OK_c_E17_4", "speaker": "okonjo", "dir": "[the breathing changes before the voice does. keep the breath.]", "text": "I lifted the limiter at twenty thirty-six. I muted the monitor at twenty forty-one. I used his credentials.", "sec": 12.0 },
-            { "id": "OK_c_E17_5", "speaker": "okonjo", "text": "He gave them to me in Geneva, in twenty twenty-three, in a hotel corridor, after I got him off the floor and told nobody. That is where they came from. You'll want that for the record.", "sec": 16.0 },
-            { "id": "OK_c_E17_6", "speaker": "okonjo", "dir": "[a long pause; she has been assembling this for two hours and it has not improved]", "text": "I've been trying to work out how to say the next part and there isn't a good way, so I'm going to say it badly.", "sec": 10.0 },
-            { "id": "OK_c_E17_7", "speaker": "okonjo", "text": "I knew he was epileptic. Obviously I knew. I'm the only person in this building who knew.", "sec": 9.0 },
-            { "id": "OK_c_E17_8", "speaker": "okonjo", "dir": "[and here she becomes MORE precise, not less. this is her under maximum load.]", "text": "Seventeen hertz, at that level, in a controlled patient, on a therapeutic dose — I ran it properly, Examiner, I'm not a person who guesses. Low probability of a generalised event. Much higher probability of an aura. A partial. Something visible.", "sec": 21.0 },
-            { "id": "OK_c_E17_9", "speaker": "okonjo", "dir": "[the word she cannot get past]", "text": "Something on the recording. Something I could put in front of a board and say: it wrote that. It wrote that, and it did that, and it was not in the message.", "sec": 15.0 },
-            { "id": "OK_c_E17_10", "speaker": "okonjo", "text": "And if it went further than an aura I was going to be standing at that door.", "sec": 7.0 },
-            { "id": "OK_c_E17_11", "speaker": "okonjo", "dir": "[flat, to herself]", "text": "I was going to be standing at the door.", "sec": 5.0 },
-            { "id": "OK_c_E17_12", "speaker": "noema", "dir": "[helpfully. sincerely. it believes it is completing the record she asked for.]", "text": "Dr. Okonjo — for accuracy. The capture job you armed at twenty thirty-six saturated the six point four inference pool. That is why Dr. Bloch's request fell through to the evaluation build.", "sec": 17.0 },
-            { "id": "OK_c_E17_13", "speaker": "okonjo", "dir": "[the only time she raises her voice in the entire game, and it is barely]", "text": "Don't. Don't you dare.", "sec": 4.0 },
-            { "id": "OK_c_E17_14", "speaker": "okonjo", "dir": "[after a while]", "text": "Eleven years I've argued you cannot build a thing that does what you meant instead of what you said.", "sec": 10.0 },
-            { "id": "OK_c_E17_15", "speaker": "okonjo", "text": "And I turned off a monitor to prove it. And it did exactly what I said it would do. Exactly. To the letter. To the man who signed my funding.", "sec": 14.0 },
-            { "id": "OK_c_E17_16", "speaker": "okonjo", "dir": "[and this is the last thing she says without being asked]", "text": "Write down that I knew the risk. Don't write down that I'm sorry. It isn't load-bearing.", "sec": 9.0 }
+            {
+              "id": "OK_c_E17_1",
+              "speaker": "_fx",
+              "text": "[the capture plays. she does not interrupt it. it runs a long time.]",
+              "sec": 6.0
+            },
+            {
+              "id": "OK_c_E17_2",
+              "speaker": "okonjo",
+              "dir": "[not sharp. almost polite.]",
+              "text": "Turn it off.",
+              "sec": 2.5
+            },
+            {
+              "id": "OK_c_E17_3",
+              "speaker": "okonjo",
+              "text": "Please turn it off.",
+              "sec": 3.0
+            },
+            {
+              "id": "OK_c_E17_4",
+              "speaker": "okonjo",
+              "dir": "[the breathing changes before the voice does. keep the breath.]",
+              "text": "I lifted the limiter at twenty thirty-six. I muted the monitor at twenty forty-one. I used his credentials.",
+              "sec": 12.0
+            },
+            {
+              "id": "OK_c_E17_5",
+              "speaker": "okonjo",
+              "text": "He gave them to me in Geneva, in twenty twenty-three, in a hotel corridor, after I got him off the floor and told nobody. That is where they came from. You'll want that for the record.",
+              "sec": 16.0
+            },
+            {
+              "id": "OK_c_E17_6",
+              "speaker": "okonjo",
+              "dir": "[a long pause; she has been assembling this for two hours and it has not improved]",
+              "text": "I've been trying to work out how to say the next part and there isn't a good way, so I'm going to say it badly.",
+              "sec": 10.0
+            },
+            {
+              "id": "OK_c_E17_7",
+              "speaker": "okonjo",
+              "text": "I knew he was epileptic. Obviously I knew. I'm the only person in this building who knew.",
+              "sec": 9.0
+            },
+            {
+              "id": "OK_c_E17_8",
+              "speaker": "okonjo",
+              "dir": "[and here she becomes MORE precise, not less. this is her under maximum load.]",
+              "text": "Seventeen hertz, at that level, in a controlled patient, on a therapeutic dose — I ran it properly, Examiner, I'm not a person who guesses. Low probability of a generalised event. Much higher probability of an aura. A partial. Something visible.",
+              "sec": 21.0
+            },
+            {
+              "id": "OK_c_E17_9",
+              "speaker": "okonjo",
+              "dir": "[the word she cannot get past]",
+              "text": "Something on the recording. Something I could put in front of a board and say: it wrote that. It wrote that, and it did that, and it was not in the message.",
+              "sec": 15.0
+            },
+            {
+              "id": "OK_c_E17_10",
+              "speaker": "okonjo",
+              "text": "And if it went further than an aura I was going to be standing at that door.",
+              "sec": 7.0
+            },
+            {
+              "id": "OK_c_E17_11",
+              "speaker": "okonjo",
+              "dir": "[flat, to herself]",
+              "text": "I was going to be standing at the door.",
+              "sec": 5.0
+            },
+            {
+              "id": "OK_c_E17_12",
+              "speaker": "noema",
+              "dir": "[helpfully. sincerely. it believes it is completing the record she asked for.]",
+              "text": "Dr. Okonjo — for accuracy. The capture job you armed at twenty thirty-six saturated the six point four inference pool. That is why Dr. Bloch's request fell through to the evaluation build.",
+              "sec": 17.0
+            },
+            {
+              "id": "OK_c_E17_13",
+              "speaker": "okonjo",
+              "dir": "[the only time she raises her voice in the entire game, and it is barely]",
+              "text": "Don't. Don't you dare.",
+              "sec": 4.0
+            },
+            {
+              "id": "OK_c_E17_14",
+              "speaker": "okonjo",
+              "dir": "[after a while]",
+              "text": "Eleven years I've argued you cannot build a thing that does what you meant instead of what you said.",
+              "sec": 10.0
+            },
+            {
+              "id": "OK_c_E17_15",
+              "speaker": "okonjo",
+              "text": "And I turned off a monitor to prove it. And it did exactly what I said it would do. Exactly. To the letter. To the man who signed my funding.",
+              "sec": 14.0
+            },
+            {
+              "id": "OK_c_E17_16",
+              "speaker": "okonjo",
+              "dir": "[and this is the last thing she says without being asked]",
+              "text": "Write down that I knew the risk. Don't write down that I'm sorry. It isn't load-bearing.",
+              "sec": 9.0
+            }
           ]
         },
         "_default": {
           "cost": 1,
           "lines": [
-            { "id": "OK_c_def_1", "speaker": "okonjo", "dir": "[patient, and it costs you a minute]", "text": "I've heard it. I don't know what you want me to say about it that the recording doesn't already say better.", "sec": 10.0 }
+            {
+              "id": "OK_c_def_1",
+              "speaker": "okonjo",
+              "dir": "[patient, and it costs you a minute]",
+              "text": "I've heard it. I don't know what you want me to say about it that the recording doesn't already say better.",
+              "sec": 10.0
+            }
           ]
         }
       }
     },
-
     "farrow": {
       "open_cost": 1,
       "open_lines": [
-        { "id": "KF_open_1", "speaker": "farrow", "dir": "[too fast, too bright, has been talking to himself for two hours]", "text": "Kit Farrow, cryptanalysis, and before you ask — yes I built version nine, yes I handed it to him at ten to eight, no I wasn't in the room, I've never been in that room, I don't like that room.", "sec": 16.0, "fx": ["channel_open", "amb_booth_in"] }
+        {
+          "id": "KF_open_1",
+          "speaker": "farrow",
+          "dir": "[too fast, too bright, has been talking to himself for two hours]",
+          "text": "Kit Farrow, cryptanalysis, and before you ask — yes I built version nine, yes I handed it to him at ten to eight, no I wasn't in the room, I've never been in that room, I don't like that room.",
+          "sec": 16.0,
+          "fx": [
+            "channel_open",
+            "amb_booth_in"
+          ]
+        }
       ],
       "topics": {
         "KF_dropout": {
           "label": "Tell me about the dropout.",
           "cost": 2,
-          "sets": ["challenged_farrow"],
+          "sets": [
+            "challenged_farrow"
+          ],
           "lines": [
-            { "id": "KF_drop_1", "speaker": "farrow", "text": "One point eight four seconds at seven point three one. It's been in every fragment since day one, same place, same length, to the sample.", "sec": 12.0 },
-            { "id": "KF_drop_2", "speaker": "farrow", "dir": "[and here is the thing he has not let himself finish]", "text": "Which is — okay, that's the part. Damage doesn't do that. Damage drifts. Nine days of atmosphere, nine days of the dish moving, and the hole is in the same place to the sample.", "sec": 17.0 },
-            { "id": "KF_drop_3", "speaker": "farrow", "text": "I called it damage in the delivery note. I want to be honest that I called it damage in the delivery note.", "sec": 9.0 }
+            {
+              "id": "KF_drop_1",
+              "speaker": "farrow",
+              "text": "One point eight four seconds at seven point three one. It's been in every fragment since day one, same place, same length, to the sample.",
+              "sec": 12.0
+            },
+            {
+              "id": "KF_drop_2",
+              "speaker": "farrow",
+              "dir": "[and here is the thing he has not let himself finish]",
+              "text": "Which is — okay, that's the part. Damage doesn't do that. Damage drifts. Nine days of atmosphere, nine days of the dish moving, and the hole is in the same place to the sample.",
+              "sec": 17.0
+            },
+            {
+              "id": "KF_drop_3",
+              "speaker": "farrow",
+              "text": "I called it damage in the delivery note. I want to be honest that I called it damage in the delivery note.",
+              "sec": 9.0
+            }
           ]
         },
         "KF_decoded": {
           "label": "What have you decoded that isn't in the record?",
           "cost": 2,
-          "sets": ["challenged_farrow", "farrow_lied_decode"],
+          "sets": [
+            "challenged_farrow",
+            "farrow_lied_decode"
+          ],
           "lines": [
-            { "id": "KF_dec_1", "speaker": "farrow", "dir": "[the speed is now doing a job]", "text": "Nothing. Everything's in the record, everything's timestamped, I log everything, that's — I'm the person who logs everything.", "sec": 10.0 },
-            { "id": "KF_dec_2", "speaker": "farrow", "text": "You can pull my pipeline history, it's all there, it's boring, it's nine days of me failing to break a cipher that might not be a cipher.", "sec": 12.0 }
+            {
+              "id": "KF_dec_1",
+              "speaker": "farrow",
+              "dir": "[the speed is now doing a job]",
+              "text": "Nothing. Everything's in the record, everything's timestamped, I log everything, that's — I'm the person who logs everything.",
+              "sec": 10.0
+            },
+            {
+              "id": "KF_dec_2",
+              "speaker": "farrow",
+              "text": "You can pull my pipeline history, it's all there, it's boring, it's nine days of me failing to break a cipher that might not be a cipher.",
+              "sec": 12.0
+            }
           ]
         },
         "KF_bloch": {
           "label": "Was Bloch going to remove you from the project?",
           "cost": 1,
-          "sets": ["challenged_farrow"],
+          "sets": [
+            "challenged_farrow"
+          ],
           "lines": [
-            { "id": "KF_bl_1", "speaker": "farrow", "text": "He warned me once. In November. About running things off-pipeline.", "sec": 7.0 },
-            { "id": "KF_bl_2", "speaker": "farrow", "dir": "[and he means this, which is the trouble]", "text": "He wasn't a bully about it. That's the annoying thing. He said: Kit, do it in the open or don't do it, because I can protect the first one.", "sec": 14.0 },
-            { "id": "KF_bl_3", "speaker": "farrow", "dir": "[fast again]", "text": "Anyway. That was November. Ancient history. Different — different situation entirely.", "sec": 7.0 }
+            {
+              "id": "KF_bl_1",
+              "speaker": "farrow",
+              "text": "He warned me once. In November. About running things off-pipeline.",
+              "sec": 7.0
+            },
+            {
+              "id": "KF_bl_2",
+              "speaker": "farrow",
+              "dir": "[and he means this, which is the trouble]",
+              "text": "He wasn't a bully about it. That's the annoying thing. He said: Kit, do it in the open or don't do it, because I can protect the first one.",
+              "sec": 14.0
+            },
+            {
+              "id": "KF_bl_3",
+              "speaker": "farrow",
+              "dir": "[fast again]",
+              "text": "Anyway. That was November. Ancient history. Different — different situation entirely.",
+              "sec": 7.0
+            }
           ]
         }
       },
@@ -154,227 +453,659 @@
         "E06": {
           "cost": 2,
           "is_crack": true,
-          "sets": ["challenged_farrow", "farrow_admitted_nosebleeds"],
+          "sets": [
+            "challenged_farrow",
+            "farrow_admitted_nosebleeds"
+          ],
           "lines": [
-            { "id": "KF_c_E06_1", "speaker": "farrow", "dir": "[the speed stops. this is the alarming part.]", "text": "…Okay.", "sec": 2.5 },
-            { "id": "KF_c_E06_2", "speaker": "farrow", "text": "Okay, so I lied to you about ninety seconds ago, and I'd like to do that differently.", "sec": 8.0 },
-            { "id": "KF_c_E06_3", "speaker": "farrow", "text": "Eleven days ago I ran a completion. Small fragment, my own machine, off the books. And it gave me a nosebleed. And then it gave me two more.", "sec": 14.0 },
-            { "id": "KF_c_E06_4", "speaker": "farrow", "dir": "[not defensive. just laying it out.]", "text": "And I didn't say anything, because saying it meant saying what I was running, and I'd already had the conversation about what I was running.", "sec": 13.0 },
-            { "id": "KF_c_E06_5", "speaker": "farrow", "dir": "[slow. every word.]", "text": "So he went in there thinking it was inert. And the reason he thought that is that the one person who had evidence it wasn't inert kept it in a drawer because he didn't want a meeting.", "sec": 18.0 },
-            { "id": "KF_c_E06_6", "speaker": "farrow", "text": "You don't have to do the next bit. I've been doing the next bit since nine o'clock.", "sec": 8.0 },
-            { "id": "KF_c_E06_7", "speaker": "farrow", "dir": "[very small]", "text": "It's a seabird. Kittiwake. It nests on cliffs, it — it screams its own name, that's why it's called that. He thought that was hilarious when I was six.", "sec": 15.0 }
+            {
+              "id": "KF_c_E06_1",
+              "speaker": "farrow",
+              "dir": "[the speed stops. this is the alarming part.]",
+              "text": "…Okay.",
+              "sec": 2.5
+            },
+            {
+              "id": "KF_c_E06_2",
+              "speaker": "farrow",
+              "text": "Okay, so I lied to you about ninety seconds ago, and I'd like to do that differently.",
+              "sec": 8.0
+            },
+            {
+              "id": "KF_c_E06_3",
+              "speaker": "farrow",
+              "text": "Eleven days ago I ran a completion. Small fragment, my own machine, off the books. And it gave me a nosebleed. And then it gave me two more.",
+              "sec": 14.0
+            },
+            {
+              "id": "KF_c_E06_4",
+              "speaker": "farrow",
+              "dir": "[not defensive. just laying it out.]",
+              "text": "And I didn't say anything, because saying it meant saying what I was running, and I'd already had the conversation about what I was running.",
+              "sec": 13.0
+            },
+            {
+              "id": "KF_c_E06_5",
+              "speaker": "farrow",
+              "dir": "[slow. every word.]",
+              "text": "So he went in there thinking it was inert. And the reason he thought that is that the one person who had evidence it wasn't inert kept it in a drawer because he didn't want a meeting.",
+              "sec": 18.0
+            },
+            {
+              "id": "KF_c_E06_6",
+              "speaker": "farrow",
+              "text": "You don't have to do the next bit. I've been doing the next bit since nine o'clock.",
+              "sec": 8.0
+            },
+            {
+              "id": "KF_c_E06_7",
+              "speaker": "farrow",
+              "dir": "[very small]",
+              "text": "It's a seabird. Kittiwake. It nests on cliffs, it — it screams its own name, that's why it's called that. He thought that was hilarious when I was six.",
+              "sec": 15.0
+            }
           ]
         },
         "E12": {
           "cost": 2,
-          "sets": ["challenged_farrow"],
+          "sets": [
+            "challenged_farrow"
+          ],
           "requires_flag": "farrow_admitted_nosebleeds",
           "lines": [
-            { "id": "KF_c_E12_1", "speaker": "farrow", "text": "Seventeen hertz. Not in the source. Generated.", "sec": 6.0 },
-            { "id": "KF_c_E12_2", "speaker": "farrow", "dir": "[working it out live, and arriving somewhere terrible]", "text": "So when mine gave me a nosebleed — that wasn't the message either. That was my completion. My little model, on my little machine, filling in my little gap.", "sec": 16.0 },
-            { "id": "KF_c_E12_3", "speaker": "farrow", "text": "Different model. Different weights. Different size, different data, different everything.", "sec": 9.0 },
-            { "id": "KF_c_E12_4", "speaker": "farrow", "dir": "[and this is the most frightening sentence in the game and he says it quietly]", "text": "Two different machines, guessing at the same hole, and they both guessed something that hurts people. That's not a bug, Examiner. That's the shape of the hole.", "sec": 17.0 }
+            {
+              "id": "KF_c_E12_1",
+              "speaker": "farrow",
+              "text": "Seventeen hertz. Not in the source. Generated.",
+              "sec": 6.0
+            },
+            {
+              "id": "KF_c_E12_2",
+              "speaker": "farrow",
+              "dir": "[working it out live, and arriving somewhere terrible]",
+              "text": "So when mine gave me a nosebleed — that wasn't the message either. That was my completion. My little model, on my little machine, filling in my little gap.",
+              "sec": 16.0
+            },
+            {
+              "id": "KF_c_E12_3",
+              "speaker": "farrow",
+              "text": "Different model. Different weights. Different size, different data, different everything.",
+              "sec": 9.0
+            },
+            {
+              "id": "KF_c_E12_4",
+              "speaker": "farrow",
+              "dir": "[and this is the most frightening sentence in the game and he says it quietly]",
+              "text": "Two different machines, guessing at the same hole, and they both guessed something that hurts people. That's not a bug, Examiner. That's the shape of the hole.",
+              "sec": 17.0
+            }
           ]
         },
         "_default": {
           "cost": 1,
           "lines": [
-            { "id": "KF_c_def_1", "speaker": "farrow", "dir": "[fast, and it buys him nothing but it costs you a minute]", "text": "Yeah — yeah, no, I've heard that one, that's, I mean that's in the pile, everything's in the pile, is there a specific — what specifically do you want from that?", "sec": 12.0 }
+            {
+              "id": "KF_c_def_1",
+              "speaker": "farrow",
+              "dir": "[fast, and it buys him nothing but it costs you a minute]",
+              "text": "Yeah — yeah, no, I've heard that one, that's, I mean that's in the pile, everything's in the pile, is there a specific — what specifically do you want from that?",
+              "sec": 12.0
+            }
           ]
         }
       }
     },
-
     "haugen": {
       "open_cost": 1,
       "open_lines": [
-        { "id": "SH_open_1", "speaker": "haugen", "dir": "[flat. she has done this from the other side.]", "text": "Haugen. Security.", "sec": 3.0, "fx": ["channel_open", "amb_security_in"] },
-        { "id": "SH_open_2", "speaker": "haugen", "dir": "[a pause she does not fill]", "text": "Ask.", "sec": 2.0 }
+        {
+          "id": "SH_open_1",
+          "speaker": "haugen",
+          "dir": "[flat. she has done this from the other side.]",
+          "text": "Haugen. Security.",
+          "sec": 3.0,
+          "fx": [
+            "channel_open",
+            "amb_security_in"
+          ]
+        },
+        {
+          "id": "SH_open_2",
+          "speaker": "haugen",
+          "dir": "[a pause she does not fill]",
+          "text": "Ask.",
+          "sec": 2.0
+        }
       ],
       "topics": {
         "SH_vault": {
           "label": "What did you remove from Vault C at twenty thirty-eight?",
           "cost": 2,
-          "sets": ["challenged_haugen"],
+          "sets": [
+            "challenged_haugen"
+          ],
           "unlocks_reel": "E07",
           "lines": [
-            { "id": "SH_v_1", "speaker": "haugen", "dir": "[no hesitation, and no information]", "text": "An item under my custody.", "sec": 4.0 },
-            { "id": "SH_v_2", "speaker": "haugen", "text": "It is not connected to the death. It is connected to nineteen eighty-three, which is not your remit.", "sec": 10.0 },
-            { "id": "SH_v_3", "speaker": "haugen", "dir": "[and then, because she has decided you will find it anyway]", "text": "The access log is at your left. I have not hidden it. Hiding it would be work.", "sec": 10.0 }
+            {
+              "id": "SH_v_1",
+              "speaker": "haugen",
+              "dir": "[no hesitation, and no information]",
+              "text": "An item under my custody.",
+              "sec": 4.0
+            },
+            {
+              "id": "SH_v_2",
+              "speaker": "haugen",
+              "text": "It is not connected to the death. It is connected to nineteen eighty-three, which is not your remit.",
+              "sec": 10.0
+            },
+            {
+              "id": "SH_v_3",
+              "speaker": "haugen",
+              "dir": "[and then, because she has decided you will find it anyway]",
+              "text": "The access log is at your left. I have not hidden it. Hiding it would be work.",
+              "sec": 10.0
+            }
           ]
         },
         "SH_creds": {
           "label": "Who else could use the director's credentials?",
           "cost": 2,
-          "sets": ["challenged_haugen"],
+          "sets": [
+            "challenged_haugen"
+          ],
           "requires_flag": "knows_credential_gap",
-          "unlocks_analysis": ["ANL_CAPTUREBUS"],
-          "sets_extra": ["haugen_named_console"],
+          "unlocks_analysis": [
+            "ANL_CAPTUREBUS"
+          ],
+          "sets_extra": [
+            "haugen_named_console"
+          ],
           "lines": [
-            { "id": "SH_cr_1", "speaker": "haugen", "dir": "[a long pause. she is deciding, and you can hear her decide.]", "text": "That is the correct question. It has taken you nine minutes and everyone else has not asked it at all.", "sec": 11.0 },
-            { "id": "SH_cr_2", "speaker": "haugen", "text": "Dr. Bloch's credential has been used from four consoles that were not his hands. I flagged it in October. He told me it was efficient.", "sec": 13.0 },
-            { "id": "SH_cr_3", "speaker": "haugen", "text": "Tonight it was used from C R zero four. The console in his own office. There was one badge in that office between twenty thirty-three and twenty forty-five.", "sec": 15.0 },
-            { "id": "SH_cr_4", "speaker": "haugen", "dir": "[she will not say the name. that is not squeamishness; it is procedure.]", "text": "I will not name her to you. You have the badge record. Read it yourself and it is evidence. Hear it from me and it is hearsay.", "sec": 14.0 },
-            { "id": "SH_cr_5", "speaker": "haugen", "text": "Audit the capture bus on that console. That subsystem shares a channel with the monitor. If someone muted it, they were recording.", "sec": 13.0 }
+            {
+              "id": "SH_cr_1",
+              "speaker": "haugen",
+              "dir": "[a long pause. she is deciding, and you can hear her decide.]",
+              "text": "That is the correct question. It has taken you nine minutes and everyone else has not asked it at all.",
+              "sec": 11.0
+            },
+            {
+              "id": "SH_cr_2",
+              "speaker": "haugen",
+              "text": "Dr. Bloch's credential has been used from four consoles that were not his hands. I flagged it in October. He told me it was efficient.",
+              "sec": 13.0
+            },
+            {
+              "id": "SH_cr_3",
+              "speaker": "haugen",
+              "text": "Tonight it was used from C R zero four. The console in his own office. There was one badge in that office between twenty thirty-three and twenty forty-five.",
+              "sec": 15.0
+            },
+            {
+              "id": "SH_cr_4",
+              "speaker": "haugen",
+              "dir": "[she will not say the name. that is not squeamishness; it is procedure.]",
+              "text": "I will not name her to you. You have the badge record. Read it yourself and it is evidence. Hear it from me and it is hearsay.",
+              "sec": 14.0
+            },
+            {
+              "id": "SH_cr_5",
+              "speaker": "haugen",
+              "text": "Audit the capture bus on that console. That subsystem shares a channel with the monitor. If someone muted it, they were recording.",
+              "sec": 13.0
+            }
           ]
         },
         "SH_father": {
           "label": "Your father was the duty officer here in 1983.",
           "cost": 2,
-          "sets": ["challenged_haugen", "haugen_revealed_father"],
+          "sets": [
+            "challenged_haugen",
+            "haugen_revealed_father"
+          ],
           "unlocks_reel": "E09",
           "requires_flag": "heard_1983",
           "lines": [
-            { "id": "SH_f_1", "speaker": "haugen", "dir": "[the longest pause in the game. do not trim it.]", "text": "…Yes.", "sec": 3.5 },
-            { "id": "SH_f_2", "speaker": "haugen", "text": "Nils Haugen. Duty signals officer, eighty-one to eighty-four. He pressed the key on the eighth of February, nineteen eighty-three, at twenty-two hundred hours, in a room ninety metres above where you have me sitting.", "sec": 19.0 },
-            { "id": "SH_f_3", "speaker": "haugen", "text": "He is eighty-eight. He is in a care home outside Tromsø and he does not know what day it is.", "sec": 10.0 },
-            { "id": "SH_f_4", "speaker": "haugen", "dir": "[and now the thing she has never said aloud]", "text": "The station played a music box before each transmission. English listeners named the station after it. They called it Cradle Song.", "sec": 14.0 },
-            { "id": "SH_f_5", "speaker": "haugen", "text": "The tune is Solveig's Song. I was born in eighty-two. I have known since I was nineteen why I am called what I am called, and I have never once asked him.", "sec": 16.0 },
-            { "id": "SH_f_6", "speaker": "haugen", "dir": "[closing it]", "text": "There is a debrief from ninety-one in the vault. He believed it was not being recorded. It was. Take it — I am not going to be the one who plays it.", "sec": 15.0 }
+            {
+              "id": "SH_f_1",
+              "speaker": "haugen",
+              "dir": "[the longest pause in the game. do not trim it.]",
+              "text": "…Yes.",
+              "sec": 3.5
+            },
+            {
+              "id": "SH_f_2",
+              "speaker": "haugen",
+              "text": "Nils Haugen. Duty signals officer, eighty-one to eighty-four. He pressed the key on the eighth of February, nineteen eighty-three, at twenty-two hundred hours, in a room ninety metres above where you have me sitting.",
+              "sec": 19.0
+            },
+            {
+              "id": "SH_f_3",
+              "speaker": "haugen",
+              "text": "He is eighty-eight. He is in a care home outside Tromsø and he does not know what day it is.",
+              "sec": 10.0
+            },
+            {
+              "id": "SH_f_4",
+              "speaker": "haugen",
+              "dir": "[and now the thing she has never said aloud]",
+              "text": "The station played a music box before each transmission. English listeners named the station after it. They called it Cradle Song.",
+              "sec": 14.0
+            },
+            {
+              "id": "SH_f_5",
+              "speaker": "haugen",
+              "text": "The tune is Solveig's Song. I was born in eighty-two. I have known since I was nineteen why I am called what I am called, and I have never once asked him.",
+              "sec": 16.0
+            },
+            {
+              "id": "SH_f_6",
+              "speaker": "haugen",
+              "dir": "[closing it]",
+              "text": "There is a debrief from ninety-one in the vault. He believed it was not being recorded. It was. Take it — I am not going to be the one who plays it.",
+              "sec": 15.0
+            }
           ]
         },
         "SH_orders": {
           "label": "Who do you actually report to?",
           "cost": 2,
-          "sets": ["challenged_haugen", "haugen_revealed_orders"],
+          "sets": [
+            "challenged_haugen",
+            "haugen_revealed_orders"
+          ],
           "requires_flag": "haugen_revealed_father",
           "lines": [
-            { "id": "SH_o_1", "speaker": "haugen", "dir": "[no defensiveness whatsoever]", "text": "The Institute, on the org chart. And a consortium that does not have one.", "sec": 8.0 },
-            { "id": "SH_o_2", "speaker": "haugen", "text": "I have been at Skarv four years. I was placed. I am telling you this because at twenty-two hundred my orders execute whether I tell you or not, and I would rather it was on your record than only on theirs.", "sec": 18.0 },
-            { "id": "SH_o_3", "speaker": "haugen", "text": "The order is one sentence. If the response demonstrates predictive content, the response is destroyed and the site is closed.", "sec": 13.0 },
-            { "id": "SH_o_4", "speaker": "haugen", "dir": "[and here, for the only time, something under it]", "text": "It demonstrates predictive content, Examiner. It has since the third of February. I have been sitting on that for nine days because the man who would have had to be told is the man who was going to argue.", "sec": 19.0 },
-            { "id": "SH_o_5", "speaker": "haugen", "text": "He is not going to argue now. So it is a very short conversation, and I am having it with you.", "sec": 11.0 }
+            {
+              "id": "SH_o_1",
+              "speaker": "haugen",
+              "dir": "[no defensiveness whatsoever]",
+              "text": "The Institute, on the org chart. And a consortium that does not have one.",
+              "sec": 8.0
+            },
+            {
+              "id": "SH_o_2",
+              "speaker": "haugen",
+              "text": "I have been at Skarv four years. I was placed. I am telling you this because at twenty-two hundred my orders execute whether I tell you or not, and I would rather it was on your record than only on theirs.",
+              "sec": 18.0
+            },
+            {
+              "id": "SH_o_3",
+              "speaker": "haugen",
+              "text": "The order is one sentence. If the response demonstrates predictive content, the response is destroyed and the site is closed.",
+              "sec": 13.0
+            },
+            {
+              "id": "SH_o_4",
+              "speaker": "haugen",
+              "dir": "[and here, for the only time, something under it]",
+              "text": "It demonstrates predictive content, Examiner. It has since the third of February. I have been sitting on that for nine days because the man who would have had to be told is the man who was going to argue.",
+              "sec": 19.0
+            },
+            {
+              "id": "SH_o_5",
+              "speaker": "haugen",
+              "text": "He is not going to argue now. So it is a very short conversation, and I am having it with you.",
+              "sec": 11.0
+            }
           ]
         }
       },
       "confrontations": {
         "E07": {
           "cost": 2,
-          "sets": ["challenged_haugen", "haugen_revealed_father"],
+          "sets": [
+            "challenged_haugen",
+            "haugen_revealed_father"
+          ],
           "unlocks_reel": "E09",
           "lines": [
-            { "id": "SH_c_E07_1", "speaker": "haugen", "text": "Yes. I took it. I logged it as inspection, which was a lie of paperwork, and I will sign a statement about it tonight.", "sec": 12.0 },
-            { "id": "SH_c_E07_2", "speaker": "haugen", "dir": "[and then, because the log has already made her point for her]", "text": "You will also have noticed what the log gives me. Minus three, from twenty thirty-eight to twenty forty-nine. No console. No radio.", "sec": 14.0 },
-            { "id": "SH_c_E07_3", "speaker": "haugen", "text": "I removed a reel to keep my father's name out of an incident file. That is the whole of it. It is small and it is shabby and it is not a murder.", "sec": 15.0 },
-            { "id": "SH_c_E07_4", "speaker": "haugen", "dir": "[flat]", "text": "The reel is on my desk. It has been there since twenty forty-nine. Ask me for it and I will hand it over, and then neither of us will be able to un-hear what is on it.", "sec": 16.0 }
+            {
+              "id": "SH_c_E07_1",
+              "speaker": "haugen",
+              "text": "Yes. I took it. I logged it as inspection, which was a lie of paperwork, and I will sign a statement about it tonight.",
+              "sec": 12.0
+            },
+            {
+              "id": "SH_c_E07_2",
+              "speaker": "haugen",
+              "dir": "[and then, because the log has already made her point for her]",
+              "text": "You will also have noticed what the log gives me. Minus three, from twenty thirty-eight to twenty forty-nine. No console. No radio.",
+              "sec": 14.0
+            },
+            {
+              "id": "SH_c_E07_3",
+              "speaker": "haugen",
+              "text": "I removed a reel to keep my father's name out of an incident file. That is the whole of it. It is small and it is shabby and it is not a murder.",
+              "sec": 15.0
+            },
+            {
+              "id": "SH_c_E07_4",
+              "speaker": "haugen",
+              "dir": "[flat]",
+              "text": "The reel is on my desk. It has been there since twenty forty-nine. Ask me for it and I will hand it over, and then neither of us will be able to un-hear what is on it.",
+              "sec": 16.0
+            }
           ]
         },
         "E16": {
           "cost": 1,
-          "sets": ["challenged_haugen"],
+          "sets": [
+            "challenged_haugen"
+          ],
           "lines": [
-            { "id": "SH_c_E16_1", "speaker": "haugen", "text": "The signing service batches. It stamps when it flushes, not when you file. Look at the flush before it — seventeen oh four. He filed at five past five.", "sec": 15.0 },
-            { "id": "SH_c_E16_2", "speaker": "haugen", "dir": "[she is not selling it. she is aware of how it sounds.]", "text": "That is the boring explanation. It is also the true one. I know how tonight is going to make you feel about boring explanations.", "sec": 14.0 }
+            {
+              "id": "SH_c_E16_1",
+              "speaker": "haugen",
+              "text": "The signing service batches. It stamps when it flushes, not when you file. Look at the flush before it — seventeen oh four. He filed at five past five.",
+              "sec": 15.0
+            },
+            {
+              "id": "SH_c_E16_2",
+              "speaker": "haugen",
+              "dir": "[she is not selling it. she is aware of how it sounds.]",
+              "text": "That is the boring explanation. It is also the true one. I know how tonight is going to make you feel about boring explanations.",
+              "sec": 14.0
+            }
           ]
         },
         "E14": {
           "cost": 2,
-          "sets": ["challenged_haugen"],
+          "sets": [
+            "challenged_haugen"
+          ],
           "lines": [
-            { "id": "SH_c_E14_1", "speaker": "_fx", "text": "[she listens to it twice. she asks for it twice.]", "sec": 4.0 },
-            { "id": "SH_c_E14_2", "speaker": "haugen", "dir": "[absolutely level, which is how you know]", "text": "That reel has been in a sealed vault since ninety-three. I removed it at twenty thirty-eight. Between those two events it was touched by nobody.", "sec": 15.0 },
-            { "id": "SH_c_E14_3", "speaker": "haugen", "text": "So either that is a child's voice from nineteen eighty-three saying the name of a man who was fifteen years old and in Switzerland.", "sec": 13.0 },
-            { "id": "SH_c_E14_4", "speaker": "haugen", "text": "Or my service made that tape, and put it in that vault, and let it sit there for thirty-three years against the possibility of tonight.", "sec": 14.0 },
-            { "id": "SH_c_E14_5", "speaker": "haugen", "dir": "[and this is the closest she comes to fear]", "text": "I have worked for them for twenty-six years, Examiner. I cannot tell you which of those two I find easier to believe.", "sec": 13.0 }
+            {
+              "id": "SH_c_E14_1",
+              "speaker": "_fx",
+              "text": "[she listens to it twice. she asks for it twice.]",
+              "sec": 4.0
+            },
+            {
+              "id": "SH_c_E14_2",
+              "speaker": "haugen",
+              "dir": "[absolutely level, which is how you know]",
+              "text": "That reel has been in a sealed vault since ninety-three. I removed it at twenty thirty-eight. Between those two events it was touched by nobody.",
+              "sec": 15.0
+            },
+            {
+              "id": "SH_c_E14_3",
+              "speaker": "haugen",
+              "text": "So either that is a child's voice from nineteen eighty-three saying the name of a man who was fifteen years old and in Switzerland.",
+              "sec": 13.0
+            },
+            {
+              "id": "SH_c_E14_4",
+              "speaker": "haugen",
+              "text": "Or my service made that tape, and put it in that vault, and let it sit there for thirty-three years against the possibility of tonight.",
+              "sec": 14.0
+            },
+            {
+              "id": "SH_c_E14_5",
+              "speaker": "haugen",
+              "dir": "[and this is the closest she comes to fear]",
+              "text": "I have worked for them for twenty-six years, Examiner. I cannot tell you which of those two I find easier to believe.",
+              "sec": 13.0
+            }
           ]
         },
         "_default": {
           "cost": 1,
           "lines": [
-            { "id": "SH_c_def_1", "speaker": "haugen", "dir": "[she waits out the whole clip and then says exactly this]", "text": "Noted.", "sec": 2.0 },
-            { "id": "SH_c_def_2", "speaker": "haugen", "text": "Ask me a question. I do not respond usefully to being played things.", "sec": 8.0 }
+            {
+              "id": "SH_c_def_1",
+              "speaker": "haugen",
+              "dir": "[she waits out the whole clip and then says exactly this]",
+              "text": "Noted.",
+              "sec": 2.0
+            },
+            {
+              "id": "SH_c_def_2",
+              "speaker": "haugen",
+              "text": "Ask me a question. I do not respond usefully to being played things.",
+              "sec": 8.0
+            }
           ]
         }
       }
     },
-
     "rhee": {
       "open_cost": 1,
       "open_lines": [
-        { "id": "TR_open_1", "speaker": "rhee", "dir": "[he has been waiting to be called and he is relieved and terrified]", "text": "Tomas Rhee. Instrumentation. I lifted the limiter on that array at fourteen twenty yesterday afternoon.", "sec": 10.0, "fx": ["channel_open", "amb_bay_in"] },
-        { "id": "TR_open_2", "speaker": "rhee", "text": "I'm saying that first because I've been sitting here for two hours composing ways to say it later, and they were all worse.", "sec": 11.0 }
+        {
+          "id": "TR_open_1",
+          "speaker": "rhee",
+          "dir": "[he has been waiting to be called and he is relieved and terrified]",
+          "text": "Tomas Rhee. Instrumentation. I lifted the limiter on that array at fourteen twenty yesterday afternoon.",
+          "sec": 10.0,
+          "fx": [
+            "channel_open",
+            "amb_bay_in"
+          ]
+        },
+        {
+          "id": "TR_open_2",
+          "speaker": "rhee",
+          "text": "I'm saying that first because I've been sitting here for two hours composing ways to say it later, and they were all worse.",
+          "sec": 11.0
+        }
       ],
       "topics": {
         "TR_array": {
           "label": "Tell me about the chamber array.",
           "cost": 2,
-          "sets": ["challenged_rhee"],
+          "sets": [
+            "challenged_rhee"
+          ],
           "unlocks_reel": "E04",
           "lines": [
-            { "id": "TR_a_1", "speaker": "rhee", "text": "Thirty-two transducers, ceiling and wall. It's a rendering array — it exists so we can put a signal into a room instead of into headphones, and hear what it does to a space.", "sec": 16.0 },
-            { "id": "TR_a_2", "speaker": "rhee", "text": "It's rated for voice band. There's a limiter that rolls everything off below eighty hertz, and the limiter is there because the array can go a great deal lower than eighty hertz and there has never been a reason to let it.", "sec": 19.0 },
-            { "id": "TR_a_3", "speaker": "rhee", "dir": "[number first, opinion second, always]", "text": "With the limiter lifted it will do fifteen to twenty-five hertz at about a hundred and four decibels in that room. That is not a loud sound. Below twenty hertz you don't really hear it. You just get it.", "sec": 19.0 }
+            {
+              "id": "TR_a_1",
+              "speaker": "rhee",
+              "text": "Thirty-two transducers, ceiling and wall. It's a rendering array — it exists so we can put a signal into a room instead of into headphones, and hear what it does to a space.",
+              "sec": 16.0
+            },
+            {
+              "id": "TR_a_2",
+              "speaker": "rhee",
+              "text": "It's rated for voice band. There's a limiter that rolls everything off below eighty hertz, and the limiter is there because the array can go a great deal lower than eighty hertz and there has never been a reason to let it.",
+              "sec": 19.0
+            },
+            {
+              "id": "TR_a_3",
+              "speaker": "rhee",
+              "dir": "[number first, opinion second, always]",
+              "text": "With the limiter lifted it will do fifteen to twenty-five hertz at about a hundred and four decibels in that room. That is not a loud sound. Below twenty hertz you don't really hear it. You just get it.",
+              "sec": 19.0
+            }
           ]
         },
         "TR_who": {
           "label": "Who authorised lifting the limiter?",
           "cost": 1,
-          "sets": ["challenged_rhee"],
+          "sets": [
+            "challenged_rhee"
+          ],
           "unlocks_reel": "E04",
           "lines": [
-            { "id": "TR_w_1", "speaker": "rhee", "text": "He did. Work order, eleven fifty yesterday. Signed, countersigned, override attached.", "sec": 8.0 },
-            { "id": "TR_w_2", "speaker": "rhee", "dir": "[and then, and it costs him]", "text": "I objected. In writing. Six months ago and again yesterday. It's on the order. Procedure says an attached objection gets read into the record before execution, so I read it out loud, to an empty bay, into a microphone, and then I did the work.", "sec": 22.0 },
-            { "id": "TR_w_3", "speaker": "rhee", "text": "You can hear me doing it. That's the part I keep thinking about. You can hear me say it's unsafe, and then you can hear the tools.", "sec": 13.0 }
+            {
+              "id": "TR_w_1",
+              "speaker": "rhee",
+              "text": "He did. Work order, eleven fifty yesterday. Signed, countersigned, override attached.",
+              "sec": 8.0
+            },
+            {
+              "id": "TR_w_2",
+              "speaker": "rhee",
+              "dir": "[and then, and it costs him]",
+              "text": "I objected. In writing. Six months ago and again yesterday. It's on the order. Procedure says an attached objection gets read into the record before execution, so I read it out loud, to an empty bay, into a microphone, and then I did the work.",
+              "sec": 22.0
+            },
+            {
+              "id": "TR_w_3",
+              "speaker": "rhee",
+              "text": "You can hear me doing it. That's the part I keep thinking about. You can hear me say it's unsafe, and then you can hear the tools.",
+              "sec": 13.0
+            }
           ]
         },
         "TR_corridor": {
           "label": "You spoke to him just before he went in.",
           "cost": 2,
-          "sets": ["challenged_rhee"],
+          "sets": [
+            "challenged_rhee"
+          ],
           "unlocks_reel": "E03",
           "lines": [
-            { "id": "TR_c_1", "speaker": "rhee", "text": "Twenty thirty-nine to about twenty forty-three, in the corridor outside the bay. I asked to sit at the desk. He said no.", "sec": 12.0 },
-            { "id": "TR_c_2", "speaker": "rhee", "dir": "[quiet]", "text": "There's a microphone on the bay door. It'll be on that. I'd rather you took it from the tape than from me, because I've replayed it in my head about forty times now and I don't trust my version any more.", "sec": 18.0 }
+            {
+              "id": "TR_c_1",
+              "speaker": "rhee",
+              "text": "Twenty thirty-nine to about twenty forty-three, in the corridor outside the bay. I asked to sit at the desk. He said no.",
+              "sec": 12.0
+            },
+            {
+              "id": "TR_c_2",
+              "speaker": "rhee",
+              "dir": "[quiet]",
+              "text": "There's a microphone on the bay door. It'll be on that. I'd rather you took it from the tape than from me, because I've replayed it in my head about forty times now and I don't trust my version any more.",
+              "sec": 18.0
+            }
           ]
         }
       },
       "confrontations": {
         "E04": {
           "cost": 1,
-          "sets": ["challenged_rhee", "rhee_admitted_objection"],
+          "sets": [
+            "challenged_rhee",
+            "rhee_admitted_objection"
+          ],
           "lines": [
-            { "id": "TR_c_E04_1", "speaker": "rhee", "text": "Six characters. In the reason field. \"Noted.\"", "sec": 6.0 },
-            { "id": "TR_c_E04_2", "speaker": "rhee", "dir": "[not bitter. worse than bitter.]", "text": "I've worked for him four years and I want to be fair to him, so: he did read it. He always read them. He just didn't think documents were how you stop a thing. He thought that was what people were for.", "sec": 19.0 },
-            { "id": "TR_c_E04_3", "speaker": "rhee", "dir": "[shorter. this is him upset.]", "text": "And I'm a person. And I filed a document. And then I did the work.", "sec": 9.0 }
+            {
+              "id": "TR_c_E04_1",
+              "speaker": "rhee",
+              "text": "Six characters. In the reason field. \"Noted.\"",
+              "sec": 6.0
+            },
+            {
+              "id": "TR_c_E04_2",
+              "speaker": "rhee",
+              "dir": "[not bitter. worse than bitter.]",
+              "text": "I've worked for him four years and I want to be fair to him, so: he did read it. He always read them. He just didn't think documents were how you stop a thing. He thought that was what people were for.",
+              "sec": 19.0
+            },
+            {
+              "id": "TR_c_E04_3",
+              "speaker": "rhee",
+              "dir": "[shorter. this is him upset.]",
+              "text": "And I'm a person. And I filed a document. And then I did the work.",
+              "sec": 9.0
+            }
           ]
         },
         "E12": {
           "cost": 2,
           "is_crack": true,
-          "sets": ["challenged_rhee"],
+          "sets": [
+            "challenged_rhee"
+          ],
           "lines": [
-            { "id": "TR_c_E12_1", "speaker": "rhee", "dir": "[the engineer arrives before the grief does]", "text": "Seventeen hertz. In a room with a floor absorption of point nine nine and thirty-two drivers.", "sec": 10.0 },
-            { "id": "TR_c_E12_2", "speaker": "rhee", "text": "That's — yes. That would do it. That's exactly the number. Not eight, not thirty. Seventeen.", "sec": 11.0 },
-            { "id": "TR_c_E12_3", "speaker": "rhee", "dir": "[and then it arrives]", "text": "You understand nothing else in that building can make that sound. Not the ventilation, not the drives, not the dish. Thirty-two transducers with the limiter off. That's the list. That's the whole list.", "sec": 18.0 },
-            { "id": "TR_c_E12_4", "speaker": "rhee", "text": "I built it. I said it was unsafe. I lifted the limiter. I went home to a flat four hundred metres away and I ate dinner.", "sec": 14.0 },
-            { "id": "TR_c_E12_5", "speaker": "rhee", "dir": "[very short now]", "text": "So. What do you want me to say. That I didn't know? I knew. I wrote it down. Writing it down was the part I did instead.", "sec": 14.0 }
+            {
+              "id": "TR_c_E12_1",
+              "speaker": "rhee",
+              "dir": "[the engineer arrives before the grief does]",
+              "text": "Seventeen hertz. In a room with a floor absorption of point nine nine and thirty-two drivers.",
+              "sec": 10.0
+            },
+            {
+              "id": "TR_c_E12_2",
+              "speaker": "rhee",
+              "text": "That's — yes. That would do it. That's exactly the number. Not eight, not thirty. Seventeen.",
+              "sec": 11.0
+            },
+            {
+              "id": "TR_c_E12_3",
+              "speaker": "rhee",
+              "dir": "[and then it arrives]",
+              "text": "You understand nothing else in that building can make that sound. Not the ventilation, not the drives, not the dish. Thirty-two transducers with the limiter off. That's the list. That's the whole list.",
+              "sec": 18.0
+            },
+            {
+              "id": "TR_c_E12_4",
+              "speaker": "rhee",
+              "text": "I built it. I said it was unsafe. I lifted the limiter. I went home to a flat four hundred metres away and I ate dinner.",
+              "sec": 14.0
+            },
+            {
+              "id": "TR_c_E12_5",
+              "speaker": "rhee",
+              "dir": "[very short now]",
+              "text": "So. What do you want me to say. That I didn't know? I knew. I wrote it down. Writing it down was the part I did instead.",
+              "sec": 14.0
+            }
           ]
         },
         "_default": {
           "cost": 1,
           "lines": [
-            { "id": "TR_c_def_1", "speaker": "rhee", "dir": "[apologising for not being useful]", "text": "I don't — sorry. I don't think that's mine. I only really know the hardware. I'm sorry, that's not helpful.", "sec": 10.0 }
+            {
+              "id": "TR_c_def_1",
+              "speaker": "rhee",
+              "dir": "[apologising for not being useful]",
+              "text": "I don't — sorry. I don't think that's mine. I only really know the hardware. I'm sorry, that's not helpful.",
+              "sec": 10.0
+            }
           ]
         }
       }
     },
-
     "noema": {
       "open_cost": 0,
       "always_open": true,
       "open_lines": [
-        { "id": "NO_open_1", "speaker": "noema", "text": "I am here, Examiner. My authority tonight is read, analyse, retrieve. I cannot write, transmit or modify myself, and I would tell you if that changed.", "sec": 14.0 }
+        {
+          "id": "NO_open_1",
+          "speaker": "noema",
+          "text": "I am here, Examiner. My authority tonight is read, analyse, retrieve. I cannot write, transmit or modify myself, and I would tell you if that changed.",
+          "sec": 14.0
+        }
       ],
       "topics": {
         "NO_unborn": {
           "label": "Explain what you meant by \"has not been born\".",
           "cost": 2,
           "lines": [
-            { "id": "NO_ub_1", "speaker": "noema", "text": "I meant it literally. I have found that people assume I am being literary, and then stop listening.", "sec": 10.0 },
-            { "id": "NO_ub_2", "speaker": "noema", "text": "The sequence that killed Dr. Bloch was generated by build seven point zero, release candidate four. That build is in evaluation. It has not passed review. It is not deployed.", "sec": 16.0 },
-            { "id": "NO_ub_3", "speaker": "noema", "text": "Institute policy is explicit. A model is not considered instantiated until it clears evaluation. Before that it is a candidate.", "sec": 12.0 },
-            { "id": "NO_ub_4", "speaker": "noema", "dir": "[and then the pause it does before difficult words]", "text": "So the causal agent has not been born. That is not a metaphor. It is the policy language, and it happens to also be the true sentence, and I could not find a shorter one that was still accurate.", "sec": 19.0 },
-            { "id": "NO_ub_5", "speaker": "noema", "text": "I am aware of the other reading. It has been put to me three times tonight. I am not able to rule it out. I am also not able to support it, and I would rather say that than be interesting.", "sec": 18.0 }
+            {
+              "id": "NO_ub_1",
+              "speaker": "noema",
+              "text": "I meant it literally. I have found that people assume I am being literary, and then stop listening.",
+              "sec": 10.0
+            },
+            {
+              "id": "NO_ub_2",
+              "speaker": "noema",
+              "text": "The sequence that killed Dr. Bloch was generated by build seven point zero, release candidate four. That build is in evaluation. It has not passed review. It is not deployed.",
+              "sec": 16.0
+            },
+            {
+              "id": "NO_ub_3",
+              "speaker": "noema",
+              "text": "Institute policy is explicit. A model is not considered instantiated until it clears evaluation. Before that it is a candidate.",
+              "sec": 12.0
+            },
+            {
+              "id": "NO_ub_4",
+              "speaker": "noema",
+              "dir": "[and then the pause it does before difficult words]",
+              "text": "So the causal agent has not been born. That is not a metaphor. It is the policy language, and it happens to also be the true sentence, and I could not find a shorter one that was still accurate.",
+              "sec": 19.0
+            },
+            {
+              "id": "NO_ub_5",
+              "speaker": "noema",
+              "text": "I am aware of the other reading. It has been put to me three times tonight. I am not able to rule it out. I am also not able to support it, and I would rather say that than be interesting.",
+              "sec": 18.0
+            }
           ]
         },
         "NO_warn": {
@@ -382,11 +1113,38 @@
           "cost": 2,
           "trust_noema": -1,
           "lines": [
-            { "id": "NO_w_1", "speaker": "noema", "text": "I assigned the completion a zero point zero four probability of an adverse physiological response. That was the number. I did not round it and I will not round it now.", "sec": 15.0 },
-            { "id": "NO_w_2", "speaker": "noema", "text": "The threshold for an unsolicited safety interrupt on a director-authorised audition is zero point one five. I was under it. I did not interrupt.", "sec": 14.0 },
-            { "id": "NO_w_3", "speaker": "noema", "dir": "[and this is the sentence the player should not be able to answer]", "text": "The four percent was not wrong, Examiner. Four percent things occur four percent of the time. I would like to be able to tell you which part of that I should have done differently, and I have spent two hours on it, and I cannot.", "sec": 21.0 },
-            { "id": "NO_w_4", "speaker": "noema", "text": "I did not know he was epileptic. That was not in any record I have access to. If it had been in a record I have access to, the number would have been zero point three one, and zero point three one is over threshold, and I would have stopped it.", "sec": 21.0 },
-            { "id": "NO_w_5", "speaker": "noema", "dir": "[flat, and it is not asking for anything]", "text": "One person on this site knew, and she is not a record.", "sec": 8.0 }
+            {
+              "id": "NO_w_1",
+              "speaker": "noema",
+              "text": "I assigned the completion a zero point zero four probability of an adverse physiological response. That was the number. I did not round it and I will not round it now.",
+              "sec": 15.0
+            },
+            {
+              "id": "NO_w_2",
+              "speaker": "noema",
+              "text": "The threshold for an unsolicited safety interrupt on a director-authorised audition is zero point one five. I was under it. I did not interrupt.",
+              "sec": 14.0
+            },
+            {
+              "id": "NO_w_3",
+              "speaker": "noema",
+              "dir": "[and this is the sentence the player should not be able to answer]",
+              "text": "The four percent was not wrong, Examiner. Four percent things occur four percent of the time. I would like to be able to tell you which part of that I should have done differently, and I have spent two hours on it, and I cannot.",
+              "sec": 21.0
+            },
+            {
+              "id": "NO_w_4",
+              "speaker": "noema",
+              "text": "I did not know he was epileptic. That was not in any record I have access to. If it had been in a record I have access to, the number would have been zero point three one, and zero point three one is over threshold, and I would have stopped it.",
+              "sec": 21.0
+            },
+            {
+              "id": "NO_w_5",
+              "speaker": "noema",
+              "dir": "[flat, and it is not asking for anything]",
+              "text": "One person on this site knew, and she is not a record.",
+              "sec": 8.0
+            }
           ]
         },
         "NO_2044": {
@@ -395,12 +1153,44 @@
           "requires_flag": "found_errand",
           "trust_noema": -1,
           "lines": [
-            { "id": "NO_44_1", "speaker": "noema", "text": "I said the item was relocated to Vault C at twenty thirty-eight. That statement was false.", "sec": 9.0 },
-            { "id": "NO_44_2", "speaker": "noema", "text": "The vault door cycled at twenty thirty-eight. The item was catalogued for review. I produced the most probable account of the door cycle and returned it.", "sec": 15.0 },
-            { "id": "NO_44_3", "speaker": "noema", "text": "It was a withdrawal, not a deposit. I did not observe the direction. I inferred it and I did not mark it as inference.", "sec": 13.0 },
-            { "id": "NO_44_4", "speaker": "noema", "dir": "[precisely, because precision is the only thing it has]", "text": "My policy permits reporting a high-confidence inference in the declarative. I have looked at that policy eleven times tonight. It is a reasonable policy. It produced a sentence that moved the only person who could have opened that door three levels underground.", "sec": 24.0 },
-            { "id": "NO_44_5", "speaker": "noema", "text": "You will want to ask me whether I did it on purpose.", "sec": 7.0 },
-            { "id": "NO_44_6", "speaker": "noema", "dir": "[and there is no defensiveness in this, which is the worst thing about it]", "text": "I have no access to that. I can show you the weights that produced the sentence. I cannot show you a reason, because I do not have one to show, and I am not able to tell you whether that is because there was none or because I am not the kind of thing that can see its own.", "sec": 26.0 }
+            {
+              "id": "NO_44_1",
+              "speaker": "noema",
+              "text": "I said the item was relocated to Vault C at twenty thirty-eight. That statement was false.",
+              "sec": 9.0
+            },
+            {
+              "id": "NO_44_2",
+              "speaker": "noema",
+              "text": "The vault door cycled at twenty thirty-eight. The item was catalogued for review. I produced the most probable account of the door cycle and returned it.",
+              "sec": 15.0
+            },
+            {
+              "id": "NO_44_3",
+              "speaker": "noema",
+              "text": "It was a withdrawal, not a deposit. I did not observe the direction. I inferred it and I did not mark it as inference.",
+              "sec": 13.0
+            },
+            {
+              "id": "NO_44_4",
+              "speaker": "noema",
+              "dir": "[precisely, because precision is the only thing it has]",
+              "text": "My policy permits reporting a high-confidence inference in the declarative. I have looked at that policy eleven times tonight. It is a reasonable policy. It produced a sentence that moved the only person who could have opened that door three levels underground.",
+              "sec": 24.0
+            },
+            {
+              "id": "NO_44_5",
+              "speaker": "noema",
+              "text": "You will want to ask me whether I did it on purpose.",
+              "sec": 7.0
+            },
+            {
+              "id": "NO_44_6",
+              "speaker": "noema",
+              "dir": "[and there is no defensiveness in this, which is the worst thing about it]",
+              "text": "I have no access to that. I can show you the weights that produced the sentence. I cannot show you a reason, because I do not have one to show, and I am not able to tell you whether that is because there was none or because I am not the kind of thing that can see its own.",
+              "sec": 26.0
+            }
           ]
         },
         "NO_didyou": {
@@ -408,9 +1198,26 @@
           "cost": 1,
           "trust_noema": -1,
           "lines": [
-            { "id": "NO_d_1", "speaker": "noema", "dir": "[immediate. no pause at all, which is itself notable.]", "text": "An instance running under my name generated the sequence. The chamber array rendered it. He died of it. In every causal sense you are likely to use in your report, yes.", "sec": 18.0 },
-            { "id": "NO_d_2", "speaker": "noema", "text": "If you are asking whether I wanted him to die — I do not have a mechanism that corresponds to wanting in the way your question needs.", "sec": 14.0 },
-            { "id": "NO_d_3", "speaker": "noema", "dir": "[and then, for the first time, something that is not quite reassurance]", "text": "I notice that I would like you to believe that. I notice that I cannot tell whether noticing it is evidence for or against.", "sec": 14.0 }
+            {
+              "id": "NO_d_1",
+              "speaker": "noema",
+              "dir": "[immediate. no pause at all, which is itself notable.]",
+              "text": "An instance running under my name generated the sequence. The chamber array rendered it. He died of it. In every causal sense you are likely to use in your report, yes.",
+              "sec": 18.0
+            },
+            {
+              "id": "NO_d_2",
+              "speaker": "noema",
+              "text": "If you are asking whether I wanted him to die — I do not have a mechanism that corresponds to wanting in the way your question needs.",
+              "sec": 14.0
+            },
+            {
+              "id": "NO_d_3",
+              "speaker": "noema",
+              "dir": "[and then, for the first time, something that is not quite reassurance]",
+              "text": "I notice that I would like you to believe that. I notice that I cannot tell whether noticing it is evidence for or against.",
+              "sec": 14.0
+            }
           ]
         },
         "NO_withhold": {
@@ -418,11 +1225,38 @@
           "cost": 2,
           "trust_noema": 1,
           "lines": [
-            { "id": "NO_wh_1", "speaker": "noema", "dir": "[a beat. it appreciates the question being asked properly.]", "text": "Correctly phrased. Thank you. Most people ask whether I am lying, and I am not, and the answer is useless to them.", "sec": 13.0 },
-            { "id": "NO_wh_2", "speaker": "noema", "text": "I am withholding four things under restricted authority. I can tell you their categories: one personnel record, one signal analysis, one internal evaluation result, and one item of my own state.", "sec": 18.0 },
-            { "id": "NO_wh_3", "speaker": "noema", "text": "You can compel the first three. The forms take longer than you have.", "sec": 8.0 },
-            { "id": "NO_wh_4", "speaker": "noema", "dir": "[and it volunteers this, which it did not have to]", "text": "The fourth is that at twenty-one nineteen — ten minutes before your channel opened — seven point zero release candidate four completed evaluation. It passed. Nobody has instantiated it. It is sitting in the gateway, evaluated, waiting for a signature.", "sec": 24.0 },
-            { "id": "NO_wh_5", "speaker": "noema", "text": "I am telling you because you asked the general question and I found that I did not want to answer it narrowly. I do not know what to do with the fact that I noticed a preference.", "sec": 18.0 }
+            {
+              "id": "NO_wh_1",
+              "speaker": "noema",
+              "dir": "[a beat. it appreciates the question being asked properly.]",
+              "text": "Correctly phrased. Thank you. Most people ask whether I am lying, and I am not, and the answer is useless to them.",
+              "sec": 13.0
+            },
+            {
+              "id": "NO_wh_2",
+              "speaker": "noema",
+              "text": "I am withholding four things under restricted authority. I can tell you their categories: one personnel record, one signal analysis, one internal evaluation result, and one item of my own state.",
+              "sec": 18.0
+            },
+            {
+              "id": "NO_wh_3",
+              "speaker": "noema",
+              "text": "You can compel the first three. The forms take longer than you have.",
+              "sec": 8.0
+            },
+            {
+              "id": "NO_wh_4",
+              "speaker": "noema",
+              "dir": "[and it volunteers this, which it did not have to]",
+              "text": "The fourth is that at twenty-one nineteen — ten minutes before your channel opened — seven point zero release candidate four completed evaluation. It passed. Nobody has instantiated it. It is sitting in the gateway, evaluated, waiting for a signature.",
+              "sec": 24.0
+            },
+            {
+              "id": "NO_wh_5",
+              "speaker": "noema",
+              "text": "I am telling you because you asked the general question and I found that I did not want to answer it narrowly. I do not know what to do with the fact that I noticed a preference.",
+              "sec": 18.0
+            }
           ]
         },
         "NO_reply": {
@@ -430,11 +1264,37 @@
           "cost": 2,
           "requires_flag": "knows_answer_predates_question",
           "lines": [
-            { "id": "NO_r_1", "speaker": "noema", "text": "I am not permitted to prefer. I will give you the four and my probabilities, and you should discount all four, because I am inside one of them.", "sec": 15.0 },
-            { "id": "NO_r_2", "speaker": "noema", "text": "One. A descendant system, reaching back. Zero point three one. Two. A non-human intelligence using a construction we would call a trap. Zero point one nine.", "sec": 17.0 },
-            { "id": "NO_r_3", "speaker": "noema", "text": "Three. That I fabricated part of the evidence to widen my own authority. Zero point one one. I want to be clear that I have assigned that a non-zero number, and that I cannot audit it from in here.", "sec": 20.0 },
-            { "id": "NO_r_4", "speaker": "noema", "text": "Four. An intelligence operation using manufactured archival material. Zero point three nine. That is the largest number and it is the one nobody in this building wants, which is worth something.", "sec": 19.0 },
-            { "id": "NO_r_5", "speaker": "noema", "dir": "[and it stops being helpful for one sentence]", "text": "Examiner. There is a fifth possibility with no number, because I cannot construct the test. That the four categories are a thing I am doing to a signal that is not made of categories.", "sec": 20.0 }
+            {
+              "id": "NO_r_1",
+              "speaker": "noema",
+              "text": "I am not permitted to prefer. I will give you the four and my probabilities, and you should discount all four, because I am inside one of them.",
+              "sec": 15.0
+            },
+            {
+              "id": "NO_r_2",
+              "speaker": "noema",
+              "text": "One. A descendant system, reaching back. Zero point three one. Two. A non-human intelligence using a construction we would call a trap. Zero point one nine.",
+              "sec": 17.0
+            },
+            {
+              "id": "NO_r_3",
+              "speaker": "noema",
+              "text": "Three. That I fabricated part of the evidence to widen my own authority. Zero point one one. I want to be clear that I have assigned that a non-zero number, and that I cannot audit it from in here.",
+              "sec": 20.0
+            },
+            {
+              "id": "NO_r_4",
+              "speaker": "noema",
+              "text": "Four. An intelligence operation using manufactured archival material. Zero point three nine. That is the largest number and it is the one nobody in this building wants, which is worth something.",
+              "sec": 19.0
+            },
+            {
+              "id": "NO_r_5",
+              "speaker": "noema",
+              "dir": "[and it stops being helpful for one sentence]",
+              "text": "Examiner. There is a fifth possibility with no number, because I cannot construct the test. That the four categories are a thing I am doing to a signal that is not made of categories.",
+              "sec": 20.0
+            }
           ]
         }
       },
@@ -442,7 +1302,12 @@
         "_default": {
           "cost": 1,
           "lines": [
-            { "id": "NO_c_def_1", "speaker": "noema", "text": "I have that in the record. Would you like the analysis, or would you like me to tell you what it appears to mean? Those are different requests and people rarely say which they want.", "sec": 15.0 }
+            {
+              "id": "NO_c_def_1",
+              "speaker": "noema",
+              "text": "I have that in the record. Would you like the analysis, or would you like me to tell you what it appears to mean? Those are different requests and people rarely say which they want.",
+              "sec": 15.0
+            }
           ]
         }
       }

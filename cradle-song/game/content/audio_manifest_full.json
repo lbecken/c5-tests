@@ -17,7 +17,7 @@
       },
       "post": null,
       "bucket": "reel_E01",
-      "est_sec": 9.0,
+      "est_sec": 8.3,
       "chars": 110
     },
     "E01_02": {
@@ -35,7 +35,7 @@
       },
       "post": null,
       "bucket": "reel_E01",
-      "est_sec": 7.5,
+      "est_sec": 6.2,
       "chars": 95
     },
     "E01_03": {
@@ -53,7 +53,7 @@
       },
       "post": null,
       "bucket": "reel_E01",
-      "est_sec": 11.0,
+      "est_sec": 11.3,
       "chars": 150
     },
     "E01_04": {
@@ -89,7 +89,7 @@
       },
       "post": null,
       "bucket": "reel_E01",
-      "est_sec": 5.0,
+      "est_sec": 3.8,
       "chars": 51
     },
     "E01_06": {
@@ -107,7 +107,7 @@
       },
       "post": null,
       "bucket": "reel_E01",
-      "est_sec": 8.5,
+      "est_sec": 8.4,
       "chars": 113
     },
     "E01_07": {
@@ -125,7 +125,7 @@
       },
       "post": null,
       "bucket": "reel_E01",
-      "est_sec": 8.0,
+      "est_sec": 7.1,
       "chars": 117
     },
     "E01_08": {
@@ -143,7 +143,7 @@
       },
       "post": null,
       "bucket": "reel_E01",
-      "est_sec": 1.2,
+      "est_sec": 0.9,
       "chars": 3
     },
     "E01_09": {
@@ -161,7 +161,7 @@
       },
       "post": null,
       "bucket": "reel_E01",
-      "est_sec": 1.4,
+      "est_sec": 0.7,
       "chars": 6
     },
     "E01_10": {
@@ -179,7 +179,7 @@
       },
       "post": null,
       "bucket": "reel_E01",
-      "est_sec": 1.6,
+      "est_sec": 2.0,
       "chars": 8
     },
     "E01_12": {
@@ -197,7 +197,7 @@
       },
       "post": null,
       "bucket": "reel_E01",
-      "est_sec": 1.6,
+      "est_sec": 1.3,
       "chars": 12
     },
     "E01_16": {
@@ -215,7 +215,7 @@
       },
       "post": null,
       "bucket": "reel_E01",
-      "est_sec": 4.5,
+      "est_sec": 2.6,
       "chars": 37
     },
     "E01_17": {
@@ -233,7 +233,7 @@
       },
       "post": null,
       "bucket": "reel_E01",
-      "est_sec": 11.0,
+      "est_sec": 9.5,
       "chars": 155
     },
     "E01_18": {
@@ -251,7 +251,7 @@
       },
       "post": null,
       "bucket": "reel_E01",
-      "est_sec": 8.0,
+      "est_sec": 6.6,
       "chars": 82
     },
     "E02_01": {
@@ -269,7 +269,7 @@
       },
       "post": null,
       "bucket": "reel_E02",
-      "est_sec": 5.0,
+      "est_sec": 4.2,
       "chars": 59
     },
     "E02_02": {
@@ -287,7 +287,7 @@
       },
       "post": null,
       "bucket": "reel_E02",
-      "est_sec": 12.0,
+      "est_sec": 10.2,
       "chars": 147
     },
     "E02_03": {
@@ -305,7 +305,7 @@
       },
       "post": null,
       "bucket": "reel_E02",
-      "est_sec": 9.5,
+      "est_sec": 7.9,
       "chars": 101
     },
     "E02_04": {
@@ -323,7 +323,7 @@
       },
       "post": null,
       "bucket": "reel_E02",
-      "est_sec": 14.0,
+      "est_sec": 14.1,
       "chars": 176
     },
     "E02_05": {
@@ -341,7 +341,7 @@
       },
       "post": null,
       "bucket": "reel_E02",
-      "est_sec": 13.0,
+      "est_sec": 11.7,
       "chars": 164
     },
     "E02_06": {
@@ -359,7 +359,7 @@
       },
       "post": null,
       "bucket": "reel_E02",
-      "est_sec": 14.0,
+      "est_sec": 11.6,
       "chars": 181
     },
     "E02_07": {
@@ -377,7 +377,7 @@
       },
       "post": null,
       "bucket": "reel_E02",
-      "est_sec": 14.0,
+      "est_sec": 11.4,
       "chars": 179
     },
     "E02_08": {
@@ -395,7 +395,7 @@
       },
       "post": null,
       "bucket": "reel_E02",
-      "est_sec": 9.0,
+      "est_sec": 8.5,
       "chars": 105
     },
     "E02_09": {
@@ -413,7 +413,7 @@
       },
       "post": null,
       "bucket": "reel_E02",
-      "est_sec": 12.0,
+      "est_sec": 9.7,
       "chars": 148
     },
     "E03_01": {
@@ -431,7 +431,7 @@
       },
       "post": null,
       "bucket": "reel_E03",
-      "est_sec": 6.0,
+      "est_sec": 5.6,
       "chars": 81
     },
     "E03_02": {
@@ -449,7 +449,7 @@
       },
       "post": null,
       "bucket": "reel_E03",
-      "est_sec": 4.5,
+      "est_sec": 4.2,
       "chars": 55
     },
     "E03_03": {
@@ -467,7 +467,7 @@
       },
       "post": null,
       "bucket": "reel_E03",
-      "est_sec": 3.5,
+      "est_sec": 2.1,
       "chars": 39
     },
     "E03_04": {
@@ -485,7 +485,7 @@
       },
       "post": null,
       "bucket": "reel_E03",
-      "est_sec": 4.0,
+      "est_sec": 2.5,
       "chars": 50
     },
     "E03_05": {
@@ -503,7 +503,7 @@
       },
       "post": null,
       "bucket": "reel_E03",
-      "est_sec": 7.0,
+      "est_sec": 6.1,
       "chars": 74
     },
     "E03_06": {
@@ -521,7 +521,7 @@
       },
       "post": null,
       "bucket": "reel_E03",
-      "est_sec": 13.0,
+      "est_sec": 11.8,
       "chars": 175
     },
     "E03_07": {
@@ -539,7 +539,7 @@
       },
       "post": null,
       "bucket": "reel_E03",
-      "est_sec": 2.5,
+      "est_sec": 1.8,
       "chars": 21
     },
     "E03_08": {
@@ -557,7 +557,7 @@
       },
       "post": null,
       "bucket": "reel_E03",
-      "est_sec": 3.0,
+      "est_sec": 2.0,
       "chars": 28
     },
     "E03_09": {
@@ -575,7 +575,7 @@
       },
       "post": null,
       "bucket": "reel_E03",
-      "est_sec": 1.0,
+      "est_sec": 0.9,
       "chars": 3
     },
     "E03_10": {
@@ -593,7 +593,7 @@
       },
       "post": null,
       "bucket": "reel_E03",
-      "est_sec": 1.2,
+      "est_sec": 1.0,
       "chars": 6
     },
     "E03_11": {
@@ -611,7 +611,7 @@
       },
       "post": null,
       "bucket": "reel_E03",
-      "est_sec": 8.5,
+      "est_sec": 6.2,
       "chars": 99
     },
     "E03_12": {
@@ -629,7 +629,7 @@
       },
       "post": null,
       "bucket": "reel_E03",
-      "est_sec": 7.5,
+      "est_sec": 6.3,
       "chars": 81
     },
     "E03_14": {
@@ -647,7 +647,7 @@
       },
       "post": null,
       "bucket": "reel_E03",
-      "est_sec": 3.0,
+      "est_sec": 1.2,
       "chars": 23
     },
     "E04_01": {
@@ -665,7 +665,7 @@
       },
       "post": null,
       "bucket": "reel_E04",
-      "est_sec": 16.0,
+      "est_sec": 17.3,
       "chars": 203
     },
     "E04_02": {
@@ -683,7 +683,7 @@
       },
       "post": null,
       "bucket": "reel_E04",
-      "est_sec": 10.0,
+      "est_sec": 8.9,
       "chars": 131
     },
     "E04_03": {
@@ -701,7 +701,7 @@
       },
       "post": null,
       "bucket": "reel_E04",
-      "est_sec": 14.0,
+      "est_sec": 12.5,
       "chars": 191
     },
     "E04_04": {
@@ -719,7 +719,7 @@
       },
       "post": null,
       "bucket": "reel_E04",
-      "est_sec": 13.0,
+      "est_sec": 10.7,
       "chars": 167
     },
     "E04_05": {
@@ -737,7 +737,7 @@
       },
       "post": null,
       "bucket": "reel_E04",
-      "est_sec": 7.5,
+      "est_sec": 6.5,
       "chars": 72
     },
     "E04_06": {
@@ -755,7 +755,7 @@
       },
       "post": null,
       "bucket": "reel_E04",
-      "est_sec": 7.0,
+      "est_sec": 4.2,
       "chars": 63
     },
     "E05_01": {
@@ -773,7 +773,7 @@
       },
       "post": null,
       "bucket": "reel_E05",
-      "est_sec": 2.8,
+      "est_sec": 1.9,
       "chars": 24
     },
     "E05_02": {
@@ -791,7 +791,7 @@
       },
       "post": null,
       "bucket": "reel_E05",
-      "est_sec": 2.5,
+      "est_sec": 1.3,
       "chars": 23
     },
     "E05_03": {
@@ -809,7 +809,7 @@
       },
       "post": null,
       "bucket": "reel_E05",
-      "est_sec": 14.0,
+      "est_sec": 12.4,
       "chars": 173
     },
     "E05_04": {
@@ -827,7 +827,7 @@
       },
       "post": null,
       "bucket": "reel_E05",
-      "est_sec": 2.5,
+      "est_sec": 1.7,
       "chars": 31
     },
     "E05_05": {
@@ -845,7 +845,7 @@
       },
       "post": null,
       "bucket": "reel_E05",
-      "est_sec": 14.0,
+      "est_sec": 11.5,
       "chars": 157
     },
     "E05_06": {
@@ -863,7 +863,7 @@
       },
       "post": null,
       "bucket": "reel_E05",
-      "est_sec": 8.0,
+      "est_sec": 4.9,
       "chars": 81
     },
     "E05_07": {
@@ -881,7 +881,7 @@
       },
       "post": null,
       "bucket": "reel_E05",
-      "est_sec": 15.0,
+      "est_sec": 11.2,
       "chars": 164
     },
     "E05_08": {
@@ -899,7 +899,7 @@
       },
       "post": null,
       "bucket": "reel_E05",
-      "est_sec": 3.0,
+      "est_sec": 1.4,
       "chars": 25
     },
     "E05_09": {
@@ -917,7 +917,7 @@
       },
       "post": null,
       "bucket": "reel_E05",
-      "est_sec": 4.0,
+      "est_sec": 2.7,
       "chars": 37
     },
     "E05_10": {
@@ -935,7 +935,7 @@
       },
       "post": null,
       "bucket": "reel_E05",
-      "est_sec": 14.0,
+      "est_sec": 9.4,
       "chars": 143
     },
     "E06_01": {
@@ -953,7 +953,7 @@
       },
       "post": null,
       "bucket": "reel_E06",
-      "est_sec": 10.0,
+      "est_sec": 10.2,
       "chars": 126
     },
     "E06_02": {
@@ -971,7 +971,7 @@
       },
       "post": null,
       "bucket": "reel_E06",
-      "est_sec": 4.0,
+      "est_sec": 1.8,
       "chars": 33
     },
     "E06_03": {
@@ -989,7 +989,7 @@
       },
       "post": null,
       "bucket": "reel_E06",
-      "est_sec": 3.0,
+      "est_sec": 1.4,
       "chars": 24
     },
     "E06_04": {
@@ -1007,7 +1007,7 @@
       },
       "post": null,
       "bucket": "reel_E06",
-      "est_sec": 8.0,
+      "est_sec": 3.8,
       "chars": 26
     },
     "E06_05": {
@@ -1025,7 +1025,7 @@
       },
       "post": null,
       "bucket": "reel_E06",
-      "est_sec": 5.0,
+      "est_sec": 3.8,
       "chars": 42
     },
     "E06_06": {
@@ -1043,7 +1043,7 @@
       },
       "post": null,
       "bucket": "reel_E06",
-      "est_sec": 10.0,
+      "est_sec": 7.7,
       "chars": 113
     },
     "E06_09": {
@@ -1061,7 +1061,7 @@
       },
       "post": null,
       "bucket": "reel_E06",
-      "est_sec": 13.0,
+      "est_sec": 11.0,
       "chars": 158
     },
     "E06_10": {
@@ -1079,7 +1079,7 @@
       },
       "post": null,
       "bucket": "reel_E06",
-      "est_sec": 12.0,
+      "est_sec": 7.3,
       "chars": 140
     },
     "E06_11": {
@@ -1097,7 +1097,7 @@
       },
       "post": null,
       "bucket": "reel_E06",
-      "est_sec": 6.0,
+      "est_sec": 2.7,
       "chars": 51
     },
     "E07_01": {
@@ -1115,7 +1115,7 @@
       },
       "post": null,
       "bucket": "reel_E07",
-      "est_sec": 12.0,
+      "est_sec": 13.7,
       "chars": 146
     },
     "E07_02": {
@@ -1133,7 +1133,7 @@
       },
       "post": null,
       "bucket": "reel_E07",
-      "est_sec": 15.0,
+      "est_sec": 12.7,
       "chars": 180
     },
     "E07_03": {
@@ -1151,7 +1151,7 @@
       },
       "post": null,
       "bucket": "reel_E07",
-      "est_sec": 8.5,
+      "est_sec": 6.2,
       "chars": 94
     },
     "E07_04": {
@@ -1169,7 +1169,7 @@
       },
       "post": null,
       "bucket": "reel_E07",
-      "est_sec": 16.0,
+      "est_sec": 12.2,
       "chars": 212
     },
     "E08_03": {
@@ -1187,7 +1187,7 @@
       },
       "post": "shortwave_1983",
       "bucket": "reel_E08",
-      "est_sec": 7.0,
+      "est_sec": 3.2,
       "chars": 38
     },
     "E08_04": {
@@ -1205,7 +1205,7 @@
       },
       "post": "shortwave_1983",
       "bucket": "reel_E08",
-      "est_sec": 4.5,
+      "est_sec": 1.7,
       "chars": 24
     },
     "E08_05": {
@@ -1223,7 +1223,7 @@
       },
       "post": "shortwave_1983",
       "bucket": "reel_E08",
-      "est_sec": 4.5,
+      "est_sec": 2.0,
       "chars": 27
     },
     "E08_06": {
@@ -1241,7 +1241,7 @@
       },
       "post": "shortwave_1983",
       "bucket": "reel_E08",
-      "est_sec": 4.5,
+      "est_sec": 2.1,
       "chars": 23
     },
     "E08_07": {
@@ -1259,7 +1259,7 @@
       },
       "post": "shortwave_1983",
       "bucket": "reel_E08",
-      "est_sec": 4.5,
+      "est_sec": 1.8,
       "chars": 25
     },
     "E08_08": {
@@ -1277,7 +1277,7 @@
       },
       "post": "shortwave_1983",
       "bucket": "reel_E08",
-      "est_sec": 4.5,
+      "est_sec": 1.8,
       "chars": 24
     },
     "E08_09": {
@@ -1295,7 +1295,7 @@
       },
       "post": "shortwave_1983",
       "bucket": "reel_E08",
-      "est_sec": 4.5,
+      "est_sec": 2.2,
       "chars": 24
     },
     "E08_10": {
@@ -1313,7 +1313,7 @@
       },
       "post": "shortwave_1983",
       "bucket": "reel_E08",
-      "est_sec": 4.5,
+      "est_sec": 2.1,
       "chars": 25
     },
     "E08_11": {
@@ -1331,7 +1331,7 @@
       },
       "post": "shortwave_1983",
       "bucket": "reel_E08",
-      "est_sec": 4.5,
+      "est_sec": 1.8,
       "chars": 23
     },
     "E08_13": {
@@ -1349,7 +1349,7 @@
       },
       "post": "shortwave_1983",
       "bucket": "reel_E08",
-      "est_sec": 4.5,
+      "est_sec": 1.8,
       "chars": 26
     },
     "E08_14": {
@@ -1367,7 +1367,7 @@
       },
       "post": "shortwave_1983",
       "bucket": "reel_E08",
-      "est_sec": 4.5,
+      "est_sec": 2.2,
       "chars": 26
     },
     "E08_15": {
@@ -1385,7 +1385,7 @@
       },
       "post": "shortwave_1983",
       "bucket": "reel_E08",
-      "est_sec": 5.5,
+      "est_sec": 2.5,
       "chars": 26
     },
     "E09_02": {
@@ -1403,7 +1403,7 @@
       },
       "post": "cassette_1991",
       "bucket": "reel_E09",
-      "est_sec": 5.5,
+      "est_sec": 4.0,
       "chars": 54
     },
     "E09_03": {
@@ -1421,7 +1421,7 @@
       },
       "post": "cassette_1991",
       "bucket": "reel_E09",
-      "est_sec": 12.0,
+      "est_sec": 11.4,
       "chars": 120
     },
     "E09_04": {
@@ -1439,7 +1439,7 @@
       },
       "post": "cassette_1991",
       "bucket": "reel_E09",
-      "est_sec": 15.0,
+      "est_sec": 12.3,
       "chars": 161
     },
     "E09_05": {
@@ -1457,7 +1457,7 @@
       },
       "post": "cassette_1991",
       "bucket": "reel_E09",
-      "est_sec": 8.0,
+      "est_sec": 8.5,
       "chars": 78
     },
     "E09_07": {
@@ -1475,7 +1475,7 @@
       },
       "post": "cassette_1991",
       "bucket": "reel_E09",
-      "est_sec": 13.0,
+      "est_sec": 9.2,
       "chars": 125
     },
     "E09_08": {
@@ -1493,7 +1493,7 @@
       },
       "post": "cassette_1991",
       "bucket": "reel_E09",
-      "est_sec": 8.0,
+      "est_sec": 4.1,
       "chars": 64
     },
     "E09_09": {
@@ -1511,7 +1511,7 @@
       },
       "post": "cassette_1991",
       "bucket": "reel_E09",
-      "est_sec": 16.0,
+      "est_sec": 14.4,
       "chars": 158
     },
     "E09_10": {
@@ -1529,7 +1529,7 @@
       },
       "post": "cassette_1991",
       "bucket": "reel_E09",
-      "est_sec": 9.5,
+      "est_sec": 7.2,
       "chars": 96
     },
     "E09_11": {
@@ -1547,7 +1547,7 @@
       },
       "post": "cassette_1991",
       "bucket": "reel_E09",
-      "est_sec": 15.0,
+      "est_sec": 12.9,
       "chars": 128
     },
     "E10_01": {
@@ -1565,7 +1565,7 @@
       },
       "post": null,
       "bucket": "reel_E10",
-      "est_sec": 15.0,
+      "est_sec": 12.5,
       "chars": 189
     },
     "E10_02": {
@@ -1583,7 +1583,7 @@
       },
       "post": null,
       "bucket": "reel_E10",
-      "est_sec": 13.0,
+      "est_sec": 9.4,
       "chars": 149
     },
     "E10_03": {
@@ -1601,7 +1601,7 @@
       },
       "post": null,
       "bucket": "reel_E10",
-      "est_sec": 11.0,
+      "est_sec": 7.6,
       "chars": 112
     },
     "E10_04": {
@@ -1619,7 +1619,7 @@
       },
       "post": null,
       "bucket": "reel_E10",
-      "est_sec": 17.0,
+      "est_sec": 14.3,
       "chars": 193
     },
     "E10_05": {
@@ -1637,7 +1637,7 @@
       },
       "post": null,
       "bucket": "reel_E10",
-      "est_sec": 16.0,
+      "est_sec": 10.1,
       "chars": 174
     },
     "E10_06": {
@@ -1655,7 +1655,7 @@
       },
       "post": null,
       "bucket": "reel_E10",
-      "est_sec": 12.0,
+      "est_sec": 8.1,
       "chars": 127
     },
     "E11_01": {
@@ -1673,7 +1673,7 @@
       },
       "post": null,
       "bucket": "reel_E11",
-      "est_sec": 15.0,
+      "est_sec": 11.8,
       "chars": 164
     },
     "E11_02": {
@@ -1691,7 +1691,7 @@
       },
       "post": null,
       "bucket": "reel_E11",
-      "est_sec": 19.0,
+      "est_sec": 14.6,
       "chars": 222
     },
     "E11_03": {
@@ -1709,7 +1709,7 @@
       },
       "post": null,
       "bucket": "reel_E11",
-      "est_sec": 15.0,
+      "est_sec": 9.8,
       "chars": 150
     },
     "E11_04": {
@@ -1727,7 +1727,7 @@
       },
       "post": null,
       "bucket": "reel_E11",
-      "est_sec": 13.0,
+      "est_sec": 9.3,
       "chars": 145
     },
     "E11_05": {
@@ -1745,7 +1745,7 @@
       },
       "post": null,
       "bucket": "reel_E11",
-      "est_sec": 17.0,
+      "est_sec": 13.5,
       "chars": 186
     },
     "E12_01": {
@@ -1763,7 +1763,7 @@
       },
       "post": null,
       "bucket": "reel_E12",
-      "est_sec": 10.0,
+      "est_sec": 7.4,
       "chars": 100
     },
     "E12_02": {
@@ -1781,7 +1781,7 @@
       },
       "post": null,
       "bucket": "reel_E12",
-      "est_sec": 14.0,
+      "est_sec": 9.9,
       "chars": 149
     },
     "E12_03": {
@@ -1799,7 +1799,7 @@
       },
       "post": null,
       "bucket": "reel_E12",
-      "est_sec": 15.0,
+      "est_sec": 12.4,
       "chars": 158
     },
     "E12_04": {
@@ -1817,7 +1817,7 @@
       },
       "post": null,
       "bucket": "reel_E12",
-      "est_sec": 18.0,
+      "est_sec": 13.2,
       "chars": 208
     },
     "E12_05": {
@@ -1835,7 +1835,7 @@
       },
       "post": null,
       "bucket": "reel_E12",
-      "est_sec": 18.0,
+      "est_sec": 12.9,
       "chars": 200
     },
     "E12_06": {
@@ -1853,7 +1853,7 @@
       },
       "post": null,
       "bucket": "reel_E12",
-      "est_sec": 17.0,
+      "est_sec": 13.2,
       "chars": 193
     },
     "E13_01": {
@@ -1871,7 +1871,7 @@
       },
       "post": null,
       "bucket": "reel_E13",
-      "est_sec": 8.0,
+      "est_sec": 7.1,
       "chars": 90
     },
     "E13_02": {
@@ -1889,7 +1889,7 @@
       },
       "post": null,
       "bucket": "reel_E13",
-      "est_sec": 10.0,
+      "est_sec": 7.7,
       "chars": 99
     },
     "E13_03": {
@@ -1907,7 +1907,7 @@
       },
       "post": null,
       "bucket": "reel_E13",
-      "est_sec": 2.5,
+      "est_sec": 1.8,
       "chars": 18
     },
     "E13_04": {
@@ -1925,7 +1925,7 @@
       },
       "post": null,
       "bucket": "reel_E13",
-      "est_sec": 8.0,
+      "est_sec": 5.5,
       "chars": 92
     },
     "E13_05": {
@@ -1943,7 +1943,7 @@
       },
       "post": null,
       "bucket": "reel_E13",
-      "est_sec": 11.0,
+      "est_sec": 7.1,
       "chars": 111
     },
     "E13_06": {
@@ -1961,7 +1961,7 @@
       },
       "post": null,
       "bucket": "reel_E13",
-      "est_sec": 10.0,
+      "est_sec": 6.9,
       "chars": 105
     },
     "E13_07": {
