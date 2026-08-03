@@ -159,7 +159,7 @@ async function changeLanguage() {
   dom.readerBody.hidden = true;
   dom.readerEmpty.hidden = false;
   describeLanguage();
-  await loadVoices();
+  await Promise.all([loadVoices(), loadHealth()]);
   persistState();
 }
 
@@ -167,10 +167,19 @@ async function loadHealth() {
   try {
     const health = await request("/health");
     const engine = health.engine;
-    dom.health.textContent = engine.ready
-      ? `${engine.name} ready · ${health.dictionary.entries.toLocaleString()} dictionary words`
-      : `engine unavailable: ${engine.error || "unknown reason"}`;
-    dom.health.className = `status ${engine.ready ? "ready" : "degraded"}`;
+    if (!engine.ready) {
+      dom.health.textContent = `engine unavailable: ${engine.error || "unknown reason"}`;
+      dom.health.className = "status degraded";
+      return;
+    }
+    // Report the count for the selected language, not whichever dictionary
+    // happens to be loaded first.
+    const loaded = (health.dictionaries || []).find(
+      (entry) => entry.language === state.language
+    );
+    const words = loaded ? ` · ${loaded.entries.toLocaleString()} dictionary words` : "";
+    dom.health.textContent = `${engine.name} ready${words}`;
+    dom.health.className = "status ready";
   } catch (error) {
     dom.health.textContent = `cannot reach the server: ${error.message}`;
     dom.health.className = "status degraded";
@@ -319,6 +328,9 @@ async function runValidation() {
   dom.generate.disabled = !report.accepted;
   renderSentences();
   persistState();
+  // Validating loads the language's dictionary, so the header can now report
+  // its size.
+  loadHealth().catch(() => {});
 }
 
 function renderValidation(report) {
