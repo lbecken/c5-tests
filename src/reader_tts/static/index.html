@@ -19,12 +19,16 @@
     <!-- 1. Input -->
     <section class="panel" id="panel-input">
       <h2>1. Text</h2>
+      <label for="language">Language</label>
+      <select id="language"></select>
+      <p class="hint" id="language-hint"></p>
+
       <label for="title">Title</label>
       <input type="text" id="title" maxlength="300" placeholder="Untitled document">
 
       <label for="text">Text to read</label>
       <textarea id="text" rows="12" spellcheck="false"
-        placeholder="Paste plain English prose. Numbers, abbreviations and symbols are not supported in Version 1."></textarea>
+        placeholder="Paste plain prose in the selected language. Numbers, abbreviations and symbols are not supported."></textarea>
 
       <p class="counts" id="counts">0 characters &middot; 0 words &middot; 0 sentences</p>
       <div class="actions">
@@ -114,15 +118,15 @@
 
       <div id="pron-variants" class="variants"></div>
 
-      <label for="pron-arpabet">ARPAbet</label>
+      <label for="pron-arpabet"><span id="pron-notation-label">ARPAbet</span></label>
       <input type="text" id="pron-arpabet" maxlength="400" placeholder="L EH1 D">
 
       <label for="pron-spelling">Synthesis spelling (optional)</label>
       <input type="text" id="pron-spelling" maxlength="200" placeholder="led">
       <p class="hint">
-        The synthesis spelling is what actually steers the engine in Version 1:
-        the ARPAbet is recorded for inspection, but the neural model keeps its
-        own phonemizer.
+        The synthesis spelling is what actually steers the engine: the phonemes
+        are recorded for inspection, but the neural model keeps its own
+        phonemizer.
       </p>
 
       <p class="error" id="pron-error" hidden></p>

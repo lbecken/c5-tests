@@ -73,7 +73,12 @@ class SynthesisService:
         return self._engine
 
     def cache_key_for(
-        self, text: str, voice_id: str, speed: float, override_revision: str = "none"
+        self,
+        text: str,
+        voice_id: str,
+        speed: float,
+        override_revision: str = "none",
+        language_code: str | None = None,
     ) -> str:
         """Compute the key a request would use, without synthesizing."""
         info = self._engine.info
@@ -84,7 +89,7 @@ class SynthesisService:
                 model_hash=info.model_hash,
                 voice=voice_id,
                 voice_hash=self._engine.voice_fingerprint(voice_id),
-                language=self._language_code,
+                language=language_code or self._language_code,
                 speed=validate_speed(speed),
                 text=text,
                 override_revision=override_revision,
@@ -129,6 +134,7 @@ class SynthesisService:
         speed: float,
         override_revision: str = "none",
         bypass_cache: bool = False,
+        language_code: str | None = None,
     ) -> SynthesisOutcome:
         """Return audio for *text*, generating it only when necessary.
 
@@ -139,12 +145,15 @@ class SynthesisService:
             override_revision: Token identifying the active pronunciation
                 overrides, so editing one invalidates affected audio.
             bypass_cache: Regenerate even when a cached result exists.
+            language_code: The document's language; part of the cache key, so
+                the same words in two languages never share audio.
 
         Raises:
             SynthesisFailedError: If the engine fails or its output is unusable.
         """
         speed = validate_speed(speed)
-        cache_key = self.cache_key_for(text, voice_id, speed, override_revision)
+        language = language_code or self._language_code
+        cache_key = self.cache_key_for(text, voice_id, speed, override_revision, language)
 
         if not bypass_cache:
             cached = self.lookup(cache_key)
@@ -164,7 +173,7 @@ class SynthesisService:
                     text=text,
                     voice_id=voice_id,
                     speed=speed,
-                    language_code=self._language_code,
+                    language_code=language,
                 )
             )
             try:
@@ -190,7 +199,7 @@ class SynthesisService:
                     engine=self._engine.name,
                     model_id=info.model_id,
                     voice_id=voice_id,
-                    language_code=self._language_code,
+                    language_code=language,
                     speed=speed,
                     synthesis_text_hash=hash_text(text),
                     audio_path=path,

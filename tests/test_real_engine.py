@@ -140,3 +140,91 @@ def test_engine_reports_a_clear_error_when_the_model_is_absent(tmp_path: Path) -
     settings = Settings(model_dir=tmp_path / "empty", engine="kokoro")
     with pytest.raises(ModelNotReadyError, match="missing"):
         KokoroSpeechEngine(settings).start()
+
+
+# --- Other languages ---------------------------------------------------------
+
+
+@requires_model
+def test_french_voice_is_present(engine: KokoroSpeechEngine) -> None:
+    assert "ff_siwis" in engine.list_voices()
+    assert engine.voice_config("ff_siwis").language_code == "fr-fr"
+
+
+@requires_model
+def test_french_synthesizes_with_french_phonemes(engine: KokoroSpeechEngine) -> None:
+    """French runs through its own pipeline, not the English one."""
+    result = engine.synthesize(
+        SynthesisRequest(
+            text="Le vent soufflait doucement à travers les arbres.",
+            voice_id="ff_siwis",
+            speed=1.0,
+            language_code="fr-fr",
+        )
+    )
+    assert result.samples.size > 0
+    assert 1.5 < result.duration_seconds < 8.0
+    assert result.phoneme_debug is not None
+    # French phonemization produces the uvular r and nasal vowels that English
+    # never emits, which is how we know the right pipeline ran.
+    assert "ʁ" in result.phoneme_debug
+    assert "ɑ̃" in result.phoneme_debug
+
+
+@requires_model
+def test_british_english_uses_its_own_pipeline(engine: KokoroSpeechEngine) -> None:
+    assert "bf_emma" in engine.list_voices()
+    result = engine.synthesize(
+        SynthesisRequest(
+            text="The cat sat on the mat.",
+            voice_id="bf_emma",
+            speed=1.0,
+            language_code="en-gb",
+        )
+    )
+    assert result.samples.size > 0
+    assert result.phoneme_debug
+
+
+@requires_model
+def test_one_model_serves_every_language(engine: KokoroSpeechEngine) -> None:
+    """Three languages share a single loaded model."""
+    for voice, language, text in (
+        ("af_heart", "en-us", "The cat sat on the mat."),
+        ("bf_emma", "en-gb", "The cat sat on the mat."),
+        ("ff_siwis", "fr-fr", "Le chat dormait près du feu."),
+    ):
+        result = engine.synthesize(
+            SynthesisRequest(text=text, voice_id=voice, speed=1.0, language_code=language)
+        )
+        assert result.samples.size > 0, f"{voice} produced no audio"
+        assert result.sample_rate == SAMPLE_RATE
+
+
+@requires_model
+def test_french_document_end_to_end(tmp_path: Path) -> None:
+    from reader_tts.domain.enums import LanguageCode
+
+    settings = Settings(
+        data_dir=Path("data").resolve(),
+        runtime_dir=tmp_path / "runtime",
+        model_dir=MODEL_DIR,
+        engine="kokoro",
+    )
+    services = AppServices(settings)
+    try:
+        text = "Le vent soufflait doucement. Où avez-vous mis les clés ?"
+        document = services.documents.create(text, language=LanguageCode.FR_FR)
+        resolver = services.resolver_for_document(document.id)
+        job = services.jobs.create(document.id, resolver, "ff_siwis", 1.0)
+        progress = services.jobs.run(job.id, resolver)
+        assert progress.failed_units == 0
+        assert progress.completed_units == 2
+
+        export = services.exports.export_document(document.id, "ff_siwis", 1.0)
+        samples, rate = read_wav(services.exports.file_path(export.id))
+        assert rate == SAMPLE_RATE
+        assert samples.size > 0
+        assert np.all(np.isfinite(samples))
+    finally:
+        services.close()

@@ -25,7 +25,7 @@ from reader_tts import __version__
 from reader_tts.cache.cleanup import clean, collect_statistics
 from reader_tts.config.settings import Settings, get_settings
 from reader_tts.container import AppServices
-from reader_tts.domain.enums import OverrideScope, ValidationMode
+from reader_tts.domain.enums import LanguageCode, OverrideScope, ValidationMode
 from reader_tts.domain.errors import (
     ConfigurationError,
     DictionaryError,
@@ -34,6 +34,8 @@ from reader_tts.domain.errors import (
     ValidationError,
 )
 from reader_tts.domain.models import ValidationReport
+from reader_tts.languages.registry import available_languages, get_pack, resolve_voice
+from reader_tts.pronunciation.phonemes import inventory_for
 from reader_tts.text.characters import canonicalize_source
 from reader_tts.text.validator import analyze
 
@@ -66,13 +68,16 @@ def build_parser() -> argparse.ArgumentParser:
     validate.add_argument(
         "--mode", choices=["practical", "strict"], default="practical", help="validation mode"
     )
+    _add_language(validate)
 
     lookup = commands.add_parser("lookup", help="show a word's pronunciations")
     lookup.add_argument("word")
+    _add_language(lookup)
 
     speak = commands.add_parser("speak", help="speak one sentence and write a WAV file")
     speak.add_argument("text")
-    speak.add_argument("--voice", help="voice identifier")
+    speak.add_argument("--voice", help="voice identifier; defaults to the language's voice")
+    _add_language(speak)
     speak.add_argument("--speed", type=float, help="0.75 to 1.25")
     speak.add_argument("--output", type=Path, default=Path("output.wav"))
 
@@ -83,8 +88,12 @@ def build_parser() -> argparse.ArgumentParser:
     synthesize.add_argument("--speed", type=float)
     synthesize.add_argument("--title")
     synthesize.add_argument("--mode", choices=["practical", "strict"], default="practical")
+    _add_language(synthesize)
 
-    commands.add_parser("voices", help="list bundled voices")
+    voices = commands.add_parser("voices", help="list bundled voices")
+    _add_language(voices, required_default=None)
+
+    commands.add_parser("languages", help="list bundled languages")
 
     cache = commands.add_parser("cache", help="inspect or clean the audio cache")
     cache.add_argument("action", choices=["stats", "clean"])
@@ -92,19 +101,38 @@ def build_parser() -> argparse.ArgumentParser:
 
     dictionary = commands.add_parser("dictionary", help="dictionary maintenance")
     dictionary.add_argument("action", choices=["verify"])
+    _add_language(dictionary, required_default=None)
 
     override = commands.add_parser("override", help="manage pronunciation overrides")
     override.add_argument("action", choices=["list", "set", "delete"])
     override.add_argument("--word")
-    override.add_argument("--phonemes", help="space-separated ARPAbet, e.g. 'L EH1 D'")
+    override.add_argument(
+        "--phonemes",
+        help="pronunciation: space-separated ARPAbet for English (L EH1 D), IPA for French",
+    )
     override.add_argument("--synthesis-text", help="respelling passed to the engine")
     override.add_argument("--note")
+    _add_language(override)
 
     serve = commands.add_parser("serve", help="run the local web interface")
     serve.add_argument("--host")
     serve.add_argument("--port", type=int)
 
     return parser
+
+
+def _add_language(parser: argparse.ArgumentParser, required_default: str | None = "en-us") -> None:
+    """Add the language selector to a subcommand.
+
+    The language is always chosen explicitly: the reader never guesses one from
+    the text.
+    """
+    parser.add_argument(
+        "--language",
+        choices=[code.value for code in LanguageCode],
+        default=required_default,
+        help="language pack to use (default: en-us)",
+    )
 
 
 def main(argv: Sequence[str] | None = None) -> int:
@@ -155,6 +183,7 @@ def _dispatch(args: argparse.Namespace, settings: Settings) -> int:
             "speak": _speak,
             "synthesize": _synthesize,
             "voices": _voices,
+            "languages": _languages,
             "cache": _cache,
             "dictionary": _dictionary,
             "override": _override,
@@ -206,11 +235,13 @@ def _health(args: argparse.Namespace, services: AppServices) -> int:
 
 def _validate(args: argparse.Namespace, services: AppServices) -> int:
     text = _read_text(args.path)
+    language = LanguageCode(args.language)
     result = analyze(
         canonicalize_source(text),
-        services.resolver(),
+        services.resolver(language=language),
         mode=ValidationMode(args.mode),
         hard_max_chars=services.settings.hard_max_chars,
+        policy=get_pack(language).character_policy,
     )
     if args.json:
         _print_json(_report_payload(result.report))
@@ -221,8 +252,11 @@ def _validate(args: argparse.Namespace, services: AppServices) -> int:
 
 def _lookup(args: argparse.Namespace, services: AppServices) -> int:
     word = args.word.strip().upper()
-    entry = services.dictionary.lookup(word)
-    compound = services.dictionary.resolve_compound(word) if entry is None else None
+    language = LanguageCode(args.language)
+    dictionary = services.dictionary_for(language)
+    inventory = inventory_for(dictionary.notation)
+    entry = dictionary.lookup(word)
+    compound = dictionary.resolve_compound(word) if entry is None else None
 
     if entry is None and compound is None:
         if args.json:
@@ -233,16 +267,19 @@ def _lookup(args: argparse.Namespace, services: AppServices) -> int:
 
     if entry is not None:
         pronunciations = [
-            {"variant": p.variant_index, "arpabet": p.arpabet} for p in entry.pronunciations
+            {"variant": p.variant_index, "phonemes": inventory.format(p.phonemes)}
+            for p in entry.pronunciations
         ]
     else:
         assert compound is not None
-        pronunciations = [{"variant": 0, "arpabet": " ".join(compound.phonemes)}]
+        pronunciations = [{"variant": 0, "phonemes": inventory.format(compound.phonemes)}]
 
     if args.json:
         _print_json(
             {
                 "word": args.word,
+                "language": language.value,
+                "notation": dictionary.notation.value,
                 "supported": True,
                 "compound": compound is not None,
                 "pronunciations": pronunciations,
@@ -251,19 +288,23 @@ def _lookup(args: argparse.Namespace, services: AppServices) -> int:
     else:
         print(f"{args.word}: {len(pronunciations)} pronunciation(s)")
         for item in pronunciations:
-            print(f"  [{item['variant']}] {item['arpabet']}")
+            print(f"  [{item['variant']}] {item['phonemes']}")
         if compound is not None:
-            print(f"  (resolved from components: {', '.join(compound.components)})")
+            print(
+                f"  (resolved by {compound.kind} decomposition: {', '.join(compound.components)})"
+            )
     return EXIT_SUCCESS
 
 
 def _speak(args: argparse.Namespace, services: AppServices) -> int:
     settings = services.settings
-    voice = args.voice or settings.default_voice
+    language = LanguageCode(args.language)
+    pack = get_pack(language)
+    voice = resolve_voice(args.voice, language)
     speed = args.speed if args.speed is not None else settings.default_speed
 
-    resolver = services.resolver()
-    result = analyze(canonicalize_source(args.text), resolver)
+    resolver = services.resolver(language=language)
+    result = analyze(canonicalize_source(args.text), resolver, policy=pack.character_policy)
     if not result.report.accepted:
         if args.json:
             _print_json(_report_payload(result.report))
@@ -288,6 +329,7 @@ def _speak(args: argparse.Namespace, services: AppServices) -> int:
             replacements=replacements,
             preferred_max_chars=settings.preferred_max_chars,
             hard_max_chars=settings.hard_max_chars,
+            policy=pack.character_policy,
         )
         for chunk in prepared.chunks:
             outcomes.append(
@@ -296,6 +338,7 @@ def _speak(args: argparse.Namespace, services: AppServices) -> int:
                     voice_id=voice,
                     speed=speed,
                     override_revision=resolver.override_revision(),
+                    language_code=language.value,
                 )
             )
 
@@ -307,6 +350,7 @@ def _speak(args: argparse.Namespace, services: AppServices) -> int:
         _print_json(
             {
                 "validation": "passed",
+                "language": language.value,
                 "words": statistics.words,
                 "ambiguous_words": statistics.ambiguous_words,
                 "voice": voice,
@@ -318,6 +362,7 @@ def _speak(args: argparse.Namespace, services: AppServices) -> int:
         )
     else:
         print("Validation: passed")
+        print(f"Language: {pack.display_name}")
         print(f"Words: {statistics.words}")
         print(f"Ambiguous pronunciations: {statistics.ambiguous_words}")
         print(f"Voice: {voice}")
@@ -331,11 +376,14 @@ def _speak(args: argparse.Namespace, services: AppServices) -> int:
 def _synthesize(args: argparse.Namespace, services: AppServices) -> int:
     text = _read_text(args.path)
     settings = services.settings
-    voice = args.voice or settings.default_voice
+    language = LanguageCode(args.language)
+    voice = resolve_voice(args.voice, language)
     speed = args.speed if args.speed is not None else settings.default_speed
 
-    document = services.documents.create(text, title=args.title or args.path.stem)
-    resolver = services.resolver(document.id)
+    document = services.documents.create(
+        text, title=args.title or args.path.stem, language=language
+    )
+    resolver = services.resolver(document.id, language)
     job = services.jobs.create(
         document_id=document.id,
         resolver=resolver,
@@ -378,7 +426,11 @@ def _synthesize(args: argparse.Namespace, services: AppServices) -> int:
 
 def _voices(args: argparse.Namespace, services: AppServices) -> int:
     engine = services.engine
-    configs = [engine.voice_config(voice_id) for voice_id in engine.list_voices()]
+    available = engine.list_voices()
+    packs = (
+        [get_pack(LanguageCode(args.language))] if args.language else list(available_languages())
+    )
+    configs = [voice for pack in packs for voice in pack.voices if voice.id in available]
     if args.json:
         _print_json(
             {
@@ -386,7 +438,7 @@ def _voices(args: argparse.Namespace, services: AppServices) -> int:
                     {
                         "id": config.id,
                         "display_name": config.display_name,
-                        "language_code": config.language_code,
+                        "language": config.language_code,
                         "gender": config.gender_label,
                         "default_speed": config.default_speed,
                     }
@@ -397,7 +449,7 @@ def _voices(args: argparse.Namespace, services: AppServices) -> int:
     else:
         for config in configs:
             gender = f" [{config.gender_label}]" if config.gender_label else ""
-            print(f"{config.id:<14} {config.display_name}{gender}")
+            print(f"{config.id:<14} {config.language_code:<7} {config.display_name}{gender}")
     return EXIT_SUCCESS
 
 
@@ -442,32 +494,77 @@ def _cache(args: argparse.Namespace, services: AppServices) -> int:
 
 
 def _dictionary(args: argparse.Namespace, services: AppServices) -> int:
-    info = services.dictionary.info
-    healthy = info.entries > 0 and not info.malformed_lines
-    if args.json:
-        _print_json(
+    languages = (
+        [LanguageCode(args.language)] if args.language else [p.code for p in available_languages()]
+    )
+    healthy = True
+    payloads = []
+    for language in languages:
+        info = services.dictionary_for(language).info
+        ok = info.entries > 0 and not info.malformed_lines
+        healthy = healthy and ok
+        payloads.append(
             {
+                "language": language.value,
                 "name": info.name,
                 "version": info.version,
                 "entries": info.entries,
                 "malformed_lines": list(info.malformed_lines),
-                "healthy": healthy,
+                "healthy": ok,
             }
         )
+
+    if args.json:
+        _print_json({"dictionaries": payloads, "healthy": healthy})
     else:
-        print(f"Dictionary: {info.name} {info.version}")
-        print(f"Entries:    {info.entries}")
-        if info.malformed_lines:
-            print(f"Malformed:  {len(info.malformed_lines)} line(s)")
-            for line in info.malformed_lines[:10]:
-                print(f"  {line}")
-        else:
-            print("Malformed:  none")
+        for payload in payloads:
+            print(f"Language:   {payload['language']}")
+            print(f"Dictionary: {payload['name']} {payload['version']}")
+            print(f"Entries:    {payload['entries']}")
+            malformed = payload["malformed_lines"]
+            assert isinstance(malformed, list)
+            if malformed:
+                print(f"Malformed:  {len(malformed)} line(s)")
+                for line in malformed[:10]:
+                    print(f"  {line}")
+            else:
+                print("Malformed:  none")
+            print()
     return EXIT_SUCCESS if healthy else EXIT_VALIDATION_FAILURE
 
 
+def _languages(args: argparse.Namespace, services: AppServices) -> int:
+    """List the bundled languages and their voices."""
+    del services
+    packs = available_languages()
+    if args.json:
+        _print_json(
+            {
+                "languages": [
+                    {
+                        "code": pack.code.value,
+                        "display_name": pack.display_name,
+                        "dictionary": pack.dictionary.name,
+                        "notation": pack.notation.value,
+                        "voices": list(pack.voice_ids),
+                        "default_voice": pack.default_voice_id,
+                    }
+                    for pack in packs
+                ]
+            }
+        )
+    else:
+        for pack in packs:
+            print(f"{pack.code.value:<7} {pack.display_name}")
+            print(f"        dictionary: {pack.dictionary.name} ({pack.notation.value})")
+            print(f"        voices:     {', '.join(pack.voice_ids)}")
+    return EXIT_SUCCESS
+
+
 def _override(args: argparse.Namespace, services: AppServices) -> int:
-    overrides = services.overrides
+    language = LanguageCode(args.language)
+    notation = services.dictionary_for(language).notation
+    overrides = services.overrides.for_notation(notation)
 
     if args.action == "list":
         stored = overrides.list_all()
@@ -478,7 +575,7 @@ def _override(args: argparse.Namespace, services: AppServices) -> int:
                         {
                             "word": item.word,
                             "scope": item.scope.value,
-                            "arpabet": " ".join(item.phonemes),
+                            "phonemes": inventory_for(notation).format(item.phonemes),
                             "synthesis_text": item.synthesis_text,
                             "note": item.note,
                         }
@@ -491,7 +588,7 @@ def _override(args: argparse.Namespace, services: AppServices) -> int:
                 print("No overrides are defined.")
             for item in stored:
                 spelling = f" -> '{item.synthesis_text}'" if item.synthesis_text else ""
-                print(f"{item.word:<20} {' '.join(item.phonemes)}{spelling}")
+                print(f"{item.word:<20} {inventory_for(notation).format(item.phonemes)}{spelling}")
         return EXIT_SUCCESS
 
     if not args.word:
@@ -517,12 +614,17 @@ def _override(args: argparse.Namespace, services: AppServices) -> int:
         _print_json(
             {
                 "word": stored_override.word,
-                "arpabet": " ".join(stored_override.phonemes),
+                "language": language.value,
+                "notation": notation.value,
+                "phonemes": inventory_for(notation).format(stored_override.phonemes),
                 "synthesis_text": stored_override.synthesis_text,
             }
         )
     else:
-        print(f"Set {stored_override.word} = {' '.join(stored_override.phonemes)}")
+        print(
+            f"Set {stored_override.word} = "
+            f"{inventory_for(notation).format(stored_override.phonemes)}"
+        )
         if stored_override.synthesis_text:
             print(f"Synthesis spelling: {stored_override.synthesis_text}")
     return EXIT_SUCCESS

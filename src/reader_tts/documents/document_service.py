@@ -14,7 +14,7 @@ from typing import Final
 
 from reader_tts.cache.keys import hash_text
 from reader_tts.database.connection import Database
-from reader_tts.domain.enums import ValidationMode
+from reader_tts.domain.enums import LanguageCode, ValidationMode
 from reader_tts.domain.errors import (
     DocumentNotFoundError,
     DocumentTooLargeError,
@@ -26,6 +26,7 @@ from reader_tts.domain.models import (
     TextSpan,
     ValidationReport,
 )
+from reader_tts.languages.registry import DEFAULT_LANGUAGE, get_pack
 from reader_tts.text.characters import canonicalize_source
 from reader_tts.text.validator import AnalyzedText, WordResolver, analyze
 
@@ -43,8 +44,18 @@ class DocumentService:
 
     # --- Creation ----------------------------------------------------------------
 
-    def create(self, text: str, title: str | None = None) -> Document:
+    def create(
+        self,
+        text: str,
+        title: str | None = None,
+        language: LanguageCode = DEFAULT_LANGUAGE,
+    ) -> Document:
         """Store *text* as a new document together with its sentences.
+
+        Args:
+            text: The document's text.
+            title: Optional title; a default is used when empty.
+            language: Which language pack validates and speaks this document.
 
         Raises:
             DocumentTooLargeError: If the text exceeds the configured limit.
@@ -64,14 +75,16 @@ class DocumentService:
             original_text=canonical,
             text_hash=hash_text(canonical),
             created_at=datetime.now(tz=UTC),
+            language=language,
         )
         sentences = self._segment(document)
 
         with self._database.transaction() as connection:
             connection.execute(
                 """
-                INSERT INTO documents (id, title, original_text, text_hash, created_at)
-                VALUES (?, ?, ?, ?, ?)
+                INSERT INTO documents
+                    (id, title, original_text, text_hash, created_at, language)
+                VALUES (?, ?, ?, ?, ?, ?)
                 """,
                 (
                     document.id,
@@ -79,6 +92,7 @@ class DocumentService:
                     document.original_text,
                     document.text_hash,
                     document.created_at.isoformat(),
+                    document.language.value,
                 ),
             )
             connection.executemany(
@@ -109,6 +123,7 @@ class DocumentService:
                 "document_id": document.id,
                 "characters": len(canonical),
                 "sentences": len(sentences),
+                "language": language.value,
             },
         )
         return document
@@ -192,7 +207,14 @@ class DocumentService:
     ) -> AnalyzedText:
         """Validate a stored document and return its full analysis."""
         document = self.get(document_id)
-        return analyze(document.original_text, resolver, mode=mode, document_id=document_id)
+        pack = get_pack(document.language)
+        return analyze(
+            document.original_text,
+            resolver,
+            mode=mode,
+            document_id=document_id,
+            policy=pack.character_policy,
+        )
 
 
 def _to_document(row: sqlite3.Row) -> Document:
@@ -202,6 +224,7 @@ def _to_document(row: sqlite3.Row) -> Document:
         original_text=row["original_text"],
         text_hash=row["text_hash"],
         created_at=datetime.fromisoformat(row["created_at"]),
+        language=LanguageCode(row["language"] if "language" in set(row.keys()) else "en-us"),
     )
 
 

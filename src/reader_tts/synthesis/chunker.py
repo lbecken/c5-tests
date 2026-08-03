@@ -15,6 +15,7 @@ from reader_tts.config import defaults
 from reader_tts.domain.errors import ValidationError
 from reader_tts.domain.models import Sentence, SynthesisChunk
 from reader_tts.text import characters as chars
+from reader_tts.text.characters import DEFAULT_POLICY, CharacterPolicy
 from reader_tts.text.punctuation import (
     collapse_whitespace,
     has_speakable_content,
@@ -62,6 +63,7 @@ def prepare_sentence(
     replacements: Mapping[str, str] | None = None,
     preferred_max_chars: int = defaults.PREFERRED_MAX_SENTENCE_CHARS,
     hard_max_chars: int = defaults.HARD_MAX_SENTENCE_CHARS,
+    policy: CharacterPolicy = DEFAULT_POLICY,
 ) -> PreparedSentence:
     """Build the engine-ready text for *sentence*.
 
@@ -72,6 +74,7 @@ def prepare_sentence(
             inspectable.
         preferred_max_chars: Sentences longer than this are split.
         hard_max_chars: Upper bound enforced on every produced chunk.
+        policy: The language's character policy.
 
     Returns:
         The prepared sentence with at least one chunk.
@@ -80,10 +83,10 @@ def prepare_sentence(
         ValidationError: If the sentence has no speakable content.
     """
     display_text = collapse_whitespace(sentence.text)
-    replaced, applied = _apply_replacements(display_text, replacements or {})
+    replaced, applied = _apply_replacements(display_text, replacements or {}, policy)
     synthesis_text = to_engine_punctuation(replaced)
 
-    if not has_speakable_content(synthesis_text):
+    if not has_speakable_content(synthesis_text, policy):
         raise ValidationError(
             f"sentence {sentence.index + 1} contains no readable words and cannot be spoken"
         )
@@ -228,7 +231,7 @@ def _last_space(text: str, limit: int) -> int | None:
 
 
 def _apply_replacements(
-    text: str, replacements: Mapping[str, str]
+    text: str, replacements: Mapping[str, str], policy: CharacterPolicy = DEFAULT_POLICY
 ) -> tuple[str, tuple[tuple[str, str], ...]]:
     """Substitute synthesis respellings, preserving surrounding punctuation."""
     if not replacements:
@@ -237,7 +240,7 @@ def _apply_replacements(
     applied: list[tuple[str, str]] = []
     pieces: list[str] = []
     cursor = 0
-    for token in tokenize(text):
+    for token in tokenize(text, policy=policy):
         if not token.is_word:
             continue
         replacement = replacements.get(token.normalized)

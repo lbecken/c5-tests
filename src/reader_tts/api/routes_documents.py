@@ -26,7 +26,9 @@ _READING_STATE_KEY = "reading_state"
 @router.post("/documents", response_model=DocumentResponse, status_code=status.HTTP_201_CREATED)
 def create_document(request: CreateDocumentRequest, services: Services) -> DocumentResponse:
     """Store text as a document and segment it into sentences."""
-    document = services.documents.create(request.text, title=request.title)
+    document = services.documents.create(
+        request.text, title=request.title, language=request.language
+    )
     sentences = services.documents.sentences(document.id)
     return DocumentResponse.from_domain(document, sentences)
 
@@ -42,6 +44,7 @@ def list_documents(
             title=document.title,
             created_at=document.created_at.isoformat(),
             characters=len(document.original_text),
+            language=document.language,
         )
         for document in services.documents.list_documents(limit)
     ]
@@ -69,7 +72,7 @@ def validate_document(
 ) -> ValidationResponse:
     """Validate a stored document."""
     result = services.documents.analyze(
-        document_id, services.resolver(document_id), mode=request.mode
+        document_id, services.resolver_for_document(document_id), mode=request.mode
     )
     return ValidationResponse.from_domain(result.report, result.sentences)
 

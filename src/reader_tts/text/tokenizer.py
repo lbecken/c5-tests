@@ -22,12 +22,17 @@ from typing import Final
 from reader_tts.domain.enums import TokenKind
 from reader_tts.domain.models import TextSpan, Token
 from reader_tts.text import characters as chars
+from reader_tts.text.characters import DEFAULT_POLICY, CharacterPolicy
 
 #: Two or more line breaks, possibly with blank space between them.
 _PARAGRAPH_BREAK: Final = re.compile(r"[ \t]*\n(?:[ \t]*\n)+[ \t]*")
 
 
-def tokenize(canonical: str, normalized: str | None = None) -> tuple[Token, ...]:
+def tokenize(
+    canonical: str,
+    normalized: str | None = None,
+    policy: CharacterPolicy = DEFAULT_POLICY,
+) -> tuple[Token, ...]:
     """Tokenize canonical source text.
 
     Args:
@@ -35,6 +40,8 @@ def tokenize(canonical: str, normalized: str | None = None) -> tuple[Token, ...]
         normalized: The result of :func:`~reader_tts.text.characters.normalize_characters`
             applied to *canonical*. Computed when omitted. Must have the same
             length as *canonical*.
+        policy: Decides which characters count as letters. The default matches
+            English; French additionally accepts accented letters.
 
     Returns:
         Every token in source order, covering the whole input.
@@ -63,8 +70,8 @@ def tokenize(canonical: str, normalized: str | None = None) -> tuple[Token, ...]
             position = end
             continue
 
-        if chars.is_letter(char):
-            end = _scan_word(norm, position)
+        if policy.is_letter(char):
+            end = _scan_word(norm, position, policy)
             raw = canonical[position:end]
             tokens.append(
                 Token(
@@ -89,7 +96,7 @@ def tokenize(canonical: str, normalized: str | None = None) -> tuple[Token, ...]
             position += 1
             continue
 
-        end = _scan_unsupported(norm, position)
+        end = _scan_unsupported(norm, position, policy)
         tokens.append(
             Token(
                 raw=canonical[position:end],
@@ -110,26 +117,26 @@ def _scan_whitespace(text: str, start: int) -> int:
     return position
 
 
-def _scan_word(text: str, start: int) -> int:
+def _scan_word(text: str, start: int, policy: CharacterPolicy) -> int:
     """Return the end offset of the word beginning at *start*."""
     position = start
     length = len(text)
     while position < length:
         char = text[position]
-        if chars.is_letter(char):
+        if policy.is_letter(char):
             position += 1
             continue
         if chars.is_word_joiner(char):
             # A joiner only stays inside the word when a letter follows it.
             following = position + 1
-            if following < length and chars.is_letter(text[following]):
+            if following < length and policy.is_letter(text[following]):
                 position = following + 1
                 continue
         break
     return position
 
 
-def _scan_unsupported(text: str, start: int) -> int:
+def _scan_unsupported(text: str, start: int, policy: CharacterPolicy) -> int:
     """Group a run of unsupported characters into one token.
 
     Adjacent unsupported characters are reported together so that a token such
@@ -143,6 +150,7 @@ def _scan_unsupported(text: str, start: int) -> int:
             chars.is_supported_whitespace(char)
             or chars.is_supported_punctuation(char)
             or char == chars.ASCII_HYPHEN
+            or policy.is_letter(char)
         ):
             break
         position += 1

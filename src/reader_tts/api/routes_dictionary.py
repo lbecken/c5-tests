@@ -14,8 +14,8 @@ from reader_tts.api.schemas import (
     ValidateRequest,
     ValidationResponse,
 )
-from reader_tts.domain.enums import OverrideScope
-from reader_tts.pronunciation.arpabet import format_arpabet
+from reader_tts.domain.enums import LanguageCode, OverrideScope
+from reader_tts.pronunciation.phonemes import inventory_for
 from reader_tts.text.characters import canonicalize_source
 from reader_tts.text.validator import analyze
 
@@ -25,32 +25,47 @@ router = APIRouter(tags=["dictionary"])
 @router.post("/validate", response_model=ValidationResponse)
 def validate_text(request: ValidateRequest, services: Services) -> ValidationResponse:
     """Validate arbitrary text without storing it."""
+    pack = services.pack(request.language)
     result = analyze(
         canonicalize_source(request.text),
-        services.resolver(),
+        services.resolver(language=request.language),
         mode=request.mode,
         hard_max_chars=services.settings.hard_max_chars,
+        policy=pack.character_policy,
     )
     return ValidationResponse.from_domain(result.report, result.sentences)
 
 
 @router.get("/dictionary/{word}", response_model=DictionaryResponse)
-def lookup(word: str, services: Services) -> DictionaryResponse:
-    """Return every pronunciation the dictionary holds for *word*."""
-    normalized = word.strip().upper()
-    dictionary = services.dictionary
-    entry = dictionary.lookup(normalized)
-    override = services.overrides.get(normalized, OverrideScope.GLOBAL)
+def lookup(
+    word: str,
+    services: Services,
+    language: LanguageCode = Query(default=LanguageCode.EN_US),
+) -> DictionaryResponse:
+    """Return every pronunciation the language's dictionary holds for *word*.
 
+    The notation is reported alongside the pronunciations, because English
+    answers in ARPAbet and French in IPA.
+    """
+    normalized = word.strip().upper()
+    dictionary = services.dictionary_for(language)
+    inventory = inventory_for(dictionary.notation)
+    overrides = services.overrides.for_notation(dictionary.notation)
+    override = overrides.get(normalized, OverrideScope.GLOBAL)
+    override_text = inventory.format(override.phonemes) if override else None
+
+    entry = dictionary.lookup(normalized)
     if entry is not None:
         return DictionaryResponse(
             word=normalized,
             supported=True,
+            language=language,
+            notation=dictionary.notation.value,
             pronunciations=[
-                PronunciationOut(variant=p.variant_index, arpabet=p.arpabet)
+                PronunciationOut(variant=p.variant_index, arpabet=inventory.format(p.phonemes))
                 for p in entry.pronunciations
             ],
-            override=format_arpabet(override.phonemes) if override else None,
+            override=override_text,
         )
 
     compound = dictionary.resolve_compound(normalized)
@@ -58,16 +73,22 @@ def lookup(word: str, services: Services) -> DictionaryResponse:
         return DictionaryResponse(
             word=normalized,
             supported=True,
+            language=language,
+            notation=dictionary.notation.value,
             compound=True,
             components=list(compound.components),
-            pronunciations=[PronunciationOut(variant=0, arpabet=format_arpabet(compound.phonemes))],
-            override=format_arpabet(override.phonemes) if override else None,
+            pronunciations=[
+                PronunciationOut(variant=0, arpabet=inventory.format(compound.phonemes))
+            ],
+            override=override_text,
         )
 
     return DictionaryResponse(
         word=normalized,
         supported=override is not None,
-        override=format_arpabet(override.phonemes) if override else None,
+        language=language,
+        notation=dictionary.notation.value,
+        override=override_text,
     )
 
 
@@ -92,7 +113,8 @@ def put_override(word: str, request: OverrideRequest, services: Services) -> Ove
     override applies globally.
     """
     scope = OverrideScope.DOCUMENT if request.document_id else OverrideScope.GLOBAL
-    override = services.overrides.upsert(
+    notation = services.dictionary_for(request.language).notation
+    override = services.overrides.for_notation(notation).upsert(
         word=word,
         phonemes=request.phonemes,
         scope=scope,
@@ -105,9 +127,13 @@ def put_override(word: str, request: OverrideRequest, services: Services) -> Ove
 
 @router.delete("/pronunciation-overrides/{word}")
 def delete_override(
-    word: str, services: Services, document_id: str | None = Query(default=None)
+    word: str,
+    services: Services,
+    document_id: str | None = Query(default=None),
+    language: LanguageCode = Query(default=LanguageCode.EN_US),
 ) -> dict[str, bool | str]:
     """Delete a pronunciation override."""
     scope = OverrideScope.DOCUMENT if document_id else OverrideScope.GLOBAL
-    deleted = services.overrides.delete(word, scope, document_id)
+    notation = services.dictionary_for(language).notation
+    deleted = services.overrides.for_notation(notation).delete(word, scope, document_id)
     return {"word": word.strip().upper(), "deleted": deleted}

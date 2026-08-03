@@ -9,17 +9,18 @@ from __future__ import annotations
 
 import hashlib
 import threading
+from dataclasses import replace
 
 import numpy as np
 from numpy.typing import NDArray
 
-from reader_tts.config import defaults
 from reader_tts.domain.errors import (
     InvalidVoiceError,
     ModelNotReadyError,
     SynthesisFailedError,
 )
 from reader_tts.domain.models import EngineInfo, VoiceConfig
+from reader_tts.languages.registry import available_languages
 from reader_tts.synthesis.base import (
     SynthesisRequest,
     SynthesisResult,
@@ -30,23 +31,12 @@ from reader_tts.synthesis.base import (
 ENGINE_NAME = "fake"
 SAMPLE_RATE = 24_000
 
-FAKE_VOICES: tuple[VoiceConfig, ...] = (
-    VoiceConfig(
-        id="af_heart",
-        display_name="Heart (US female, simulated)",
-        language_code=defaults.DEFAULT_LANGUAGE_CODE,
-        gender_label="female",
-        model_voice_name="af_heart",
-        default_speed=defaults.DEFAULT_SPEED,
-    ),
-    VoiceConfig(
-        id="am_michael",
-        display_name="Michael (US male, simulated)",
-        language_code=defaults.DEFAULT_LANGUAGE_CODE,
-        gender_label="male",
-        model_voice_name="am_michael",
-        default_speed=defaults.DEFAULT_SPEED,
-    ),
+#: The same voices the real engine offers, taken from the language packs, so a
+#: test can exercise any language without loading a model.
+FAKE_VOICES: tuple[VoiceConfig, ...] = tuple(
+    replace(voice, display_name=f"{voice.display_name}, simulated")
+    for pack in available_languages()
+    for voice in pack.voices
 )
 
 

@@ -5,6 +5,21 @@ from __future__ import annotations
 from enum import StrEnum
 
 
+class LanguageCode(StrEnum):
+    """Languages the reader supports, one language pack each."""
+
+    EN_US = "en-us"
+    EN_GB = "en-gb"
+    FR_FR = "fr-fr"
+
+
+class PhonemeNotation(StrEnum):
+    """How a language pack writes pronunciations."""
+
+    ARPABET = "arpabet"
+    IPA = "ipa"
+
+
 class TokenKind(StrEnum):
     """Classification assigned to every token produced by the tokenizer."""
 

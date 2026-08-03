@@ -15,6 +15,7 @@ from reader_tts.api.dependencies import Services
 from reader_tts.api.schemas import RegenerateRequest, SentenceAudioOut
 from reader_tts.domain.enums import OverrideScope, SentenceStatus
 from reader_tts.domain.errors import NotFoundError, ValidationError
+from reader_tts.languages.registry import resolve_voice
 
 router = APIRouter(tags=["audio"])
 
@@ -75,16 +76,18 @@ def regenerate_sentence(
     variant, or the synthesis spelling of one word, and may bypass the cache.
     """
     sentence = services.documents.sentence(sentence_id)
-    resolver = services.resolver(sentence.document_id)
+    document = services.documents.get(sentence.document_id)
+    language = document.language
+    resolver = services.resolver(sentence.document_id, language)
 
     if request.word and request.synthesis_text:
-        entry = services.dictionary.lookup(request.word)
+        entry = services.dictionary_for(language).lookup(request.word)
         phonemes = (
             list(entry.pronunciations[0].phonemes)
             if entry is not None
             else _phonemes_or_error(request.word)
         )
-        services.overrides.upsert(
+        services.overrides.for_notation(services.dictionary_for(language).notation).upsert(
             word=request.word,
             phonemes=phonemes,
             scope=OverrideScope.DOCUMENT,
@@ -92,26 +95,26 @@ def regenerate_sentence(
             synthesis_text=request.synthesis_text,
             note="set from the reader",
         )
-        resolver = services.resolver(sentence.document_id)
+        resolver = services.resolver(sentence.document_id, language)
     elif request.word and request.variant_index is not None:
-        entry = services.dictionary.lookup(request.word)
+        entry = services.dictionary_for(language).lookup(request.word)
         if entry is None:
             raise ValidationError(f"'{request.word}' is not in the dictionary")
         if not 0 <= request.variant_index < len(entry.pronunciations):
             raise ValidationError(
                 f"variant {request.variant_index} does not exist for '{request.word}'"
             )
-        services.overrides.upsert(
+        services.overrides.for_notation(services.dictionary_for(language).notation).upsert(
             word=request.word,
             phonemes=list(entry.pronunciations[request.variant_index].phonemes),
             scope=OverrideScope.DOCUMENT,
             document_id=sentence.document_id,
             note=f"dictionary variant {request.variant_index}",
         )
-        resolver = services.resolver(sentence.document_id)
+        resolver = services.resolver(sentence.document_id, language)
 
     latest = services.job_repository.latest_for_document(sentence.document_id)
-    voice = request.voice_id or (latest.voice_id if latest else services.settings.default_voice)
+    voice = resolve_voice(request.voice_id or (latest.voice_id if latest else None), language)
     speed = (
         request.speed
         if request.speed is not None

@@ -1,13 +1,16 @@
 """Pronunciation resolution.
 
-Resolution order (specification 8.3):
+Resolution order:
 
 1. document-specific user override;
 2. global user override;
 3. user-selected dictionary variant;
-4. the first CMUdict pronunciation;
-5. compound decomposition of a hyphenated word;
+4. the first dictionary pronunciation;
+5. decomposition of a hyphenated or elided word;
 6. unsupported-word error.
+
+The dictionary and its notation come from the language pack, so the same rules
+apply to English ARPAbet and French IPA alike.
 """
 
 from __future__ import annotations
@@ -17,9 +20,9 @@ from collections.abc import Mapping
 from reader_tts.domain.enums import OverrideScope, PronunciationSource
 from reader_tts.domain.errors import ValidationError
 from reader_tts.domain.models import PronunciationOverride, ResolvedPronunciation
-from reader_tts.pronunciation.arpabet import format_arpabet
 from reader_tts.pronunciation.dictionary import PronunciationDictionary
 from reader_tts.pronunciation.overrides import OverrideRepository
+from reader_tts.pronunciation.phonemes import inventory_for
 from reader_tts.text.validator import WordSupport
 
 
@@ -44,6 +47,7 @@ class PronunciationResolver:
             word.upper(): index for word, index in (variant_selections or {}).items()
         }
         self._override_cache: dict[tuple[str, OverrideScope], PronunciationOverride | None] = {}
+        self._inventory = inventory_for(dictionary.notation)
 
     @property
     def dictionary(self) -> PronunciationDictionary:
@@ -88,7 +92,9 @@ class PronunciationResolver:
             return WordSupport(
                 supported=True,
                 is_ambiguous=entry.is_ambiguous and word not in self._variant_selections,
-                alternatives=tuple(format_arpabet(p.phonemes) for p in entry.pronunciations),
+                alternatives=tuple(
+                    self._inventory.format(p.phonemes) for p in entry.pronunciations
+                ),
             )
 
         compound = self._dictionary.resolve_compound(word)
@@ -176,7 +182,7 @@ class PronunciationResolver:
         """Return respellings to apply to synthesis text.
 
         Only overrides that carry a ``synthesis_text`` produce an entry, because
-        ARPAbet alone cannot steer the engine in Version 1.
+        phonemes alone cannot steer the engine.
         """
         replacements: dict[str, str] = {}
         for word in words:

@@ -7,17 +7,34 @@ import uuid
 from datetime import UTC, datetime
 
 from reader_tts.database.connection import Database
-from reader_tts.domain.enums import OverrideScope
+from reader_tts.domain.enums import OverrideScope, PhonemeNotation
 from reader_tts.domain.errors import ValidationError
 from reader_tts.domain.models import PronunciationOverride
-from reader_tts.pronunciation.arpabet import format_arpabet, parse_arpabet, validate_phonemes
+from reader_tts.pronunciation.phonemes import inventory_for
 
 
 class OverrideRepository:
     """Reads and writes ``pronunciation_overrides`` rows."""
 
-    def __init__(self, database: Database) -> None:
+    def __init__(
+        self,
+        database: Database,
+        notation: PhonemeNotation = PhonemeNotation.ARPABET,
+    ) -> None:
         self._database = database
+        self._notation = notation
+        self._inventory = inventory_for(notation)
+
+    @property
+    def notation(self) -> PhonemeNotation:
+        """The notation this repository validates and formats pronunciations in."""
+        return self._notation
+
+    def for_notation(self, notation: PhonemeNotation) -> OverrideRepository:
+        """Return a repository that reads and writes *notation*."""
+        if notation is self._notation:
+            return self
+        return OverrideRepository(self._database, notation)
 
     def upsert(
         self,
@@ -32,17 +49,18 @@ class OverrideRepository:
 
         Args:
             word: The word being overridden; stored uppercase.
-            phonemes: ARPAbet symbols, validated against the inventory.
+            phonemes: Phoneme symbols in this repository's notation — ARPAbet
+                for English, IPA for French — validated against its inventory.
             scope: ``GLOBAL`` or ``DOCUMENT``.
             document_id: Required when *scope* is ``DOCUMENT``.
             synthesis_text: Optional respelling passed to the engine in place of
-                the word. This is the practical pronunciation control in
-                Version 1, because the engine keeps its own phonemizer.
+                the word. This is the practical pronunciation control, because
+                the engine keeps its own phonemizer.
             note: Free-form human-readable note.
 
         Raises:
             ValidationError: If the scope and document identifier disagree.
-            InvalidPhonemeError: If a symbol is outside the ARPAbet inventory.
+            InvalidPhonemeError: If a symbol is outside the language's inventory.
         """
         if scope is OverrideScope.DOCUMENT and not document_id:
             raise ValidationError("a document-scoped override requires a document id")
@@ -52,7 +70,7 @@ class OverrideRepository:
         normalized_word = word.strip().upper()
         if not normalized_word:
             raise ValidationError("an override requires a word")
-        validated = validate_phonemes(phonemes)
+        validated = self._inventory.validate(phonemes)
         cleaned_synthesis_text = (synthesis_text or "").strip() or None
 
         now = datetime.now(tz=UTC)
@@ -62,13 +80,14 @@ class OverrideRepository:
             self._database.execute(
                 """
                 UPDATE pronunciation_overrides
-                SET phonemes = ?, synthesis_text = ?, note = ?, updated_at = ?
+                SET phonemes = ?, synthesis_text = ?, note = ?, notation = ?, updated_at = ?
                 WHERE id = ?
                 """,
                 (
-                    format_arpabet(validated),
+                    self._inventory.format(validated),
                     cleaned_synthesis_text,
                     note,
+                    self._notation.value,
                     now.isoformat(),
                     existing.id,
                 ),
@@ -78,17 +97,18 @@ class OverrideRepository:
                 """
                 INSERT INTO pronunciation_overrides
                     (id, scope, document_id, word, phonemes, synthesis_text, note,
-                     created_at, updated_at)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+                     notation, created_at, updated_at)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 """,
                 (
                     str(uuid.uuid4()),
                     scope.value,
                     document_id,
                     normalized_word,
-                    format_arpabet(validated),
+                    self._inventory.format(validated),
                     cleaned_synthesis_text,
                     note,
+                    self._notation.value,
                     now.isoformat(),
                     now.isoformat(),
                 ),
@@ -166,12 +186,16 @@ class OverrideRepository:
 
 
 def _to_override(row: sqlite3.Row) -> PronunciationOverride:
+    # `in` on a sqlite3.Row tests values, not column names, so the column list
+    # is taken explicitly. Rows written before migration 2 have no notation.
+    columns = set(row.keys())
+    notation = PhonemeNotation(row["notation"] if "notation" in columns else "arpabet")
     return PronunciationOverride(
         id=row["id"],
         scope=OverrideScope(row["scope"]),
         document_id=row["document_id"],
         word=row["word"],
-        phonemes=parse_arpabet(row["phonemes"]),
+        phonemes=inventory_for(notation).parse(row["phonemes"]),
         synthesis_text=row["synthesis_text"],
         note=row["note"],
         created_at=datetime.fromisoformat(row["created_at"]),

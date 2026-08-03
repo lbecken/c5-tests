@@ -8,14 +8,10 @@
 
 const API = "/api/v1";
 
-const SAMPLE = `The cat sat on the mat. The wind moved through the trees.
-
-Did you close the door? I read the book yesterday, and I read books every day.
-
-"Please record the record," she said, quietly, without turning around. The
-lead pipe was heavy; she set it down and waited for the wind to drop.`;
 
 const state = {
+  languages: [],
+  language: "en-us",
   documentId: null,
   sentences: [],
   currentIndex: 0,
@@ -32,6 +28,8 @@ const el = (id) => document.getElementById(id);
 
 const dom = {
   health: el("health"),
+  language: el("language"),
+  languageHint: el("language-hint"),
   title: el("title"),
   text: el("text"),
   counts: el("counts"),
@@ -71,6 +69,7 @@ const dom = {
   pronWord: el("pron-word"),
   pronVariants: el("pron-variants"),
   pronArpabet: el("pron-arpabet"),
+  pronNotationLabel: el("pron-notation-label"),
   pronSpelling: el("pron-spelling"),
   pronError: el("pron-error"),
   pronSave: el("pron-save"),
@@ -105,8 +104,63 @@ async function request(path, options = {}) {
 async function boot() {
   wireEvents();
   updateCounts();
+  await loadLanguages();
   await Promise.all([loadHealth(), loadVoices()]);
   await restoreState();
+}
+
+/* --- Languages ---------------------------------------------------------- */
+
+async function loadLanguages() {
+  try {
+    const payload = await request("/languages");
+    state.languages = payload.languages;
+    state.language = payload.default_language;
+  } catch (error) {
+    state.languages = [];
+    return;
+  }
+  dom.language.replaceChildren();
+  for (const language of state.languages) {
+    const option = document.createElement("option");
+    option.value = language.code;
+    option.textContent = language.display_name;
+    dom.language.append(option);
+  }
+  dom.language.value = state.language;
+  describeLanguage();
+}
+
+function currentLanguage() {
+  return state.languages.find((language) => language.code === state.language) || null;
+}
+
+function describeLanguage() {
+  const language = currentLanguage();
+  if (!language) return;
+  const voiceCount = language.voices.length;
+  dom.languageHint.textContent =
+    `${language.dictionary} dictionary, ${language.notation.toUpperCase()} notation · ` +
+    `${voiceCount} voice${voiceCount === 1 ? "" : "s"}` +
+    (voiceCount === 1 ? ` (${language.voices[0].display_name}, selected automatically)` : "");
+  dom.pronNotationLabel.textContent = language.notation === "ipa" ? "IPA" : "ARPAbet";
+  dom.pronArpabet.placeholder = language.notation === "ipa" ? "lɔm" : "L EH1 D";
+}
+
+async function changeLanguage() {
+  state.language = dom.language.value;
+  // A document belongs to one language, so switching starts a new one.
+  state.documentId = null;
+  state.sentences = [];
+  state.validated = false;
+  dom.generate.disabled = true;
+  dom.validationBody.hidden = true;
+  dom.validationEmpty.hidden = false;
+  dom.readerBody.hidden = true;
+  dom.readerEmpty.hidden = false;
+  describeLanguage();
+  await loadVoices();
+  persistState();
 }
 
 async function loadHealth() {
@@ -125,14 +179,19 @@ async function loadHealth() {
 
 async function loadVoices() {
   try {
-    const payload = await request("/voices");
+    const payload = await request(`/voices?language=${encodeURIComponent(state.language)}`);
     dom.voice.replaceChildren();
     for (const voice of payload.voices) {
       const option = document.createElement("option");
       option.value = voice.id;
-      option.textContent = voice.display_name;
+      option.textContent = voice.available
+        ? voice.display_name
+        : `${voice.display_name} (file not installed)`;
+      option.disabled = !voice.available;
       dom.voice.append(option);
     }
+    // A language with one voice needs no choice.
+    dom.voice.disabled = payload.voices.length <= 1;
     dom.speed.min = payload.min_speed;
     dom.speed.max = payload.max_speed;
     dom.speed.step = payload.speed_step;
@@ -148,6 +207,12 @@ async function restoreState() {
   } catch (error) {
     return;
   }
+  if (stored.language && stored.language !== state.language) {
+    state.language = stored.language;
+    dom.language.value = stored.language;
+    describeLanguage();
+    await loadVoices();
+  }
   if (stored.voice_id) dom.voice.value = stored.voice_id;
   if (stored.speed) {
     dom.speed.value = stored.speed;
@@ -160,6 +225,12 @@ async function restoreState() {
     dom.title.value = document_.title;
     dom.text.value = document_.text;
     state.documentId = document_.id;
+    if (document_.language && document_.language !== state.language) {
+      state.language = document_.language;
+      dom.language.value = document_.language;
+      describeLanguage();
+      await loadVoices();
+    }
     state.sentences = document_.sentences;
     state.currentIndex = Math.min(stored.sentence_index || 0, document_.sentences.length - 1);
     updateCounts();
@@ -181,6 +252,7 @@ function persistState() {
     offset_seconds: dom.player.currentTime || 0,
     voice_id: dom.voice.value || null,
     speed: Number(dom.speed.value),
+    language: state.language,
   };
   request("/reading-state", { method: "PUT", body: JSON.stringify(body) }).catch(() => {});
 }
@@ -189,7 +261,7 @@ function persistState() {
 
 function updateCounts() {
   const text = dom.text.value;
-  const words = (text.match(/[A-Za-z][A-Za-z'’-]*/g) || []).length;
+  const words = (text.match(/[A-Za-zÀ-ÖØ-öø-ÿ][A-Za-zÀ-ÖØ-öø-ÿ'’-]*/g) || []).length;
   const sentences = (text.match(/[.!?]+(\s|$)/g) || []).length;
   dom.counts.textContent =
     `${text.length.toLocaleString()} characters · ${words.toLocaleString()} words · ` +
@@ -226,7 +298,11 @@ async function ensureDocument(text) {
   }
   const created = await request("/documents", {
     method: "POST",
-    body: JSON.stringify({ text, title: dom.title.value || null }),
+    body: JSON.stringify({
+      text,
+      title: dom.title.value || null,
+      language: state.language,
+    }),
   });
   state.sentences = created.sentences;
   state.currentIndex = 0;
@@ -354,7 +430,8 @@ async function chooseVariant(word, index, arpabet) {
     await request(`/pronunciation-overrides/${encodeURIComponent(word)}`, {
       method: "PUT",
       body: JSON.stringify({
-        phonemes: arpabet.split(" "),
+        phonemes: splitPhonemes(arpabet),
+        language: state.language,
         document_id: state.documentId,
         note: `dictionary variant ${index}`,
       }),
@@ -659,7 +736,9 @@ async function loadPronunciations(word) {
   dom.pronVariants.replaceChildren();
 
   try {
-    const payload = await request(`/dictionary/${encodeURIComponent(normalized)}`);
+    const payload = await request(
+      `/dictionary/${encodeURIComponent(normalized)}?language=${encodeURIComponent(state.language)}`
+    );
     if (payload.override) dom.pronArpabet.value = payload.override;
     for (const item of payload.pronunciations) {
       const button = document.createElement("button");
@@ -696,7 +775,8 @@ async function savePronunciation() {
     await request(`/pronunciation-overrides/${encodeURIComponent(word)}`, {
       method: "PUT",
       body: JSON.stringify({
-        phonemes: arpabet.split(/\s+/),
+        phonemes: splitPhonemes(arpabet),
+        language: state.language,
         synthesis_text: dom.pronSpelling.value.trim() || null,
         document_id: state.documentId,
         note: "set from the reader",
@@ -711,6 +791,14 @@ async function savePronunciation() {
 }
 
 /* --- Helpers ------------------------------------------------------------------- */
+
+function splitPhonemes(text) {
+  // ARPAbet separates phonemes with spaces; IPA is written as a continuous
+  // string, and the server segments it.
+  const language = currentLanguage();
+  if (language && language.notation === "ipa") return [text.trim()];
+  return text.trim().split(/\s+/);
+}
 
 function formatTime(seconds) {
   const total = Math.max(0, Math.round(seconds || 0));
@@ -728,9 +816,13 @@ function wireEvents() {
   dom.text.addEventListener("input", updateCounts);
   dom.validate.addEventListener("click", validateText);
   dom.loadSample.addEventListener("click", () => {
-    dom.text.value = SAMPLE;
+    const language = currentLanguage();
+    dom.text.value = language ? language.sample_text : "";
     dom.title.value = dom.title.value || "Sample passage";
     updateCounts();
+  });
+  dom.language.addEventListener("change", () => {
+    changeLanguage().catch(() => {});
   });
   dom.clear.addEventListener("click", () => {
     dom.text.value = "";

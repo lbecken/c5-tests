@@ -20,7 +20,9 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
 from reader_tts.config.settings import Settings  # noqa: E402
 from reader_tts.container import AppServices  # noqa: E402
+from reader_tts.domain.enums import LanguageCode  # noqa: E402
 from reader_tts.domain.errors import ReaderTTSError  # noqa: E402
+from reader_tts.languages.registry import get_pack, resolve_voice  # noqa: E402
 from reader_tts.text.characters import canonicalize_source  # noqa: E402
 from reader_tts.text.validator import analyze  # noqa: E402
 
@@ -45,6 +47,11 @@ def main() -> int:
         help="where to write audio and results (default: <runtime dir>/evaluation)",
     )
     parser.add_argument("--voice", default=None)
+    parser.add_argument(
+        "--language",
+        default="en-us",
+        help="language pack to evaluate (default: en-us)",
+    )
     parser.add_argument("--speed", type=float, default=None)
     parser.add_argument(
         "--skip-synthesis",
@@ -68,7 +75,9 @@ def main() -> int:
 
     settings = Settings()
     services = AppServices(settings)
-    voice = args.voice or settings.default_voice
+    language = LanguageCode(args.language)
+    pack = get_pack(language)
+    voice = resolve_voice(args.voice, language)
     speed = args.speed if args.speed is not None else settings.default_speed
 
     output_dir = (
@@ -78,7 +87,7 @@ def main() -> int:
     )
     output_dir.mkdir(parents=True, exist_ok=True)
 
-    resolver = services.resolver()
+    resolver = services.resolver(language=language)
     rows: list[dict[str, object]] = []
     failures = 0
 
@@ -87,7 +96,9 @@ def main() -> int:
         model_id = services.engine.info.model_id if not args.skip_synthesis else "not-run"
 
         for index, line in enumerate(lines, start=1):
-            report = analyze(canonicalize_source(line), resolver).report
+            report = analyze(
+                canonicalize_source(line), resolver, policy=pack.character_policy
+            ).report
             row: dict[str, object] = {
                 "index": index,
                 "text": line,
@@ -99,6 +110,7 @@ def main() -> int:
                 "duration_seconds": "",
                 "engine": engine_name,
                 "model": model_id,
+                "language": language.value,
                 "voice": voice,
                 "speed": f"{speed:.2f}",
                 **dict.fromkeys(RUBRIC_CRITERIA, ""),
@@ -117,6 +129,7 @@ def main() -> int:
                         voice_id=voice,
                         speed=speed,
                         override_revision=resolver.override_revision(),
+                        language_code=language.value,
                     )
                 except ReaderTTSError as error:
                     failures += 1

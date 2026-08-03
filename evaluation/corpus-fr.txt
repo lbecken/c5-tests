@@ -1,0 +1,100 @@
+# Corpus d'évaluation pour l'écoute — French listening-evaluation corpus.
+#
+# One item per line. Lines beginning with '#' are comments and are ignored.
+# Every line uses only supported dictionary words and standard punctuation; no
+# numbers, abbreviations or symbols.
+#
+# Run it with:
+#     python scripts/run_evaluation.py --language fr-fr --corpus evaluation/corpus-fr.txt
+#
+# Score against evaluation/rubric.md. Note that French has a single voice
+# (ff_siwis), graded B- on under eleven hours of training data, so expect it to
+# fall short of the best English voices.
+
+# --- Phrases courantes ---------------------------------------------------------
+Le chat dormait près du feu.
+Le vent soufflait doucement à travers les arbres.
+Elle a ouvert la fenêtre et elle a écouté.
+Il rentrait à pied sous la pluie.
+La lumière du matin tombait sur le plancher.
+Un petit oiseau s'est posé sur la barrière.
+La chambre sentait le café et le papier.
+Nous attendions l'autobus ensemble.
+La porte était fermée depuis longtemps.
+Personne ne bougeait dans la maison.
+
+# --- Questions -------------------------------------------------------------------
+Où avez-vous mis les clés ?
+Avez-vous fermé la porte ?
+Êtes-vous certain que c'est le bon chemin ?
+Depuis combien de temps attendez-vous ici ?
+Voulez-vous que je le lise encore une fois ?
+
+# --- Exclamations -------------------------------------------------------------------
+Arrêtez !
+Quelle étrange et belle soirée !
+Regardez la taille de cet arbre !
+
+# --- Citations ---------------------------------------------------------------------
+« Fermez la porte », dit-elle calmement.
+Il a répondu : « J'ai déjà lu la lettre. »
+« Entrez », dit le vieil homme, « et fermez la porte derrière vous. »
+Elle a murmuré : « Le vent se lève. »
+
+# --- Élisions -------------------------------------------------------------------------
+# The clitic attaches to the next word: l'homme, qu'il, s'il, n'est, d'un.
+L'homme qu'il attendait n'est pas venu.
+S'il vous plaît, apportez-moi l'autre livre.
+J'ai vu l'enfant qui jouait dans la cour.
+C'est l'histoire d'un village oublié.
+Aujourd'hui, l'eau de la rivière était froide.
+Jusqu'à l'aube, personne n'a parlé.
+Lorsqu'il est parti, l'orage commençait.
+
+# --- Liaisons -----------------------------------------------------------------------------
+# Listen for the linking consonant: les arbres, nous avons, vous avez, un homme.
+Les arbres étaient couverts de neige.
+Nous avons attendu pendant deux heures.
+Vous avez oublié vos affaires.
+C'est un homme très aimable.
+Ils ont ouvert les autres fenêtres.
+
+# --- Homographes ---------------------------------------------------------------------------
+# The same spelling, two readings. Version 1 takes the first and reports the rest.
+Il est plus grand que moi, mais je n'en veux plus.
+Tous les enfants sont partis, et tous sont revenus.
+Le président est content de ce que contient la lettre.
+Nous portions les portions jusqu'à la table.
+Les poules du couvent couvent leurs oeufs.
+# The line above is written without the ligature on purpose: 'oeufs' is folded
+# to the dictionary's 'œufs'.
+Il est là, à l'est de la ville.
+
+# --- Nasales ------------------------------------------------------------------------------------
+# The four nasal vowels, which English never produces.
+Un bon vin blanc.
+Le pont était long et ancien.
+Cinq brins de romarin dans le jardin.
+Mon oncle chantait une chanson lente.
+
+# --- Contractions et traits d'union ---------------------------------------------------------------
+Est-ce que vous venez avec nous ?
+Dites-moi ce qui s'est passé.
+Peut-être qu'il reviendra demain.
+Rendez-vous devant la gare, s'il vous plaît.
+
+# --- Ponctuation variée -----------------------------------------------------------------------------
+Il est venu ; elle est partie : ils ont attendu.
+Le plan était simple — entrer, regarder, et ressortir.
+Trois choses comptaient : la lumière, le silence, et le froid.
+Elle s'est arrêtée (un instant seulement) puis elle a continué.
+Il était tard, très tard, et personne ne dormait.
+
+# --- Phrases longues ------------------------------------------------------------------------------------
+Le vent soufflait à travers les arbres au bord du champ, et bien que la lumière baissait déjà, elle continuait à marcher, passant la barrière et le petit mur de pierre, jusqu'à ce que le chemin tourne et que la maison apparaisse enfin.
+On lui avait dit, plus d'une fois et par des gens qui auraient dû mieux savoir, que la route était fermée, que rien ne l'attendait au bout, et que revenir en arrière ne lui coûterait rien du tout ; il y est allé quand même.
+
+# --- Paragraphes -------------------------------------------------------------------------------------------
+La maison se trouvait au bout d'une ruelle étroite. Ses fenêtres étaient sombres. Personne n'y habitait depuis des années, et le jardin avait poussé tout autour de la porte.
+Elle a frappé une fois. Puis elle a frappé encore, plus fort. Le bruit portait plus loin qu'elle ne le pensait, et derrière la maison un oiseau s'est envolé de la haie.
+À l'intérieur, l'air était immobile et froid. La poussière couvrait chaque surface. Une seule chaise faisait face à la cheminée vide, comme si quelqu'un s'était assis et ne s'était jamais relevé.

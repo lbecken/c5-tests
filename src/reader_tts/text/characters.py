@@ -16,6 +16,7 @@ Two distinct operations live here:
 
 from __future__ import annotations
 
+from dataclasses import dataclass
 from typing import Final
 
 # --- Character classes --------------------------------------------------------
@@ -92,9 +93,56 @@ def normalize_characters(canonical: str) -> str:
     return canonical.translate(_TRANSLATION)
 
 
-def is_letter(char: str) -> bool:
+#: Letters beyond ASCII that French words are written with. Accents are
+#: phonemically significant — 'cles' and 'clés' are different words — so they
+#: are never stripped.
+FRENCH_LETTERS: Final = frozenset("àâäçéèêëîïôöùûüÿœæÀÂÄÇÉÈÊËÎÏÔÖÙÛÜŸŒÆ")
+
+
+@dataclass(frozen=True, slots=True)
+class CharacterPolicy:
+    """Which characters a language accepts, and how it normalizes them.
+
+    English uses the default policy, which is exactly the behaviour that
+    existed before languages were introduced.
+    """
+
+    #: Letters accepted in addition to ASCII A-Z and a-z.
+    extra_letters: frozenset[str] = frozenset()
+
+    def is_letter(self, char: str) -> bool:
+        """Whether *char* is a letter in this language."""
+        return is_ascii_letter(char) or char in self.extra_letters
+
+    def is_supported_character(self, char: str) -> bool:
+        """Whether *char* is acceptable anywhere in this language's input."""
+        return (
+            self.is_letter(char)
+            or is_supported_punctuation(char)
+            or is_supported_whitespace(char)
+            or char == ASCII_HYPHEN
+        )
+
+
+#: The policy used when no language is specified; matches US and British English.
+DEFAULT_POLICY: Final = CharacterPolicy()
+
+#: The French policy, which additionally accepts accented letters and ligatures.
+FRENCH_POLICY: Final = CharacterPolicy(extra_letters=FRENCH_LETTERS)
+
+
+def is_ascii_letter(char: str) -> bool:
     """Whether *char* is an ASCII letter."""
     return ("a" <= char <= "z") or ("A" <= char <= "Z")
+
+
+def is_letter(char: str) -> bool:
+    """Whether *char* is an ASCII letter.
+
+    Retained for the English path and for callers that hold no policy; a
+    language-aware caller should use :meth:`CharacterPolicy.is_letter`.
+    """
+    return is_ascii_letter(char)
 
 
 def is_supported_punctuation(char: str) -> bool:

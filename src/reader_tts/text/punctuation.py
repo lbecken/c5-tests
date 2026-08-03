@@ -12,8 +12,12 @@ import re
 from typing import Final
 
 from reader_tts.text import characters as chars
+from reader_tts.text.characters import DEFAULT_POLICY, CharacterPolicy
 
 _WHITESPACE_RUN: Final = re.compile(r"\s+")
+#: French typography puts a thin space before ; : ! ?, which normalization turns
+#: into an ordinary space. Removing it here keeps the engine from reading the
+#: gap as a pause; the displayed text is untouched.
 _SPACE_BEFORE_PUNCTUATION: Final = re.compile(r"\s+([,.;:!?)])")
 _SPACE_AFTER_OPEN: Final = re.compile(r"([(])\s+")
 
@@ -42,9 +46,9 @@ def strip_wrapping_quotes(text: str) -> str:
     return text
 
 
-def has_speakable_content(text: str) -> bool:
-    """Whether *text* contains at least one letter."""
-    return any(chars.is_letter(char) for char in text)
+def has_speakable_content(text: str, policy: CharacterPolicy = DEFAULT_POLICY) -> bool:
+    """Whether *text* contains at least one letter in this language."""
+    return any(policy.is_letter(char) for char in text)
 
 
 def terminal_punctuation_of(text: str) -> str | None:

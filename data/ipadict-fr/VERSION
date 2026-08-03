@@ -1,0 +1,8 @@
+name: ipa-dict-fr
+source: https://github.com/open-dict-data/ipa-dict
+file: fr_FR.txt
+revision: master@2026-08-03
+sha256: def906754262cfae80ee7a639e945114d98a2a104df62ad765c96475a83168cd
+entries_lines: 245972
+notation: IPA
+license: LICENSE (MIT, Copyright (c) 2016 dohliam)

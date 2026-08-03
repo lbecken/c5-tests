@@ -14,6 +14,7 @@ from reader_tts.domain.enums import (
     ExportScope,
     ExportStatus,
     JobStatus,
+    LanguageCode,
     SentenceStatus,
     ValidationMode,
 )
@@ -51,6 +52,7 @@ class DictionaryHealth(BaseModel):
     name: str
     version: str
     entries: int
+    language: LanguageCode = LanguageCode.EN_US
 
 
 class HealthResponse(BaseModel):
@@ -59,6 +61,9 @@ class HealthResponse(BaseModel):
     status: str
     engine: EngineHealth
     dictionary: DictionaryHealth
+    #: One entry per bundled language, so the interface can show what is loaded.
+    dictionaries: list[DictionaryHealth] = Field(default_factory=list)
+    languages: list[LanguageCode] = Field(default_factory=list)
 
 
 # --- Validation ---------------------------------------------------------------
@@ -69,6 +74,7 @@ class ValidateRequest(BaseModel):
 
     text: str = Field(max_length=2_000_000)
     mode: ValidationMode = ValidationMode.PRACTICAL
+    language: LanguageCode = LanguageCode.EN_US
 
 
 class IssueOut(BaseModel):
@@ -179,6 +185,8 @@ class DictionaryResponse(BaseModel):
 
     word: str
     supported: bool
+    language: LanguageCode = LanguageCode.EN_US
+    notation: str = "arpabet"
     compound: bool = False
     components: list[str] = Field(default_factory=list)
     pronunciations: list[PronunciationOut] = Field(default_factory=list)
@@ -193,6 +201,9 @@ class CreateDocumentRequest(BaseModel):
 
     text: str = Field(min_length=1, max_length=2_000_000)
     title: str | None = Field(default=None, max_length=300)
+    #: Which language pack validates and speaks this document. It is chosen
+    #: explicitly: the reader never guesses a language from the text.
+    language: LanguageCode = LanguageCode.EN_US
 
 
 class DocumentResponse(BaseModel):
@@ -203,6 +214,7 @@ class DocumentResponse(BaseModel):
     text: str
     text_hash: str
     created_at: str
+    language: LanguageCode = LanguageCode.EN_US
     sentences: list[SentenceOut] = Field(default_factory=list)
 
     @classmethod
@@ -220,6 +232,7 @@ class DocumentResponse(BaseModel):
             text=document.original_text,
             text_hash=document.text_hash,
             created_at=document.created_at.isoformat(),
+            language=document.language,
             sentences=[
                 SentenceOut.from_domain(sentence, lookup.get(sentence.id, SentenceStatus.PENDING))
                 for sentence in sentences
@@ -234,6 +247,7 @@ class DocumentSummary(BaseModel):
     title: str
     created_at: str
     characters: int
+    language: LanguageCode = LanguageCode.EN_US
 
 
 class ValidateDocumentRequest(BaseModel):
@@ -248,7 +262,9 @@ class ValidateDocumentRequest(BaseModel):
 class CreateJobRequest(BaseModel):
     """A request to synthesize a document."""
 
-    voice_id: str = Field(min_length=1, max_length=64)
+    #: Omit to use the document language's default voice. French bundles a
+    #: single voice, so leaving this unset selects it automatically.
+    voice_id: str | None = Field(default=None, min_length=1, max_length=64)
     speed: Speed = defaults.DEFAULT_SPEED
     validation_mode: ValidationMode = ValidationMode.PRACTICAL
 
@@ -342,6 +358,27 @@ class VoiceOut(BaseModel):
     language_code: str
     gender: str | None = None
     default_speed: float
+    #: Whether the voice file is present, so the voice can actually be used.
+    available: bool = True
+
+
+class LanguageOut(BaseModel):
+    """A bundled language pack."""
+
+    code: LanguageCode
+    display_name: str
+    dictionary: str
+    notation: str
+    voices: list[VoiceOut]
+    default_voice: str
+    sample_text: str
+
+
+class LanguagesResponse(BaseModel):
+    """Every bundled language."""
+
+    languages: list[LanguageOut]
+    default_language: LanguageCode = LanguageCode.EN_US
 
 
 class VoicesResponse(BaseModel):
@@ -360,7 +397,10 @@ class VoicesResponse(BaseModel):
 class OverrideRequest(BaseModel):
     """A pronunciation override."""
 
+    #: ARPAbet for English, IPA for French; validated against the language's
+    #: inventory.
     phonemes: list[str] = Field(min_length=1, max_length=64)
+    language: LanguageCode = LanguageCode.EN_US
     synthesis_text: str | None = Field(default=None, max_length=200)
     note: str | None = Field(default=None, max_length=500)
     document_id: str | None = None
@@ -404,7 +444,7 @@ class CreateExportRequest(BaseModel):
     """A request to render audio to a file."""
 
     scope: ExportScope = ExportScope.DOCUMENT
-    voice_id: str = Field(min_length=1, max_length=64)
+    voice_id: str | None = Field(default=None, min_length=1, max_length=64)
     speed: Speed = defaults.DEFAULT_SPEED
     paragraph_index: int | None = Field(default=None, ge=0)
     sentence_id: str | None = None
@@ -452,6 +492,7 @@ class ReadingState(BaseModel):
     offset_seconds: float = 0.0
     voice_id: str | None = None
     speed: Speed = defaults.DEFAULT_SPEED
+    language: LanguageCode = LanguageCode.EN_US
 
 
 class ErrorResponse(BaseModel):

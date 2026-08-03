@@ -17,7 +17,10 @@ from reader_tts.domain.errors import StorageError
 _SCHEMA_DIR: Final = Path(__file__).parent
 
 #: ``(version, filename)`` pairs applied in ascending order.
-MIGRATIONS: Final[tuple[tuple[int, str], ...]] = ((1, "schema.sql"),)
+MIGRATIONS: Final[tuple[tuple[int, str], ...]] = (
+    (1, "schema.sql"),
+    (2, "migration_002.sql"),
+)
 
 LATEST_VERSION: Final = MIGRATIONS[-1][0]
 

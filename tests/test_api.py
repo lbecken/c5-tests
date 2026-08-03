@@ -78,9 +78,30 @@ def test_health(client: TestClient) -> None:
 
 def test_voices(client: TestClient) -> None:
     payload = client.get("/api/v1/voices").json()
-    assert {voice["id"] for voice in payload["voices"]} == {"af_heart", "am_michael"}
+    identifiers = {voice["id"] for voice in payload["voices"]}
+    assert {"af_heart", "am_michael", "bf_emma", "ff_siwis"} <= identifiers
     assert payload["min_speed"] == 0.75
     assert payload["max_speed"] == 1.25
+
+
+def test_voices_filtered_by_language(client: TestClient) -> None:
+    """A voice speaks one language, so the picker can be filtered honestly."""
+    french = client.get("/api/v1/voices?language=fr-fr").json()
+    assert [voice["id"] for voice in french["voices"]] == ["ff_siwis"]
+
+    british = client.get("/api/v1/voices?language=en-gb").json()
+    assert {voice["id"] for voice in british["voices"]} == {"bf_emma", "bm_george"}
+
+
+def test_languages(client: TestClient) -> None:
+    payload = client.get("/api/v1/languages").json()
+    by_code = {language["code"]: language for language in payload["languages"]}
+    assert set(by_code) == {"en-us", "en-gb", "fr-fr"}
+    assert by_code["en-us"]["notation"] == "arpabet"
+    assert by_code["fr-fr"]["notation"] == "ipa"
+    assert by_code["fr-fr"]["dictionary"] == "ipa-dict-fr"
+    assert by_code["fr-fr"]["default_voice"] == "ff_siwis"
+    assert payload["default_language"] == "en-us"
 
 
 def test_index_page_is_served(client: TestClient) -> None:
@@ -284,10 +305,26 @@ def test_invalid_speed_is_rejected(client: TestClient) -> None:
     assert response.status_code == 422
 
 
-def test_unknown_voice_is_reported(client: TestClient) -> None:
+def test_unknown_voice_is_rejected_before_the_job_starts(client: TestClient) -> None:
+    """An impossible voice fails fast rather than part-way through a document."""
     document_id = create_document(client)
-    status = synthesize(client, document_id, voice="not_a_voice")
-    assert status["status"] == "failed"
+    response = client.post(
+        f"/api/v1/documents/{document_id}/synthesis-jobs",
+        json={"voice_id": "not_a_voice", "speed": 1.0},
+    )
+    assert response.status_code == 422
+    assert "does not exist" in response.json()["error"]
+
+
+def test_voice_from_another_language_is_rejected(client: TestClient) -> None:
+    document_id = create_document(client)
+    response = client.post(
+        f"/api/v1/documents/{document_id}/synthesis-jobs",
+        json={"voice_id": "ff_siwis", "speed": 1.0},
+    )
+    assert response.status_code == 422
+    error = response.json()["error"]
+    assert "Fran" in error and "United States" in error
 
 
 def test_job_cancellation(client: TestClient) -> None:

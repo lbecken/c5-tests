@@ -17,7 +17,7 @@ from typing import Final
 
 from reader_tts.documents.document_service import DocumentService
 from reader_tts.documents.progress import JobRepository, build_progress
-from reader_tts.domain.enums import JobStatus, SentenceStatus, ValidationMode
+from reader_tts.domain.enums import JobStatus, LanguageCode, SentenceStatus, ValidationMode
 from reader_tts.domain.errors import (
     ConflictError,
     SpeechEngineError,
@@ -30,6 +30,8 @@ from reader_tts.domain.models import (
     SynthesisChunk,
     SynthesisJob,
 )
+from reader_tts.languages.base import LanguagePack
+from reader_tts.languages.registry import DEFAULT_LANGUAGE, get_pack, require_voice_language
 from reader_tts.pronunciation.resolver import PronunciationResolver
 from reader_tts.synthesis.base import validate_speed
 from reader_tts.synthesis.chunker import prepare_sentence
@@ -84,6 +86,9 @@ class JobService:
             ValidationError: If validation produced errors.
             ConflictError: If a job for this document is already running.
         """
+        document = self._documents.get(document_id)
+        pack = get_pack(document.language)
+        require_voice_language(voice_id, document.language)
         report = self._documents.validate(document_id, resolver, mode)
         if not report.accepted:
             messages = "; ".join(issue.message for issue in report.errors[:5])
@@ -97,7 +102,7 @@ class JobService:
                 )
 
             sentences = self._documents.sentences(document_id)
-            chunks = self._plan_chunks(sentences, resolver)
+            chunks = self._plan_chunks(sentences, resolver, pack)
             job = SynthesisJob(
                 id=str(uuid.uuid4()),
                 document_id=document_id,
@@ -122,14 +127,22 @@ class JobService:
             )
         _LOGGER.info(
             "job_created",
-            extra={"job_id": job.id, "document_id": document_id, "units": len(chunks)},
+            extra={
+                "job_id": job.id,
+                "document_id": document_id,
+                "units": len(chunks),
+                "language": document.language.value,
+            },
         )
         return job
 
     def _plan_chunks(
-        self, sentences: tuple[Sentence, ...], resolver: PronunciationResolver
+        self,
+        sentences: tuple[Sentence, ...],
+        resolver: PronunciationResolver,
+        pack: LanguagePack,
     ) -> tuple[SynthesisChunk, ...]:
-        replacements = self._replacements_for(sentences, resolver)
+        replacements = self._replacements_for(sentences, resolver, pack)
         chunks: list[SynthesisChunk] = []
         for sentence in sentences:
             try:
@@ -138,6 +151,7 @@ class JobService:
                     replacements=replacements,
                     preferred_max_chars=self._preferred_max_chars,
                     hard_max_chars=self._hard_max_chars,
+                    policy=pack.character_policy,
                 )
             except ValidationError:
                 # A sentence of pure punctuation is skipped rather than failing
@@ -147,12 +161,15 @@ class JobService:
         return tuple(chunks)
 
     def _replacements_for(
-        self, sentences: tuple[Sentence, ...], resolver: PronunciationResolver
+        self,
+        sentences: tuple[Sentence, ...],
+        resolver: PronunciationResolver,
+        pack: LanguagePack,
     ) -> dict[str, str]:
         words = {
             token.normalized
             for sentence in sentences
-            for token in word_tokens(tokenize(sentence.text))
+            for token in word_tokens(tokenize(sentence.text, policy=pack.character_policy))
         }
         return resolver.synthesis_replacements(frozenset(words))
 
@@ -165,8 +182,10 @@ class JobService:
             return build_progress(self._jobs, job)
 
         self._jobs.set_status(job_id, JobStatus.RUNNING)
+        language = self._language_of(job.document_id)
+        pack = get_pack(language)
         sentences = {s.id: s for s in self._documents.sentences(job.document_id)}
-        planned = self._plan_chunks(tuple(sentences.values()), resolver)
+        planned = self._plan_chunks(tuple(sentences.values()), resolver, pack)
         pending = self._pending_units(planned, sentences)
 
         # Completed work is derived from stored unit state rather than the job's
@@ -196,6 +215,7 @@ class JobService:
                     voice_id=job.voice_id,
                     speed=job.speed,
                     override_revision=resolver.override_revision(),
+                    language_code=language.value,
                 )
             except SpeechEngineError as error:
                 return chunk, None, False, str(error)
@@ -304,6 +324,13 @@ class JobService:
             chunk for chunk in planned if (chunk.sentence_id, chunk.chunk_index) not in done
         )
 
+    def _language_of(self, document_id: str) -> LanguageCode:
+        """Return the stored language of a document."""
+        try:
+            return self._documents.get(document_id).language
+        except Exception:  # noqa: BLE001 - a deleted document falls back safely
+            return DEFAULT_LANGUAGE
+
     # --- Control -------------------------------------------------------------------
 
     def cancel(self, job_id: str) -> SynthesisJob:
@@ -350,12 +377,16 @@ class JobService:
             SpeechEngineError: If synthesis fails.
         """
         sentence = self._documents.sentence(sentence_id)
-        replacements = self._replacements_for((sentence,), resolver)
+        language = self._language_of(sentence.document_id)
+        pack = get_pack(language)
+        require_voice_language(voice_id, language)
+        replacements = self._replacements_for((sentence,), resolver, pack)
         prepared = prepare_sentence(
             sentence,
             replacements=replacements,
             preferred_max_chars=self._preferred_max_chars,
             hard_max_chars=self._hard_max_chars,
+            policy=pack.character_policy,
         )
         self._jobs.clear_sentence_audio(sentence_id)
 
@@ -367,6 +398,7 @@ class JobService:
                 speed=validate_speed(speed),
                 override_revision=resolver.override_revision(),
                 bypass_cache=bypass_cache,
+                language_code=language.value,
             )
             record = SentenceAudio(
                 sentence_id=sentence_id,

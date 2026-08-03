@@ -13,6 +13,7 @@ from reader_tts.domain.enums import (
     ExportScope,
     ExportStatus,
     JobStatus,
+    LanguageCode,
     OverrideScope,
     PronunciationSource,
     SentenceStatus,
@@ -196,6 +197,8 @@ class Document:
     original_text: str
     text_hash: str
     created_at: datetime
+    #: The language pack that validates and speaks this document.
+    language: LanguageCode = LanguageCode.EN_US
 
 
 @dataclass(frozen=True, slots=True)

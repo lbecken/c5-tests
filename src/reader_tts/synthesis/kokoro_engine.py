@@ -5,10 +5,13 @@ installed package's actual API (kokoro 0.9.4): a ``KModel`` loaded from local
 files, driven by a ``KPipeline`` whose voice argument accepts a preloaded
 tensor, which keeps synthesis entirely offline.
 
-The pipeline keeps its own grapheme-to-phoneme frontend. Version 1 therefore
-passes normalized sentence text and uses CMUdict for validation, inspection and
-override management, as the specification requires. The adapter reports the
-phonemes the engine actually chose so the two can be compared.
+The pipeline keeps its own grapheme-to-phoneme frontend, so the reader passes
+normalized sentence text and uses its dictionaries for validation, inspection
+and override management. The adapter reports the phonemes the engine actually
+chose so the two can be compared.
+
+One model serves every language; the language-specific part is the pipeline,
+of which one is created per language on first use and then reused.
 """
 
 from __future__ import annotations
@@ -31,6 +34,7 @@ from reader_tts.domain.errors import (
     SynthesisFailedError,
 )
 from reader_tts.domain.models import EngineInfo, VoiceConfig
+from reader_tts.languages.registry import available_languages, pack_for_voice
 from reader_tts.synthesis.base import (
     SynthesisRequest,
     SynthesisResult,
@@ -46,48 +50,17 @@ _LOGGER: Final = logging.getLogger(__name__)
 #: Kokoro's native output rate.
 SAMPLE_RATE: Final = 24_000
 
-#: Kokoro language code for US English.
-_LANG_CODE_US_ENGLISH: Final = "a"
 
 MODEL_FILENAME: Final = "kokoro-v1_0.pth"
 CONFIG_FILENAME: Final = "config.json"
 VOICES_DIRNAME: Final = "voices"
 REPO_ID: Final = "hexgrad/Kokoro-82M"
 
-#: The curated voice list. Only voices whose files are present are offered.
-BUNDLED_VOICES: Final[tuple[VoiceConfig, ...]] = (
-    VoiceConfig(
-        id="af_heart",
-        display_name="Heart (US female)",
-        language_code=defaults.DEFAULT_LANGUAGE_CODE,
-        gender_label="female",
-        model_voice_name="af_heart",
-        default_speed=defaults.DEFAULT_SPEED,
-    ),
-    VoiceConfig(
-        id="af_bella",
-        display_name="Bella (US female)",
-        language_code=defaults.DEFAULT_LANGUAGE_CODE,
-        gender_label="female",
-        model_voice_name="af_bella",
-        default_speed=defaults.DEFAULT_SPEED,
-    ),
-    VoiceConfig(
-        id="am_michael",
-        display_name="Michael (US male)",
-        language_code=defaults.DEFAULT_LANGUAGE_CODE,
-        gender_label="male",
-        model_voice_name="am_michael",
-        default_speed=defaults.DEFAULT_SPEED,
-    ),
-    VoiceConfig(
-        id="am_fenrir",
-        display_name="Fenrir (US male)",
-        language_code=defaults.DEFAULT_LANGUAGE_CODE,
-        gender_label="male",
-        model_voice_name="am_fenrir",
-        default_speed=defaults.DEFAULT_SPEED,
-    ),
+#: Every bundled voice, gathered from the language packs. A voice belongs to
+#: exactly one language: a French voice reading English produces confident
+#: nonsense, so the pairing is enforced rather than merely discouraged.
+BUNDLED_VOICES: Final[tuple[VoiceConfig, ...]] = tuple(
+    voice for pack in available_languages() for voice in pack.voices
 )
 
 
@@ -102,10 +75,11 @@ class KokoroSpeechEngine:
         self._settings = settings
         self._model_dir = settings.model_dir
         self._lock = threading.RLock()
-        self._pipeline: Any | None = None
+        self._pipelines: dict[str, Any] = {}
         self._model: Any | None = None
         self._voice_tensors: dict[str, Any] = {}
         self._voice_hashes: dict[str, str] = {}
+        self._pipeline_factory: Any = None
         self._voices: tuple[VoiceConfig, ...] = ()
         self._device = "cpu"
         self._model_hash = ""
@@ -181,7 +155,7 @@ class KokoroSpeechEngine:
     def close(self) -> None:
         """Release the model and voice tensors."""
         with self._lock:
-            self._pipeline = None
+            self._pipelines.clear()
             self._model = None
             self._voice_tensors.clear()
             self._ready = False
@@ -240,9 +214,9 @@ class KokoroSpeechEngine:
         voice = self._voice_tensor(request.voice_id)
 
         with self._lock:
-            assert self._pipeline is not None
+            pipeline = self._pipeline_for(request.voice_id)
             try:
-                results = list(self._pipeline(text, voice=voice, speed=speed))
+                results = list(pipeline(text, voice=voice, speed=speed))
             except Exception as error:  # noqa: BLE001 - converted to a stable type
                 _LOGGER.warning(
                     "synthesis_failed",
@@ -330,17 +304,35 @@ class KokoroSpeechEngine:
             model=str(model_path),
         )
         self._model = model.to(device).eval()
-        self._pipeline = KPipeline(
-            lang_code=_LANG_CODE_US_ENGLISH,
-            repo_id=REPO_ID,
-            model=self._model,
-            device=device,
-        )
+        self._pipeline_factory = KPipeline
         voices_dir = self._model_dir / VOICES_DIRNAME
         for voice in self._discover_voices():
             self._voice_tensors[voice.id] = torch.load(
                 voices_dir / f"{voice.model_voice_name}.pt", weights_only=True
             )
+
+    def _pipeline_for(self, voice_id: str) -> Any:
+        """Return the pipeline for the voice's language, creating it on first use.
+
+        Kokoro binds a pipeline to one language because each language has its
+        own grapheme-to-phoneme frontend. The model itself is shared, so the
+        extra cost of a second language is small.
+        """
+        engine_code = pack_for_voice(voice_id).engine_language_code
+        pipeline = self._pipelines.get(engine_code)
+        if pipeline is None:
+            pipeline = self._pipeline_factory(
+                lang_code=engine_code,
+                repo_id=REPO_ID,
+                model=self._model,
+                device=self._device,
+            )
+            self._pipelines[engine_code] = pipeline
+            _LOGGER.info(
+                "pipeline_created",
+                extra={"engine": self.name, "language": engine_code},
+            )
+        return pipeline
 
     def _voice_tensor(self, voice_id: str) -> Any:
         tensor = self._voice_tensors.get(voice_id)

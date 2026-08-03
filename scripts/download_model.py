@@ -17,9 +17,20 @@ from pathlib import Path
 
 REPO_ID = "hexgrad/Kokoro-82M"
 
-#: The voices the application offers. Keep in step with
-#: reader_tts.synthesis.kokoro_engine.BUNDLED_VOICES.
-CURATED_VOICES = ("af_heart", "af_bella", "am_michael", "am_fenrir")
+#: The voices the application offers, one group per bundled language. Keep in
+#: step with reader_tts.languages.packs.
+CURATED_VOICES = (
+    # US English
+    "af_heart",
+    "af_bella",
+    "am_michael",
+    "am_fenrir",
+    # British English
+    "bf_emma",
+    "bm_george",
+    # French: Kokoro ships exactly one French voice.
+    "ff_siwis",
+)
 
 REQUIRED_FILES = ("config.json", "kokoro-v1_0.pth")
 

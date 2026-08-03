@@ -27,6 +27,7 @@ from reader_tts.domain.models import (
     ValidationStatistics,
 )
 from reader_tts.text import characters as chars
+from reader_tts.text.characters import DEFAULT_POLICY, CharacterPolicy
 from reader_tts.text.paragraphs import split_paragraphs
 from reader_tts.text.sentences import split_sentences
 from reader_tts.text.tokenizer import tokenize
@@ -79,6 +80,7 @@ def analyze(
     mode: ValidationMode = ValidationMode.PRACTICAL,
     document_id: str = "",
     hard_max_chars: int = defaults.HARD_MAX_SENTENCE_CHARS,
+    policy: CharacterPolicy = DEFAULT_POLICY,
 ) -> AnalyzedText:
     """Validate *canonical* text and return tokens, sentences and a report.
 
@@ -91,12 +93,14 @@ def analyze(
         document_id: Recorded on the produced sentences.
         hard_max_chars: Sentences longer than this are reported; they are still
             synthesizable because the chunker splits them.
+        policy: The language's character policy. The default accepts English;
+            French additionally accepts accented letters.
 
     Returns:
         The analysis, whose report is accepted only when no error was found.
     """
     normalized = chars.normalize_characters(canonical)
-    tokens = tokenize(canonical, normalized)
+    tokens = tokenize(canonical, normalized, policy)
     sentences = split_sentences(canonical, document_id=document_id)
     paragraphs = split_paragraphs(canonical)
 
@@ -156,7 +160,7 @@ def analyze(
                     )
                 )
 
-    issues.extend(_sentence_issues(sentences, hard_max_chars))
+    issues.extend(_sentence_issues(sentences, hard_max_chars, policy))
 
     statistics = ValidationStatistics(
         characters=len(canonical),
@@ -215,10 +219,12 @@ def _unsupported_token_issue(token: Token) -> ValidationIssue:
     )
 
 
-def _sentence_issues(sentences: tuple[Sentence, ...], hard_max_chars: int) -> list[ValidationIssue]:
+def _sentence_issues(
+    sentences: tuple[Sentence, ...], hard_max_chars: int, policy: CharacterPolicy
+) -> list[ValidationIssue]:
     issues: list[ValidationIssue] = []
     for sentence in sentences:
-        if not any(chars.is_letter(char) for char in sentence.text):
+        if not any(policy.is_letter(char) for char in sentence.text):
             issues.append(
                 ValidationIssue(
                     code=ValidationCode.EMPTY_SENTENCE,

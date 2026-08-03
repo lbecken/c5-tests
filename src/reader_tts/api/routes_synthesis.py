@@ -13,6 +13,7 @@ from reader_tts.api.schemas import (
 )
 from reader_tts.domain.enums import ExportScope
 from reader_tts.domain.errors import ValidationError
+from reader_tts.languages.registry import resolve_voice
 
 router = APIRouter(tags=["synthesis"])
 
@@ -25,13 +26,17 @@ router = APIRouter(tags=["synthesis"])
 def create_job(document_id: str, request: CreateJobRequest, services: Services) -> JobResponse:
     """Validate a document and start synthesizing it in the background.
 
+    Omitting ``voice_id`` selects the document language's default voice, which
+    is what makes French — with its single voice — need no choice at all.
+
     The model call runs on a worker thread, never on the event loop.
     """
-    resolver = services.resolver(document_id)
+    document = services.documents.get(document_id)
+    resolver = services.resolver(document_id, document.language)
     job = services.jobs.create(
         document_id=document_id,
         resolver=resolver,
-        voice_id=request.voice_id,
+        voice_id=resolve_voice(request.voice_id, document.language),
         speed=request.speed,
         mode=request.validation_mode,
     )
@@ -61,20 +66,20 @@ def cancel_job(job_id: str, services: Services) -> JobResponse:
 )
 def create_export(document_id: str, request: CreateExportRequest, services: Services) -> ExportOut:
     """Render a sentence, a paragraph or the whole document to a WAV file."""
+    document = services.documents.get(document_id)
+    voice_id = resolve_voice(request.voice_id, document.language)
     if request.scope is ExportScope.SENTENCE:
         if not request.sentence_id:
             raise ValidationError("sentence_id is required for a sentence export")
-        export = services.exports.export_sentence(
-            request.sentence_id, request.voice_id, request.speed
-        )
+        export = services.exports.export_sentence(request.sentence_id, voice_id, request.speed)
     elif request.scope is ExportScope.PARAGRAPH:
         if request.paragraph_index is None:
             raise ValidationError("paragraph_index is required for a paragraph export")
         export = services.exports.export_paragraph(
-            document_id, request.paragraph_index, request.voice_id, request.speed
+            document_id, request.paragraph_index, voice_id, request.speed
         )
     else:
-        export = services.exports.export_document(document_id, request.voice_id, request.speed)
+        export = services.exports.export_document(document_id, voice_id, request.speed)
     return ExportOut.from_domain(export)
 
 

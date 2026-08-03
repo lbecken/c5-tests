@@ -55,11 +55,23 @@ def test_voices(capsys: pytest.CaptureFixture[str]) -> None:
     assert voices
 
 
-def test_dictionary_verify(capsys: pytest.CaptureFixture[str]) -> None:
+def test_dictionary_verify_covers_every_language(
+    capsys: pytest.CaptureFixture[str],
+) -> None:
     assert run("--json", "dictionary", "verify") == EXIT_SUCCESS
     payload = read_json(capsys)
     assert payload["healthy"] is True
-    assert int(payload["entries"]) > 100_000
+    by_language = {entry["language"]: entry for entry in payload["dictionaries"]}
+    assert set(by_language) == {"en-us", "en-gb", "fr-fr"}
+    assert by_language["en-us"]["entries"] > 100_000
+    assert by_language["fr-fr"]["entries"] > 200_000
+    assert by_language["fr-fr"]["name"] == "ipa-dict-fr"
+
+
+def test_dictionary_verify_one_language(capsys: pytest.CaptureFixture[str]) -> None:
+    assert run("--json", "dictionary", "verify", "--language", "fr-fr") == EXIT_SUCCESS
+    payload = read_json(capsys)
+    assert len(payload["dictionaries"]) == 1
 
 
 def test_lookup_known_word(capsys: pytest.CaptureFixture[str]) -> None:
@@ -200,7 +212,7 @@ def test_override_set_list_delete(capsys: pytest.CaptureFixture[str]) -> None:
         )
         == EXIT_SUCCESS
     )
-    assert read_json(capsys)["arpabet"] == "L EH1 D"
+    assert read_json(capsys)["phonemes"] == "L EH1 D"
 
     assert run("--json", "override", "list") == EXIT_SUCCESS
     overrides = read_json(capsys)["overrides"]
@@ -240,6 +252,66 @@ def test_speak_uses_a_synthesis_override(
 
 
 # --- usage ----------------------------------------------------------------------------------
+
+
+def test_french_lookup_reports_ipa(capsys: pytest.CaptureFixture[str]) -> None:
+    assert run("--json", "lookup", "l'homme", "--language", "fr-fr") == EXIT_SUCCESS
+    payload = read_json(capsys)
+    assert payload["supported"] is True
+    assert payload["notation"] == "ipa"
+    assert payload["compound"] is True
+    assert payload["pronunciations"][0]["phonemes"] == "lɔm"
+
+
+def test_french_validate(tmp_path: Path, capsys: pytest.CaptureFixture[str]) -> None:
+    source = tmp_path / "fr.txt"
+    source.write_text("Le vent soufflait à travers les arbres.", encoding="utf-8")
+    assert run("--json", "validate", str(source), "--language", "fr-fr") == EXIT_SUCCESS
+    payload = read_json(capsys)
+    assert payload["accepted"] is True
+    assert payload["statistics"]["unsupported_words"] == 0
+
+
+def test_french_text_fails_validation_under_english(
+    tmp_path: Path, capsys: pytest.CaptureFixture[str]
+) -> None:
+    source = tmp_path / "fr.txt"
+    source.write_text("Le vent soufflait à travers les arbres.", encoding="utf-8")
+    assert run("validate", str(source)) == EXIT_VALIDATION_FAILURE
+    capsys.readouterr()
+
+
+def test_french_speak_selects_the_only_french_voice(
+    tmp_path: Path, capsys: pytest.CaptureFixture[str]
+) -> None:
+    output = tmp_path / "fr.wav"
+    code = run(
+        "--json",
+        "speak",
+        "Le vent soufflait doucement.",
+        "--language",
+        "fr-fr",
+        "--output",
+        str(output),
+    )
+    assert code == EXIT_SUCCESS
+    payload = read_json(capsys)
+    assert payload["voice"] == "ff_siwis"
+    assert payload["language"] == "fr-fr"
+    assert output.read_bytes()[:4] == b"RIFF"
+
+
+def test_languages_command(capsys: pytest.CaptureFixture[str]) -> None:
+    assert run("--json", "languages") == EXIT_SUCCESS
+    payload = read_json(capsys)
+    codes = {language["code"] for language in payload["languages"]}
+    assert codes == {"en-us", "en-gb", "fr-fr"}
+
+
+def test_voices_filtered_by_language(capsys: pytest.CaptureFixture[str]) -> None:
+    assert run("--json", "voices", "--language", "fr-fr") == EXIT_SUCCESS
+    payload = read_json(capsys)
+    assert [voice["id"] for voice in payload["voices"]] == ["ff_siwis"]
 
 
 def test_unknown_command_exits_with_usage_error() -> None:

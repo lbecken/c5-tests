@@ -22,7 +22,10 @@ from reader_tts.documents.document_service import DocumentService
 from reader_tts.documents.exporter import ExportService
 from reader_tts.documents.job_service import JobService
 from reader_tts.documents.progress import JobRepository
+from reader_tts.domain.enums import LanguageCode
 from reader_tts.domain.errors import ModelNotReadyError
+from reader_tts.languages.base import LanguagePack
+from reader_tts.languages.registry import DEFAULT_LANGUAGE, get_pack
 from reader_tts.pronunciation.dictionary import PronunciationDictionary
 from reader_tts.pronunciation.overrides import OverrideRepository
 from reader_tts.pronunciation.resolver import PronunciationResolver
@@ -47,7 +50,7 @@ class AppServices:
         self._file_store = AudioFileStore(self._settings.cache_audio_dir)
         self._overrides = OverrideRepository(self._database)
 
-        self._dictionary: PronunciationDictionary | None = None
+        self._dictionaries: dict[LanguageCode, PronunciationDictionary] = {}
         self._engine: SpeechEngine | None = engine
         self._engine_started = engine is not None
         self._synthesis: SynthesisService | None = None
@@ -93,26 +96,66 @@ class AppServices:
 
     # --- Dictionary ------------------------------------------------------------------
 
+    def dictionary_for(self, language: LanguageCode = DEFAULT_LANGUAGE) -> PronunciationDictionary:
+        """Return the dictionary for *language*, loaded on first use.
+
+        Each language keeps its own dictionary in memory; a language is only
+        paid for once it is actually used.
+        """
+        code = LanguageCode(language)
+        with self._lock:
+            existing = self._dictionaries.get(code)
+            if existing is not None:
+                return existing
+            pack = get_pack(code)
+            dictionary = PronunciationDictionary.for_language(pack, self._settings.data_dir)
+            self._dictionaries[code] = dictionary
+            _LOGGER.info(
+                "dictionary_loaded",
+                extra={
+                    "language": code.value,
+                    "dictionary": dictionary.info.name,
+                    "entries": dictionary.size,
+                    "version": dictionary.info.version,
+                },
+            )
+            return dictionary
+
     @property
     def dictionary(self) -> PronunciationDictionary:
-        """The pinned pronunciation dictionary, loaded on first use."""
-        with self._lock:
-            if self._dictionary is None:
-                self._dictionary = PronunciationDictionary.from_directory(
-                    self._settings.cmudict_dir
-                )
-                _LOGGER.info(
-                    "dictionary_loaded",
-                    extra={
-                        "entries": self._dictionary.size,
-                        "version": self._dictionary.info.version,
-                    },
-                )
-            return self._dictionary
+        """The default language's dictionary."""
+        return self.dictionary_for(DEFAULT_LANGUAGE)
 
-    def resolver(self, document_id: str | None = None) -> PronunciationResolver:
-        """Return a resolver bound to *document_id*."""
-        return PronunciationResolver(self.dictionary, self._overrides, document_id=document_id)
+    def is_dictionary_loaded(self, language: LanguageCode) -> bool:
+        """Whether *language*'s dictionary is already in memory.
+
+        Health reporting uses this so that asking for status does not pull
+        every bundled dictionary into memory.
+        """
+        return LanguageCode(language) in self._dictionaries
+
+    def pack(self, language: LanguageCode = DEFAULT_LANGUAGE) -> LanguagePack:
+        """Return the language pack for *language*."""
+        return get_pack(language)
+
+    def resolver(
+        self,
+        document_id: str | None = None,
+        language: LanguageCode = DEFAULT_LANGUAGE,
+    ) -> PronunciationResolver:
+        """Return a resolver for *language*, bound to *document_id*.
+
+        Overrides are read and written in the language's own notation, so an
+        English ARPAbet override and a French IPA one never collide.
+        """
+        dictionary = self.dictionary_for(language)
+        overrides = self._overrides.for_notation(dictionary.notation)
+        return PronunciationResolver(dictionary, overrides, document_id=document_id)
+
+    def resolver_for_document(self, document_id: str) -> PronunciationResolver:
+        """Return a resolver matching a stored document's language."""
+        document = self._documents.get(document_id)
+        return self.resolver(document_id, document.language)
 
     # --- Engine ------------------------------------------------------------------------
 
