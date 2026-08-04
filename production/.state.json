@@ -1,0 +1,800 @@
+{
+ "s01_broadcast__00": {
+  "digest": "d81e1eb7d9c3624d",
+  "dur": 31.68,
+  "starts": [
+   0.159,
+   4.5,
+   14.599,
+   21.119,
+   28.68
+  ],
+  "mode": "tts",
+  "chain": "shortwave"
+ },
+ "s03_iris_phrase__01": {
+  "digest": "eefc3f46fe92445c",
+  "dur": 2.96,
+  "starts": [
+   0.179
+  ],
+  "mode": "tts",
+  "chain": "shortwave"
+ },
+ "s03_iris_phrase__00": {
+  "digest": "86cb021d22c23036",
+  "dur": 7.76,
+  "starts": [
+   0.079,
+   2.839,
+   5.639
+  ],
+  "mode": "dialogue",
+  "chain": "room"
+ },
+ "s03_iris_phrase__02": {
+  "digest": "1cec3161ea101462",
+  "dur": 42.8,
+  "starts": [
+   0.259,
+   7.919,
+   27.819,
+   32.0
+  ],
+  "mode": "dialogue",
+  "chain": "room"
+ },
+ "s05_frayne_intro__00": {
+  "digest": "23410abb4d928c64",
+  "dur": 47.84,
+  "starts": [
+   0.159,
+   24.579,
+   36.139
+  ],
+  "mode": "tts",
+  "chain": "room"
+ },
+ "s02_brief__00": {
+  "digest": "4ff371cfbd9ae05e",
+  "dur": 57.92,
+  "starts": [
+   0.199,
+   12.3,
+   34.52,
+   47.079
+  ],
+  "mode": "tts",
+  "chain": "room"
+ },
+ "s04_roster__00": {
+  "digest": "44f0fd56170f9f39",
+  "dur": 54.96,
+  "starts": [
+   0.099,
+   16.0,
+   28.819,
+   44.579,
+   52.599
+  ],
+  "mode": "tts",
+  "chain": "room"
+ },
+ "s10_hub_investigate__00": {
+  "digest": "e5f54ebe031bf00c",
+  "dur": 12.64,
+  "starts": [
+   0.119
+  ],
+  "mode": "tts",
+  "chain": "room"
+ },
+ "s06_dorsey_intro__00": {
+  "digest": "c4dcfbed505f3024",
+  "dur": 51.44,
+  "starts": [
+   0.199,
+   14.939,
+   31.019,
+   47.159
+  ],
+  "mode": "dialogue",
+  "chain": "phone"
+ },
+ "s09_tape83__00": {
+  "digest": "62cdbc8dab4d4a35",
+  "dur": 55.68,
+  "starts": [
+   0.179,
+   6.519,
+   17.959,
+   33.38,
+   46.2,
+   54.719
+  ],
+  "mode": "tts",
+  "chain": "tape83"
+ },
+ "s07_nagel_intro__00": {
+  "digest": "932b65b5762cb735",
+  "dur": 57.28,
+  "starts": [
+   0.159,
+   10.539,
+   25.459,
+   41.239,
+   43.719
+  ],
+  "mode": "dialogue",
+  "chain": "phone"
+ },
+ "s11_frayne_iv__00": {
+  "digest": "8dc979e0f2aaf880",
+  "dur": 59.04,
+  "starts": [
+   0.379,
+   15.899,
+   29.92,
+   45.979
+  ],
+  "mode": "tts",
+  "chain": "room"
+ },
+ "s14_dorsey_press__00": {
+  "digest": "a3cb5212bfd84648",
+  "dur": 39.6,
+  "starts": [
+   0.399,
+   9.119,
+   10.8,
+   13.359,
+   26.34,
+   30.059
+  ],
+  "mode": "dialogue",
+  "chain": "phone"
+ },
+ "s12_frayne_log__00": {
+  "digest": "0a0bbc426fe2092b",
+  "dur": 66.48,
+  "starts": [
+   0.219,
+   1.259,
+   10.26,
+   14.96,
+   22.399,
+   32.459,
+   53.099
+  ],
+  "mode": "dialogue",
+  "chain": "room"
+ },
+ "s15_nagel_iv__01": {
+  "digest": "36200f306ae6587e",
+  "dur": 6.32,
+  "starts": [
+   0.179
+  ],
+  "mode": "tts",
+  "chain": "shortwave"
+ },
+ "s15_nagel_iv__00": {
+  "digest": "bcdcb7bffffcf918",
+  "dur": 36.48,
+  "starts": [
+   0.119,
+   13.899,
+   28.379
+  ],
+  "mode": "tts",
+  "chain": "phone"
+ },
+ "s13_dorsey_iv__00": {
+  "digest": "145b123cdaa8dab9",
+  "dur": 65.36,
+  "starts": [
+   0.14,
+   15.139,
+   31.279,
+   45.879,
+   47.619,
+   49.579,
+   59.939
+  ],
+  "mode": "dialogue",
+  "chain": "phone"
+ },
+ "s17_checkpoint__01": {
+  "digest": "1c5c4337ce9e076e",
+  "dur": 4.935,
+  "starts": [
+   0.159
+  ],
+  "mode": "tts",
+  "chain": "tape83far"
+ },
+ "s17_checkpoint__00": {
+  "digest": "8832a7f0147fcfae",
+  "dur": 15.28,
+  "starts": [
+   0.119
+  ],
+  "mode": "tts",
+  "chain": "tape83"
+ },
+ "s17_checkpoint__02": {
+  "digest": "0d08fa9df034f24e",
+  "dur": 5.92,
+  "starts": [
+   0.299
+  ],
+  "mode": "tts",
+  "chain": "tape83"
+ },
+ "s17_checkpoint__03": {
+  "digest": "ac5b7f4fab995cdf",
+  "dur": 6.215,
+  "starts": [
+   0.14
+  ],
+  "mode": "tts",
+  "chain": "tape83far"
+ },
+ "s15_nagel_iv__02": {
+  "digest": "053794be0b7adbc7",
+  "dur": 42.72,
+  "starts": [
+   0.159,
+   14.92,
+   28.799,
+   30.479
+  ],
+  "mode": "dialogue",
+  "chain": "phone"
+ },
+ "s17_checkpoint__04": {
+  "digest": "c6065597c3b8c2b2",
+  "dur": 5.36,
+  "starts": [
+   0.479
+  ],
+  "mode": "tts",
+  "chain": "tape83"
+ },
+ "s18_kroll_letter__00": {
+  "digest": "d2be83760c273b16",
+  "dur": 16.24,
+  "starts": [
+   0.14
+  ],
+  "mode": "tts",
+  "chain": "room"
+ },
+ "s16_nagel_rhythm__00": {
+  "digest": "b21b47993d3a5b89",
+  "dur": 60.48,
+  "starts": [
+   0.159,
+   4.239,
+   20.939,
+   36.279,
+   39.52,
+   41.799,
+   49.86
+  ],
+  "mode": "dialogue",
+  "chain": "phone"
+ },
+ "s17_checkpoint__05": {
+  "digest": "926cbdc26e4da09b",
+  "dur": 28.08,
+  "starts": [
+   0.099,
+   10.46,
+   13.119,
+   15.059
+  ],
+  "mode": "dialogue",
+  "chain": "tape83"
+ },
+ "s19_hub_cipher__00": {
+  "digest": "1d1c47e1362c3c64",
+  "dur": 8.56,
+  "starts": [
+   0.079
+  ],
+  "mode": "tts",
+  "chain": "room"
+ },
+ "s18_kroll_letter__01": {
+  "digest": "9760fb18446a8b4a",
+  "dur": 44.24,
+  "starts": [
+   0.239,
+   6.539,
+   20.119,
+   32.079
+  ],
+  "mode": "tts",
+  "chain": "tape83"
+ },
+ "s20_impossible__00": {
+  "digest": "985134a8df5f0daf",
+  "dur": 55.2,
+  "starts": [
+   0.159,
+   9.519,
+   11.319,
+   27.199,
+   43.559
+  ],
+  "mode": "dialogue",
+  "chain": "room"
+ },
+ "s18_iris_cards__00": {
+  "digest": "ea83db0d4df501ff",
+  "dur": 57.2,
+  "starts": [
+   0.14,
+   10.639,
+   26.119,
+   45.279,
+   47.919
+  ],
+  "mode": "dialogue",
+  "chain": "room"
+ },
+ "s21_route__00": {
+  "digest": "930e8619c139d4ea",
+  "dur": 63.36,
+  "starts": [
+   0.099,
+   8.579,
+   23.239,
+   27.219,
+   47.079,
+   52.479
+  ],
+  "mode": "dialogue",
+  "chain": "room"
+ },
+ "s22_index__00": {
+  "digest": "04e982839b91039e",
+  "dur": 50.64,
+  "starts": [
+   0.239,
+   12.88,
+   20.899,
+   39.219
+  ],
+  "mode": "dialogue",
+  "chain": "room"
+ },
+ "s24_insert__01": {
+  "digest": "410288cff480c7e4",
+  "dur": 7.81,
+  "starts": [
+   0.099
+  ],
+  "mode": "tts",
+  "chain": "shortwave"
+ },
+ "s24_insert__02": {
+  "digest": "71193d5356ee7ab3",
+  "dur": 11.76,
+  "starts": [
+   0.159
+  ],
+  "mode": "tts",
+  "chain": "room"
+ },
+ "s24_insert__00": {
+  "digest": "1e1c295a044f8418",
+  "dur": 48.88,
+  "starts": [
+   0.159,
+   13.139,
+   33.279,
+   37.319,
+   47.68
+  ],
+  "mode": "dialogue",
+  "chain": "room"
+ },
+ "s23_archive__00": {
+  "digest": "54fd33b1d991e85a",
+  "dur": 48.88,
+  "starts": [
+   0.079,
+   7.419,
+   24.699,
+   27.559,
+   29.699,
+   30.739,
+   44.319,
+   48.079
+  ],
+  "mode": "dialogue",
+  "chain": "room"
+ },
+ "s26_hub_network__00": {
+  "digest": "e8297d3c790c69f8",
+  "dur": 12.8,
+  "starts": [
+   0.219
+  ],
+  "mode": "tts",
+  "chain": "room"
+ },
+ "s27_bench__bench_slow": {
+  "digest": "4aa2056cf4615ad0",
+  "dur": 7.84,
+  "starts": [
+   0.159
+  ],
+  "mode": "tts",
+  "chain": "room"
+ },
+ "s27_bench__00": {
+  "digest": "c41174ba3e4e8d12",
+  "dur": 12.0,
+  "starts": [
+   0.199
+  ],
+  "mode": "tts",
+  "chain": "room"
+ },
+ "s27_bench__bench_speech": {
+  "digest": "1d6166b3b275c3c5",
+  "dur": 9.28,
+  "starts": [
+   0.099
+  ],
+  "mode": "tts",
+  "chain": "room"
+ },
+ "s27_bench__bench_subsonic": {
+  "digest": "766204152eec4d43",
+  "dur": 11.04,
+  "starts": [
+   0.199
+  ],
+  "mode": "tts",
+  "chain": "room"
+ },
+ "s27_bench__bench_compare": {
+  "digest": "f682ff9e35b8b9bd",
+  "dur": 15.2,
+  "starts": [
+   0.179
+  ],
+  "mode": "tts",
+  "chain": "room"
+ },
+ "s25_iris_upload__00": {
+  "digest": "7422b0ef45a0d471",
+  "dur": 65.92,
+  "starts": [
+   0.159,
+   8.96,
+   11.179,
+   31.26,
+   46.139,
+   61.379,
+   62.959
+  ],
+  "mode": "dialogue",
+  "chain": "room"
+ },
+ "s32_confession__00": {
+  "digest": "e1b76034c49e7200",
+  "dur": 19.44,
+  "starts": [
+   0.099,
+   13.399,
+   15.079
+  ],
+  "mode": "dialogue",
+  "chain": "room"
+ },
+ "s29_credentials__00": {
+  "digest": "39c33903428b4634",
+  "dur": 58.24,
+  "starts": [
+   0.28,
+   13.279,
+   24.579,
+   27.459,
+   40.119,
+   47.439
+  ],
+  "mode": "dialogue",
+  "chain": "room"
+ },
+ "s28_library__00": {
+  "digest": "3b14823598f0baab",
+  "dur": 78.16,
+  "starts": [
+   0.14,
+   10.3,
+   27.719,
+   31.519,
+   47.259,
+   57.02,
+   65.959,
+   68.939
+  ],
+  "mode": "dialogue",
+  "chain": "room"
+ },
+ "s30_dorsey_admit__00": {
+  "digest": "baa61b480f5e2a68",
+  "dur": 78.96,
+  "starts": [
+   0.299,
+   10.559,
+   29.299,
+   33.579,
+   51.159,
+   68.0,
+   70.099,
+   76.299,
+   78.68
+  ],
+  "mode": "dialogue",
+  "chain": "phone"
+ },
+ "s33_courier__00": {
+  "digest": "88506f9544db7801",
+  "dur": 22.24,
+  "starts": [
+   0.159,
+   14.479
+  ],
+  "mode": "tts",
+  "chain": "room"
+ },
+ "s34_confront__00": {
+  "digest": "1e28cd598f267b37",
+  "dur": 13.52,
+  "starts": [
+   0.14
+  ],
+  "mode": "tts",
+  "chain": "phone"
+ },
+ "s34_confront__ch_word_00": {
+  "digest": "cccda790220ad9b5",
+  "dur": 16.8,
+  "starts": [
+   0.199,
+   4.099,
+   15.819
+  ],
+  "mode": "dialogue",
+  "chain": "phone"
+ },
+ "s34_confront__ch_seam_00": {
+  "digest": "235cfbb3b3b13e36",
+  "dur": 21.84,
+  "starts": [
+   0.199,
+   3.759,
+   16.639
+  ],
+  "mode": "dialogue",
+  "chain": "phone"
+ },
+ "s34_confront__ch_rhythm_00": {
+  "digest": "482756dc01053d29",
+  "dur": 19.44,
+  "starts": [
+   0.159,
+   16.239
+  ],
+  "mode": "dialogue",
+  "chain": "phone"
+ },
+ "s34_confront__ch_room_00": {
+  "digest": "26912b29bf457f46",
+  "dur": 44.4,
+  "starts": [
+   0.079,
+   15.259,
+   21.159,
+   36.119
+  ],
+  "mode": "dialogue",
+  "chain": "phone"
+ },
+ "s34_confront__ch_stasi_00": {
+  "digest": "e54aec210558d264",
+  "dur": 24.88,
+  "starts": [
+   0.219,
+   19.819
+  ],
+  "mode": "dialogue",
+  "chain": "phone"
+ },
+ "s34_confront__fail__00": {
+  "digest": "f6c2494a826dd2bd",
+  "dur": 9.12,
+  "starts": [
+   0.159
+  ],
+  "mode": "tts",
+  "chain": "phone"
+ },
+ "s35_theory__00": {
+  "digest": "cae27695e35c69d9",
+  "dur": 15.76,
+  "starts": [
+   0.219
+  ],
+  "mode": "tts",
+  "chain": "room"
+ },
+ "s32_confession__01": {
+  "digest": "5aa5225967b3f561",
+  "dur": 135.92,
+  "starts": [
+   0.22,
+   20.3,
+   38.84,
+   55.1,
+   76.5,
+   96.35,
+   116.68,
+   134.34
+  ],
+  "mode": "tts",
+  "chain": "tape91"
+ },
+ "s36_disclosure__00": {
+  "digest": "28456ace93526206",
+  "dur": 30.32,
+  "starts": [
+   0.099,
+   13.159
+  ],
+  "mode": "dialogue",
+  "chain": "room"
+ },
+ "end_forecast__01": {
+  "digest": "6855fe466e3de0ad",
+  "dur": 26.0,
+  "starts": [
+   0.319,
+   16.279,
+   19.439
+  ],
+  "mode": "tts",
+  "chain": "reel81"
+ },
+ "s34_confront__break_00": {
+  "digest": "f926302b8eb54111",
+  "dur": 79.68,
+  "starts": [
+   0.219,
+   14.279,
+   29.42,
+   42.979,
+   61.699
+  ],
+  "mode": "tts",
+  "chain": "phone"
+ },
+ "end_forecast__coda__00": {
+  "digest": "26982fd57b00b83d",
+  "dur": 18.0,
+  "starts": [
+   0.199
+  ],
+  "mode": "tts",
+  "chain": "room"
+ },
+ "s31_vogt_mother__00": {
+  "digest": "467ad375279347f1",
+  "dur": 86.16,
+  "starts": [
+   0.14,
+   16.34,
+   17.959,
+   19.379,
+   35.219,
+   37.7,
+   52.699,
+   72.36,
+   80.279
+  ],
+  "mode": "dialogue",
+  "chain": "room"
+ },
+ "end_repeated__00": {
+  "digest": "aeb91da8095e17f5",
+  "dur": 17.28,
+  "starts": [
+   0.119,
+   6.359
+  ],
+  "mode": "dialogue",
+  "chain": "shortwave"
+ },
+ "end_repeated__01": {
+  "digest": "65ba298a01c6abf5",
+  "dur": 5.97,
+  "starts": [
+   0.079
+  ],
+  "mode": "tts",
+  "chain": "shortwave"
+ },
+ "end_forecast__00": {
+  "digest": "37b691602105b1b4",
+  "dur": 108.56,
+  "starts": [
+   0.239,
+   20.279,
+   35.0,
+   54.02,
+   69.379,
+   80.959,
+   91.439
+  ],
+  "mode": "dialogue",
+  "chain": "room"
+ },
+ "s23b_rhythm_alt__00": {
+  "digest": "4cb00d7ff621827e",
+  "dur": 57.12,
+  "starts": [
+   0.299,
+   8.559,
+   22.119,
+   36.459,
+   39.779
+  ],
+  "mode": "dialogue",
+  "chain": "room"
+ },
+ "end_necessary_lie__00": {
+  "digest": "c4b2b27547c69806",
+  "dur": 100.48,
+  "starts": [
+   0.119,
+   14.899,
+   24.76,
+   46.639,
+   53.319,
+   66.799,
+   83.86,
+   93.699
+  ],
+  "mode": "dialogue",
+  "chain": "room"
+ },
+ "end_repeated__02": {
+  "digest": "5269bb0f70b6532e",
+  "dur": 74.08,
+  "starts": [
+   0.14,
+   16.719,
+   33.079,
+   47.099,
+   57.559,
+   71.199
+  ],
+  "mode": "dialogue",
+  "chain": "shortwave"
+ },
+ "s27_bench__bench_floor": {
+  "digest": "6d80b58ecb3ae7f7",
+  "dur": 11.52,
+  "starts": [
+   0.079
+  ],
+  "mode": "tts",
+  "chain": "room"
+ }
+}

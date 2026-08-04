@@ -3,3 +3,7 @@ node_modules/
 *.log
 .vscode/
 .idea/
+
+# raw ElevenLabs synthesis, cached so re-mixing costs no credits.
+# Regenerate with: python3 production/generate.py
+production/.raw/
