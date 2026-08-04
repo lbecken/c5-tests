@@ -2144,5 +2144,304 @@
     "end": 130.407
    }
   ]
+ },
+ "s34_roster": {
+  "file": "audio/scenes/s34_roster.mp3",
+  "duration": 82.96,
+  "cues": [
+   {
+    "i": 0,
+    "start": 0.0,
+    "end": 7.6
+   },
+   {
+    "i": 1,
+    "start": 7.6,
+    "end": 26.559
+   },
+   {
+    "i": 2,
+    "start": 26.559,
+    "end": 28.48
+   },
+   {
+    "i": 3,
+    "start": 28.48,
+    "end": 39.52
+   },
+   {
+    "i": 4,
+    "start": 39.52,
+    "end": 41.199
+   },
+   {
+    "i": 5,
+    "start": 41.199,
+    "end": 62.243
+   },
+   {
+    "i": 6,
+    "start": 62.243,
+    "end": 66.403
+   },
+   {
+    "i": 7,
+    "start": 66.403,
+    "end": 82.963
+   }
+  ]
+ },
+ "s35_okafor_press": {
+  "file": "audio/scenes/s35_okafor_press.mp3",
+  "duration": 27.84,
+  "cues": [
+   {
+    "i": 0,
+    "start": 0.0,
+    "end": 2.48
+   },
+   {
+    "i": 1,
+    "start": 2.48,
+    "end": 4.56
+   },
+   {
+    "i": 2,
+    "start": 4.56,
+    "end": 14.16
+   },
+   {
+    "i": 3,
+    "start": 14.16,
+    "end": 27.852
+   }
+  ]
+ },
+ "s35b_okafor_deflects": {
+  "file": "audio/scenes/s35b_okafor_deflects.mp3",
+  "duration": 78.14,
+  "cues": [
+   {
+    "i": 0,
+    "start": 0.0,
+    "end": 8.48
+   },
+   {
+    "i": 1,
+    "start": 8.48,
+    "end": 29.303
+   },
+   {
+    "i": 2,
+    "start": 29.6,
+    "end": 30.7,
+    "beat": true
+   },
+   {
+    "i": 3,
+    "start": 30.7,
+    "end": 46.7
+   },
+   {
+    "i": 4,
+    "start": 46.7,
+    "end": 48.859
+   },
+   {
+    "i": 5,
+    "start": 48.859,
+    "end": 64.38
+   },
+   {
+    "i": 6,
+    "start": 64.38,
+    "end": 66.06
+   },
+   {
+    "i": 7,
+    "start": 66.06,
+    "end": 78.14
+   }
+  ]
+ },
+ "s36_okafor_crack": {
+  "file": "audio/scenes/s36_okafor_crack.mp3",
+  "duration": 195.86,
+  "cues": [
+   {
+    "i": 0,
+    "start": 0.0,
+    "end": 21.2
+   },
+   {
+    "i": 1,
+    "start": 21.2,
+    "end": 22.9,
+    "beat": true
+   },
+   {
+    "i": 2,
+    "start": 22.9,
+    "end": 50.58
+   },
+   {
+    "i": 3,
+    "start": 50.58,
+    "end": 52.98
+   },
+   {
+    "i": 4,
+    "start": 52.98,
+    "end": 54.819
+   },
+   {
+    "i": 5,
+    "start": 54.819,
+    "end": 68.179
+   },
+   {
+    "i": 6,
+    "start": 68.179,
+    "end": 68.74
+   },
+   {
+    "i": 7,
+    "start": 68.74,
+    "end": 92.98
+   },
+   {
+    "i": 8,
+    "start": 92.98,
+    "end": 93.86
+   },
+   {
+    "i": 9,
+    "start": 93.86,
+    "end": 120.82
+   },
+   {
+    "i": 10,
+    "start": 120.82,
+    "end": 122.5
+   },
+   {
+    "i": 11,
+    "start": 122.5,
+    "end": 148.424
+   },
+   {
+    "i": 12,
+    "start": 148.424,
+    "end": 151.145
+   },
+   {
+    "i": 13,
+    "start": 151.145,
+    "end": 166.59
+   },
+   {
+    "i": 14,
+    "start": 166.59,
+    "end": 184.589
+   },
+   {
+    "i": 15,
+    "start": 184.589,
+    "end": 194.03
+   },
+   {
+    "i": 16,
+    "start": 194.03,
+    "end": 195.87
+   }
+  ]
+ },
+ "s37_theory": {
+  "file": "audio/scenes/s37_theory.mp3",
+  "duration": 37.2,
+  "cues": [
+   {
+    "i": 0,
+    "start": 0.0,
+    "end": 12.72
+   },
+   {
+    "i": 1,
+    "start": 12.72,
+    "end": 25.2
+   },
+   {
+    "i": 2,
+    "start": 25.2,
+    "end": 27.119
+   },
+   {
+    "i": 3,
+    "start": 27.119,
+    "end": 37.203
+   }
+  ]
+ },
+ "s38_accusation_okafor": {
+  "file": "audio/scenes/s38_accusation_okafor.mp3",
+  "duration": 100.98,
+  "cues": [
+   {
+    "i": 0,
+    "start": 0.0,
+    "end": 27.44
+   },
+   {
+    "i": 1,
+    "start": 27.44,
+    "end": 37.68
+   },
+   {
+    "i": 2,
+    "start": 37.68,
+    "end": 40.559
+   },
+   {
+    "i": 3,
+    "start": 40.559,
+    "end": 42.08
+   },
+   {
+    "i": 4,
+    "start": 42.08,
+    "end": 62.88
+   },
+   {
+    "i": 5,
+    "start": 62.88,
+    "end": 64.58,
+    "beat": true
+   },
+   {
+    "i": 6,
+    "start": 64.58,
+    "end": 66.739
+   },
+   {
+    "i": 7,
+    "start": 66.739,
+    "end": 76.659
+   },
+   {
+    "i": 8,
+    "start": 76.659,
+    "end": 79.46
+   },
+   {
+    "i": 9,
+    "start": 79.46,
+    "end": 95.139
+   },
+   {
+    "i": 10,
+    "start": 95.139,
+    "end": 100.98
+   }
+  ]
  }
 }
