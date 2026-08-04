@@ -41,7 +41,7 @@
           "id": "EN_cs_05",
           "speaker": "pa",
           "text": "Satellite window closed. External link terminated.",
-          "sec": 4.2,
+          "sec": 4.3,
           "fx": [
             "pa_chime",
             "link_drop"
@@ -117,7 +117,7 @@
           "id": "EN_db_03",
           "speaker": "pa",
           "text": "Satellite window closed. External link terminated.",
-          "sec": 3.8,
+          "sec": 3.9,
           "fx": [
             "pa_chime",
             "link_drop"
@@ -266,7 +266,7 @@
           "id": "EN_sv_02",
           "speaker": "pa",
           "text": "Satellite window closed. External link terminated.",
-          "sec": 3.8,
+          "sec": 3.9,
           "fx": [
             "pa_chime",
             "link_drop"
@@ -358,7 +358,7 @@
           "id": "EN_rd_03",
           "speaker": "pa",
           "text": "Satellite window closed. External link terminated.",
-          "sec": 3.7,
+          "sec": 3.9,
           "fx": [
             "pa_chime",
             "link_drop"
@@ -459,7 +459,7 @@
           "id": "EN_nb_09",
           "speaker": "pa",
           "text": "Satellite window closes in ten seconds.",
-          "sec": 2.3,
+          "sec": 2.4,
           "fx": [
             "pa_chime"
           ]
@@ -501,7 +501,7 @@
           "id": "EN_wr_02",
           "speaker": "pa",
           "text": "Satellite window closed. External link terminated.",
-          "sec": 4.1,
+          "sec": 4.2,
           "fx": [
             "pa_chime",
             "link_drop"
@@ -549,7 +549,7 @@
           "id": "EN_wc_01",
           "speaker": "pa",
           "text": "Satellite window closed. External link terminated.",
-          "sec": 3.7,
+          "sec": 3.8,
           "fx": [
             "pa_chime"
           ]

@@ -64,7 +64,7 @@
             "speaker": "pa",
             "dir": "[the tone of a fire drill]",
             "text": "Autonomous incident protocol is active. The site is sealed. All personnel remain at their stations.",
-            "sec": 8.0,
+            "sec": 8.1,
             "fx": [
               "pa_chime"
             ]
@@ -73,14 +73,14 @@
             "id": "S01_03",
             "speaker": "pa",
             "text": "Satellite window closes at twenty-two hundred. Thirty-one minutes.",
-            "sec": 6.4
+            "sec": 6.5
           },
           {
             "id": "S01_04",
             "speaker": "pa",
             "dir": "[identical delivery. it does not know the difference between these two announcements.]",
             "text": "Canteen service is suspended.",
-            "sec": 2.1,
+            "sec": 2.2,
             "fx": [
               "pa_chime_off"
             ]
@@ -557,7 +557,7 @@
         "id": "CE_20_1",
         "speaker": "pa",
         "text": "Satellite window closes in twenty minutes.",
-        "sec": 3.2,
+        "sec": 3.3,
         "fx": [
           "pa_chime"
         ]
@@ -568,7 +568,7 @@
         "id": "CE_12_1",
         "speaker": "pa",
         "text": "Satellite window closes in twelve minutes.",
-        "sec": 3.0,
+        "sec": 3.1,
         "fx": [
           "pa_chime"
         ]
@@ -601,7 +601,7 @@
         "id": "CE_04_1",
         "speaker": "pa",
         "text": "Satellite window closes in four minutes.",
-        "sec": 3.0,
+        "sec": 3.1,
         "fx": [
           "pa_chime"
         ]

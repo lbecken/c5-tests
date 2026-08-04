@@ -2031,7 +2031,7 @@
         "style": 0.3,
         "speed": 0.85
       },
-      "post": "buried_child",
+      "post": null,
       "bucket": "reel_E14",
       "est_sec": 2.1,
       "chars": 22
@@ -2411,7 +2411,7 @@
       },
       "post": null,
       "bucket": "reel_E17",
-      "est_sec": 11.0,
+      "est_sec": 5.8,
       "chars": 93
     },
     "OK_open_1": {
@@ -2429,7 +2429,7 @@
       },
       "post": null,
       "bucket": "chan_okonjo",
-      "est_sec": 14.0,
+      "est_sec": 12.5,
       "chars": 177
     },
     "OK_where_1": {
@@ -2447,7 +2447,7 @@
       },
       "post": null,
       "bucket": "chan_okonjo",
-      "est_sec": 13.0,
+      "est_sec": 11.2,
       "chars": 155
     },
     "OK_where_2": {
@@ -2465,7 +2465,7 @@
       },
       "post": null,
       "bucket": "chan_okonjo",
-      "est_sec": 11.0,
+      "est_sec": 8.4,
       "chars": 127
     },
     "OK_where_3": {
@@ -2483,7 +2483,7 @@
       },
       "post": null,
       "bucket": "chan_okonjo",
-      "est_sec": 12.0,
+      "est_sec": 9.1,
       "chars": 133
     },
     "OK_arg_1": {
@@ -2501,7 +2501,7 @@
       },
       "post": null,
       "bucket": "chan_okonjo",
-      "est_sec": 16.0,
+      "est_sec": 12.6,
       "chars": 180
     },
     "OK_arg_2": {
@@ -2519,7 +2519,7 @@
       },
       "post": null,
       "bucket": "chan_okonjo",
-      "est_sec": 9.5,
+      "est_sec": 8.0,
       "chars": 105
     },
     "OK_health_1": {
@@ -2537,7 +2537,7 @@
       },
       "post": null,
       "bucket": "chan_okonjo",
-      "est_sec": 12.0,
+      "est_sec": 8.5,
       "chars": 132
     },
     "OK_health_2": {
@@ -2555,7 +2555,7 @@
       },
       "post": null,
       "bucket": "chan_okonjo",
-      "est_sec": 5.0,
+      "est_sec": 3.4,
       "chars": 56
     },
     "OK_noema_1": {
@@ -2573,7 +2573,7 @@
       },
       "post": null,
       "bucket": "chan_okonjo",
-      "est_sec": 9.0,
+      "est_sec": 7.6,
       "chars": 115
     },
     "OK_noema_2": {
@@ -2591,7 +2591,7 @@
       },
       "post": null,
       "bucket": "chan_okonjo",
-      "est_sec": 18.0,
+      "est_sec": 15.4,
       "chars": 226
     },
     "OK_noema_3": {
@@ -2609,7 +2609,7 @@
       },
       "post": null,
       "bucket": "chan_okonjo",
-      "est_sec": 14.0,
+      "est_sec": 8.9,
       "chars": 148
     },
     "OK_c_E02_1": {
@@ -2627,7 +2627,7 @@
       },
       "post": null,
       "bucket": "chan_okonjo",
-      "est_sec": 3.5,
+      "est_sec": 1.7,
       "chars": 18
     },
     "OK_c_E02_2": {
@@ -2645,7 +2645,7 @@
       },
       "post": null,
       "bucket": "chan_okonjo",
-      "est_sec": 18.0,
+      "est_sec": 16.1,
       "chars": 222
     },
     "OK_c_E02_3": {
@@ -2663,7 +2663,7 @@
       },
       "post": null,
       "bucket": "chan_okonjo",
-      "est_sec": 17.0,
+      "est_sec": 12.6,
       "chars": 181
     },
     "OK_c_E02_4": {
@@ -2681,7 +2681,7 @@
       },
       "post": null,
       "bucket": "chan_okonjo",
-      "est_sec": 8.0,
+      "est_sec": 4.3,
       "chars": 69
     },
     "OK_c_E03_1": {
@@ -2699,7 +2699,7 @@
       },
       "post": null,
       "bucket": "chan_okonjo",
-      "est_sec": 9.0,
+      "est_sec": 6.0,
       "chars": 100
     },
     "OK_c_E03_2": {
@@ -2717,7 +2717,7 @@
       },
       "post": null,
       "bucket": "chan_okonjo",
-      "est_sec": 11.0,
+      "est_sec": 7.2,
       "chars": 94
     },
     "OK_c_E03_3": {
@@ -2735,7 +2735,7 @@
       },
       "post": null,
       "bucket": "chan_okonjo",
-      "est_sec": 11.0,
+      "est_sec": 7.3,
       "chars": 109
     },
     "OK_c_E13_1": {
@@ -2753,7 +2753,7 @@
       },
       "post": null,
       "bucket": "chan_okonjo",
-      "est_sec": 5.0,
+      "est_sec": 2.2,
       "chars": 37
     },
     "OK_c_E13_2": {
@@ -2771,7 +2771,7 @@
       },
       "post": null,
       "bucket": "chan_okonjo",
-      "est_sec": 15.0,
+      "est_sec": 11.4,
       "chars": 147
     },
     "OK_c_E13_3": {
@@ -2789,7 +2789,7 @@
       },
       "post": null,
       "bucket": "chan_okonjo",
-      "est_sec": 22.0,
+      "est_sec": 20.4,
       "chars": 287
     },
     "OK_c_E13_4": {
@@ -2807,7 +2807,7 @@
       },
       "post": null,
       "bucket": "chan_okonjo",
-      "est_sec": 13.0,
+      "est_sec": 8.8,
       "chars": 130
     },
     "OK_c_E17_2": {
@@ -2825,7 +2825,7 @@
       },
       "post": null,
       "bucket": "chan_okonjo",
-      "est_sec": 2.5,
+      "est_sec": 1.6,
       "chars": 12
     },
     "OK_c_E17_3": {
@@ -2843,7 +2843,7 @@
       },
       "post": null,
       "bucket": "chan_okonjo",
-      "est_sec": 3.0,
+      "est_sec": 1.8,
       "chars": 19
     },
     "OK_c_E17_4": {
@@ -2861,7 +2861,7 @@
       },
       "post": null,
       "bucket": "chan_okonjo",
-      "est_sec": 12.0,
+      "est_sec": 7.9,
       "chars": 107
     },
     "OK_c_E17_5": {
@@ -2879,7 +2879,7 @@
       },
       "post": null,
       "bucket": "chan_okonjo",
-      "est_sec": 16.0,
+      "est_sec": 12.6,
       "chars": 184
     },
     "OK_c_E17_6": {
@@ -2897,7 +2897,7 @@
       },
       "post": null,
       "bucket": "chan_okonjo",
-      "est_sec": 10.0,
+      "est_sec": 7.3,
       "chars": 111
     },
     "OK_c_E17_7": {
@@ -2915,7 +2915,7 @@
       },
       "post": null,
       "bucket": "chan_okonjo",
-      "est_sec": 9.0,
+      "est_sec": 5.9,
       "chars": 89
     },
     "OK_c_E17_8": {
@@ -2933,7 +2933,7 @@
       },
       "post": null,
       "bucket": "chan_okonjo",
-      "est_sec": 21.0,
+      "est_sec": 18.8,
       "chars": 245
     },
     "OK_c_E17_9": {
@@ -2951,7 +2951,7 @@
       },
       "post": null,
       "bucket": "chan_okonjo",
-      "est_sec": 15.0,
+      "est_sec": 10.9,
       "chars": 156
     },
     "OK_c_E17_10": {
@@ -2969,7 +2969,7 @@
       },
       "post": null,
       "bucket": "chan_okonjo",
-      "est_sec": 7.0,
+      "est_sec": 4.7,
       "chars": 76
     },
     "OK_c_E17_11": {
@@ -2987,7 +2987,7 @@
       },
       "post": null,
       "bucket": "chan_okonjo",
-      "est_sec": 5.0,
+      "est_sec": 2.4,
       "chars": 39
     },
     "OK_c_E17_12": {
@@ -3005,7 +3005,7 @@
       },
       "post": null,
       "bucket": "chan_okonjo",
-      "est_sec": 17.0,
+      "est_sec": 12.5,
       "chars": 188
     },
     "OK_c_E17_13": {
@@ -3023,7 +3023,7 @@
       },
       "post": null,
       "bucket": "chan_okonjo",
-      "est_sec": 4.0,
+      "est_sec": 2.1,
       "chars": 22
     },
     "OK_c_E17_14": {
@@ -3041,7 +3041,7 @@
       },
       "post": null,
       "bucket": "chan_okonjo",
-      "est_sec": 10.0,
+      "est_sec": 6.8,
       "chars": 100
     },
     "OK_c_E17_15": {
@@ -3059,7 +3059,7 @@
       },
       "post": null,
       "bucket": "chan_okonjo",
-      "est_sec": 14.0,
+      "est_sec": 9.8,
       "chars": 141
     },
     "OK_c_E17_16": {
@@ -3077,7 +3077,7 @@
       },
       "post": null,
       "bucket": "chan_okonjo",
-      "est_sec": 9.0,
+      "est_sec": 6.2,
       "chars": 88
     },
     "OK_c_def_1": {
@@ -3095,7 +3095,7 @@
       },
       "post": null,
       "bucket": "chan_okonjo",
-      "est_sec": 10.0,
+      "est_sec": 6.2,
       "chars": 107
     },
     "KF_open_1": {
@@ -3113,7 +3113,7 @@
       },
       "post": null,
       "bucket": "chan_farrow",
-      "est_sec": 16.0,
+      "est_sec": 14.5,
       "chars": 192
     },
     "KF_drop_1": {
@@ -3131,7 +3131,7 @@
       },
       "post": null,
       "bucket": "chan_farrow",
-      "est_sec": 12.0,
+      "est_sec": 7.5,
       "chars": 137
     },
     "KF_drop_2": {
@@ -3149,7 +3149,7 @@
       },
       "post": null,
       "bucket": "chan_farrow",
-      "est_sec": 17.0,
+      "est_sec": 10.1,
       "chars": 176
     },
     "KF_drop_3": {
@@ -3167,7 +3167,7 @@
       },
       "post": null,
       "bucket": "chan_farrow",
-      "est_sec": 9.0,
+      "est_sec": 5.4,
       "chars": 106
     },
     "KF_dec_1": {
@@ -3185,7 +3185,7 @@
       },
       "post": null,
       "bucket": "chan_farrow",
-      "est_sec": 10.0,
+      "est_sec": 6.0,
       "chars": 125
     },
     "KF_dec_2": {
@@ -3203,7 +3203,7 @@
       },
       "post": null,
       "bucket": "chan_farrow",
-      "est_sec": 12.0,
+      "est_sec": 6.6,
       "chars": 137
     },
     "KF_bl_1": {
@@ -3221,7 +3221,7 @@
       },
       "post": null,
       "bucket": "chan_farrow",
-      "est_sec": 7.0,
+      "est_sec": 5.4,
       "chars": 66
     },
     "KF_bl_2": {
@@ -3239,7 +3239,7 @@
       },
       "post": null,
       "bucket": "chan_farrow",
-      "est_sec": 14.0,
+      "est_sec": 7.9,
       "chars": 139
     },
     "KF_bl_3": {
@@ -3257,7 +3257,7 @@
       },
       "post": null,
       "bucket": "chan_farrow",
-      "est_sec": 7.0,
+      "est_sec": 6.1,
       "chars": 85
     },
     "KF_c_E06_1": {
@@ -3275,7 +3275,7 @@
       },
       "post": null,
       "bucket": "chan_farrow",
-      "est_sec": 2.5,
+      "est_sec": 0.6,
       "chars": 6
     },
     "KF_c_E06_2": {
@@ -3293,7 +3293,7 @@
       },
       "post": null,
       "bucket": "chan_farrow",
-      "est_sec": 8.0,
+      "est_sec": 4.4,
       "chars": 85
     },
     "KF_c_E06_3": {
@@ -3311,7 +3311,7 @@
       },
       "post": null,
       "bucket": "chan_farrow",
-      "est_sec": 14.0,
+      "est_sec": 8.8,
       "chars": 140
     },
     "KF_c_E06_4": {
@@ -3329,7 +3329,7 @@
       },
       "post": null,
       "bucket": "chan_farrow",
-      "est_sec": 13.0,
+      "est_sec": 6.6,
       "chars": 140
     },
     "KF_c_E06_5": {
@@ -3347,7 +3347,7 @@
       },
       "post": null,
       "bucket": "chan_farrow",
-      "est_sec": 18.0,
+      "est_sec": 10.7,
       "chars": 183
     },
     "KF_c_E06_6": {
@@ -3365,7 +3365,7 @@
       },
       "post": null,
       "bucket": "chan_farrow",
-      "est_sec": 8.0,
+      "est_sec": 3.3,
       "chars": 83
     },
     "KF_c_E06_7": {
@@ -3383,7 +3383,7 @@
       },
       "post": null,
       "bucket": "chan_farrow",
-      "est_sec": 15.0,
+      "est_sec": 10.6,
       "chars": 151
     },
     "KF_c_E12_1": {
@@ -3401,7 +3401,7 @@
       },
       "post": null,
       "bucket": "chan_farrow",
-      "est_sec": 6.0,
+      "est_sec": 3.8,
       "chars": 46
     },
     "KF_c_E12_2": {
@@ -3419,7 +3419,7 @@
       },
       "post": null,
       "bucket": "chan_farrow",
-      "est_sec": 16.0,
+      "est_sec": 11.3,
       "chars": 155
     },
     "KF_c_E12_3": {
@@ -3437,7 +3437,7 @@
       },
       "post": null,
       "bucket": "chan_farrow",
-      "est_sec": 9.0,
+      "est_sec": 4.1,
       "chars": 89
     },
     "KF_c_E12_4": {
@@ -3455,7 +3455,7 @@
       },
       "post": null,
       "bucket": "chan_farrow",
-      "est_sec": 17.0,
+      "est_sec": 10.1,
       "chars": 159
     },
     "KF_c_def_1": {
@@ -3473,7 +3473,7 @@
       },
       "post": null,
       "bucket": "chan_farrow",
-      "est_sec": 12.0,
+      "est_sec": 8.7,
       "chars": 161
     },
     "SH_open_1": {
@@ -3491,7 +3491,7 @@
       },
       "post": null,
       "bucket": "chan_haugen",
-      "est_sec": 3.0,
+      "est_sec": 2.2,
       "chars": 17
     },
     "SH_open_2": {
@@ -3509,7 +3509,7 @@
       },
       "post": null,
       "bucket": "chan_haugen",
-      "est_sec": 2.0,
+      "est_sec": 1.2,
       "chars": 4
     },
     "SH_v_1": {
@@ -3527,7 +3527,7 @@
       },
       "post": null,
       "bucket": "chan_haugen",
-      "est_sec": 4.0,
+      "est_sec": 2.3,
       "chars": 25
     },
     "SH_v_2": {
@@ -3545,7 +3545,7 @@
       },
       "post": null,
       "bucket": "chan_haugen",
-      "est_sec": 10.0,
+      "est_sec": 5.7,
       "chars": 100
     },
     "SH_v_3": {
@@ -3563,7 +3563,7 @@
       },
       "post": null,
       "bucket": "chan_haugen",
-      "est_sec": 10.0,
+      "est_sec": 5.0,
       "chars": 78
     },
     "SH_cr_1": {
@@ -3581,7 +3581,7 @@
       },
       "post": null,
       "bucket": "chan_haugen",
-      "est_sec": 11.0,
+      "est_sec": 7.3,
       "chars": 102
     },
     "SH_cr_2": {
@@ -3599,7 +3599,7 @@
       },
       "post": null,
       "bucket": "chan_haugen",
-      "est_sec": 13.0,
+      "est_sec": 8.3,
       "chars": 134
     },
     "SH_cr_3": {
@@ -3617,7 +3617,7 @@
       },
       "post": null,
       "bucket": "chan_haugen",
-      "est_sec": 15.0,
+      "est_sec": 10.3,
       "chars": 156
     },
     "SH_cr_4": {
@@ -3635,7 +3635,7 @@
       },
       "post": null,
       "bucket": "chan_haugen",
-      "est_sec": 14.0,
+      "est_sec": 7.9,
       "chars": 126
     },
     "SH_cr_5": {
@@ -3653,7 +3653,7 @@
       },
       "post": null,
       "bucket": "chan_haugen",
-      "est_sec": 13.0,
+      "est_sec": 7.3,
       "chars": 130
     },
     "SH_f_1": {
@@ -3671,7 +3671,7 @@
       },
       "post": null,
       "bucket": "chan_haugen",
-      "est_sec": 3.5,
+      "est_sec": 1.5,
       "chars": 5
     },
     "SH_f_2": {
@@ -3689,7 +3689,7 @@
       },
       "post": null,
       "bucket": "chan_haugen",
-      "est_sec": 19.0,
+      "est_sec": 13.0,
       "chars": 216
     },
     "SH_f_3": {
@@ -3707,7 +3707,7 @@
       },
       "post": null,
       "bucket": "chan_haugen",
-      "est_sec": 10.0,
+      "est_sec": 6.3,
       "chars": 92
     },
     "SH_f_4": {
@@ -3725,7 +3725,7 @@
       },
       "post": null,
       "bucket": "chan_haugen",
-      "est_sec": 14.0,
+      "est_sec": 8.2,
       "chars": 130
     },
     "SH_f_5": {
@@ -3743,7 +3743,7 @@
       },
       "post": null,
       "bucket": "chan_haugen",
-      "est_sec": 16.0,
+      "est_sec": 9.8,
       "chars": 154
     },
     "SH_f_6": {
@@ -3761,7 +3761,7 @@
       },
       "post": null,
       "bucket": "chan_haugen",
-      "est_sec": 15.0,
+      "est_sec": 9.4,
       "chars": 148
     },
     "SH_o_1": {
@@ -3779,7 +3779,7 @@
       },
       "post": null,
       "bucket": "chan_haugen",
-      "est_sec": 8.0,
+      "est_sec": 4.7,
       "chars": 73
     },
     "SH_o_2": {
@@ -3797,7 +3797,7 @@
       },
       "post": null,
       "bucket": "chan_haugen",
-      "est_sec": 18.0,
+      "est_sec": 12.0,
       "chars": 205
     },
     "SH_o_3": {
@@ -3815,7 +3815,7 @@
       },
       "post": null,
       "bucket": "chan_haugen",
-      "est_sec": 13.0,
+      "est_sec": 8.2,
       "chars": 125
     },
     "SH_o_4": {
@@ -3833,7 +3833,7 @@
       },
       "post": null,
       "bucket": "chan_haugen",
-      "est_sec": 19.0,
+      "est_sec": 12.3,
       "chars": 204
     },
     "SH_o_5": {
@@ -3851,7 +3851,7 @@
       },
       "post": null,
       "bucket": "chan_haugen",
-      "est_sec": 11.0,
+      "est_sec": 6.1,
       "chars": 94
     },
     "SH_c_E07_1": {
@@ -3869,7 +3869,7 @@
       },
       "post": null,
       "bucket": "chan_haugen",
-      "est_sec": 12.0,
+      "est_sec": 7.7,
       "chars": 118
     },
     "SH_c_E07_2": {
@@ -3887,7 +3887,7 @@
       },
       "post": null,
       "bucket": "chan_haugen",
-      "est_sec": 14.0,
+      "est_sec": 9.1,
       "chars": 131
     },
     "SH_c_E07_3": {
@@ -3905,7 +3905,7 @@
       },
       "post": null,
       "bucket": "chan_haugen",
-      "est_sec": 15.0,
+      "est_sec": 9.6,
       "chars": 144
     },
     "SH_c_E07_4": {
@@ -3923,7 +3923,7 @@
       },
       "post": null,
       "bucket": "chan_haugen",
-      "est_sec": 16.0,
+      "est_sec": 10.6,
       "chars": 167
     },
     "SH_c_E16_1": {
@@ -3941,7 +3941,7 @@
       },
       "post": null,
       "bucket": "chan_haugen",
-      "est_sec": 15.0,
+      "est_sec": 10.1,
       "chars": 151
     },
     "SH_c_E16_2": {
@@ -3959,7 +3959,7 @@
       },
       "post": null,
       "bucket": "chan_haugen",
-      "est_sec": 14.0,
+      "est_sec": 8.3,
       "chars": 128
     },
     "SH_c_E14_2": {
@@ -3977,7 +3977,7 @@
       },
       "post": null,
       "bucket": "chan_haugen",
-      "est_sec": 15.0,
+      "est_sec": 8.9,
       "chars": 144
     },
     "SH_c_E14_3": {
@@ -3995,7 +3995,7 @@
       },
       "post": null,
       "bucket": "chan_haugen",
-      "est_sec": 13.0,
+      "est_sec": 7.7,
       "chars": 131
     },
     "SH_c_E14_4": {
@@ -4013,7 +4013,7 @@
       },
       "post": null,
       "bucket": "chan_haugen",
-      "est_sec": 14.0,
+      "est_sec": 8.0,
       "chars": 135
     },
     "SH_c_E14_5": {
@@ -4031,7 +4031,7 @@
       },
       "post": null,
       "bucket": "chan_haugen",
-      "est_sec": 13.0,
+      "est_sec": 6.8,
       "chars": 117
     },
     "SH_c_def_1": {
@@ -4049,7 +4049,7 @@
       },
       "post": null,
       "bucket": "chan_haugen",
-      "est_sec": 2.0,
+      "est_sec": 0.9,
       "chars": 6
     },
     "SH_c_def_2": {
@@ -4067,7 +4067,7 @@
       },
       "post": null,
       "bucket": "chan_haugen",
-      "est_sec": 8.0,
+      "est_sec": 4.3,
       "chars": 68
     },
     "TR_open_1": {
@@ -4085,7 +4085,7 @@
       },
       "post": null,
       "bucket": "chan_rhee",
-      "est_sec": 10.0,
+      "est_sec": 7.7,
       "chars": 103
     },
     "TR_open_2": {
@@ -4103,7 +4103,7 @@
       },
       "post": null,
       "bucket": "chan_rhee",
-      "est_sec": 11.0,
+      "est_sec": 7.3,
       "chars": 123
     },
     "TR_a_1": {
@@ -4121,7 +4121,7 @@
       },
       "post": null,
       "bucket": "chan_rhee",
-      "est_sec": 16.0,
+      "est_sec": 12.1,
       "chars": 173
     },
     "TR_a_2": {
@@ -4139,7 +4139,7 @@
       },
       "post": null,
       "bucket": "chan_rhee",
-      "est_sec": 19.0,
+      "est_sec": 12.0,
       "chars": 222
     },
     "TR_a_3": {
@@ -4157,7 +4157,7 @@
       },
       "post": null,
       "bucket": "chan_rhee",
-      "est_sec": 19.0,
+      "est_sec": 12.6,
       "chars": 202
     },
     "TR_w_1": {
@@ -4175,7 +4175,7 @@
       },
       "post": null,
       "bucket": "chan_rhee",
-      "est_sec": 8.0,
+      "est_sec": 6.6,
       "chars": 85
     },
     "TR_w_2": {
@@ -4193,7 +4193,7 @@
       },
       "post": null,
       "bucket": "chan_rhee",
-      "est_sec": 22.0,
+      "est_sec": 17.0,
       "chars": 243
     },
     "TR_w_3": {
@@ -4211,7 +4211,7 @@
       },
       "post": null,
       "bucket": "chan_rhee",
-      "est_sec": 13.0,
+      "est_sec": 8.9,
       "chars": 130
     },
     "TR_c_1": {
@@ -4229,7 +4229,7 @@
       },
       "post": null,
       "bucket": "chan_rhee",
-      "est_sec": 12.0,
+      "est_sec": 7.9,
       "chars": 120
     },
     "TR_c_2": {
@@ -4247,7 +4247,7 @@
       },
       "post": null,
       "bucket": "chan_rhee",
-      "est_sec": 18.0,
+      "est_sec": 12.5,
       "chars": 203
     },
     "TR_c_E04_1": {
@@ -4265,7 +4265,7 @@
       },
       "post": null,
       "bucket": "chan_rhee",
-      "est_sec": 6.0,
+      "est_sec": 3.6,
       "chars": 45
     },
     "TR_c_E04_2": {
@@ -4283,7 +4283,7 @@
       },
       "post": null,
       "bucket": "chan_rhee",
-      "est_sec": 19.0,
+      "est_sec": 12.1,
       "chars": 201
     },
     "TR_c_E04_3": {
@@ -4301,7 +4301,7 @@
       },
       "post": null,
       "bucket": "chan_rhee",
-      "est_sec": 9.0,
+      "est_sec": 5.4,
       "chars": 66
     },
     "TR_c_E12_1": {
@@ -4319,7 +4319,7 @@
       },
       "post": null,
       "bucket": "chan_rhee",
-      "est_sec": 10.0,
+      "est_sec": 6.8,
       "chars": 93
     },
     "TR_c_E12_2": {
@@ -4337,7 +4337,7 @@
       },
       "post": null,
       "bucket": "chan_rhee",
-      "est_sec": 11.0,
+      "est_sec": 8.4,
       "chars": 92
     },
     "TR_c_E12_3": {
@@ -4355,7 +4355,7 @@
       },
       "post": null,
       "bucket": "chan_rhee",
-      "est_sec": 18.0,
+      "est_sec": 12.4,
       "chars": 201
     },
     "TR_c_E12_4": {
@@ -4373,7 +4373,7 @@
       },
       "post": null,
       "bucket": "chan_rhee",
-      "est_sec": 14.0,
+      "est_sec": 8.6,
       "chars": 120
     },
     "TR_c_E12_5": {
@@ -4391,7 +4391,7 @@
       },
       "post": null,
       "bucket": "chan_rhee",
-      "est_sec": 14.0,
+      "est_sec": 9.8,
       "chars": 120
     },
     "TR_c_def_1": {
@@ -4409,7 +4409,7 @@
       },
       "post": null,
       "bucket": "chan_rhee",
-      "est_sec": 10.0,
+      "est_sec": 8.5,
       "chars": 107
     },
     "NO_open_1": {
@@ -4427,7 +4427,7 @@
       },
       "post": null,
       "bucket": "chan_noema",
-      "est_sec": 14.0,
+      "est_sec": 10.7,
       "chars": 150
     },
     "NO_ub_1": {
@@ -4445,7 +4445,7 @@
       },
       "post": null,
       "bucket": "chan_noema",
-      "est_sec": 10.0,
+      "est_sec": 5.7,
       "chars": 99
     },
     "NO_ub_2": {
@@ -4463,7 +4463,7 @@
       },
       "post": null,
       "bucket": "chan_noema",
-      "est_sec": 16.0,
+      "est_sec": 11.3,
       "chars": 174
     },
     "NO_ub_3": {
@@ -4481,7 +4481,7 @@
       },
       "post": null,
       "bucket": "chan_noema",
-      "est_sec": 12.0,
+      "est_sec": 8.8,
       "chars": 127
     },
     "NO_ub_4": {
@@ -4499,7 +4499,7 @@
       },
       "post": null,
       "bucket": "chan_noema",
-      "est_sec": 19.0,
+      "est_sec": 13.7,
       "chars": 194
     },
     "NO_ub_5": {
@@ -4517,7 +4517,7 @@
       },
       "post": null,
       "bucket": "chan_noema",
-      "est_sec": 18.0,
+      "est_sec": 11.2,
       "chars": 188
     },
     "NO_w_1": {
@@ -4535,7 +4535,7 @@
       },
       "post": null,
       "bucket": "chan_noema",
-      "est_sec": 15.0,
+      "est_sec": 11.3,
       "chars": 167
     },
     "NO_w_2": {
@@ -4553,7 +4553,7 @@
       },
       "post": null,
       "bucket": "chan_noema",
-      "est_sec": 14.0,
+      "est_sec": 9.8,
       "chars": 144
     },
     "NO_w_3": {
@@ -4571,7 +4571,7 @@
       },
       "post": null,
       "bucket": "chan_noema",
-      "est_sec": 21.0,
+      "est_sec": 12.9,
       "chars": 228
     },
     "NO_w_4": {
@@ -4589,7 +4589,7 @@
       },
       "post": null,
       "bucket": "chan_noema",
-      "est_sec": 21.0,
+      "est_sec": 15.7,
       "chars": 244
     },
     "NO_w_5": {
@@ -4607,7 +4607,7 @@
       },
       "post": null,
       "bucket": "chan_noema",
-      "est_sec": 8.0,
+      "est_sec": 3.7,
       "chars": 54
     },
     "NO_44_1": {
@@ -4625,7 +4625,7 @@
       },
       "post": null,
       "bucket": "chan_noema",
-      "est_sec": 9.0,
+      "est_sec": 5.7,
       "chars": 90
     },
     "NO_44_2": {
@@ -4643,7 +4643,7 @@
       },
       "post": null,
       "bucket": "chan_noema",
-      "est_sec": 15.0,
+      "est_sec": 9.7,
       "chars": 153
     },
     "NO_44_3": {
@@ -4661,7 +4661,7 @@
       },
       "post": null,
       "bucket": "chan_noema",
-      "est_sec": 13.0,
+      "est_sec": 7.7,
       "chars": 118
     },
     "NO_44_4": {
@@ -4679,7 +4679,7 @@
       },
       "post": null,
       "bucket": "chan_noema",
-      "est_sec": 24.0,
+      "est_sec": 15.6,
       "chars": 261
     },
     "NO_44_5": {
@@ -4697,7 +4697,7 @@
       },
       "post": null,
       "bucket": "chan_noema",
-      "est_sec": 7.0,
+      "est_sec": 2.9,
       "chars": 52
     },
     "NO_44_6": {
@@ -4715,7 +4715,7 @@
       },
       "post": null,
       "bucket": "chan_noema",
-      "est_sec": 26.0,
+      "est_sec": 14.6,
       "chars": 272
     },
     "NO_d_1": {
@@ -4733,7 +4733,7 @@
       },
       "post": null,
       "bucket": "chan_noema",
-      "est_sec": 18.0,
+      "est_sec": 12.1,
       "chars": 168
     },
     "NO_d_2": {
@@ -4751,7 +4751,7 @@
       },
       "post": null,
       "bucket": "chan_noema",
-      "est_sec": 14.0,
+      "est_sec": 7.7,
       "chars": 133
     },
     "NO_d_3": {
@@ -4769,7 +4769,7 @@
       },
       "post": null,
       "bucket": "chan_noema",
-      "est_sec": 14.0,
+      "est_sec": 7.8,
       "chars": 123
     },
     "NO_wh_1": {
@@ -4787,7 +4787,7 @@
       },
       "post": null,
       "bucket": "chan_noema",
-      "est_sec": 13.0,
+      "est_sec": 8.5,
       "chars": 114
     },
     "NO_wh_2": {
@@ -4805,7 +4805,7 @@
       },
       "post": null,
       "bucket": "chan_noema",
-      "est_sec": 18.0,
+      "est_sec": 13.3,
       "chars": 194
     },
     "NO_wh_3": {
@@ -4823,7 +4823,7 @@
       },
       "post": null,
       "bucket": "chan_noema",
-      "est_sec": 8.0,
+      "est_sec": 4.4,
       "chars": 68
     },
     "NO_wh_4": {
@@ -4841,7 +4841,7 @@
       },
       "post": null,
       "bucket": "chan_noema",
-      "est_sec": 24.0,
+      "est_sec": 17.8,
       "chars": 251
     },
     "NO_wh_5": {
@@ -4859,7 +4859,7 @@
       },
       "post": null,
       "bucket": "chan_noema",
-      "est_sec": 18.0,
+      "est_sec": 9.8,
       "chars": 178
     },
     "NO_r_1": {
@@ -4877,7 +4877,7 @@
       },
       "post": null,
       "bucket": "chan_noema",
-      "est_sec": 15.0,
+      "est_sec": 8.9,
       "chars": 143
     },
     "NO_r_2": {
@@ -4895,7 +4895,7 @@
       },
       "post": null,
       "bucket": "chan_noema",
-      "est_sec": 17.0,
+      "est_sec": 13.4,
       "chars": 156
     },
     "NO_r_3": {
@@ -4913,7 +4913,7 @@
       },
       "post": null,
       "bucket": "chan_noema",
-      "est_sec": 20.0,
+      "est_sec": 13.0,
       "chars": 197
     },
     "NO_r_4": {
@@ -4931,7 +4931,7 @@
       },
       "post": null,
       "bucket": "chan_noema",
-      "est_sec": 19.0,
+      "est_sec": 13.1,
       "chars": 194
     },
     "NO_r_5": {
@@ -4949,7 +4949,7 @@
       },
       "post": null,
       "bucket": "chan_noema",
-      "est_sec": 20.0,
+      "est_sec": 11.7,
       "chars": 183
     },
     "NO_c_def_1": {
@@ -4967,7 +4967,7 @@
       },
       "post": null,
       "bucket": "chan_noema",
-      "est_sec": 15.0,
+      "est_sec": 10.1,
       "chars": 181
     },
     "S01_02": {
@@ -4985,7 +4985,7 @@
       },
       "post": "pa_system",
       "bucket": "opening",
-      "est_sec": 11.0,
+      "est_sec": 8.0,
       "chars": 99
     },
     "S01_03": {
@@ -5003,7 +5003,7 @@
       },
       "post": "pa_system",
       "bucket": "opening",
-      "est_sec": 8.0,
+      "est_sec": 6.4,
       "chars": 66
     },
     "S01_04": {
@@ -5021,7 +5021,7 @@
       },
       "post": "pa_system",
       "bucket": "opening",
-      "est_sec": 5.0,
+      "est_sec": 2.1,
       "chars": 29
     },
     "S02_01": {
@@ -5039,7 +5039,7 @@
       },
       "post": null,
       "bucket": "opening",
-      "est_sec": 10.0,
+      "est_sec": 6.6,
       "chars": 92
     },
     "S02_02": {
@@ -5057,7 +5057,7 @@
       },
       "post": null,
       "bucket": "opening",
-      "est_sec": 18.0,
+      "est_sec": 13.4,
       "chars": 177
     },
     "S02_03": {
@@ -5075,7 +5075,7 @@
       },
       "post": null,
       "bucket": "opening",
-      "est_sec": 14.0,
+      "est_sec": 10.1,
       "chars": 145
     },
     "S02_04": {
@@ -5093,7 +5093,7 @@
       },
       "post": null,
       "bucket": "opening",
-      "est_sec": 11.0,
+      "est_sec": 7.3,
       "chars": 97
     },
     "S02_05": {
@@ -5111,7 +5111,7 @@
       },
       "post": null,
       "bucket": "opening",
-      "est_sec": 16.0,
+      "est_sec": 10.2,
       "chars": 160
     },
     "S02_06": {
@@ -5129,7 +5129,7 @@
       },
       "post": null,
       "bucket": "opening",
-      "est_sec": 11.0,
+      "est_sec": 6.1,
       "chars": 101
     },
     "S03_02": {
@@ -5147,7 +5147,7 @@
       },
       "post": null,
       "bucket": "opening",
-      "est_sec": 13.0,
+      "est_sec": 8.5,
       "chars": 109
     },
     "S03_03": {
@@ -5165,7 +5165,7 @@
       },
       "post": null,
       "bucket": "opening",
-      "est_sec": 17.0,
+      "est_sec": 10.9,
       "chars": 154
     },
     "S03_04": {
@@ -5183,7 +5183,7 @@
       },
       "post": null,
       "bucket": "opening",
-      "est_sec": 14.0,
+      "est_sec": 7.2,
       "chars": 130
     },
     "S03_05": {
@@ -5201,7 +5201,7 @@
       },
       "post": null,
       "bucket": "opening",
-      "est_sec": 6.5,
+      "est_sec": 4.0,
       "chars": 56
     },
     "S03_06": {
@@ -5219,7 +5219,7 @@
       },
       "post": null,
       "bucket": "opening",
-      "est_sec": 17.0,
+      "est_sec": 10.5,
       "chars": 167
     },
     "S03_07": {
@@ -5237,7 +5237,7 @@
       },
       "post": null,
       "bucket": "opening",
-      "est_sec": 16.0,
+      "est_sec": 9.3,
       "chars": 161
     },
     "S04_01": {
@@ -5255,7 +5255,7 @@
       },
       "post": null,
       "bucket": "opening",
-      "est_sec": 15.0,
+      "est_sec": 9.8,
       "chars": 140
     },
     "S04_02": {
@@ -5273,7 +5273,7 @@
       },
       "post": null,
       "bucket": "opening",
-      "est_sec": 13.0,
+      "est_sec": 7.3,
       "chars": 137
     },
     "S04_03": {
@@ -5291,7 +5291,7 @@
       },
       "post": null,
       "bucket": "opening",
-      "est_sec": 17.0,
+      "est_sec": 10.3,
       "chars": 168
     },
     "S04_04": {
@@ -5309,7 +5309,7 @@
       },
       "post": null,
       "bucket": "opening",
-      "est_sec": 15.0,
+      "est_sec": 7.0,
       "chars": 131
     },
     "S04_05": {
@@ -5327,7 +5327,7 @@
       },
       "post": null,
       "bucket": "opening",
-      "est_sec": 10.0,
+      "est_sec": 3.6,
       "chars": 61
     },
     "AN_nf_1": {
@@ -5345,7 +5345,7 @@
       },
       "post": null,
       "bucket": "analysis",
-      "est_sec": 17.0,
+      "est_sec": 10.6,
       "chars": 165
     },
     "AN_nf_2": {
@@ -5363,7 +5363,7 @@
       },
       "post": null,
       "bucket": "analysis",
-      "est_sec": 18.0,
+      "est_sec": 11.0,
       "chars": 172
     },
     "AN_nf_3": {
@@ -5381,7 +5381,7 @@
       },
       "post": null,
       "bucket": "analysis",
-      "est_sec": 15.0,
+      "est_sec": 8.5,
       "chars": 136
     },
     "AN_v_1": {
@@ -5399,7 +5399,7 @@
       },
       "post": null,
       "bucket": "analysis",
-      "est_sec": 20.0,
+      "est_sec": 12.5,
       "chars": 192
     },
     "AN_v_2": {
@@ -5417,7 +5417,7 @@
       },
       "post": null,
       "bucket": "analysis",
-      "est_sec": 12.0,
+      "est_sec": 6.6,
       "chars": 104
     },
     "AN_v_3": {
@@ -5435,7 +5435,7 @@
       },
       "post": null,
       "bucket": "analysis",
-      "est_sec": 19.0,
+      "est_sec": 12.1,
       "chars": 178
     },
     "AN_v_4": {
@@ -5453,7 +5453,7 @@
       },
       "post": null,
       "bucket": "analysis",
-      "est_sec": 15.0,
+      "est_sec": 9.4,
       "chars": 141
     },
     "AN_v_5": {
@@ -5471,7 +5471,7 @@
       },
       "post": null,
       "bucket": "analysis",
-      "est_sec": 18.0,
+      "est_sec": 11.6,
       "chars": 176
     },
     "PZ_in_1": {
@@ -5489,7 +5489,7 @@
       },
       "post": null,
       "bucket": "puzzle",
-      "est_sec": 19.0,
+      "est_sec": 12.2,
       "chars": 190
     },
     "PZ_in_2": {
@@ -5507,7 +5507,7 @@
       },
       "post": null,
       "bucket": "puzzle",
-      "est_sec": 8.0,
+      "est_sec": 3.3,
       "chars": 61
     },
     "PZ_pad_1": {
@@ -5525,7 +5525,7 @@
       },
       "post": null,
       "bucket": "puzzle",
-      "est_sec": 10.0,
+      "est_sec": 6.3,
       "chars": 96
     },
     "PZ_pad_2": {
@@ -5543,7 +5543,7 @@
       },
       "post": null,
       "bucket": "puzzle",
-      "est_sec": 11.0,
+      "est_sec": 6.1,
       "chars": 90
     },
     "PZ_pad_3": {
@@ -5561,7 +5561,7 @@
       },
       "post": null,
       "bucket": "puzzle",
-      "est_sec": 22.0,
+      "est_sec": 13.0,
       "chars": 212
     },
     "PZ_pad_4": {
@@ -5579,7 +5579,7 @@
       },
       "post": null,
       "bucket": "puzzle",
-      "est_sec": 11.0,
+      "est_sec": 7.4,
       "chars": 82
     },
     "PZ_co_1": {
@@ -5597,7 +5597,7 @@
       },
       "post": null,
       "bucket": "puzzle",
-      "est_sec": 13.0,
+      "est_sec": 7.8,
       "chars": 121
     },
     "PZ_co_2": {
@@ -5615,7 +5615,7 @@
       },
       "post": null,
       "bucket": "puzzle",
-      "est_sec": 15.0,
+      "est_sec": 9.4,
       "chars": 133
     },
     "PZ_co_3": {
@@ -5633,7 +5633,7 @@
       },
       "post": null,
       "bucket": "puzzle",
-      "est_sec": 14.0,
+      "est_sec": 7.3,
       "chars": 134
     },
     "PZ_co_4": {
@@ -5651,7 +5651,7 @@
       },
       "post": null,
       "bucket": "puzzle",
-      "est_sec": 12.0,
+      "est_sec": 6.4,
       "chars": 104
     },
     "PZ_ti_1": {
@@ -5669,7 +5669,7 @@
       },
       "post": null,
       "bucket": "puzzle",
-      "est_sec": 16.0,
+      "est_sec": 9.3,
       "chars": 137
     },
     "PZ_ti_2": {
@@ -5687,7 +5687,7 @@
       },
       "post": null,
       "bucket": "puzzle",
-      "est_sec": 15.0,
+      "est_sec": 8.8,
       "chars": 128
     },
     "PZ_ti_4": {
@@ -5705,7 +5705,7 @@
       },
       "post": null,
       "bucket": "puzzle",
-      "est_sec": 8.0,
+      "est_sec": 3.0,
       "chars": 35
     },
     "PZ_ti_5": {
@@ -5723,7 +5723,7 @@
       },
       "post": null,
       "bucket": "puzzle",
-      "est_sec": 14.0,
+      "est_sec": 7.8,
       "chars": 123
     },
     "PZ_ti_6": {
@@ -5741,7 +5741,7 @@
       },
       "post": null,
       "bucket": "puzzle",
-      "est_sec": 18.0,
+      "est_sec": 9.8,
       "chars": 141
     },
     "PZ_ti_7": {
@@ -5759,7 +5759,7 @@
       },
       "post": null,
       "bucket": "puzzle",
-      "est_sec": 17.0,
+      "est_sec": 9.3,
       "chars": 171
     },
     "PZ_ti_8": {
@@ -5777,7 +5777,7 @@
       },
       "post": null,
       "bucket": "puzzle",
-      "est_sec": 11.0,
+      "est_sec": 5.7,
       "chars": 89
     },
     "PZ_ti_9": {
@@ -5795,7 +5795,7 @@
       },
       "post": null,
       "bucket": "puzzle",
-      "est_sec": 18.0,
+      "est_sec": 10.6,
       "chars": 168
     },
     "CE_20_1": {
@@ -5813,7 +5813,7 @@
       },
       "post": "pa_system",
       "bucket": "clock",
-      "est_sec": 6.0,
+      "est_sec": 3.2,
       "chars": 42
     },
     "CE_12_1": {
@@ -5831,7 +5831,7 @@
       },
       "post": "pa_system",
       "bucket": "clock",
-      "est_sec": 6.0,
+      "est_sec": 3.0,
       "chars": 42
     },
     "CE_12_2": {
@@ -5849,7 +5849,7 @@
       },
       "post": null,
       "bucket": "clock",
-      "est_sec": 14.0,
+      "est_sec": 8.0,
       "chars": 117
     },
     "CE_06_1": {
@@ -5867,7 +5867,7 @@
       },
       "post": null,
       "bucket": "clock",
-      "est_sec": 16.0,
+      "est_sec": 7.9,
       "chars": 124
     },
     "CE_06_2": {
@@ -5885,7 +5885,7 @@
       },
       "post": null,
       "bucket": "clock",
-      "est_sec": 19.0,
+      "est_sec": 10.1,
       "chars": 189
     },
     "CE_04_1": {
@@ -5903,7 +5903,7 @@
       },
       "post": "pa_system",
       "bucket": "clock",
-      "est_sec": 6.0,
+      "est_sec": 3.0,
       "chars": 40
     },
     "CE_04_2": {
@@ -5921,7 +5921,7 @@
       },
       "post": null,
       "bucket": "clock",
-      "est_sec": 9.0,
+      "est_sec": 4.5,
       "chars": 69
     },
     "DED_01": {
@@ -5939,7 +5939,7 @@
       },
       "post": null,
       "bucket": "deduction",
-      "est_sec": 16.0,
+      "est_sec": 9.8,
       "chars": 140
     },
     "DED_02": {
@@ -5957,7 +5957,7 @@
       },
       "post": null,
       "bucket": "deduction",
-      "est_sec": 18.0,
+      "est_sec": 10.1,
       "chars": 158
     },
     "DIS_01": {
@@ -5975,7 +5975,7 @@
       },
       "post": null,
       "bucket": "deduction",
-      "est_sec": 9.0,
+      "est_sec": 5.9,
       "chars": 65
     },
     "EN_cs_01": {
@@ -5993,7 +5993,7 @@
       },
       "post": null,
       "bucket": "ending_E_CRADLESONG",
-      "est_sec": 13.0,
+      "est_sec": 8.5,
       "chars": 120
     },
     "EN_cs_02": {
@@ -6011,7 +6011,7 @@
       },
       "post": null,
       "bucket": "ending_E_CRADLESONG",
-      "est_sec": 20.0,
+      "est_sec": 13.9,
       "chars": 203
     },
     "EN_cs_03": {
@@ -6029,7 +6029,7 @@
       },
       "post": null,
       "bucket": "ending_E_CRADLESONG",
-      "est_sec": 22.0,
+      "est_sec": 14.5,
       "chars": 239
     },
     "EN_cs_05": {
@@ -6047,7 +6047,7 @@
       },
       "post": "pa_system",
       "bucket": "ending_E_CRADLESONG",
-      "est_sec": 7.0,
+      "est_sec": 4.2,
       "chars": 50
     },
     "EN_cs_08": {
@@ -6063,9 +6063,9 @@
         "style": 0.3,
         "speed": 0.85
       },
-      "post": "buried_child",
+      "post": null,
       "bucket": "ending_E_CRADLESONG",
-      "est_sec": 4.5,
+      "est_sec": 1.8,
       "chars": 22
     },
     "EN_cs_u1": {
@@ -6083,7 +6083,7 @@
       },
       "post": null,
       "bucket": "ending_E_CRADLESONG",
-      "est_sec": 13.0,
+      "est_sec": 7.6,
       "chars": 126
     },
     "EN_db_01": {
@@ -6101,7 +6101,7 @@
       },
       "post": null,
       "bucket": "ending_E_DEADBAND",
-      "est_sec": 16.0,
+      "est_sec": 11.7,
       "chars": 144
     },
     "EN_db_02": {
@@ -6119,7 +6119,7 @@
       },
       "post": null,
       "bucket": "ending_E_DEADBAND",
-      "est_sec": 20.0,
+      "est_sec": 11.2,
       "chars": 178
     },
     "EN_db_03": {
@@ -6137,7 +6137,7 @@
       },
       "post": "pa_system",
       "bucket": "ending_E_DEADBAND",
-      "est_sec": 7.0,
+      "est_sec": 3.8,
       "chars": 50
     },
     "EN_db_05": {
@@ -6155,7 +6155,7 @@
       },
       "post": null,
       "bucket": "ending_E_DEADBAND",
-      "est_sec": 12.0,
+      "est_sec": 6.5,
       "chars": 86
     },
     "EN_db_06": {
@@ -6173,7 +6173,7 @@
       },
       "post": null,
       "bucket": "ending_E_DEADBAND",
-      "est_sec": 18.0,
+      "est_sec": 12.7,
       "chars": 163
     },
     "EN_db_07": {
@@ -6191,7 +6191,7 @@
       },
       "post": null,
       "bucket": "ending_E_DEADBAND",
-      "est_sec": 24.0,
+      "est_sec": 14.4,
       "chars": 252
     },
     "EN_db_08": {
@@ -6209,7 +6209,7 @@
       },
       "post": null,
       "bucket": "ending_E_DEADBAND",
-      "est_sec": 11.0,
+      "est_sec": 5.3,
       "chars": 83
     },
     "EN_qr_01": {
@@ -6227,7 +6227,7 @@
       },
       "post": null,
       "bucket": "ending_E_QUIETROOM",
-      "est_sec": 8.0,
+      "est_sec": 4.1,
       "chars": 61
     },
     "EN_qr_02": {
@@ -6245,7 +6245,7 @@
       },
       "post": null,
       "bucket": "ending_E_QUIETROOM",
-      "est_sec": 18.0,
+      "est_sec": 9.9,
       "chars": 168
     },
     "EN_qr_03": {
@@ -6263,7 +6263,7 @@
       },
       "post": null,
       "bucket": "ending_E_QUIETROOM",
-      "est_sec": 17.0,
+      "est_sec": 9.6,
       "chars": 159
     },
     "EN_qr_04": {
@@ -6281,7 +6281,7 @@
       },
       "post": null,
       "bucket": "ending_E_QUIETROOM",
-      "est_sec": 12.0,
+      "est_sec": 6.8,
       "chars": 95
     },
     "EN_qr_07": {
@@ -6299,7 +6299,7 @@
       },
       "post": null,
       "bucket": "ending_E_QUIETROOM",
-      "est_sec": 18.0,
+      "est_sec": 11.8,
       "chars": 164
     },
     "EN_qr_08": {
@@ -6317,7 +6317,7 @@
       },
       "post": null,
       "bucket": "ending_E_QUIETROOM",
-      "est_sec": 14.0,
+      "est_sec": 9.7,
       "chars": 137
     },
     "EN_sv_01": {
@@ -6335,7 +6335,7 @@
       },
       "post": null,
       "bucket": "ending_E_SOLVEIG",
-      "est_sec": 12.0,
+      "est_sec": 6.6,
       "chars": 98
     },
     "EN_sv_02": {
@@ -6353,7 +6353,7 @@
       },
       "post": "pa_system",
       "bucket": "ending_E_SOLVEIG",
-      "est_sec": 7.0,
+      "est_sec": 3.8,
       "chars": 50
     },
     "EN_sv_07": {
@@ -6371,7 +6371,7 @@
       },
       "post": null,
       "bucket": "ending_E_SOLVEIG",
-      "est_sec": 14.0,
+      "est_sec": 7.1,
       "chars": 94
     },
     "EN_sv_08": {
@@ -6389,7 +6389,7 @@
       },
       "post": null,
       "bucket": "ending_E_SOLVEIG",
-      "est_sec": 8.0,
+      "est_sec": 3.9,
       "chars": 63
     },
     "EN_sv_09": {
@@ -6407,7 +6407,7 @@
       },
       "post": null,
       "bucket": "ending_E_SOLVEIG",
-      "est_sec": 10.0,
+      "est_sec": 4.2,
       "chars": 71
     },
     "EN_sv_10": {
@@ -6425,7 +6425,7 @@
       },
       "post": null,
       "bucket": "ending_E_SOLVEIG",
-      "est_sec": 6.0,
+      "est_sec": 2.2,
       "chars": 31
     },
     "EN_rd_01": {
@@ -6443,7 +6443,7 @@
       },
       "post": null,
       "bucket": "ending_E_REDUNDANCY",
-      "est_sec": 16.0,
+      "est_sec": 12.0,
       "chars": 159
     },
     "EN_rd_02": {
@@ -6461,7 +6461,7 @@
       },
       "post": null,
       "bucket": "ending_E_REDUNDANCY",
-      "est_sec": 4.0,
+      "est_sec": 3.0,
       "chars": 23
     },
     "EN_rd_03": {
@@ -6479,7 +6479,7 @@
       },
       "post": "pa_system",
       "bucket": "ending_E_REDUNDANCY",
-      "est_sec": 7.0,
+      "est_sec": 3.7,
       "chars": 50
     },
     "EN_rd_07": {
@@ -6497,7 +6497,7 @@
       },
       "post": "shortwave_1983",
       "bucket": "ending_E_REDUNDANCY",
-      "est_sec": 9.0,
+      "est_sec": 3.9,
       "chars": 62
     },
     "EN_nb_01": {
@@ -6515,7 +6515,7 @@
       },
       "post": null,
       "bucket": "ending_E_NOTYETBORN",
-      "est_sec": 6.0,
+      "est_sec": 3.0,
       "chars": 34
     },
     "EN_nb_02": {
@@ -6533,7 +6533,7 @@
       },
       "post": null,
       "bucket": "ending_E_NOTYETBORN",
-      "est_sec": 12.0,
+      "est_sec": 6.1,
       "chars": 121
     },
     "EN_nb_03": {
@@ -6551,7 +6551,7 @@
       },
       "post": null,
       "bucket": "ending_E_NOTYETBORN",
-      "est_sec": 18.0,
+      "est_sec": 12.9,
       "chars": 167
     },
     "EN_nb_04": {
@@ -6569,7 +6569,7 @@
       },
       "post": null,
       "bucket": "ending_E_NOTYETBORN",
-      "est_sec": 13.0,
+      "est_sec": 8.3,
       "chars": 120
     },
     "EN_nb_05": {
@@ -6587,7 +6587,7 @@
       },
       "post": null,
       "bucket": "ending_E_NOTYETBORN",
-      "est_sec": 14.0,
+      "est_sec": 6.6,
       "chars": 123
     },
     "EN_nb_06": {
@@ -6605,7 +6605,7 @@
       },
       "post": null,
       "bucket": "ending_E_NOTYETBORN",
-      "est_sec": 12.0,
+      "est_sec": 8.0,
       "chars": 106
     },
     "EN_nb_07": {
@@ -6623,7 +6623,7 @@
       },
       "post": null,
       "bucket": "ending_E_NOTYETBORN",
-      "est_sec": 17.0,
+      "est_sec": 11.1,
       "chars": 161
     },
     "EN_nb_08": {
@@ -6641,7 +6641,7 @@
       },
       "post": null,
       "bucket": "ending_E_NOTYETBORN",
-      "est_sec": 18.0,
+      "est_sec": 11.3,
       "chars": 168
     },
     "EN_nb_09": {
@@ -6659,7 +6659,7 @@
       },
       "post": "pa_system",
       "bucket": "ending_E_NOTYETBORN",
-      "est_sec": 5.0,
+      "est_sec": 2.3,
       "chars": 39
     },
     "EN_nb_10": {
@@ -6677,7 +6677,7 @@
       },
       "post": null,
       "bucket": "ending_E_NOTYETBORN",
-      "est_sec": 15.0,
+      "est_sec": 8.2,
       "chars": 133
     },
     "EN_nb_11": {
@@ -6695,7 +6695,7 @@
       },
       "post": null,
       "bucket": "ending_E_NOTYETBORN",
-      "est_sec": 4.0,
+      "est_sec": 1.3,
       "chars": 22
     },
     "EN_wr_01": {
@@ -6713,7 +6713,7 @@
       },
       "post": null,
       "bucket": "ending_E_WRONGROOM",
-      "est_sec": 13.0,
+      "est_sec": 7.3,
       "chars": 108
     },
     "EN_wr_02": {
@@ -6731,7 +6731,7 @@
       },
       "post": "pa_system",
       "bucket": "ending_E_WRONGROOM",
-      "est_sec": 7.0,
+      "est_sec": 4.1,
       "chars": 50
     },
     "EN_wr_05": {
@@ -6749,7 +6749,7 @@
       },
       "post": "shortwave_1983",
       "bucket": "ending_E_WRONGROOM",
-      "est_sec": 9.0,
+      "est_sec": 4.7,
       "chars": 55
     },
     "EN_wc_01": {
@@ -6767,7 +6767,7 @@
       },
       "post": "pa_system",
       "bucket": "ending_E_WINDOWCLOSES",
-      "est_sec": 7.0,
+      "est_sec": 3.7,
       "chars": 50
     },
     "EN_wc_02": {
@@ -6785,7 +6785,7 @@
       },
       "post": null,
       "bucket": "ending_E_WINDOWCLOSES",
-      "est_sec": 13.0,
+      "est_sec": 7.6,
       "chars": 109
     },
     "EN_wc_03": {
@@ -6803,7 +6803,7 @@
       },
       "post": null,
       "bucket": "ending_E_WINDOWCLOSES",
-      "est_sec": 10.0,
+      "est_sec": 5.1,
       "chars": 86
     },
     "EN_wc_04": {
@@ -6821,7 +6821,7 @@
       },
       "post": null,
       "bucket": "ending_E_WINDOWCLOSES",
-      "est_sec": 7.0,
+      "est_sec": 2.7,
       "chars": 48
     }
   },

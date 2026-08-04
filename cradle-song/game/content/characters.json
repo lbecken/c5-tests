@@ -156,8 +156,7 @@
         "speed": 0.85
       },
       "direction": "Absolutely do not perform this as creepy. A child calling to someone across a room. The horror is entirely contextual and will be destroyed by any spookiness in the read.",
-      "ambience": "buried",
-      "post": "buried_child"
+      "ambience": "buried"
     },
     "pa": {
       "name": "Station Voice",

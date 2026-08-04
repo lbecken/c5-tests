@@ -114,9 +114,33 @@ clean TTS
   → slight compression
 ```
 
-`ffmpeg` is not installed in the generation environment; these chains are documented for a
-post-pass, and the game is fully playable without them. `tools/generate_audio.py` writes
-clean masters and records the intended chain in each asset's `post` field.
+**These chains are implemented** in `tools/postprocess.py`. Clean takes are preserved under
+`audio/<speaker>/_master/` and every run reprocesses from those, so the chains can be tuned
+and re-applied freely, and `--restore` puts the clean takes back.
+
+```bash
+python3 tools/postprocess.py --list     # the plan, and what is deliberately exempt
+python3 tools/postprocess.py            # apply
+python3 tools/postprocess.py --restore  # undo
+```
+
+Requires a real ffmpeg. The container image ships only Playwright's build, which is
+compiled `--disable-everything` — webm/VP8 and mjpeg, no mp3 decoder and no audio filters
+at all. `.claude/hooks/session-start.sh` installs a full one at session start.
+
+**Two exemptions, both deliberate**, enforced in `postprocess.py` rather than left to
+whoever runs it:
+
+- **The Child is never processed.** Both appearances are scripted plain and close. The
+  buried-under-the-carrier version is a separate generated cue (`child_hum_buried`), not a
+  degraded copy of this take.
+- **`EN_rd_07` is left clean.** In the Redundancy ending the Reader's voice arrives with
+  *"no degradation at all"* — that absence is the horror beat. It means the thing is not on
+  a tape any more. Running the shortwave chain over it would destroy the only point the
+  line has.
+
+Measured rolloff above 4 kHz confirms each chain against its designed cutoff: Reader
+−31.8 → −48.3 dB (3.2 kHz), Nils −31.1 → −37.3 dB (8 kHz), PA −32.5 → −43.1 dB (5 kHz).
 
 ---
 
