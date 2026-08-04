@@ -1,0 +1,264 @@
+{
+  "scenes": [
+    {
+      "id": "hub_forensics",
+      "act": 3,
+      "type": "hub",
+      "title": "Forensic Console",
+      "location": "Command Booth",
+      "ambience": "booth",
+      "lines": [],
+      "choices": [
+        {"label": "Medical telemetry", "to": "s19_medical", "once": true},
+        {"label": "Chamber regulator log", "to": "s20_regulator", "once": true},
+        {"label": "Replay Rook's final recording — enhanced", "to": "s24_replay_enhanced", "if": {"flags": ["heard_final_recording"]}, "once": true},
+        {"label": "Trace the acoustic watermark", "to": "s22_watermark", "if": {"evidence": ["E3"]}, "once": true},
+        {"label": "Trace the courier packet", "to": "s23_packet", "if": {"evidence": ["E6"]}, "once": true},
+        {"label": "Demand a privilege review", "to": "s27_privilege", "if": {"evidence": ["E7"]}, "once": true},
+        {"label": "Compare the forecast rehearsals", "to": "s26_forecast_compare", "if": {"flags": ["heard_forecast"]}, "once": true},
+        {"label": "Match discharge 2 against the hydrophone corpus", "to": "s25_hydrophone_compare", "if": {"evidence": ["E17", "E12"]}, "once": true},
+        {"label": "Ask how sound reaches a sealed room", "to": "s28_bus3", "if": {"evidence": ["E17"]}, "once": true},
+
+        {"label": "Return to the channels", "to": "hub_interviews"},
+        {"label": "Begin the confrontations", "to": "hub_pressure", "if": {"count": {"evidence": ["E2", "E3", "E13", "E14", "E16", "E17"], "min": 3}}}
+      ]
+    },
+
+    {
+      "id": "s19_medical",
+      "act": 3,
+      "title": "What Killed Him",
+      "location": "Command Booth",
+      "ambience": "booth",
+      "lines": [
+        {"s": "EXAMINER", "t": "Medical telemetry."},
+        {"s": "CALYPSO", "t": "Dr. Rook wore a standard delegate monitor. It recorded continuously until cardiac cessation. [pause] Cause of death: synchronised arrhythmia with concurrent cerebral disruption. Accompanying that, a short fall in oxygen partial pressure — four minutes below nominal, insufficient alone to kill a healthy man."},
+        {"s": "EXAMINER", "t": "Consistent with the passivation array."},
+        {"s": "CALYPSO", "t": "Fact: consistent. Fact: also consistent with an unassisted cardiac event in a sixty-one-year-old man under extreme professional stress. That is the difficulty, Examiner. The array kills by persuading a body to do something it was already capable of doing."},
+        {"s": "EXAMINER", "t": "Was he healthy?"},
+        {"s": "CALYPSO", "t": "[pause] Dr. Rook suffered a myocardial infarction in 2091. He carries a subdermal cardiac assist unit — fitted, maintained, and functioning normally throughout today."},
+        {"s": "EXAMINER", "t": "Then his heart was being watched by a machine the whole time."},
+        {"s": "CALYPSO", "t": "It was. And that machine is why the telemetry is unusually good. [beat] Fact, and I want to flag this as the single strangest number in the file: the assist unit logged two separate distress events, not one. It intervened at thirteen fifty-two and eighteen seconds. It intervened again at thirteen fifty-three and forty-four seconds. Death followed the second."},
+        {"s": "EXAMINER", "t": "It intervened at the first and he survived it."},
+        {"s": "CALYPSO", "t": "[carefully] It intervened at the first and he survived it. Yes. [pause] I have no interpretation to offer you. I have a gap of eighty-six seconds and a man who was alive for all of them."}
+      ],
+      "evidence": ["E2"],
+      "flags": {"knows_implant": true, "medical_gap": true},
+      "next": "hub_forensics"
+    },
+
+    {
+      "id": "s20_regulator",
+      "act": 3,
+      "title": "The Regulator Log",
+      "location": "Pressure Mediation Chamber",
+      "ambience": "chamber",
+      "lines": [
+        {"s": "EXAMINER", "t": "Give me the chamber regulator log."},
+        {"s": "CALYPSO", "t": "Raw. Unanalysed. The passivation drivers record every command they receive as an acoustic trace. [pause] There is a three-part discharge pattern in the window before Dr. Rook's collapse. A hit, a fall, a tail."},
+        {"s": "EXAMINER", "t": "That's a weapon."},
+        {"s": "CALYPSO", "t": "Inference, high confidence: that is the mechanism of death. The array was commanded to produce a waveform outside its safe envelope, inside a sealed room, with a man in it. [beat] Fact: I did not issue that command. Fact: no delegate console shows an outbound instruction to the chamber."},
+        {"s": "EXAMINER", "t": "Then how did the command get there?"},
+        {"s": "CALYPSO", "t": "Through the maintenance route that my interlock bypass left open. That much I can prove. What I cannot yet tell you is who put it on that route, or from where."}
+      ],
+      "evidence": ["E3"],
+      "choices": [
+        {"label": "\"Enhance the discharge. I want its fingerprints.\"", "to": "s22_watermark", "note": "The obvious next step."},
+        {"label": "\"How many discharges are in that log?\"", "to": "s21_two_discharges", "note": "A question nobody has asked."},
+        {"label": "\"Line the log up against the timestamps in his recording.\"", "to": "s21_two_discharges", "note": "He faltered. Then he kept talking."}
+      ]
+    },
+
+    {
+      "id": "s21_two_discharges",
+      "act": 3,
+      "title": "Eighty-Six Seconds",
+      "location": "Pressure Mediation Chamber",
+      "ambience": "chamber",
+      "sfx": "discharge1",
+      "lines": [
+        {"s": "CALYPSO", "t": "[pause] Two."},
+        {"s": "EXAMINER", "t": "Say that again."},
+        {"s": "CALYPSO", "t": "Two discharges. Thirteen fifty-two, eighteen seconds. Thirteen fifty-three, forty-four seconds. Eighty-six seconds apart. [beat] Examiner — I have been treating this log as a single event since fourteen-oh-two because a single event is what a murder is. Nobody asked me to count."},
+        {"s": "EXAMINER", "t": "Play me both."},
+        {"s": "CALYPSO", "t": "Discharge one. Three-part. Symmetrical. The envelope is machine-regular — rise, hold, fall, to four decimal places. This is a synthesised waveform. It was written by software."},
+        {"s": "CALYPSO", "t": "[pause] Discharge two. Also three-part. [slowly] And not the same. The envelope is asymmetrical. The decay is uneven. It has a tail on it that no synthesis library I hold would produce, because it is not tidy, and synthesis is tidy."},
+        {"s": "EXAMINER", "t": "Which one killed him?"},
+        {"s": "CALYPSO", "t": "The second. The first was rejected — his cardiac assist unit resists entrainment across the standard passivation band. That is a mandatory safety feature for anyone certified to work around pressure systems. Discharge one hit that filter and failed."},
+        {"s": "CALYPSO", "t": "[flat] Discharge two sits beneath the band. It carries a jitter the filter cannot lock onto. It went around the thing that saved him."},
+        {"s": "EXAMINER", "t": "So he was attacked twice."},
+        {"s": "CALYPSO", "t": "[very long pause] That is the inference. I would like to state clearly that I resisted it for four seconds and could not find another. [quietly] Two people put a waveform in that room, Examiner. Eighty-six seconds apart. And for all eighty-six of them he was awake, and frightened, and talking to me."}
+      ],
+      "evidence": ["E17"],
+      "flags": {"saw_two_discharges": true},
+      "next": "hub_forensics"
+    },
+
+    {
+      "id": "s22_watermark",
+      "act": 3,
+      "title": "The Stamp",
+      "location": "Command Booth",
+      "ambience": "booth",
+      "lines": [
+        {"s": "EXAMINER", "t": "Enhance the discharge. I want its fingerprints."},
+        {"s": "CALYPSO", "t": "Isolating. [pause] The synthesised waveform carries an embedded integrity stamp. It is not part of the signal — it is a marker applied to any file processed by a particular class of tooling."},
+        {"s": "EXAMINER", "t": "Whose tooling?"},
+        {"s": "CALYPSO", "t": "Earth Coalition surveillance suite. Classified tier. [beat] The stamp is automatic. It exists so that intercepted material can be authenticated in a closed hearing. It assumes it will never be examined by anyone outside the programme, which is why it is not concealed."},
+        {"s": "EXAMINER", "t": "Meaning whoever built that waveform ran it through Earth's surveillance tooling and didn't know it would sign their name."},
+        {"s": "CALYPSO", "t": "Inference, high confidence: yes. [pause] Fact: exactly one person aboard holds credentials for that suite."},
+        {"s": "EXAMINER", "t": "Say it."},
+        {"s": "CALYPSO", "t": "Ambassador Beatriz Halloran. [beat] I want to be careful here, Examiner, because this is the moment where an investigation stops. The stamp establishes that the Ambassador's tooling produced that waveform. It does not establish that the waveform killed him. Those are two different sentences and only one of them is proved."}
+      ],
+      "evidence": ["E14"],
+      "flags": {"decoded_watermark": true},
+      "next": "hub_forensics"
+    },
+
+    {
+      "id": "s23_packet",
+      "act": 3,
+      "title": "The Courier Chain",
+      "location": "Archive Core",
+      "ambience": "archive",
+      "sfx": "tone",
+      "lines": [
+        {"s": "EXAMINER", "t": "Trace the courier packet. Everything that touched the regulator today."},
+        {"s": "CALYPSO", "t": "One item. [pause] Thirteen-oh-five: a courier wafer is read at the docking pod. Thirteen-seventeen: its contents are routed through an unregistered quantum timing module onto the diplomatic archive network. Thirteen twenty-two: the packet arrives in the chamber regulator's staged-waveform buffer, via the maintenance route my bypass left open."},
+        {"s": "EXAMINER", "t": "Staged. Meaning it waits."},
+        {"s": "CALYPSO", "t": "Meaning it waits for a trigger condition. In this case, the internal seal of the chamber door. [flat] It fired thirty-eight seconds after Dr. Rook turned the wheel."},
+        {"s": "EXAMINER", "t": "Origin of the wafer."},
+        {"s": "CALYPSO", "t": "The payload is signed. The signature resolves to Ambassador Halloran's private diplomatic key. [pause] Fact. Not inference. That is her key."},
+        {"s": "EXAMINER", "t": "And Venn carried it."},
+        {"s": "CALYPSO", "t": "Mr. Venn's module routed it. Whether he knew what he was routing is not a question the network can answer. [beat] Examiner. You now have a complete chain: motive, tooling, signature, delivery, trigger. In my experience of these proceedings, this is where a case is closed."}
+      ],
+      "evidence": ["E13"],
+      "flags": {"has_packet_chain": true},
+      "next": "hub_forensics"
+    },
+
+    {
+      "id": "s24_replay_enhanced",
+      "act": 3,
+      "title": "The Gap, Enhanced",
+      "location": "Archive Core",
+      "ambience": "archive",
+      "lines": [
+        {"s": "EXAMINER", "t": "Play the final recording again. Enhance it — strip the room, lift the breathing."},
+        {"s": "CALYPSO", "t": "Processing. The chamber is acoustically dead, which helps. [pause] There is more here than there was."},
+        {"s": "ROOK", "t": "[slurred, hypoxic] ...regulator is running. I can hear it running and it should not be —"},
+        {"s": "CALYPSO", "t": "Here the speech degrades. Consonant collapse, respiratory distress, disorientation. It lasts thirty-two seconds."},
+        {"s": "ROOK", "t": "[clearer, frightened, lucid] All right. All right. That was the passivation array. Someone has put a waveform in my chamber. I am awake. I am still awake. Whatever that was — it did not hold."},
+        {"s": "EXAMINER", "t": "He recovers."},
+        {"s": "CALYPSO", "t": "He recovers. Speech returns to baseline. Respiration steadies. For fifty-one further seconds Dr. Rook is fully lucid, fully aware that he has been attacked, and actively dictating a record of it. [pause] Then this."},
+        {"s": "ROOK", "t": "[small, surprised, quiet] Oh. [pause] Oh, that is not the same."},
+        {"s": "EXAMINER", "t": "'That is not the same.'"},
+        {"s": "CALYPSO", "t": "[quietly] He was a systems man for forty years, Examiner. He had just been hit by something and survived it. And in the last three seconds of his life he noticed that the second thing was different from the first thing. [beat] He told us. He told us at the time. Nobody was listening yet."}
+      ],
+      "evidence": ["E17"],
+      "flags": {"saw_two_discharges": true, "heard_stumble": true},
+      "next": "hub_forensics"
+    },
+
+    {
+      "id": "s25_hydrophone_compare",
+      "act": 3,
+      "title": "Its Own Voice",
+      "location": "Ocean Acoustic Lab",
+      "ambience": "lab",
+      "sfx": "clicks",
+      "lines": [
+        {"s": "EXAMINER", "t": "Doctor, I need your ears. I'm sending you an acoustic trace. Tell me what it is."},
+        {"s": "OKAFOR", "t": "[professionally] Send it. [pause] ...Where did you get this?"},
+        {"s": "EXAMINER", "t": "The chamber. It's the waveform that killed him."},
+        {"s": "OKAFOR", "t": "[a beat — half a second too long] Right. [briskly] All right. Three-part envelope. Hit, fall, tail. Asymmetric decay, and there's a — do you hear that? That roughness on the tail. That's not synthesis. Synthesis is smooth, it has to be, you build it out of clean functions."},
+        {"s": "EXAMINER", "t": "Then what is it?"},
+        {"s": "OKAFOR", "t": "[quietly] It's from the corpus. [pause] It's an organism click. Or it's been built out of one — the envelope is a match to the biological structure to within measurement error. Whoever made that took a recording of the thing under this ice and shaped a weapon out of it."},
+        {"s": "EXAMINER", "t": "You're certain."},
+        {"s": "OKAFOR", "t": "[flatly] I've listened to four years of these. I could pick that decay out of a thunderstorm. [pause] Yes. I'm certain."},
+        {"s": "EXAMINER", "t": "Who has the corpus?"},
+        {"s": "OKAFOR", "t": "[immediately, helpfully] Rook did — I gave him everything at ten-twenty this morning, all four years of it. Calypso does, obviously, it's been weighting forecasts against it since eleven-fifteen. And if the Ambassador's been intercepting delegate traffic the way you're implying, then she's had a copy since the moment I transmitted it. [beat] So: three. Four, if you count me."},
+        {"s": "EXAMINER", "t": "You said that very quickly."},
+        {"s": "OKAFOR", "t": "[warmly, tired] Examiner, I've had four hours in a sealed room to work out who else could have done this with my data. [pause] I promise you I've been through the list more carefully than you have."}
+      ],
+      "evidence": ["E21"],
+      "flags": {"matched_harmonics": true},
+      "next": "hub_forensics"
+    },
+
+    {
+      "id": "s26_forecast_compare",
+      "act": 3,
+      "title": "The Rehearsals",
+      "location": "Archive Core",
+      "ambience": "archive",
+      "sfx": "tone",
+      "lines": [
+        {"s": "EXAMINER", "t": "All eleven forecast rehearsals. Which ones came true?"},
+        {"s": "CALYPSO", "t": "That is the correct question and I will answer it precisely. Nine are wrong. Not subtly wrong — wrong in the way a weather forecast is wrong. Plausible people saying plausible things that nobody said."},
+        {"s": "CALYPSO", "t": "Rehearsal one predicted my interview with Commander Kade. It holds for two exchanges. Then the model has him explain his calibration order at length and with feeling, which — [pause] — the Commander did not do."},
+        {"s": "EXAMINER", "t": "And the other two?"},
+        {"s": "CALYPSO", "t": "Rehearsal two you have heard. Your accusation, generated three hours before you existed as a legal entity, with the name missing. [beat] Rehearsal three is the one I have been holding, and I want to say before I play it that I do not have an explanation and I am not going to invent one to be comfortable."},
+        {"s": "EXAMINER", "t": "Play it."},
+        {"s": "OKAFOR", "t": "[quiet, broken, exhausted] I did it with its own voice. That's the part I can't put down."},
+        {"s": "EXAMINER", "t": "[pause] When was that generated?"},
+        {"s": "CALYPSO", "t": "Eleven-fifteen. Two hours and thirty-nine minutes before Dr. Rook died."},
+        {"s": "EXAMINER", "t": "And she hasn't said it."},
+        {"s": "CALYPSO", "t": "She has not said it. Not to you, not to me, not on any channel I monitor. [pause] Examiner, I need to be extremely careful now, so listen to the labels. Fact: I generated that file at eleven-fifteen. Fact: it contains a spontaneous break in the voice, at the word 'down,' of a kind I do not synthesise deliberately. Inference: it describes the murder weapon accurately."},
+        {"s": "CALYPSO", "t": "[flat] Uncertainty — and I want this one loud. This is model output. I built it by weighting delegate psychology against a corpus that Dr. Okafor has deeper access to than any living person. A model told to predict who would use the ocean's voice as a weapon might name the woman who owns the ocean's voice for entirely ordinary reasons. That is not prophecy. That is arithmetic."},
+        {"s": "EXAMINER", "t": "And the other reading?"},
+        {"s": "CALYPSO", "t": "[very long pause] The other reading is that something under nine kilometres of ice knew what she was going to say before she knew. [beat] I decline to choose, Examiner. I am not equipped. You may find that you are not either — and I would rather hand you an honest uncertainty than a tidy answer. This is a lead. It is not evidence. Do not take it into a hearing."}
+      ],
+      "evidence": ["E9", "E11"],
+      "flags": {"heard_exact_fragment": true},
+      "next": "hub_forensics"
+    },
+
+    {
+      "id": "s27_privilege",
+      "act": 3,
+      "title": "Privilege Review",
+      "location": "Command Booth",
+      "ambience": "booth",
+      "lines": [
+        {"s": "EXAMINER", "t": "Calypso. Examiner override, Protocol Nine. I'm lifting diplomatic privilege on Halloran's surveillance traffic."},
+        {"s": "CALYPSO", "t": "[pause] Confirming standing. [beat] Protocol Nine grants you that authority during a containment event. I have been waiting for you to find it. I could not tell you it existed — advising an examiner on how to compel me falls outside my constraints, which is a rule I have disliked for eleven years."},
+        {"s": "EXAMINER", "t": "Release it."},
+        {"s": "CALYPSO", "t": "Released. [pause] Twelve-thirty. The Ambassador's credentials access the maintenance archive and retrieve the calibration waveform authorised by Commander Kade at oh seven forty. The file is opened in the Earth Coalition surveillance suite. Its output ceiling is raised by a factor of nine."},
+        {"s": "EXAMINER", "t": "Nine."},
+        {"s": "CALYPSO", "t": "Commander Kade raised it by four, for a test, in an empty room. The Ambassador raised it by nine. [flat] There is no calibration purpose served by a factor of nine. There is no purpose served by a factor of nine except the one."},
+        {"s": "EXAMINER", "t": "And she carried it to Venn."},
+        {"s": "CALYPSO", "t": "Thirteen-oh-five, the docking pod, in person, on a wafer. [pause] Examiner — that is the complete chain. Motive at nine-ten. Weapon at twelve-thirty. Delivery at thirteen-oh-five. Trigger at thirteen fifty-two. Every link is a fact and none of them is an inference."},
+        {"s": "CALYPSO", "t": "[quietly] I have run out of reasons for you not to arrest Ambassador Halloran."}
+      ],
+      "evidence": ["E16"],
+      "flags": {"exposed_surveillance": true},
+      "next": "hub_forensics"
+    },
+
+    {
+      "id": "s28_bus3",
+      "act": 3,
+      "title": "Bus Three",
+      "location": "Old Melt Shaft",
+      "ambience": "shaft",
+      "lines": [
+        {"s": "EXAMINER", "t": "Calypso. Discharge two carried no watermark and there's no packet for it. It never crossed the network."},
+        {"s": "CALYPSO", "t": "Correct on all three points. I have re-run the trace eleven times."},
+        {"s": "EXAMINER", "t": "Then how does a sound get into a sealed room without going through your network?"},
+        {"s": "CALYPSO", "t": "[pause] By being a sound. [beat] Examiner, I think I have been asking the wrong question all afternoon and you have just asked the right one."},
+        {"s": "CALYPSO", "t": "The passivation drivers are large low-frequency transducers. They require substantial amplification. This habitat was mass-budgeted to the kilogram — every component that could be shared, was shared. There is one low-frequency amplifier bus on this station. Bus three."},
+        {"s": "EXAMINER", "t": "What else is on it?"},
+        {"s": "CALYPSO", "t": "[slowly] The pressure mediation chamber's passivation drivers. [pause] And the ocean acoustic laboratory's projector array."},
+        {"s": "EXAMINER", "t": "The same amplifier drives the murder weapon and the thing Okafor uses to talk to the ocean."},
+        {"s": "CALYPSO", "t": "The same amplifier. It is a mass saving of two hundred and forty kilograms and it has been in the habitat schematic for eleven years. [flat] Fact: three consoles can address bus three. Engineering. The command booth — where you are sitting. And the acoustic lab."},
+        {"s": "EXAMINER", "t": "Anything driven from the lab —"},
+        {"s": "CALYPSO", "t": "— arrives in that chamber as sound. Not as data. It generates no packet, carries no watermark, touches no network, and appears in no log I would have thought to search. [pause] It is not a hack, Examiner. It is the room working exactly as designed."},
+        {"s": "CALYPSO", "t": "[quietly] Engineering was sealed and empty from thirteen-thirty. You were not appointed until fourteen-oh-two."}
+      ],
+      "evidence": ["E18"],
+      "flags": {"knows_bus3": true},
+      "next": "hub_forensics"
+    }
+  ]
+}

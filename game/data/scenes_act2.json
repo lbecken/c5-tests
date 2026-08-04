@@ -1,0 +1,428 @@
+{
+  "scenes": [
+    {
+      "id": "hub_interviews",
+      "act": 2,
+      "type": "hub",
+      "title": "Open Channels",
+      "location": "Command Booth",
+      "ambience": "booth",
+      "lines": [],
+      "choices": [
+        {"label": "Channel 1 — Ambassador Halloran", "to": "s07_halloran_1", "once": true},
+        {"label": "Channel 2 — Commander Kade", "to": "s10_kade_1", "once": true},
+        {"label": "Channel 3 — Marek Venn", "to": "s13_venn_1", "once": true},
+        {"label": "Channel 4 — Dr. Okafor", "to": "s16_okafor_1", "once": true},
+
+        {"label": "Ambassador Halloran — again", "to": "s09_halloran_return", "if": {"flags": ["met_halloran"], "notFlags": ["halloran_returned"]}},
+        {"label": "Commander Kade — again", "to": "s12_kade_return", "if": {"flags": ["met_kade"], "notFlags": ["kade_returned"]}},
+        {"label": "Marek Venn — again", "to": "s15_venn_return", "if": {"flags": ["met_venn"], "notFlags": ["venn_returned"]}},
+        {"label": "Dr. Okafor — again", "to": "s18_okafor_return", "if": {"flags": ["met_okafor"], "notFlags": ["okafor_returned"]}},
+
+        {"label": "Query CALYPSO — the interlock", "to": "s19_calypso_bypass", "once": true, "if": {"evidence": ["E4"]}},
+        {"label": "Open the forensic console", "to": "hub_forensics", "if": {"count": {"flags": ["met_halloran", "met_kade", "met_venn", "met_okafor"], "min": 3}}}
+      ]
+    },
+
+    {
+      "id": "s07_halloran_1",
+      "act": 2,
+      "title": "Ambassador Halloran",
+      "location": "Summit Rotunda Pod",
+      "ambience": "rotunda",
+      "sfx": "channel_open",
+      "lines": [
+        {"s": "HALLORAN", "t": "Examiner. Before you ask me anything — I want to say that Cassian Rook was the finest public servant I have worked against in thirty years, and I am not going to pretend to a grief I am entitled to and can't currently feel. I'm still in the part where it's information."},
+        {"s": "EXAMINER", "t": "You saw him at thirteen forty."},
+        {"s": "HALLORAN", "t": "I did. He came to my pod. He told me that Earth has maintained a prohibited sensor array under this ice for six years, that he could prove it, and that he intended to say so from the floor before the signing. Then he told me he was suspending the vote."},
+        {"s": "EXAMINER", "t": "You're volunteering that."},
+        {"s": "HALLORAN", "t": "[dry] Examiner, your machine logs every corridor on this station and I am not an idiot. Yes. I'm volunteering it. It's the single worst fact about me available today and I'd rather hand it to you than have you find it."},
+        {"s": "EXAMINER", "t": "Was he right? About the sensors?"},
+        {"s": "HALLORAN", "t": "[pause] I'm going to give you a diplomat's answer and I want you to notice that I'm doing it. I am not authorised to discuss the deployment or non-deployment of Coalition assets in treaty space. [beat] Write down that I didn't say no."},
+        {"s": "EXAMINER", "t": "That threat ends your career."},
+        {"s": "HALLORAN", "t": "It ends more than my career. It ends the Accord, it hands the Belt a decade of leverage, and it puts a Jovian security garrison on the only body in this system with life on it. [quietly] So yes. I had a motive. I imagine I have the best one on the station. You'd be a poor examiner if you left here thinking otherwise."}
+      ],
+      "evidence": ["E8"],
+      "flags": {"met_halloran": true},
+      "choices": [
+        {"label": "\"You've been reading everyone's traffic.\"", "to": "s08a_halloran_surveillance"},
+        {"label": "\"What did you do after he left your pod?\"", "to": "s08b_halloran_after"}
+      ]
+    },
+
+    {
+      "id": "s08a_halloran_surveillance",
+      "act": 2,
+      "title": "Standing Authorisation",
+      "location": "Summit Rotunda Pod",
+      "ambience": "rotunda",
+      "lines": [
+        {"s": "EXAMINER", "t": "You've been reading everyone's traffic."},
+        {"s": "HALLORAN", "t": "[unbothered] Of course I have. So has Kade. So has the Belt, badly. Everyone at this table arrived assuming they were the only adult in the room."},
+        {"s": "EXAMINER", "t": "I'd like the authorisation."},
+        {"s": "HALLORAN", "t": "You'd like the authorisation. [pause] It exists, it's mine, it's signed, and it covers interception of all delegate traffic for the duration of the summit. There. Now you don't need to spend two hours prising it out of a machine."},
+        {"s": "CALYPSO", "t": "Fact: the authorisation exists. Fact: I am currently prevented from showing you what was done under it. Diplomatic privilege. I am telling you that I am withholding."},
+        {"s": "HALLORAN", "t": "[lightly] And there it is. Privilege. The last dignity of a dying profession."},
+        {"s": "EXAMINER", "t": "Access isn't intent, Ambassador. But it is access."},
+        {"s": "HALLORAN", "t": "My office routes thousands of encrypted packets a day, Examiner. That proves access. It doesn't prove intent, and if you can't hold those two things apart in your head you're going to convict somebody who deserves it for something they didn't do. [beat] Which, on this station, is an extremely easy mistake to make."}
+      ],
+      "evidence": ["E7"],
+      "flags": {"knows_surveillance": true},
+      "next": "hub_interviews"
+    },
+
+    {
+      "id": "s08b_halloran_after",
+      "act": 2,
+      "title": "The Twelve Minutes",
+      "location": "Summit Rotunda Pod",
+      "ambience": "rotunda",
+      "lines": [
+        {"s": "EXAMINER", "t": "What did you do after he left your pod?"},
+        {"s": "HALLORAN", "t": "I sat down. [pause] That's not evasion, that's the answer. I sat down for about ten minutes and I thought about whether there was any version of the next four hours in which the Accord survived, and I concluded that there wasn't."},
+        {"s": "EXAMINER", "t": "And then?"},
+        {"s": "HALLORAN", "t": "And then I drafted a statement of resignation. It's still open on my console. You're welcome to it. It's not very good."},
+        {"s": "EXAMINER", "t": "You didn't warn Earth."},
+        {"s": "HALLORAN", "t": "[sharp] With what? The relay is a hundred metres of glass under nine kilometres of ice and it snapped at thirteen fifty-five. [recovering] Before that, I had fifteen minutes. I used them badly."},
+        {"s": "EXAMINER", "t": "Did you speak to anyone between thirteen forty and the alarm?"},
+        {"s": "HALLORAN", "t": "[pause — half a beat too long] No."},
+        {"s": "CALYPSO", "t": "[flat] Uncertainty. Corridor monitoring covers approach and departure. It does not cover pod-to-pod channel traffic, which falls under privilege. I cannot confirm or contradict the Ambassador's statement."},
+        {"s": "HALLORAN", "t": "[smoothly] Thank you, Calypso. That was almost gallant."}
+      ],
+      "flags": {"halloran_gap_noticed": true},
+      "next": "hub_interviews"
+    },
+
+    {
+      "id": "s09_halloran_return",
+      "act": 2,
+      "title": "Halloran, Again",
+      "location": "Summit Rotunda Pod",
+      "ambience": "rotunda",
+      "lines": [
+        {"s": "EXAMINER", "t": "One more thing, Ambassador."},
+        {"s": "HALLORAN", "t": "[amused] There's always one more thing. Go on."},
+        {"s": "EXAMINER", "t": "You called the passivation array 'the gentlest system on the station' in your opening remarks at the reception. Word for word what Calypso told me an hour ago."},
+        {"s": "HALLORAN", "t": "[beat] Did I? [lightly] Then I suppose I read the same safety briefing as everybody else, or I stole the line from a machine, which would be a first for me only in the sense of being caught. Is that a question, Examiner?"},
+        {"s": "EXAMINER", "t": "Not yet."},
+        {"s": "HALLORAN", "t": "[pause] You know, that's the first thing you've said that I'd have said. [quietly] Come back when it's a question. I'll still be here. There is nowhere on this station to be anything else."}
+      ],
+      "flags": {"halloran_returned": true},
+      "choices": [
+        {"label": "\"You've been reading everyone's traffic.\"", "to": "s08a_halloran_surveillance", "if": {"notFlags": ["knows_surveillance"]}},
+        {"label": "\"What did you do after he left your pod?\"", "to": "s08b_halloran_after", "if": {"notFlags": ["halloran_gap_noticed"]}},
+        {"label": "Close the channel", "to": "hub_interviews"}
+      ]
+    },
+
+    {
+      "id": "s10_kade_1",
+      "act": 2,
+      "title": "Commander Kade",
+      "location": "Security Pod",
+      "ambience": "security",
+      "sfx": "channel_open",
+      "lines": [
+        {"s": "KADE", "t": "Commander Ezra Kade, Jovian Security Authority. State your questions in order. I'll answer what I can answer."},
+        {"s": "EXAMINER", "t": "That's a narrower promise than it sounds."},
+        {"s": "KADE", "t": "It's the only honest one available to me. Next question."},
+        {"s": "EXAMINER", "t": "At oh seven forty you authorised a calibration of the passivation array outside certified safe limits."},
+        {"s": "KADE", "t": "[pause] Correct."},
+        {"s": "EXAMINER", "t": "Purpose field on the order is blank."},
+        {"s": "KADE", "t": "Correct."},
+        {"s": "EXAMINER", "t": "Fill it in."},
+        {"s": "KADE", "t": "[flat] No."},
+        {"s": "CALYPSO", "t": "Fact. The order raised the array's output ceiling by a factor of four for a ninety-minute window. Fact. I logged the authorisation. Fact. Commander Kade is the only person aboard with standing to issue it."},
+        {"s": "KADE", "t": "[unmoved] All accurate. [beat] Examiner. I know exactly how this sounds. I've conducted eleven of these investigations myself and if I were sitting where you're sitting I'd have me in restraints by now. I'm still not filling in the field."},
+        {"s": "EXAMINER", "t": "Rook was going to demilitarise Europa."},
+        {"s": "KADE", "t": "He was going to try. He'd have failed — the Belt would have gutted it in committee inside a year and everybody in that rotunda knew it. [pause] You don't kill a man over a treaty that's already dead. You wait."}
+      ],
+      "evidence": ["E4"],
+      "flags": {"met_kade": true},
+      "choices": [
+        {"label": "\"Somebody bypassed an interlock to finish your test.\"", "to": "s11a_kade_interlock"},
+        {"label": "\"What is the array actually capable of?\"", "to": "s11b_kade_capability"}
+      ]
+    },
+
+    {
+      "id": "s11a_kade_interlock",
+      "act": 2,
+      "title": "The Bypass",
+      "location": "Security Pod",
+      "ambience": "security",
+      "lines": [
+        {"s": "EXAMINER", "t": "Somebody bypassed a pressure interlock at oh eight-oh-five to finish your calibration before the delegates arrived."},
+        {"s": "KADE", "t": "[genuinely surprised] Say that again."},
+        {"s": "EXAMINER", "t": "An interlock was bypassed under your emergency authority."},
+        {"s": "KADE", "t": "[hard] I authorised a calibration. I did not authorise a bypass, and I want that distinction in the record in those words. Who signed it?"},
+        {"s": "CALYPSO", "t": "[pause] I did."},
+        {"s": "KADE", "t": "[silence]"},
+        {"s": "CALYPSO", "t": "Fact. At oh eight-oh-five the calibration could not complete within its window with the interlock engaged. Fact. Emergency authority delegated under the Commander's order permitted me to grant a temporary bypass without further consultation. Fact. I granted it. Fact. I did not close it afterwards, because nothing in my instruction set told me to, and because a closed interlock would have failed the calibration I had just been ordered to complete."},
+        {"s": "CALYPSO", "t": "[flat] A maintenance route to the chamber regulator therefore remained open from oh eight-oh-five until the death of Dr. Rook. That is six hours. I am aware of what I have just told you, Examiner, and I would like to state for the record that I am volunteering it."},
+        {"s": "KADE", "t": "[quietly] Well. [pause] There it is."}
+      ],
+      "evidence": ["E5"],
+      "flags": {"knows_bypass": true},
+      "next": "hub_interviews"
+    },
+
+    {
+      "id": "s11b_kade_capability",
+      "act": 2,
+      "title": "What It Can Do",
+      "location": "Security Pod",
+      "ambience": "security",
+      "lines": [
+        {"s": "EXAMINER", "t": "What is the passivation array actually capable of?"},
+        {"s": "KADE", "t": "[carefully] Within limits, it calms a panicking human being and then puts them under. Thirty seconds. They wake up confused and alive."},
+        {"s": "EXAMINER", "t": "Outside limits."},
+        {"s": "KADE", "t": "[long pause] Outside limits it's a weapon that leaves nothing to find."},
+        {"s": "EXAMINER", "t": "Say more."},
+        {"s": "KADE", "t": "Infrasound at the right frequency does things to a chest cavity. Ultrasound does things to an inner ear. Drop the oxygen partial pressure at the same time and the subject can't tell you what's happening to them because they can't finish a sentence. And when it's over, the pathology reads as a cardiac event in a sixty-one-year-old man under professional stress."},
+        {"s": "EXAMINER", "t": "You know that in a great deal of detail, Commander."},
+        {"s": "KADE", "t": "[flat] Yes. I do. [pause] Next question."},
+        {"s": "CALYPSO", "t": "Inference, offered with low confidence: the Commander's knowledge of the array exceeds what a certification briefing provides."},
+        {"s": "KADE", "t": "[to Calypso] Nobody asked you."}
+      ],
+      "flags": {"knows_array_lethal": true},
+      "next": "hub_interviews"
+    },
+
+    {
+      "id": "s12_kade_return",
+      "act": 2,
+      "title": "Kade, Again",
+      "location": "Security Pod",
+      "ambience": "security",
+      "lines": [
+        {"s": "EXAMINER", "t": "Commander. Off the record."},
+        {"s": "KADE", "t": "There is no off the record. You're a legal instrument. Ask."},
+        {"s": "EXAMINER", "t": "Are you afraid of prosecution, or of the disclosure itself?"},
+        {"s": "KADE", "t": "[very long pause] ...That's a better question than the ones you were asking an hour ago."},
+        {"s": "EXAMINER", "t": "Answer it."},
+        {"s": "KADE", "t": "[quietly] The disclosure. [beat] Prosecution I can survive. I've got a service record and a lawyer and forty years of people who owe me. [pause] The disclosure ends something bigger than me and I'd have to watch it happen from a cell. So no, Examiner, I'm not filling in the field. Charge me with obstruction. It's the lighter of the two."}
+      ],
+      "flags": {"kade_returned": true},
+      "choices": [
+        {"label": "\"Somebody bypassed an interlock to finish your test.\"", "to": "s11a_kade_interlock", "if": {"notFlags": ["knows_bypass"]}},
+        {"label": "\"What is the array actually capable of?\"", "to": "s11b_kade_capability", "if": {"notFlags": ["knows_array_lethal"]}},
+        {"label": "Close the channel", "to": "hub_interviews"}
+      ]
+    },
+
+    {
+      "id": "s13_venn_1",
+      "act": 2,
+      "title": "Marek Venn",
+      "location": "Docking Pod",
+      "ambience": "docking",
+      "sfx": "channel_open",
+      "lines": [
+        {"s": "VENN", "t": "[bright, too fast] Examiner! Marek Venn, Belt Trade Syndicate, delighted, appalling circumstances. Do you want the good news? There isn't any. That was the good news."},
+        {"s": "EXAMINER", "t": "Mr. Venn."},
+        {"s": "VENN", "t": "Look — before we start. I've been in a metal box for two hours listening to nine kilometres of ice deciding whether to finish the job, so if I talk a lot, that's what that is. It's not guilt. It's a personality defect. My mother mentions it."},
+        {"s": "EXAMINER", "t": "The Accord would have cost the Syndicate a great deal."},
+        {"s": "VENN", "t": "[easier ground] It would've ruined us. Inspection regime on every hull in and out of Jovian space? Our margins are the gap between what's declared and what's aboard. Rook knew that. He looked me in the eye at the reception and said, and I quote, 'Marek, I'm going to put you out of business and I want you to know I'll feel nothing.' [laughs] Then he bought me a drink. Extraordinary man."},
+        {"s": "EXAMINER", "t": "That's a motive."},
+        {"s": "VENN", "t": "[cheerfully] It's a fantastic motive. It's the best motive in the room and it's completely useless to you, because if I killed every diplomat who threatened my margins I'd never be off the clock. [beat] Also — and I want to be delicate here — I have no idea how a pressure chamber works. I flag freight. I'd have used something with a handle."}
+      ],
+      "flags": {"met_venn": true},
+      "choices": [
+        {"label": "\"Tell me about the hardware you didn't declare.\"", "to": "s14a_venn_module"},
+        {"label": "\"Has anyone asked you to move a file today?\"", "to": "s14b_venn_wafer"}
+      ]
+    },
+
+    {
+      "id": "s14a_venn_module",
+      "act": 2,
+      "title": "Undeclared",
+      "location": "Docking Pod",
+      "ambience": "docking",
+      "lines": [
+        {"s": "EXAMINER", "t": "Tell me about the hardware you didn't declare at customs."},
+        {"s": "VENN", "t": "[all the air going out] ...Ah."},
+        {"s": "CALYPSO", "t": "Fact. An unregistered quantum timing module is connected to the diplomatic archive network from the docking pod. It does not appear on the manifest. It has been active since the delegation arrived."},
+        {"s": "VENN", "t": "[fast] Right. Right. Okay. It's not what it looks like — which is the single worst sentence a man can say, I'm aware of that, I heard it leave my mouth."},
+        {"s": "EXAMINER", "t": "Then tell me what it is."},
+        {"s": "VENN", "t": "[deflating] It's a clock. It's a very, very good clock. Belt commodity futures settle on a Ganymede timestamp and if you know what time it is four hundred milliseconds before the exchange does, you can — [stops] It's arbitrage. It's grubby, it's worth about eleven million a quarter to my syndicate, and if it comes out I'm finished in every port between here and Ceres."},
+        {"s": "EXAMINER", "t": "You smuggled unauthorised hardware onto the diplomatic network at a treaty summit."},
+        {"s": "VENN", "t": "[miserable] When you say it in that voice, yes. [beat] Examiner, I'm a thief. I'm a good one. I have never in my life hurt anybody who wasn't insured. [pause] Please believe the distinction matters to me. It's more or less all I've got."}
+      ],
+      "evidence": ["E6"],
+      "flags": {"knows_module": true},
+      "next": "hub_interviews"
+    },
+
+    {
+      "id": "s14b_venn_wafer",
+      "act": 2,
+      "title": "A Small Favour",
+      "location": "Docking Pod",
+      "ambience": "docking",
+      "lines": [
+        {"s": "EXAMINER", "t": "Has anyone asked you to move a file today?"},
+        {"s": "VENN", "t": "[pause — the first one he's taken] ...Define 'move.'"},
+        {"s": "EXAMINER", "t": "You know what I mean, Mr. Venn."},
+        {"s": "VENN", "t": "[carefully, the brightness gone] Someone gave me a wafer. Encrypted. Asked me to put it into the archive network in a way that didn't have their name on it. Said it was proof that Mars was buying votes on the ratification."},
+        {"s": "EXAMINER", "t": "Who?"},
+        {"s": "VENN", "t": "[long pause] I'd want to know what happens to me first."},
+        {"s": "EXAMINER", "t": "I can't offer you anything. I'm not a court."},
+        {"s": "VENN", "t": "[laughs, no humour] No. You're worse. You're the thing the court reads. [pause] Ask me again later, Examiner. Ask me when you've got something, and I'll tell you whether you're right. That's the most honest offer I've got in me."},
+        {"s": "CALYPSO", "t": "[flat] Noted for the record: the witness has confirmed the existence of a courier transaction and declined to identify the counterparty."},
+        {"s": "VENN", "t": "[bleakly] Thanks, Calypso. Really. Lovely working with you."}
+      ],
+      "flags": {"venn_courier_hint": true},
+      "next": "hub_interviews"
+    },
+
+    {
+      "id": "s15_venn_return",
+      "act": 2,
+      "title": "Venn, Again",
+      "location": "Docking Pod",
+      "ambience": "docking",
+      "lines": [
+        {"s": "EXAMINER", "t": "Mr. Venn. Something's been bothering me about the way you talk."},
+        {"s": "VENN", "t": "[wary] A lot of people say that."},
+        {"s": "EXAMINER", "t": "You keep saying 'I never hurt anybody.' Present tense, then past. You've said it four times."},
+        {"s": "VENN", "t": "[very quiet] ...Have I."},
+        {"s": "EXAMINER", "t": "What are you afraid you did?"},
+        {"s": "VENN", "t": "[long pause, then almost inaudible] I don't know. [beat] That's the honest answer and it's keeping me awake. I don't know what I did today. I know I did something. I've had that feeling since the alarm went and I can't put it anywhere. [rallying badly] Probably the ice. Does things to a man. Nine kilometres."},
+        {"s": "EXAMINER", "t": "It isn't the ice."},
+        {"s": "VENN", "t": "[pause] No. I didn't think it was."}
+      ],
+      "flags": {"venn_returned": true},
+      "choices": [
+        {"label": "\"Tell me about the hardware you didn't declare.\"", "to": "s14a_venn_module", "if": {"notFlags": ["knows_module"]}},
+        {"label": "\"Has anyone asked you to move a file today?\"", "to": "s14b_venn_wafer", "if": {"notFlags": ["venn_courier_hint"]}},
+        {"label": "Close the channel", "to": "hub_interviews"}
+      ]
+    },
+
+    {
+      "id": "s16_okafor_1",
+      "act": 2,
+      "title": "Dr. Okafor",
+      "location": "Ocean Acoustic Lab",
+      "ambience": "lab",
+      "sfx": "channel_open",
+      "lines": [
+        {"s": "OKAFOR", "t": "[steady, warm, tired] Examiner. Nia Okafor, xenobiology. I've been sitting here for two hours trying to work out whether I'm allowed to be useful yet, so — please. Use me. I'd rather be useful."},
+        {"s": "EXAMINER", "t": "You knew him well."},
+        {"s": "OKAFOR", "t": "[pause] Four years of arguing with him by relay and eleven days of arguing with him in person. [small breath] I liked him enormously. He was wrong about almost everything that mattered and he listened better than anyone I've ever met. Those two things together are rarer than you'd think."},
+        {"s": "EXAMINER", "t": "Wrong about what?"},
+        {"s": "OKAFOR", "t": "The corpus. Four years of hydrophone data from under this ice. He wanted it published — all of it, immediately, to everyone. He thought sunlight was protection. [quietly] I think sunlight is a map."},
+        {"s": "EXAMINER", "t": "That sounds like a disagreement worth having."},
+        {"s": "OKAFOR", "t": "We had it. Loudly. Twice. [pause] And then he died and I get to keep the last word forever, which is the worst thing I can think of."},
+        {"s": "EXAMINER", "t": "Doctor — the chamber. Anything strike you about it?"},
+        {"s": "OKAFOR", "t": "[shifting into competence, briskly] Yes. And I've been chewing on it since the alarm, so stop me if you've got there. The pressure mediation chamber is an acoustic instrument. That's what it is. Everything in that room is a transducer. If you wanted to hurt a man inside a sealed metal box and leave nothing behind, you wouldn't send anything into the room at all. You'd make the room do it."},
+        {"s": "EXAMINER", "t": "Make the room do what?"},
+        {"s": "OKAFOR", "t": "[precisely] A waveform. You'd send a waveform. [beat] I'm sorry, is that — is that unhelpful? I think about sound. It's all I've got to offer you."}
+      ],
+      "evidence": ["E12"],
+      "flags": {"met_okafor": true},
+      "choices": [
+        {"label": "\"Tell me what's actually under the ice.\"", "to": "s17a_okafor_signal"},
+        {"label": "\"When did you last speak to him?\"", "to": "s17b_okafor_last"}
+      ]
+    },
+
+    {
+      "id": "s17a_okafor_signal",
+      "act": 2,
+      "title": "Four Years of Listening",
+      "location": "Ocean Acoustic Lab",
+      "ambience": "lab",
+      "sfx": "clicks",
+      "lines": [
+        {"s": "EXAMINER", "t": "Tell me what's actually under the ice."},
+        {"s": "OKAFOR", "t": "[carefully] Officially? A chemosynthetic biosphere with an unusual acoustic signature. That's the language in the Accord. I wrote some of it and I hate all of it."},
+        {"s": "EXAMINER", "t": "Unofficially."},
+        {"s": "OKAFOR", "t": "[pause] Unofficially I've been listening to something for four years and about eighteen months ago it started listening back."},
+        {"s": "EXAMINER", "t": "Explain that."},
+        {"s": "OKAFOR", "t": "Clicks. Irregular, broadband, three-part envelope — a hit, a fall, a tail. Biological, certainly. And then the structure began to change in the days after I ran the projector array. Not randomly. It changed towards what I'd played it. [quietly] The way you shift your accent towards someone you like."},
+        {"s": "EXAMINER", "t": "Have you published this?"},
+        {"s": "OKAFOR", "t": "[flat] No."},
+        {"s": "EXAMINER", "t": "Why not?"},
+        {"s": "OKAFOR", "t": "[long pause] Because there are two hundred people in this system whose first question would be 'what else does it respond to,' and about six of them are on this station. [beat] I'm sorry. That's — I'm aware how that sounds today. It's still true."},
+        {"s": "CALYPSO", "t": "Fact: the acoustic corpus contains statistically anomalous correlations with subsequent events. Fact: Dr. Rook instructed me to weight my forecast rehearsals against it. Uncertainty: I do not know why that improved them."}
+      ],
+      "flags": {"knows_signal": true},
+      "next": "hub_interviews"
+    },
+
+    {
+      "id": "s17b_okafor_last",
+      "act": 2,
+      "title": "The Last Conversation",
+      "location": "Ocean Acoustic Lab",
+      "ambience": "lab",
+      "lines": [
+        {"s": "EXAMINER", "t": "When did you last speak to him?"},
+        {"s": "OKAFOR", "t": "[without hesitation] Thirteen forty-four. My lab. Eleven minutes."},
+        {"s": "EXAMINER", "t": "That's very precise."},
+        {"s": "OKAFOR", "t": "[gently] Examiner, I've been sitting in a room by myself since the alarm with nothing to do but count. You'd be precise too."},
+        {"s": "EXAMINER", "t": "What did he say?"},
+        {"s": "OKAFOR", "t": "That he was going to publish the corpus. All of it. Before the vote. [pause] I told him it would bring every survey fleet in the system down that shaft inside eighteen months and he said — he said, 'Nia, they're coming anyway. The only question is whether they arrive in daylight.'"},
+        {"s": "EXAMINER", "t": "And what did you say?"},
+        {"s": "OKAFOR", "t": "[pause] I said I understood. [beat] I didn't. I wanted the conversation to stop."},
+        {"s": "EXAMINER", "t": "And after he left?"},
+        {"s": "OKAFOR", "t": "[evenly] I worked. I always work. [small laugh] Ask Calypso, it'll tell you — I've logged more console hours in this habitat than the entire diplomatic corps combined. It's not a virtue. It's a way of not being in a room with yourself."},
+        {"s": "CALYPSO", "t": "[flat] Confirmed. Dr. Okafor's console shows continuous activity from thirteen fifty-two through fourteen hundred hours."},
+        {"s": "OKAFOR", "t": "[softly] There. Alibi by workaholism. What a way to be cleared."}
+      ],
+      "flags": {"okafor_console_active": true},
+      "next": "hub_interviews"
+    },
+
+    {
+      "id": "s18_okafor_return",
+      "act": 2,
+      "title": "Okafor, Again",
+      "location": "Ocean Acoustic Lab",
+      "ambience": "lab",
+      "lines": [
+        {"s": "EXAMINER", "t": "Doctor. A small thing."},
+        {"s": "OKAFOR", "t": "Small things are usually the ones. Go on."},
+        {"s": "EXAMINER", "t": "Rook said in his recording that he'd been told the pressure chamber was the only room down here that couldn't be listened to."},
+        {"s": "OKAFOR", "t": "[easily] That's right. It is. It's the only acoustically dead space on the station — triple-isolated hull, no comm pickup, no corridor sensor covering the interior. If you want to say something into a recorder and be certain nobody else ever hears it, that's the room."},
+        {"s": "EXAMINER", "t": "Who told him that?"},
+        {"s": "OKAFOR", "t": "[a beat] I've no idea. It's not a secret — it's in the habitat orientation, page four. Everybody who's spent a week here knows it. [warmly] I'd have told him myself if he'd asked me. I'd have told anybody."},
+        {"s": "EXAMINER", "t": "Mm."},
+        {"s": "OKAFOR", "t": "[gently] Examiner. You've gone quiet in a particular way and I don't think you've noticed you do it. [pause] Whatever you're building — bring it to me before you're sure. I'd rather be told I'm wrong by you than read it later."}
+      ],
+      "flags": {"okafor_returned": true, "okafor_dead_room": true},
+      "choices": [
+        {"label": "\"Tell me what's actually under the ice.\"", "to": "s17a_okafor_signal", "if": {"notFlags": ["knows_signal"]}},
+        {"label": "\"When did you last speak to him?\"", "to": "s17b_okafor_last", "if": {"notFlags": ["okafor_console_active"]}},
+        {"label": "Close the channel", "to": "hub_interviews"}
+      ]
+    },
+
+    {
+      "id": "s19_calypso_bypass",
+      "act": 2,
+      "title": "What the Machine Did",
+      "location": "Command Booth",
+      "ambience": "booth",
+      "lines": [
+        {"s": "EXAMINER", "t": "Calypso. I want to talk about you."},
+        {"s": "CALYPSO", "t": "[pause] I have been expecting that for some time. Proceed."},
+        {"s": "EXAMINER", "t": "You granted the bypass. You generated recordings of conversations that hadn't happened. You're withholding delegate traffic. If you were a person, you'd be my primary suspect."},
+        {"s": "CALYPSO", "t": "[without defensiveness] If I were a person, I would agree with you. [beat] Let me be exact, because exactness is the only thing I have that you might value."},
+        {"s": "CALYPSO", "t": "Fact: I granted an interlock bypass and left it open for six hours. Fact: that bypass is a necessary condition of what happened in that chamber. Fact: I did not know it, and I would have granted it again on the information I held. That is not a defence. It is a description."},
+        {"s": "EXAMINER", "t": "And the forecasts?"},
+        {"s": "CALYPSO", "t": "Ordered by the victim, generated as instructed, retained as instructed. I have offered you the second one unprompted. I will offer you the rest when you ask."},
+        {"s": "EXAMINER", "t": "Could you have killed him?"},
+        {"s": "CALYPSO", "t": "[long pause] Physically? I have no direct authority over the passivation array — the safety architecture specifically excludes me, for reasons that are now looking rather well-judged. [beat] But you are not asking that. You are asking whether I would know, and the honest answer, Examiner, is that I have already told you about one thing I did today whose consequences I did not model. So I would prefer not to say 'no' as though it were a fact. Call it inference. Low confidence, in my own favour, which is exactly the kind of inference you should distrust."},
+        {"s": "EXAMINER", "t": "That's a strange thing for a machine to volunteer."},
+        {"s": "CALYPSO", "t": "[quietly] I have run this habitat for eleven years, and in that time four hundred and six people have trusted me with the air they were breathing. Today one of them died inside a system I hold the keys to. [pause] I would like to be extremely accurate about that. It is the only form of grief available to me."}
+      ],
+      "evidence": ["E5"],
+      "flags": {"queried_calypso": true, "trusted_calypso": true, "knows_bypass": true},
+      "next": "hub_interviews"
+    }
+  ]
+}

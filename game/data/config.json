@@ -1,0 +1,233 @@
+{
+  "title": "Murder at the Europa Summit",
+  "subtitle": "A radio-drama mystery, nine kilometres under the ice",
+  "start": "s01_descent",
+  "sceneFiles": [
+    "data/scenes_act1.json",
+    "data/scenes_act2.json",
+    "data/scenes_act3.json",
+    "data/scenes_act4.json",
+    "data/scenes_act5.json"
+  ],
+
+  "characters": {
+    "EXAMINER": {
+      "name": "The Examiner",
+      "role": "Neutral Incident Examiner",
+      "voice_id": "cjVigY5qzO86Huf0OWal",
+      "colour": "#c8d4e0"
+    },
+    "CALYPSO": {
+      "name": "CALYPSO",
+      "role": "Habitat Intelligence",
+      "voice_id": "SAz9YHcvj6GT2YYXdXww",
+      "colour": "#6fe3d4"
+    },
+    "ROOK": {
+      "name": "Dr. Cassian Rook",
+      "role": "Victim — architect of the Pelagos Accord",
+      "voice_id": "JBFqnCBsd6RMkjVDRZzb",
+      "colour": "#b9a06b"
+    },
+    "HALLORAN": {
+      "name": "Amb. Beatriz Halloran",
+      "role": "Earth Coalition",
+      "voice_id": "pFZP5JQG7iQjIQuC4Bku",
+      "colour": "#7fa8d9"
+    },
+    "KADE": {
+      "name": "Cmdr. Ezra Kade",
+      "role": "Jovian Security Authority",
+      "voice_id": "pNInz6obpgDQGcFmaJgB",
+      "colour": "#d98a6f"
+    },
+    "VENN": {
+      "name": "Marek Venn",
+      "role": "Belt Trade Syndicate",
+      "voice_id": "N2lVS1w4EtoT3dr4eOWO",
+      "colour": "#c9a3d9"
+    },
+    "OKAFOR": {
+      "name": "Dr. Nia Okafor",
+      "role": "Europa Xenobiology Lead",
+      "voice_id": "EXAVITQu4vr4xnSDxMaL",
+      "colour": "#8fd98a"
+    }
+  },
+
+  "ambience": {
+    "booth": {
+      "file": "audio/ambience/booth.mp3",
+      "label": "Command Booth",
+      "prompt": "Quiet spacecraft control room ambience, low console hum, occasional soft electronic beep, distant ventilation, no music"
+    },
+    "booth_emergency": {
+      "file": "audio/ambience/booth_emergency.mp3",
+      "label": "Command Booth — Emergency",
+      "prompt": "Emergency control room, low urgent alarm tone repeating slowly, structural stress groans, console hum, distant metal strain, no music"
+    },
+    "chamber": {
+      "file": "audio/ambience/chamber.mp3",
+      "label": "Pressure Mediation Chamber",
+      "prompt": "Small metal pressure chamber interior, rhythmic regulator pulse like a slow heartbeat, valve clicks, compressed air hiss, tight metallic resonance, no music"
+    },
+    "lab": {
+      "file": "audio/ambience/lab.mp3",
+      "label": "Ocean Acoustic Lab",
+      "prompt": "Underwater hydrophone recording, deep ocean wash, distant ice cracking, faint irregular biological clicks, vast cold space, no music"
+    },
+    "rotunda": {
+      "file": "audio/ambience/rotunda.mp3",
+      "label": "Summit Rotunda Pod",
+      "prompt": "Large empty diplomatic hall, broad soft reverberation, muted ventilation, very distant machinery, dignified stillness, no music"
+    },
+    "security": {
+      "file": "audio/ambience/security.mp3",
+      "label": "Security Pod",
+      "prompt": "Tight military operations room, dry hard surfaces, steady cooling fan hum, faint radio static, clipped equipment ticks, no music"
+    },
+    "docking": {
+      "file": "audio/ambience/docking.mp3",
+      "label": "Docking Pod",
+      "prompt": "Industrial docking bay in a submerged station, resonant metal hull, distant clanks and cable strain, low pressure hum, no music"
+    },
+    "archive": {
+      "file": "audio/ambience/archive.mp3",
+      "label": "Archive Core",
+      "prompt": "Clean digital archive room, very quiet, periodic soft clock synchronisation tone, faint data storage whirr, sterile air, no music"
+    },
+    "shaft": {
+      "file": "audio/ambience/shaft.mp3",
+      "label": "Old Melt Shaft",
+      "prompt": "Deep vertical ice shaft, dripping condensation echoing, cable creaking under strain, distant water movement, cold hollow space, no music"
+    },
+    "silence": {
+      "file": null,
+      "label": "—",
+      "prompt": null
+    }
+  },
+
+  "sfx": {
+    "quake": {
+      "file": "audio/sfx/quake.mp3",
+      "prompt": "Massive ice quake shockwave through a submerged metal station, deep rumble, hull boom, debris, alarm triggering",
+      "duration": 6
+    },
+    "discharge1": {
+      "file": "audio/sfx/discharge1.mp3",
+      "prompt": "Three pulse mechanical infrasound burst, symmetrical and machine regular, deep sub bass throb with ultrasonic shimmer, cold and clinical",
+      "duration": 5
+    },
+    "discharge2": {
+      "file": "audio/sfx/discharge2.mp3",
+      "prompt": "Three pulse organic infrasound burst, asymmetrical uneven decay, deep biological click structure, wet resonant sub bass, alive and wrong",
+      "duration": 5
+    },
+    "clicks": {
+      "file": "audio/sfx/clicks.mp3",
+      "prompt": "Isolated hydrophone recording of irregular biological clicking patterns underwater, rhythmic and almost conversational, deep ocean",
+      "duration": 8
+    },
+    "seal": {
+      "file": "audio/sfx/seal.mp3",
+      "prompt": "Heavy pressure door sealing and locking from inside, hydraulic clamp, bolts driving home, pressure equalising hiss",
+      "duration": 4
+    },
+    "tone": {
+      "file": "audio/sfx/tone.mp3",
+      "prompt": "Single clean archival clock synchronisation tone, digital, cold, brief",
+      "duration": 2
+    },
+    "evidence": {
+      "file": "audio/sfx/evidence.mp3",
+      "prompt": "Short soft confirmation chime for a console interface, two notes, cold and clean",
+      "duration": 2
+    },
+    "channel_open": {
+      "file": "audio/sfx/channel_open.mp3",
+      "prompt": "Comm channel opening, brief carrier hiss and soft click, radio connection established",
+      "duration": 2
+    },
+    "channel_close": {
+      "file": "audio/sfx/channel_close.mp3",
+      "prompt": "Comm channel closing, soft click and carrier hiss dying away",
+      "duration": 2
+    }
+  },
+
+  "evidence": {
+    "E1":  {"name": "Chamber entry log", "cat": "physical", "text": "Rook entered the Pressure Mediation Chamber alone at 13:51:40 and sealed it from inside. The exterior corridor was continuously monitored. Nobody entered or left."},
+    "E2":  {"name": "Medical telemetry", "cat": "physical", "text": "Death by synchronised arrhythmia and cerebral disruption at 14:06 — reclassified to 13:54:06. Accompanied by a short drop in oxygen partial pressure. Rook carried a subdermal cardiac assist unit fitted in 2091."},
+    "E3":  {"name": "Regulator pulse log", "cat": "physical", "text": "The chamber's passivation drivers show a three-part acoustic discharge preceding the collapse. Raw log, unanalysed."},
+    "E4":  {"name": "Kade's calibration order", "cat": "access", "text": "07:40 — Cmdr. Kade authorised calibration of the Passivation Array outside certified safe limits. Purpose field left blank."},
+    "E5":  {"name": "Interlock bypass record", "cat": "access", "text": "08:05 — CALYPSO granted a pressure interlock bypass under Kade's emergency authority. The bypass was never closed. A maintenance route to the regulator remained open all day."},
+    "E6":  {"name": "Timing module manifest", "cat": "access", "text": "Unregistered quantum timing module aboard, connected to the diplomatic archive network. Owner: Marek Venn. Not declared at customs."},
+    "E7":  {"name": "Surveillance authorisation", "cat": "access", "text": "Standing Earth Coalition authorisation, signed by Amb. Halloran, permitting interception of all delegate traffic for the duration of the summit."},
+    "E8":  {"name": "Rook / Halloran confrontation", "cat": "motive", "text": "13:40 — Rook informs Halloran he will expose Earth's prohibited sensor grid on the floor before the signing, and suspend the ratification vote."},
+    "E9":  {"name": "Forecast rehearsal FR-1", "cat": "forecast", "text": "A CALYPSO-generated predictive reconstruction of a Kade interview. Resembles the real conversation for two exchanges, then diverges completely. Simulation."},
+    "E10": {"name": "Forecast rehearsal FR-2", "cat": "forecast", "text": "Contains the Examiner's final accusation, generated before the Examiner was appointed. The killer's name is absent — the model could not resolve it."},
+    "E11": {"name": "Forecast rehearsal FR-3", "cat": "forecast", "text": "Generated 11:15, before the murder. Contains one line later spoken word for word, including a spontaneous break in the voice. The voice is Dr. Okafor's. Inadmissible as proof. Not meaningless."},
+    "E12": {"name": "Hydrophone corpus", "cat": "signal", "text": "Four years of recordings from beneath the ice. Irregular biological clicking with a repeating three-part envelope. Okafor's life's work."},
+    "E13": {"name": "Packet trace", "cat": "physical", "text": "13:05 courier wafer → 13:17 Venn's timing module → 13:22 regulator staged-waveform buffer. Origin resolves to Halloran's private signing key."},
+    "E14": {"name": "Acoustic watermark", "cat": "physical", "text": "Discharge 1 carries an Earth Coalition surveillance-tooling integrity stamp. Any file processed by that tooling is stamped automatically. Halloran did not know."},
+    "E15": {"name": "Rook's final draft", "cat": "motive", "text": "Unsent. The treaty must be delayed, Earth's programme exposed, and the acoustic corpus published in full so that no single faction can own it."},
+    "E16": {"name": "CALYPSO privilege log", "cat": "access", "text": "Diplomatic privilege suppressed Halloran's surveillance commands from ordinary search. Released under examiner override."},
+    "E17": {"name": "TWO DISCHARGES", "cat": "key", "text": "The regulator log contains two three-part discharges, not one. 13:52:18 and 13:53:44 — eighty-six seconds apart. Rook died after the second. The first was rejected by his cardiac implant."},
+    "E18": {"name": "Amplifier Bus 3", "cat": "key", "text": "A single shared low-frequency amplifier bus feeds both the chamber's passivation drivers and the Ocean Acoustic Lab's projector array. Three consoles can address it: Engineering, Command Booth, Acoustic Lab. Anything driven from the lab arrives as sound, not as data."},
+    "E19": {"name": "Trial 14", "cat": "key", "text": "A deleted experiment log. The organism modifies its clicks in response to recorded human speech. Recovered fragments also record the researcher's own heart rate destabilising during long exposure."},
+    "E20": {"name": "Implant filter response", "cat": "key", "text": "Rook's cardiac unit rejects entrainment across the standard passivation band. Discharge 2 sits deliberately beneath it, with stochastic jitter the filter cannot lock onto. Whoever built it had the filter's response curve — from the summit medical roster, co-signed by Dr. Okafor."},
+    "E21": {"name": "Harmonic provenance", "cat": "key", "text": "Discharge 2's envelope is asymmetrical with an organic decay. It matches the click structure in the hydrophone corpus to within measurement error. The weapon was built out of the organism's own voice."}
+  },
+
+  "deductions": {
+    "method": {
+      "prompt": "How did the killing waveform reach a chamber sealed from the inside?",
+      "options": {
+        "network": "Over the diplomatic network, into the regulator's staged buffer",
+        "bus3": "As sound, over shared amplifier Bus 3, from the Acoustic Lab",
+        "manual": "Loaded by hand at the chamber's own panel before Rook entered",
+        "quake": "The icequake shook the array into a resonant discharge"
+      },
+      "correct": "bus3"
+    },
+    "killer": {
+      "prompt": "Who killed Cassian Rook?",
+      "options": {
+        "halloran": "Ambassador Beatriz Halloran",
+        "kade": "Commander Ezra Kade",
+        "venn": "Marek Venn",
+        "okafor": "Dr. Nia Okafor",
+        "calypso": "CALYPSO",
+        "none": "The evidence does not support an accusation"
+      },
+      "correct": "okafor"
+    },
+    "motive": {
+      "prompt": "Why was he killed?",
+      "options": {
+        "silence": "To silence him before he could expose Earth's sensor grid",
+        "martyr": "To martyr him — so the summit would collapse and Europa be sealed",
+        "profit": "To protect transport margins threatened by the Accord",
+        "career": "To bury an unauthorised weapons evaluation"
+      },
+      "correct": "martyr"
+    },
+    "recordings": {
+      "prompt": "What are the forecast recordings?",
+      "options": {
+        "simulation": "Simulations. All of them, without exception.",
+        "prediction": "Genuine prediction. Something under the ice knows what we will say.",
+        "forgery": "Deliberate forgeries, planted to misdirect the investigation",
+        "mixed": "Mostly simulations. One fragment is not explained, and I will not pretend it is."
+      },
+      "correct": "mixed"
+    }
+  },
+
+  "endings": {
+    "A": {"id": "A", "title": "The Signal in the Blood", "scene": "e_A_signal"},
+    "B": {"id": "B", "title": "A Clean Verdict",        "scene": "e_B_verdict"},
+    "C": {"id": "C", "title": "Deep Silence",           "scene": "e_C_silence"}
+  }
+}

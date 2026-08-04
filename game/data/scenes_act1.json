@@ -1,0 +1,140 @@
+{
+  "scenes": [
+    {
+      "id": "s01_descent",
+      "act": 1,
+      "title": "Emergency Under the Ice",
+      "location": "Command Booth",
+      "ambience": "booth_emergency",
+      "sfx": "quake",
+      "lines": [
+        {"s": "CALYPSO", "t": "[urgent] Structural event. Structural event. All delegates to isolation pods. This is not a drill."},
+        {"s": "CALYPSO", "t": "Ice shear at the ascent shaft, nine kilometres of column above us. The shaft is gone. High-bandwidth relay to Ganymede is gone. Rescue estimate, six hours, and I would not build a plan on that number."},
+        {"s": "CALYPSO", "t": "[measured] Nereid Conference Habitat is sealed and stable. Life support nominal. Eight souls aboard. [pause] Correction. Seven souls aboard, and one body."},
+        {"s": "CALYPSO", "t": "At fourteen hundred and two hours, Dr. Cassian Rook was found dead in the pressure mediation chamber. The chamber was sealed from the inside. It is still sealed. I cannot open it, and neither can anyone else on this station."},
+        {"s": "CALYPSO", "t": "[quietly] He was to sign the Pelagos Accord in four hours. He wrote it. Every word of it."}
+      ],
+      "next": "s02_appointment"
+    },
+
+    {
+      "id": "s02_appointment",
+      "act": 1,
+      "title": "The Neutral Party",
+      "location": "Command Booth",
+      "ambience": "booth_emergency",
+      "sfx": "channel_open",
+      "lines": [
+        {"s": "CALYPSO", "t": "Examiner. Your channel is live. You are hearing me from the operations booth, and you will be hearing everything from the operations booth, because habitat protocol will not let you walk the corridors during a containment event."},
+        {"s": "EXAMINER", "t": "Understood. Why me?"},
+        {"s": "CALYPSO", "t": "Because you are affiliated with no signatory faction, and because there is nobody else. Emergency Protocol Nine appoints the ranking neutral party as incident examiner. That is you. It took effect eleven minutes ago."},
+        {"s": "EXAMINER", "t": "Then let's establish what you are. Can you lie to me?"},
+        {"s": "CALYPSO", "t": "[pause] No. I cannot state a false system fact. I can withhold. Diplomatic privilege binds me on certain delegate traffic, and when I am withholding, I will tell you that I am withholding. That is the arrangement."},
+        {"s": "CALYPSO", "t": "I will also label what I give you. Fact. Inference. Uncertainty. If I say a thing is inference and you write it down as fact, that is your error and not mine."},
+        {"s": "EXAMINER", "t": "And will you tell me who did it?"},
+        {"s": "CALYPSO", "t": "[long pause] No. I will tell you what is true. Deciding what it means is the entire content of your job, Examiner, and I am not permitted to take it from you."}
+      ],
+      "evidence": [],
+      "next": "s03_chamber"
+    },
+
+    {
+      "id": "s03_chamber",
+      "act": 1,
+      "title": "The Impossible Room",
+      "location": "Pressure Mediation Chamber",
+      "ambience": "chamber",
+      "sfx": "seal",
+      "lines": [
+        {"s": "EXAMINER", "t": "Walk me through the room."},
+        {"s": "CALYPSO", "t": "Pressure mediation chamber. Two point four metres by three. A pressure-rated door with a manual internal seal — a wheel, not a code. Once it is turned from inside, no external authority opens it. Not mine. Not Commander Kade's. It is a design decision from a century of drowned engineers."},
+        {"s": "CALYPSO", "t": "Fact. At thirteen fifty-one and forty seconds, Dr. Rook entered alone and sealed the door behind him. Fact. The exterior corridor was under continuous monitoring from thirteen-twenty until the body was found. Nobody approached. Nobody left."},
+        {"s": "EXAMINER", "t": "Weapon?"},
+        {"s": "CALYPSO", "t": "None. No projectile, no blade, no toxin in the atmosphere, no thermal event, no decompression. The chamber is intact and the air in it is breathable. I have run the panel four times. The room did nothing wrong."},
+        {"s": "EXAMINER", "t": "Then what is a pressure mediation chamber actually for?"},
+        {"s": "CALYPSO", "t": "It is where we put people who are about to drown, to stop them fighting us. It houses the passivation array — infrasound, ultrasound, and a controlled dip in oxygen partial pressure. Within safe limits it renders a panicking human calm and then briefly unconscious, so that we can save them."},
+        {"s": "CALYPSO", "t": "[flatly] It is the gentlest system on this station. I want that on the record before we go any further."}
+      ],
+      "evidence": ["E1"],
+      "next": "s04_final_recording"
+    },
+
+    {
+      "id": "s04_final_recording",
+      "act": 1,
+      "title": "The Last Recording",
+      "location": "Archive Core",
+      "ambience": "archive",
+      "sfx": "tone",
+      "lines": [
+        {"s": "CALYPSO", "t": "He was recording when he died. The file is two minutes and twenty-six seconds. I have not edited it. Examiner — it is not pleasant."},
+        {"s": "EXAMINER", "t": "Play it."},
+        {"s": "ROOK", "t": "Personal declaration. Cassian Rook. Thirteen fifty-one. I am recording in the pressure mediation chamber because I am told it is the only room down here that cannot be listened to. [pause] I hope that is true. I have stopped assuming things are true today."},
+        {"s": "ROOK", "t": "At oh nine hundred I confirmed that the Earth Coalition has maintained an array of prohibited military sensors beneath this ice for six years. I intend to say so, on the floor, before the signing. I have told the Ambassador as much, to her face. I owed her that and nothing more."},
+        {"s": "ROOK", "t": "I also intend to suspend the ratification vote and publish the acoustic corpus in full. Dr. Okafor will not forgive me for the second one. She will believe I am handing her ocean to the—"},
+        {"s": "ROOK", "t": "[confused, slurring, breathing hard] ...handing. Handing it to the. [breath] Something is wrong with the air. Calypso? Calypso, the air has gone — it has gone thick, it is —"},
+        {"s": "ROOK", "t": "[slurred, fading] ...regulator is running. I can hear it running and it should not be —"},
+        {"s": "ROOK", "t": "[clearer, frightened, lucid] All right. All right. That was the passivation array. Someone has put a waveform in my chamber. [breathing] I am awake. I am still awake. Whatever that was — it did not hold."},
+        {"s": "ROOK", "t": "[urgent] Calypso, log this. Someone attempted to passivate this chamber. I do not know the time. Log it. If I do not come out of this room, it was not an accident, and it was not my heart—"},
+        {"s": "ROOK", "t": "[small, surprised, quiet] Oh. [pause] Oh, that is not the same."}
+      ],
+      "evidence": ["E15"],
+      "flags": {"heard_final_recording": true},
+      "next": "s05_forecast"
+    },
+
+    {
+      "id": "s05_forecast",
+      "act": 1,
+      "title": "A Conversation That Has Not Happened",
+      "location": "Archive Core",
+      "ambience": "archive",
+      "sfx": "tone",
+      "lines": [
+        {"s": "EXAMINER", "t": "He said someone put a waveform in his chamber. Did you log it?"},
+        {"s": "CALYPSO", "t": "I logged it. I am going to give you something else first, because if I do not give it to you now you will not believe anything I say afterwards."},
+        {"s": "CALYPSO", "t": "At eleven fifteen this morning, Dr. Rook instructed me to generate forecast rehearsals. Predictive reconstructions of conversations that had not yet taken place, built from delegate behavioural models weighted against the hydrophone corpus. He wanted to know how the summit would go. I made eleven of them."},
+        {"s": "EXAMINER", "t": "Simulations."},
+        {"s": "CALYPSO", "t": "That is the correct word and I would like it to stay the correct word. Rehearsal number two. Generated eleven-fifteen. Three hours before you were appointed."},
+        {"s": "EXAMINER", "t": "I have the mechanism, I have the access, and I have the reason. I am naming the person who killed Cassian Rook. It was—"},
+        {"s": "CALYPSO", "t": "[flat] The file ends there. The model could not resolve the name."},
+        {"s": "EXAMINER", "t": "[pause] That is my voice."},
+        {"s": "CALYPSO", "t": "Yes."},
+        {"s": "EXAMINER", "t": "You had never heard my voice at eleven-fifteen."},
+        {"s": "CALYPSO", "t": "[long pause] No. I had not. [beat] Inference: the model extrapolated a plausible neutral examiner from protocol requirements. Uncertainty: it should not have got the timbre right. I have no explanation for the timbre, Examiner, and I would rather say that plainly than dress it up."}
+      ],
+      "evidence": ["E10"],
+      "flags": {"heard_forecast": true},
+      "next": "s06_first_leads"
+    },
+
+    {
+      "id": "s06_first_leads",
+      "act": 1,
+      "title": "Where To Begin",
+      "location": "Command Booth",
+      "ambience": "booth",
+      "lines": [
+        {"s": "CALYPSO", "t": "Seven people are awake in seven sealed pods and every one of them can hear the ice working on the hull. That is not a condition that improves with time."},
+        {"s": "CALYPSO", "t": "You have channel authority over all of them. You also have the archive, the medical record, and me. Where would you like to start?"}
+      ],
+      "choices": [
+        {
+          "label": "The chamber itself — what the array actually did",
+          "to": "s20_regulator",
+          "sets": {"lead_technical": true}
+        },
+        {
+          "label": "The people — start talking to delegates",
+          "to": "hub_interviews",
+          "sets": {"lead_human": true}
+        },
+        {
+          "label": "The body — what killed him, physically",
+          "to": "s19_medical",
+          "sets": {"lead_medical": true}
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Murder at the Europa Summit</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ---------------------------------------------------------------- title -->
+<div id="titlecard" class="overlay">
+  <div class="titlebox">
+    <div class="pretitle">NEREID CONFERENCE HABITAT &middot; EUROPA &middot; 2097</div>
+    <h1>Murder at the<br>Europa Summit</h1>
+    <div class="tagline">A radio-drama mystery, nine kilometres under the ice.</div>
+    <p class="blurb">
+      The architect of the Pelagos Accord is dead inside a chamber that could only be
+      sealed from within. An icequake has cut the shaft. Seven people are awake in seven
+      sealed pods, and you are the only one with nothing to gain.
+    </p>
+    <p class="blurb dim">
+      Headphones recommended. Roughly 40 minutes. It is meant to be difficult &mdash;
+      most examiners close the wrong case.
+    </p>
+    <div class="titlebtns">
+      <button id="btn-begin" class="primary">Begin the examination</button>
+      <button id="btn-continue" class="ghost hidden">Resume</button>
+    </div>
+    <div class="credits">Voices generated with ElevenLabs v3 dialogue mode.</div>
+  </div>
+</div>
+
+<!-- ----------------------------------------------------------------- game -->
+<div id="game" class="hidden">
+
+  <header id="topbar">
+    <div class="loc">
+      <span id="loc-name">&mdash;</span>
+      <span id="act-name" class="dim"></span>
+    </div>
+    <div class="topctl">
+      <button id="btn-case" class="ghost sm">Case file <span id="ev-count">0</span></button>
+      <button id="btn-subs" class="ghost sm" title="Toggle subtitles">Subtitles: on</button>
+      <button id="btn-menu" class="ghost sm">Menu</button>
+    </div>
+  </header>
+
+  <main id="stage">
+    <div id="scene-title"></div>
+
+    <div id="subtitle">
+      <div id="sub-speaker"></div>
+      <div id="sub-text"></div>
+    </div>
+
+    <div id="transcript" aria-live="polite"></div>
+
+    <div id="choices"></div>
+
+    <!-- deduction board -->
+    <div id="board" class="hidden">
+      <h2>Findings of the Neutral Incident Examiner</h2>
+      <p class="dim">All four. The record is closed on what you write here.</p>
+      <div id="board-questions"></div>
+      <button id="btn-submit-board" class="primary" disabled>Enter the finding</button>
+    </div>
+
+    <!-- policy -->
+    <div id="policy" class="hidden">
+      <h2>Recommendation on the instrument</h2>
+      <div id="policy-options"></div>
+    </div>
+
+    <!-- epilogue -->
+    <div id="epilogue" class="hidden"></div>
+  </main>
+
+  <footer id="playbar">
+    <button id="btn-play" class="ghost sm" title="Pause / resume">Pause</button>
+    <button id="btn-replay" class="ghost sm">Replay</button>
+    <button id="btn-skip" class="ghost sm">Skip &raquo;</button>
+    <div id="progress"><div id="progress-fill"></div></div>
+    <span id="time" class="dim mono">0:00</span>
+    <label class="vol" title="Volume">
+      <input id="vol" type="range" min="0" max="100" value="85">
+    </label>
+  </footer>
+</div>
+
+<!-- ------------------------------------------------------------ case file -->
+<div id="casefile" class="overlay hidden">
+  <div class="panel">
+    <div class="panelhead">
+      <h2>Case File</h2>
+      <button id="btn-case-close" class="ghost sm">Close</button>
+    </div>
+    <div id="case-body"></div>
+  </div>
+</div>
+
+<!-- ----------------------------------------------------------------- menu -->
+<div id="menu" class="overlay hidden">
+  <div class="panel narrow">
+    <div class="panelhead">
+      <h2>Menu</h2>
+      <button id="btn-menu-close" class="ghost sm">Close</button>
+    </div>
+    <div class="menubody">
+      <button id="btn-restart" class="ghost">Restart the examination</button>
+      <button id="btn-wipe" class="ghost danger">Erase saved progress</button>
+      <p class="dim small">
+        Progress saves automatically. The murder is solvable from the audio alone;
+        the case file is a convenience, not a crutch.
+      </p>
+    </div>
+  </div>
+</div>
+
+<audio id="a-dialogue"></audio>
+<audio id="a-amb-a" loop></audio>
+<audio id="a-amb-b" loop></audio>
+<audio id="a-sfx"></audio>
+
+<script src="engine.js"></script>
+</body>
+</html>

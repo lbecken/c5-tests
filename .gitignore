@@ -3,3 +3,8 @@ node_modules/
 *.log
 .vscode/
 .idea/
+
+# audio production intermediates
+game/audio/.tmp/
+game/data/.audio_cache.json
+__pycache__/

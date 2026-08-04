@@ -1,0 +1,299 @@
+{
+  "scenes": [
+    {
+      "id": "hub_pressure",
+      "act": 4,
+      "type": "hub",
+      "title": "Pressure",
+      "location": "Command Booth",
+      "ambience": "booth",
+      "lines": [],
+      "choices": [
+        {"label": "Confront Ambassador Halloran", "to": "s29_halloran_break", "if": {"evidence": ["E14"]}, "once": true},
+        {"label": "Tell Venn what he carried", "to": "s31_venn_breaks", "if": {"evidence": ["E13"]}, "once": true},
+        {"label": "Break Commander Kade", "to": "s32_kade_truth", "if": {"evidence": ["E4"]}, "once": true},
+        {"label": "Recover the deleted laboratory logs", "to": "s33_trial14", "if": {"evidence": ["E21"]}, "once": true},
+        {"label": "Who held Rook's implant specification?", "to": "s34_roster", "if": {"evidence": ["E17"]}, "once": true},
+        {"label": "Put it to Dr. Okafor", "to": "s35_okafor_press", "if": {"evidence": ["E17"]}, "once": true},
+
+        {"label": "Back to the forensic console", "to": "hub_forensics"},
+        {"label": "Back to the channels", "to": "hub_interviews"},
+        {"label": "Convene the hearing — I am ready to name someone", "to": "s37_theory"}
+      ]
+    },
+
+    {
+      "id": "s29_halloran_break",
+      "act": 4,
+      "title": "The Ambassador Surrenders",
+      "location": "Summit Rotunda Pod",
+      "ambience": "rotunda",
+      "sfx": "channel_open",
+      "lines": [
+        {"s": "EXAMINER", "t": "Ambassador. At twelve-thirty you pulled Commander Kade's calibration waveform out of the maintenance archive and ran it through the Earth Coalition surveillance suite. You raised its ceiling by a factor of nine. At thirteen-oh-five you handed it to Marek Venn on a wafer and told him it was proof that Mars was buying votes."},
+        {"s": "HALLORAN", "t": "[silence]"},
+        {"s": "EXAMINER", "t": "Your tooling signs everything it touches, Ambassador. It's been signing your name all afternoon."},
+        {"s": "HALLORAN", "t": "[a long breath] ...Does it. [pause] Twenty-six years of using that suite and nobody ever told me that. [almost amused] I suppose nobody expected it to be read by anyone who wasn't us."},
+        {"s": "EXAMINER", "t": "I'd like your account."},
+        {"s": "HALLORAN", "t": "[steady, unhurried] You'll have it. All of it, and quickly, because I've watched enough of these to know that the slow ones go worse. [beat] Yes. I built it. I took Kade's file, I raised it past anything survivable, I gave it to a Belt smuggler who'd route anything for anyone, and I armed it to fire when that chamber door sealed. I did all of that between twelve-thirty and thirteen-oh-five, alone, and nobody helped me."},
+        {"s": "EXAMINER", "t": "Why?"},
+        {"s": "HALLORAN", "t": "[precisely] Because at nine-ten this morning I learned that Cassian intended to stand up in that rotunda and hand the Belt and the Jovians a six-year record of Earth violating a treaty we wrote. [pause] Not the Accord — that was the least of it. He'd have taken the sensor grid public and every hull in this system would have been at Europa inside a year, armed, arguing about who owned an ocean. He thought sunlight was protection. He was a good man and he was about to start a war out of decency."},
+        {"s": "EXAMINER", "t": "So you killed him."},
+        {"s": "HALLORAN", "t": "[quietly, without hesitation] Yes. [pause] Write it down, Examiner. I killed Cassian Rook. I'd like that said in my own voice and on the record before anybody offers me a lawyer or a flag to stand in front of."},
+        {"s": "CALYPSO", "t": "[flat] Recorded. Fourteen fifty-one. Full confession, unprompted, uncoerced, in the presence of the appointed examiner."}
+      ],
+      "flags": {"halloran_confessed": true},
+      "choices": [
+        {"label": "Accept the confession. Close the case.", "to": "s30b_halloran_accepted", "note": "It is complete. It is consistent. It is signed."},
+        {"label": "\"Account for the eighty-six seconds.\"", "to": "s30_halloran_gap", "if": {"evidence": ["E17"]}, "note": "She has not mentioned them."},
+        {"label": "\"Which of you told him the chamber couldn't be listened to?\"", "to": "s30c_halloran_room"}
+      ]
+    },
+
+    {
+      "id": "s30_halloran_gap",
+      "act": 4,
+      "title": "Eighty-Six Seconds, Ambassador",
+      "location": "Summit Rotunda Pod",
+      "ambience": "rotunda",
+      "lines": [
+        {"s": "EXAMINER", "t": "Before I write it down. Account for the eighty-six seconds."},
+        {"s": "HALLORAN", "t": "[pause] I'm sorry?"},
+        {"s": "EXAMINER", "t": "Your waveform fired at thirteen fifty-two and eighteen seconds. Rook died at thirteen fifty-four and six seconds. That's a minute and twenty-six seconds in between, and for all of it he was awake, lucid, and dictating a description of what had just been done to him. Account for them."},
+        {"s": "HALLORAN", "t": "[silence — five seconds]"},
+        {"s": "EXAMINER", "t": "Ambassador."},
+        {"s": "HALLORAN", "t": "[carefully now, for the first time] ...It fired when the door sealed. That's how I built it. That's what I paid for."},
+        {"s": "EXAMINER", "t": "It fired when the door sealed. And it failed. His cardiac unit threw it off. He survived your waveform by a minute and a half, and then something else killed him — something with no watermark on it, that never crossed your network, that I cannot connect to you by any route at all."},
+        {"s": "HALLORAN", "t": "[very quiet] ...Say that again."},
+        {"s": "EXAMINER", "t": "You didn't kill him, Ambassador. You tried."},
+        {"s": "HALLORAN", "t": "[long pause] [unsteadily] I have been sitting in this pod for four hours composing the sentence 'I killed Cassian Rook' so that I could say it without my voice doing anything. [beat] And you're telling me I don't get it."},
+        {"s": "EXAMINER", "t": "Did anyone help you?"},
+        {"s": "HALLORAN", "t": "[hardening back into herself, fast] No. Nobody. That is the one part of this I will keep saying until I die — there was no second person, no fallback, no redundancy. I don't build redundancy into a murder, Examiner, it doubles the number of people who can hang you. [pause] There was one waveform. Mine. It was enough. It was supposed to be enough."},
+        {"s": "CALYPSO", "t": "[flat] Fact: the Ambassador's account is consistent with discharge one in every detail, including the trigger condition, the amplification factor, and the delivery route. Fact: it does not describe discharge two. Inference, and I offer it with more confidence than I am comfortable with — she does not know that discharge two exists."},
+        {"s": "HALLORAN", "t": "[barely audible] Then who was in that room with him?"}
+      ],
+      "flags": {"knows_halloran_failed": true, "halloran_gap_broken": true},
+      "next": "hub_pressure"
+    },
+
+    {
+      "id": "s30b_halloran_accepted",
+      "act": 4,
+      "title": "Signed",
+      "location": "Command Booth",
+      "ambience": "booth",
+      "sfx": "channel_close",
+      "lines": [
+        {"s": "EXAMINER", "t": "Calypso. Log the confession as accepted. Ambassador Halloran is confined to her pod pending transfer."},
+        {"s": "CALYPSO", "t": "[pause] Logged. [beat] Confinement order transmitted. She has acknowledged it. She said 'thank you,' which I have never heard a detained person say and which I have recorded verbatim in case it means something later."},
+        {"s": "EXAMINER", "t": "It's a clean case."},
+        {"s": "CALYPSO", "t": "It is. Motive, tooling, signature, delivery, trigger, confession. I have processed eleven incident reviews in this habitat and none of them closed this well. [pause]"},
+        {"s": "EXAMINER", "t": "You paused."},
+        {"s": "CALYPSO", "t": "[flat] I did. [beat] I am required to inform you of any material fact that remains unaccounted for at the point of closure. There is one, and it is small, and I have no interpretation of it whatsoever. The chamber regulator log runs three seconds longer than the Ambassador's waveform. [pause] Three seconds is not evidence of anything. It is a rounding artefact in ninety per cent of cases. I am telling you because the rule says I must tell you, not because I believe it means something."},
+        {"s": "EXAMINER", "t": "[pause]"},
+        {"s": "CALYPSO", "t": "Shall I close the file, Examiner?"}
+      ],
+      "flags": {"accepted_confession": true},
+      "choices": [
+        {"label": "\"Close it.\"", "to": "s37_theory", "note": "The case is complete."},
+        {"label": "\"Three seconds. Show me the log again.\"", "to": "s21_two_discharges", "note": "A last look."}
+      ]
+    },
+
+    {
+      "id": "s30c_halloran_room",
+      "act": 4,
+      "title": "Who Sent Him In",
+      "location": "Summit Rotunda Pod",
+      "ambience": "rotunda",
+      "lines": [
+        {"s": "EXAMINER", "t": "One question, Ambassador. Your device was armed to fire when the chamber door sealed. That only works if you knew he'd go in there."},
+        {"s": "HALLORAN", "t": "[pause] ...That's a good question. That's a better question than the last four."},
+        {"s": "EXAMINER", "t": "Answer it."},
+        {"s": "HALLORAN", "t": "I didn't know. I hoped. [beat] Cassian recorded a declaration before every major intervention of his career — it's in his file, it's practically a tic, he did it before Kepler Station and before the Ceres arbitration. And there is exactly one room on this habitat where a man like that would go to record something he was frightened of. Everybody knows it's the dead room. It's on page four of the orientation."},
+        {"s": "EXAMINER", "t": "So you armed a trap and waited for a habit."},
+        {"s": "HALLORAN", "t": "[flatly] Yes. And if he'd chosen his quarters instead, nothing would have happened, and I would have spent the rest of my life being an ambassador. [pause] I've thought about that for four hours. I can't decide whether it makes it better or very much worse."},
+        {"s": "EXAMINER", "t": "Did you tell him to use that room?"},
+        {"s": "HALLORAN", "t": "[genuine surprise] God, no. He'd have heard it coming a mile off — he'd been reading me for twenty years. [beat] Whoever put that idea in his head, if anyone did, it wasn't me. He'd only have taken it from somebody he trusted."}
+      ],
+      "flags": {"knows_someone_sent_him": true},
+      "next": "hub_pressure"
+    },
+
+    {
+      "id": "s31_venn_breaks",
+      "act": 4,
+      "title": "What Venn Carried",
+      "location": "Docking Pod",
+      "ambience": "docking",
+      "sfx": "channel_open",
+      "lines": [
+        {"s": "EXAMINER", "t": "Mr. Venn. The wafer you were given at thirteen-oh-five. It wasn't evidence of vote-buying."},
+        {"s": "VENN", "t": "[wary, quiet] Go on."},
+        {"s": "EXAMINER", "t": "It was an acoustic waveform. Your timing module put it on the archive network at thirteen-seventeen. At thirteen twenty-two it reached the pressure chamber regulator and waited there. When Rook sealed the door, it fired."},
+        {"s": "VENN", "t": "[silence]"},
+        {"s": "EXAMINER", "t": "Mr. Venn."},
+        {"s": "VENN", "t": "[a small sound] ...I want to say something and I want you to let me finish it because I'm not going to manage it twice. [breath] I knew it was wrong. Not that — not this. I knew it was *wrong*, the way a thing is wrong when a woman with her kind of career walks into a docking bay in person instead of sending a packet. Nobody does that. Nobody's done that to me in twenty years."},
+        {"s": "EXAMINER", "t": "But you took it."},
+        {"s": "VENN", "t": "I took it because she was going to owe me. [breaking] That's it. That's the whole reason. Not money, I didn't even ask for money — I took it because an Earth ambassador was going to owe Marek Venn a favour and I've wanted that since I was nineteen years old and unloading ore on Vesta."},
+        {"s": "EXAMINER", "t": "You said you'd never hurt anybody who wasn't insured."},
+        {"s": "VENN", "t": "[completely stripped] Yes. I did say that. [long pause] I've been saying it all day, apparently. You noticed before I did. [quietly] I want you to write down that I carried it. Not that I was tricked — I don't want that word anywhere near me. I want it to say Marek Venn carried it, because he was flattered."},
+        {"s": "CALYPSO", "t": "[flat] Recorded."},
+        {"s": "VENN", "t": "[after a moment, hollow] Was it quick? [pause] They keep saying he sealed the door himself. Was it quick, Examiner?"},
+        {"s": "EXAMINER", "t": "No."},
+        {"s": "VENN", "t": "[very quietly] ...No. I didn't think so."}
+      ],
+      "evidence": ["E13"],
+      "flags": {"venn_broke": true},
+      "next": "hub_pressure"
+    },
+
+    {
+      "id": "s32_kade_truth",
+      "act": 4,
+      "title": "The Blank Field",
+      "location": "Security Pod",
+      "ambience": "security",
+      "sfx": "channel_open",
+      "lines": [
+        {"s": "EXAMINER", "t": "Commander. Ambassador Halloran has confessed to building a weapon out of your calibration file."},
+        {"s": "KADE", "t": "[silence]"},
+        {"s": "EXAMINER", "t": "She raised it by a factor of nine. You raised it by four. I'd like the purpose field."},
+        {"s": "KADE", "t": "[very long pause] ...By four. [flatly] She used my numbers. My envelope, my ceiling, my authorisation code sitting in the header of the thing that went into that room."},
+        {"s": "EXAMINER", "t": "The field, Commander."},
+        {"s": "KADE", "t": "[one breath, flat, no self-pity] Jovian Security Authority contracted an evaluation of the passivation array as a crowd-suppression system for contested habitats. Whether it could put down a boarding party in a sealed volume without breaching the hull. I ran the calibration this morning because the delegation was arriving and I had a ninety-minute window and I have been sitting on the order for eleven weeks waiting for one. That's the purpose field. Write it in."},
+        {"s": "EXAMINER", "t": "You were weapons-testing a life-safety system at a disarmament summit."},
+        {"s": "KADE", "t": "Yes."},
+        {"s": "EXAMINER", "t": "That's the end of you."},
+        {"s": "KADE", "t": "[evenly] That's the end of me, and it's four years of Jovian Security in front of a tribunal, and it's the Accord dead in committee by spring, and it is worth exactly none of that against what I did. [pause] I raised the ceiling on the thing that killed him and I left the number lying in an archive where anybody with a credential could pick it up. I've spent thirty years telling junior officers that a weapon you don't secure is a weapon you've given away."},
+        {"s": "EXAMINER", "t": "You didn't know."},
+        {"s": "KADE", "t": "[hard] Don't. [beat] Don't do that. I've done it to myself four times since fourteen-oh-two and it doesn't hold. Just take the statement, Examiner."}
+      ],
+      "flags": {"kade_broke": true},
+      "next": "hub_pressure"
+    },
+
+    {
+      "id": "s33_trial14",
+      "act": 4,
+      "title": "Trial Fourteen",
+      "location": "Ocean Acoustic Lab",
+      "ambience": "lab",
+      "lines": [
+        {"s": "EXAMINER", "t": "Calypso. Protocol Nine. Recover everything deleted from the acoustic lab in the last two years."},
+        {"s": "CALYPSO", "t": "[pause] Recovering. The lab writes to habitat storage; deletion marks a block as free, it does not scrub it. This will be incomplete."},
+        {"s": "CALYPSO", "t": "[beat] Sixteen experiment logs recovered. Fifteen are routine. One was deleted the same day it was written, eight months ago, and it is the only file in this habitat's history that has been deleted by a delegate rather than archived."},
+        {"s": "EXAMINER", "t": "Read it."},
+        {"s": "CALYPSO", "t": "Trial fourteen. Objective: determine whether the organism modifies its click structure in response to recorded human speech. Method: eleven hours of projector playback into the melt shaft, single researcher, continuous hydrophone capture."},
+        {"s": "CALYPSO", "t": "Result: [pause] confirmed. It answered. The click structure shifted towards the phonetic envelope of the recordings within forty minutes and did not return to baseline for nine days."},
+        {"s": "EXAMINER", "t": "That's the discovery of the century. Why delete it?"},
+        {"s": "CALYPSO", "t": "[slowly] Because of the second half. Trial fourteen ran for eleven hours in a small room with the projector array at working power, and the researcher wore a delegate monitor throughout. [beat] The log records her own cardiac telemetry. Sustained exposure to the organism's click structure at close range destabilised her heart rhythm. Three episodes. The third required her to leave the room."},
+        {"s": "EXAMINER", "t": "[pause] She found out it stops a human heart."},
+        {"s": "CALYPSO", "t": "She found out that it can. And then she deleted the only record of it — [pause] which is, Examiner, the single most defensible thing anybody has done on this station today. If that log had been published, there are four governments who would have had a weapon out of it inside a year."},
+        {"s": "EXAMINER", "t": "And exactly one person who already had one."},
+        {"s": "CALYPSO", "t": "[very quietly] Yes. [pause] That is the other reading. I did not want to be the one to say it."}
+      ],
+      "evidence": ["E19"],
+      "flags": {"found_trial14": true},
+      "next": "hub_pressure"
+    },
+
+    {
+      "id": "s34_roster",
+      "act": 4,
+      "title": "The Roster",
+      "location": "Command Booth",
+      "ambience": "booth",
+      "lines": [
+        {"s": "EXAMINER", "t": "Discharge two was pitched to go under his cardiac unit. Whoever wrote it had the filter's response curve. Where does that live?"},
+        {"s": "CALYPSO", "t": "[pause] The summit medical roster. Every delegate's implanted device, with model, firmware, and rejection band, so that emergency response does not kill somebody by accident. It is a safety document. It is not classified, and it should not be — concealing it would get someone killed on an ordinary day."},
+        {"s": "EXAMINER", "t": "Who has it?"},
+        {"s": "CALYPSO", "t": "Habitat medical, which is me. Commander Kade, as security lead. And the ranking life-sciences officer aboard, who is required to co-sign it before the delegation is cleared to descend."},
+        {"s": "EXAMINER", "t": "Who signed it?"},
+        {"s": "CALYPSO", "t": "[pause] Dr. Nia Okafor. Eleven days ago. [beat] Fact, and I want the weight of this stated correctly: co-signing that roster is a routine obligation of her post. She could not have refused it. Approximately four hundred people have signed one of these in the history of this habitat and none of them have ever been asked why."},
+        {"s": "EXAMINER", "t": "Understood. Who else could have read Rook's entry?"},
+        {"s": "CALYPSO", "t": "[flat] On the evidence available to me — the Commander, and Dr. Okafor. [pause] The Ambassador's surveillance authorisation covers delegate communications traffic. It does not cover habitat medical records. I have checked this four times because I did not like the answer."}
+      ],
+      "evidence": ["E20"],
+      "flags": {"knows_roster": true},
+      "next": "hub_pressure"
+    },
+
+    {
+      "id": "s35_okafor_press",
+      "act": 4,
+      "title": "Putting It To Her",
+      "location": "Ocean Acoustic Lab",
+      "ambience": "lab",
+      "sfx": "channel_open",
+      "lines": [
+        {"s": "EXAMINER", "t": "Doctor. There were two waveforms."},
+        {"s": "OKAFOR", "t": "[a beat] ...Two."},
+        {"s": "EXAMINER", "t": "Halloran's fired first and failed. Something else killed him eighty-six seconds later. It was built out of your corpus, and it never touched the network."},
+        {"s": "OKAFOR", "t": "[carefully, and she is very good at this] Then you're looking for someone with the corpus and a console that can reach that chamber without going through Calypso. [pause] Which is a much shorter list than the one I gave you, and I should have seen it. I'm sorry. I've been useless."}
+      ],
+      "choices": [
+        {
+          "label": "Press the full chain",
+          "to": "s36_okafor_crack",
+          "if": {"flags": ["saw_two_discharges"], "count": {"flags": ["knows_bus3", "matched_harmonics", "found_trial14", "knows_roster"], "min": 3}},
+          "note": "Bus three. The corpus. Trial fourteen. The roster."
+        },
+        {
+          "label": "Press anyway",
+          "to": "s35b_okafor_deflects",
+          "note": "You have less than you would like."
+        }
+      ]
+    },
+
+    {
+      "id": "s35b_okafor_deflects",
+      "act": 4,
+      "title": "Not Enough",
+      "location": "Ocean Acoustic Lab",
+      "ambience": "lab",
+      "lines": [
+        {"s": "EXAMINER", "t": "The weapon was made from your data, Doctor. Four years of it. Nobody else on this station can hear the difference between one click and another."},
+        {"s": "OKAFOR", "t": "[steady, and not defensive — which is worse] That's true. And I've been saying it to you since you first played me the trace, because it was the most useful thing I knew. [pause] Examiner — if I'd killed him, would I have told you the murder weapon came out of my life's work? I'd have said 'synthesis, probably, could be anything.' You'd have believed me. There's nobody aboard who could have contradicted it."},
+        {"s": "EXAMINER", "t": "[pause]"},
+        {"s": "OKAFOR", "t": "[gently] I know how this looks. It's my ocean, it's my data, it's my grievance — he was going to publish four years of my work over my objection and now he's dead. If you put that in front of a tribunal they'd convict me in an afternoon and I wouldn't blame them."},
+        {"s": "EXAMINER", "t": "But."},
+        {"s": "OKAFOR", "t": "But you'd need to show them how it got into a sealed room. And you can't, because I've been sitting at this console since thirteen fifty-two with Calypso watching every keystroke, and there isn't a packet with my name on it anywhere in this habitat. [pause] Is there?"},
+        {"s": "CALYPSO", "t": "[flat] There is not."},
+        {"s": "OKAFOR", "t": "[quietly] Then find me the route, Examiner. Genuinely — find it. Because if someone got into that chamber without going through the network, then they can do it again, and there are seven of us down here."}
+      ],
+      "flags": {"okafor_deflected": true},
+      "next": "hub_pressure"
+    },
+
+    {
+      "id": "s36_okafor_crack",
+      "act": 4,
+      "title": "Its Own Voice",
+      "location": "Ocean Acoustic Lab",
+      "ambience": "lab",
+      "lines": [
+        {"s": "EXAMINER", "t": "There is one low-frequency amplifier bus on this station, Doctor. Bus three. It drives the chamber's passivation transducers and it drives your projector array, and it has done for eleven years. Anything you send from that console arrives in that room as sound. No packet. No watermark. No log."},
+        {"s": "OKAFOR", "t": "[silence]"},
+        {"s": "EXAMINER", "t": "The waveform was built from the corpus — you identified it yourself, in about four seconds, because you couldn't help it. It was pitched beneath his cardiac filter, and the response curve for that filter is in a medical roster you co-signed eleven days ago. And eight months ago you ran an eleven-hour trial that told you exactly what that click structure does to a human heart, and then you deleted it."},
+        {"s": "OKAFOR", "t": "[very quietly] ...You found trial fourteen."},
+        {"s": "EXAMINER", "t": "You told him to use the dead room."},
+        {"s": "OKAFOR", "t": "[long pause] Thirteen forty-seven. [breath] He said 'where can I say something and be certain it isn't heard,' and I said the pressure chamber, and he thanked me. [pause] He thanked me, Examiner."},
+        {"s": "EXAMINER", "t": "Say it."},
+        {"s": "OKAFOR", "t": "[steady at first, then not] I killed Cassian Rook at thirteen fifty-three and forty-four seconds from the console I am sitting at now. [breath] I built the waveform in nineteen minutes out of an eight-month-old recording. I did not know about the Ambassador's. When the first one fired I thought — [pause] I thought the ocean had done it. For eighty-six seconds I sat here and I thought it had answered me before I asked."},
+        {"s": "EXAMINER", "t": "Why?"},
+        {"s": "OKAFOR", "t": "[gathering] Because he was going to publish. [pause] Not out of greed — he was the best man on this station and he was going to do it out of principle, which is so much worse, because you can't negotiate with it. He'd have put four years of the ocean's voice on every relay in the system and called it protection. And within eighteen months there'd have been survey fleets down that shaft with their own projectors, playing at it, learning what else it answers to."},
+        {"s": "EXAMINER", "t": "So you stopped the treaty."},
+        {"s": "OKAFOR", "t": "I stopped the treaty. [flatly] A dead architect in a locked room ends a summit. It doesn't postpone it — it ends it. There'd be an interdict on this moon inside a month and a criminal jurisdiction argument that runs for twenty years, and for twenty years nobody comes down here with a projector array. [pause] That's what I bought. Twenty years of being left alone. It was the only thing on the table I could actually reach."},
+        {"s": "EXAMINER", "t": "You murdered a man to buy twenty years."},
+        {"s": "OKAFOR", "t": "[quietly] Yes. [pause] And I'd like to tell you I've been sitting here since thirteen fifty-four deciding it was wrong. I haven't. I've been sitting here doing the arithmetic again and getting the same number, and hating that I get the same number."},
+        {"s": "OKAFOR", "t": "[breaking, small] The part I can't do anything with is the sound. [pause] There were four hundred hours of that recording and I chose the one I chose because it was the clearest, and it's the one from the third of March, and it's the one where it answered me. [voice going] I did it with its own voice. That's the part I can't put down."},
+        {"s": "CALYPSO", "t": "[after a silence, very flat] Examiner. That sentence is a verbatim match to forecast rehearsal three. Generated at eleven-fifteen this morning. Including the break in the voice."},
+        {"s": "OKAFOR", "t": "[a long, unsteady breath] ...Of course it is."}
+      ],
+      "flags": {"okafor_confessed": true},
+      "next": "s37_theory"
+    }
+  ]
+}

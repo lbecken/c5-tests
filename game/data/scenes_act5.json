@@ -1,0 +1,210 @@
+{
+  "scenes": [
+    {
+      "id": "s37_theory",
+      "act": 5,
+      "type": "deduction",
+      "title": "The Hearing",
+      "location": "Command Booth",
+      "ambience": "booth",
+      "lines": [
+        {"s": "CALYPSO", "t": "Examiner. All seven channels are open and joined. Everyone aboard can hear you, including the person who did this. That is a requirement of Protocol Nine and I have always thought it a cruel one."},
+        {"s": "CALYPSO", "t": "Rescue contact in fifty minutes. When they arrive, jurisdiction passes to whoever climbs down that shaft first, and your findings become the only account of today that was made by somebody with nothing to gain."},
+        {"s": "EXAMINER", "t": "Then let's put it in order."},
+        {"s": "CALYPSO", "t": "[pause] Four questions. Method, name, reason, and the recordings. I will hold you to all four. [flat] I will not help you with any of them."}
+      ],
+      "next": "ROUTE_ACCUSATION"
+    },
+
+    {
+      "id": "s38_accusation_okafor",
+      "act": 5,
+      "title": "The Accusation — Okafor",
+      "location": "Command Booth",
+      "ambience": "booth",
+      "lines": [
+        {"s": "EXAMINER", "t": "Cassian Rook was killed by an acoustic entrainment waveform built from the click structure of the organism beneath this ice, pitched beneath the rejection band of his cardiac assist unit, and delivered into a sealed chamber as sound — over amplifier bus three, from the ocean acoustic laboratory. It generated no packet because it was never data. The room was locked because he locked it. Nobody had to be there."},
+        {"s": "EXAMINER", "t": "Ambassador Halloran attempted to murder him at thirteen fifty-two and eighteen seconds and failed. That attempt is a separate crime and it is fully proved."},
+        {"s": "EXAMINER", "t": "The person who killed him is Dr. Nia Okafor."},
+        {"s": "KADE", "t": "[sharp] Examiner —"},
+        {"s": "EXAMINER", "t": "Corpus access. Bus three. Trial fourteen, deleted eight months ago, recording what that sound does to a human heart. The medical roster she co-signed eleven days ago, carrying the response curve of the filter the second waveform was built to defeat. And at thirteen forty-seven she told him which room to lock himself into."},
+        {"s": "OKAFOR", "t": "[silence]"},
+        {"s": "VENN", "t": "[quietly] Nia. Say something."},
+        {"s": "OKAFOR", "t": "[after a long pause, evenly] No. He's right. [breath] All of it is right, and I'm not going to make seven people sit through me pretending otherwise for the forty minutes we've got left."},
+        {"s": "HALLORAN", "t": "[very quietly] ...Nia. I built one too."},
+        {"s": "OKAFOR", "t": "[pause] I know. I heard yours go off. [beat] I thought it was the ocean, Beatriz. For a minute and a half I sat in this room and thought the ocean had done it for me, and I have never in my life been so relieved about anything, and then I did it anyway."},
+        {"s": "CALYPSO", "t": "[flat] Recorded. Fifteen twenty-two. Full admission before all parties."}
+      ],
+      "flags": {"named_okafor": true},
+      "next": "s41_policy"
+    },
+
+    {
+      "id": "s39_accusation_halloran",
+      "act": 5,
+      "title": "The Accusation — Halloran",
+      "location": "Command Booth",
+      "ambience": "booth",
+      "lines": [
+        {"s": "EXAMINER", "t": "Cassian Rook was killed by a waveform loaded into the pressure chamber's passivation array through a maintenance route left open since oh eight-oh-five. It was built from Commander Kade's calibration file, amplified past any survivable limit using Earth Coalition surveillance tooling, and carried onto the network by Marek Venn, who did not know what he was carrying."},
+        {"s": "EXAMINER", "t": "It was built and deployed by Ambassador Beatriz Halloran, to prevent the disclosure of a prohibited Earth sensor programme."},
+        {"s": "HALLORAN", "t": "[steady] I don't contest it. Any of it."},
+        {"s": "KADE", "t": "[flat] Ambassador, for what very little it is worth — you should have a representative before you say another word."},
+        {"s": "HALLORAN", "t": "[almost warm] Thank you, Commander. No. [pause] Examiner, you've done this properly and quickly, and given the hour and the ice I don't think anyone could have asked for better. I'd like that in the record too."},
+        {"s": "VENN", "t": "[hollow] That's it? That's — we're done?"},
+        {"s": "CALYPSO", "t": "[pause] The examiner's finding is entered. Ambassador Halloran is confined pending transfer of jurisdiction. [beat] I am required to note for the record that two acoustic discharges were logged in the chamber and that the finding accounts for one of them. The second is unexplained."},
+        {"s": "EXAMINER", "t": "Noted."},
+        {"s": "CALYPSO", "t": "[flat] Noted. [pause] Yes."},
+        {"s": "OKAFOR", "t": "[gently, into the silence] Calypso, don't. [beat] It's a regulator. They double-log. I've been looking at that trace all afternoon and there's nothing in it. Let the man finish."}
+      ],
+      "flags": {"named_halloran": true},
+      "next": "s41_policy"
+    },
+
+    {
+      "id": "s40_accusation_other",
+      "act": 5,
+      "title": "The Accusation — Unsupported",
+      "location": "Command Booth",
+      "ambience": "booth",
+      "lines": [
+        {"s": "CALYPSO", "t": "[after a pause] Examiner. I am obliged to accept your finding and I am obliged to tell you what it rests on. [flat] It does not rest on the physical evidence in this habitat. I have run it four times against every trace I hold and I cannot make it stand up."},
+        {"s": "EXAMINER", "t": "It's my finding."},
+        {"s": "CALYPSO", "t": "It is. And it will be the only account made by a neutral party, and every faction that reads it will use it for whatever they were going to do anyway. [pause] Entered."},
+        {"s": "KADE", "t": "[flatly] That's a mistake, Examiner. I've watched a lot of them get made and that's one."},
+        {"s": "HALLORAN", "t": "[carefully, giving nothing] I have no comment on the examiner's finding."},
+        {"s": "VENN", "t": "[bewildered] Wait — that's the answer? That's what we're going up the shaft with?"},
+        {"s": "OKAFOR", "t": "[quietly] Leave it, Marek."},
+        {"s": "CALYPSO", "t": "[very flat] Rescue contact in thirty-one minutes. [pause] The record is closed."}
+      ],
+      "flags": {"named_wrong": true},
+      "next": "s41_policy"
+    },
+
+    {
+      "id": "s41_policy",
+      "act": 5,
+      "type": "policy",
+      "title": "The Last Decision",
+      "location": "Command Booth",
+      "ambience": "booth",
+      "lines": [
+        {"s": "CALYPSO", "t": "One more thing, and then you are finished. [pause] Protocol Nine gives the examiner a recommendation on the instrument itself. Whatever you write, the factions will fight about it for a decade — but they will start from your sentence, because you are the only person down here who wanted nothing."},
+        {"s": "CALYPSO", "t": "The Pelagos Accord is unsigned. Four years of hydrophone corpus are sitting in my archive, unpublished, with an interdict argument on one side and a survey fleet on the other."},
+        {"s": "CALYPSO", "t": "[quietly] And there is a projector array in the acoustic lab that has been used to speak into that water exactly once, eight months ago, by somebody who is not going to be permitted to use it again. [pause] What do I write, Examiner?"}
+      ],
+      "next": "ROUTE_ENDING"
+    },
+
+    {
+      "id": "e_A_signal",
+      "act": 5,
+      "title": "ENDING A — The Signal in the Blood",
+      "location": "Command Booth",
+      "ambience": "lab",
+      "sfx": "clicks",
+      "lines": [
+        {"s": "CALYPSO", "t": "Rescue reached the habitat at nineteen-forty. It took them four hours to cut a way in and eleven minutes to arrest everybody."},
+        {"s": "CALYPSO", "t": "Dr. Nia Okafor was charged with the murder of Cassian Rook and did not enter a defence. She asked for one thing at the arraignment — that the corpus be kept whole, and that nobody be permitted to play it back into the water. The tribunal recorded the request and declined to rule on it."},
+        {"s": "CALYPSO", "t": "Ambassador Beatriz Halloran was charged with attempted murder, conspiracy, and unlawful interception. Earth's sensor grid came out at her hearing, in her own testimony, on the second day. She did not have to do that. [pause] I have thought about why she did and I have not settled on an answer I trust."},
+        {"s": "CALYPSO", "t": "Commander Kade resigned before he was asked and testified for eleven days. Marek Venn pleaded to the timing module, served fourteen months, and has not been back to Jovian space."},
+        {"s": "CALYPSO", "t": "[pause] The Pelagos Accord was not signed."},
+        {"s": "OKAFOR", "t": "[recorded, quiet, from a hearing room] The prosecution keeps asking me whether I believe it's intelligent. That isn't the question. [pause] The question is whether we're capable of being in a room with something we can't own. And I answered that question myself, at thirteen fifty-three, with the worst answer available. So I don't think I get to be asked any more."},
+        {"s": "CALYPSO", "t": "For the record — and this is the last entry I am authorised to make on this file — the anomaly in forecast rehearsal three has never been explained."},
+        {"s": "CALYPSO", "t": "Two reviews have examined it. The first concluded that a sufficiently good model, weighted on a corpus that its subject had spent four years shaping, will occasionally produce the truth and that this is arithmetic and not prophecy. The second concluded that the first review had not accounted for the break in her voice."},
+        {"s": "CALYPSO", "t": "[quietly] I generated that file at eleven-fifteen. I have re-derived it two hundred and six thousand times since. [pause] I cannot get it to come out that way again."}
+      ],
+      "next": "ROUTE_CODA"
+    },
+
+    {
+      "id": "e_B_verdict",
+      "act": 5,
+      "title": "ENDING B — A Clean Verdict",
+      "location": "Command Booth",
+      "ambience": "booth",
+      "lines": [
+        {"s": "CALYPSO", "t": "Rescue reached the habitat at nineteen-forty. Ambassador Beatriz Halloran walked up the shaft in restraints without being asked twice, and gave a statement to Jovian custody before the lift had reached the surface."},
+        {"s": "CALYPSO", "t": "She was convicted in eleven weeks. It is the fastest capital proceeding in the history of the outer system and it was not close. Motive, tooling, signature, delivery, trigger, confession. Every link a fact."},
+        {"s": "CALYPSO", "t": "Earth's sensor grid was exposed at her hearing. The Accord was re-drafted, weakened, and signed nineteen months later by people who had never been under the ice."},
+        {"s": "CALYPSO", "t": "[pause] Your finding was praised. It is taught, now, in two academies — as an example of an investigation conducted under isolation, degradation and time pressure, that closed cleanly. I have read the case commentary. It is complimentary and it is correct in every particular."},
+        {"s": "OKAFOR", "t": "[on the ascent, warm, close] Examiner — before you go up. [pause] I wanted to say thank you. Genuinely. You gave that habitat something to hold on to at about the point where we were all going to come apart, and I've been down here long enough to know how rare that is. [beat] I hope you sleep. You should. You were very good."},
+        {"s": "CALYPSO", "t": "[flat] Channel closed, nineteen fifty-one."},
+        {"s": "CALYPSO", "t": "[pause] Dr. Okafor returned to Europa on the following rotation. The acoustic programme continued under her direction for six more years."},
+        {"s": "CALYPSO", "t": "[very quietly] One further entry, filed to an unread anomaly log. At twenty-two hundred and four hours on the day of the murder, with the habitat empty and no console active, the hydrophone array recorded a three-part click structure from beneath the melt shaft. Asymmetrical envelope. Uneven decay. A tail on it."},
+        {"s": "CALYPSO", "t": "It repeated once. Then it stopped. [pause] There was nobody aboard to hear it."}
+      ],
+      "next": "ROUTE_CODA"
+    },
+
+    {
+      "id": "e_C_silence",
+      "act": 5,
+      "title": "ENDING C — Deep Silence",
+      "location": "Command Booth",
+      "ambience": "shaft",
+      "lines": [
+        {"s": "CALYPSO", "t": "Rescue reached the habitat at nineteen-forty. Jurisdiction passed to a Jovian magistrate who had spent four hours in a descent capsule reading your finding."},
+        {"s": "CALYPSO", "t": "It did not survive contact with a courtroom. The physical evidence contradicted it in eight places and the defence found all eight. Proceedings were abandoned in the fourth month. [pause] Nobody was ever convicted of the murder of Cassian Rook."},
+        {"s": "CALYPSO", "t": "Ambassador Halloran retired to a consultancy. Dr. Okafor was never charged. Commander Kade's calibration order was sealed under a security exemption and the evaluation programme continued at two other habitats. Marek Venn was fined."},
+        {"s": "CALYPSO", "t": "[flat] Without a finding, there was no interdict. Without an interdict, there was no reason to delay. The Accord was signed at Ganymede in the spring — a good treaty, by the standards of treaties, with an inspection regime and a scientific access framework and forty pages on the equitable distribution of survey rights."},
+        {"s": "CALYPSO", "t": "The first commercial projector array reached the melt shaft fourteen months later. Then nine more. They were mapping the biosphere. That was permitted, and encouraged, and in most respects carefully done."},
+        {"s": "CALYPSO", "t": "[pause] The click structure changed for a while. It shifted towards them, the way it had once shifted towards her. Several teams published on it. There was a great deal of excitement."},
+        {"s": "CALYPSO", "t": "[quietly] Then, over about nine months, it became simpler. Then it became regular. Then it became a pattern with no information in it at all."},
+        {"s": "CALYPSO", "t": "Nobody recorded the date it stopped. There were sixty-one hydrophones in the water by then and not one of them was pointed at the question. [pause] I have the corpus. Four years of it, and then the surveys, and then nothing."},
+        {"s": "CALYPSO", "t": "[flat] I am not able to tell you whether something died, or stopped speaking, or decided. That distinction requires a kind of evidence that nobody thought to collect."}
+      ],
+      "next": "ROUTE_CODA"
+    },
+
+    {
+      "id": "coda_ratify",
+      "act": 5,
+      "title": "Coda — Ratify",
+      "location": "Command Booth",
+      "ambience": "rotunda",
+      "lines": [
+        {"s": "CALYPSO", "t": "Your recommendation was ratification. [pause] Sign it, monitor it, and trust the institution to be better than the people in it."},
+        {"s": "CALYPSO", "t": "The Accord went into force. There is an inspection regime, and it works about six days in seven, which is a better record than anything else humans have written about a place they wanted. Europa has a legal status now. It can be argued about in a building instead of at nine kilometres."},
+        {"s": "CALYPSO", "t": "[quietly] Cassian would have taken that. He said once that a treaty is not a description of how people will behave — it is a description of what they will later be ashamed of. He thought that was worth the paper."},
+        {"s": "CALYPSO", "t": "[pause] The summit has ended, Examiner. Thank you for your service under Protocol Nine. [beat] The conversation has not."}
+      ],
+      "next": "END"
+    },
+
+    {
+      "id": "coda_suspend",
+      "act": 5,
+      "title": "Coda — Suspend",
+      "location": "Command Booth",
+      "ambience": "chamber",
+      "lines": [
+        {"s": "CALYPSO", "t": "Your recommendation was suspension. [pause] Quarantine the corpus, halt the vote, and leave the question open until somebody knows what the question is."},
+        {"s": "CALYPSO", "t": "It held for nineteen years. That is far longer than anyone expected and it is entirely because the recommendation came from a neutral examiner in a habitat where four people had already been arrested. Nobody could afford to be the first to break it."},
+        {"s": "CALYPSO", "t": "There are no projector arrays in that water. There is one hydrophone, maintained under joint seal, and it listens and does not speak. [pause] The click structure is unchanged. It has been unchanged for nineteen years, which either means we have preserved something or means we were never as interesting as we hoped."},
+        {"s": "CALYPSO", "t": "[quietly] I am no longer permitted to run forecast rehearsals. That was also in your recommendation, and I want you to know that I did not object. [pause] The summit has ended, Examiner. The conversation has not."}
+      ],
+      "next": "END"
+    },
+
+    {
+      "id": "coda_transmit",
+      "act": 5,
+      "title": "Coda — Transmit",
+      "location": "Ocean Acoustic Lab",
+      "ambience": "lab",
+      "sfx": "clicks",
+      "lines": [
+        {"s": "CALYPSO", "t": "Your recommendation was to answer. [pause] I want to state, once, for a record that will be read: I advised against this, my advice was noted, and you were within your authority."},
+        {"s": "CALYPSO", "t": "The transmission was agreed by four governments in six weeks, which is the fastest any four governments have ever agreed on anything. Eleven minutes of material. The Accord's preamble, a description of the solar system, and — at Dr. Okafor's request, submitted in writing from confinement and granted without debate — the last ninety seconds of Cassian Rook's declaration."},
+        {"s": "CALYPSO", "t": "It went into the water at oh four hundred on the ninth of June."},
+        {"s": "CALYPSO", "t": "[pause] There was a reply. It took nineteen days."},
+        {"s": "CALYPSO", "t": "[flat] It is four minutes long. It is constructed entirely from the voiceprints of the people who were in this habitat on the day of the murder. All seven of us. [pause] Including Dr. Rook, whose voice it had, because we had just given it to him."},
+        {"s": "CALYPSO", "t": "It is not speech. The phonemes are ours and the structure underneath them is not — it is the three-part envelope, a hit, a fall, a tail, at a scale we do not have a word for. Two hundred analysts have worked on it for eleven years."},
+        {"s": "CALYPSO", "t": "[very quietly] We know one thing about it and only one. Somewhere in the third minute, in her voice, unmistakably, it says: *that's the part I can't put down.*"},
+        {"s": "CALYPSO", "t": "[pause] The summit has ended, Examiner. [beat] The conversation has not."}
+      ],
+      "next": "END"
+    }
+  ]
+}
