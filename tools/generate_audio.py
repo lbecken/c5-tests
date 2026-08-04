@@ -288,8 +288,12 @@ def do_ambience(cfg, force):
             print(f"  {key:<20} cached"); continue
         tmp = out + ".raw.mp3"
         sound_gen(a["prompt"], 22, tmp, loop=True)
-        # gentle fade at both ends so the engine's loop crossfade is seamless
-        ff(["-i", tmp, "-af", "afade=t=in:st=0:d=1.5,afade=t=out:st=20.5:d=1.5,volume=0.9",
+        # Fade both ends so the engine's loop is seamless, and level the bed —
+        # sound-generation loudness varies by >20 dB between prompts, which makes
+        # quiet beds vanish once they are ducked under dialogue.
+        ff(["-i", tmp,
+            "-af", "afade=t=in:st=0:d=1.5,afade=t=out:st=20.5:d=1.5,"
+                   "loudnorm=I=-20:TP=-3:LRA=11",
             "-c:a", "libmp3lame", "-b:a", "128k", out])
         os.remove(tmp)
         print(f"  {key:<20} {duration(out):.1f}s")
@@ -303,7 +307,11 @@ def do_sfx(cfg, force):
         out = os.path.join(GAME, s["file"])
         if os.path.exists(out) and not force:
             print(f"  {key:<20} cached"); continue
-        sound_gen(s["prompt"], s.get("duration", 4), out)
+        tmp = out + ".raw.mp3"
+        sound_gen(s["prompt"], s.get("duration", 4), tmp)
+        ff(["-i", tmp, "-af", "loudnorm=I=-17:TP=-1.5:LRA=11",
+            "-c:a", "libmp3lame", "-b:a", "128k", out])
+        os.remove(tmp)
         print(f"  {key:<20} {duration(out):.1f}s")
 
 

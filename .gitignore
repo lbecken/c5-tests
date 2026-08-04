@@ -6,5 +6,6 @@ node_modules/
 
 # audio production intermediates
 game/audio/.tmp/
+game/audio/.normalized.json
 game/data/.audio_cache.json
 __pycache__/

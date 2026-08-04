@@ -67,11 +67,14 @@ docs/
   MYSTERY_BIBLE.md      canonical timeline, solution, clue chain, answer key
   CHARACTERS.md         cast and voice direction
   CHANGES_FROM_BRIEF.md what changed from the source PDF plan, and why
+  DIALOGUE_MASTER.md    the full script, generated from the scene data
 tools/
   generate_audio.py     ElevenLabs production pipeline
+  normalize_audio.py    levels the beds and one-shots to fixed loudness targets
   validate.py           graph integrity: references, reachability, dead ends
   playtest.py           headless playthroughs; proves every ending is reachable
   browser_test.py       drives a real browser through a full run
+  export_script.py      regenerates docs/DIALOGUE_MASTER.md from the scene data
 ```
 
 **`docs/MYSTERY_BIBLE.md` is a complete spoiler.** Play first.
