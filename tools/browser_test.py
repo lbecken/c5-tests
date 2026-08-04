@@ -29,6 +29,9 @@ def run():
         page.on("pageerror", lambda e: errors.append(f"pageerror: {e}"))
         page.on("requestfailed", lambda r: errors.append(
             f"404/failed: {r.url.split('/')[-1]}"))
+        page.on("response", lambda r: errors.append(
+            f"HTTP {r.status}: {r.url.split('/')[-1]}")
+            if r.status >= 400 and not r.url.endswith("favicon.ico") else None)
 
         page.goto(URL, wait_until="networkidle")
         page.screenshot(path=f"{SHOTS}/00_title.png")

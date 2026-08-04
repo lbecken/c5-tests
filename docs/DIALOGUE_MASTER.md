@@ -1949,7 +1949,7 @@ You didn't know.
 
 
 ## Trial Fourteen  
-`s33_trial14` · Ocean Acoustic Lab · bed: `lab`
+`s33_trial14` · Ocean Acoustic Lab · bed: `lab` · 131s
 
 > Evidence gained: **E19** Trial 14
 
@@ -2006,7 +2006,7 @@ And exactly one person who already had one.
 
 
 ## The Roster  
-`s34_roster` · Command Booth · bed: `booth`
+`s34_roster` · Command Booth · bed: `booth` · 83s
 
 > Evidence gained: **E20** Implant filter response
 
@@ -2047,7 +2047,7 @@ Understood. Who else could have read Rook's entry?
 
 
 ## Putting It To Her  
-`s35_okafor_press` · Ocean Acoustic Lab · bed: `lab`
+`s35_okafor_press` · Ocean Acoustic Lab · bed: `lab` · 28s
 
 > SFX: `channel_open`
 
@@ -2075,7 +2075,7 @@ Halloran's fired first and failed. Something else killed him eighty-six seconds 
 
 
 ## Not Enough  
-`s35b_okafor_deflects` · Ocean Acoustic Lab · bed: `lab`
+`s35b_okafor_deflects` · Ocean Acoustic Lab · bed: `lab` · 78s
 
 
 **THE EXAMINER**  
@@ -2114,7 +2114,7 @@ But you'd need to show them how it got into a sealed room. And you can't, becaus
 
 
 ## Its Own Voice  
-`s36_okafor_crack` · Ocean Acoustic Lab · bed: `lab`
+`s36_okafor_crack` · Ocean Acoustic Lab · bed: `lab` · 196s
 
 
 **THE EXAMINER**  
@@ -2194,7 +2194,7 @@ You murdered a man to buy twenty years.
 
 
 ## The Hearing  
-`s37_theory` · DEDUCTION · Command Booth · bed: `booth`
+`s37_theory` · DEDUCTION · Command Booth · bed: `booth` · 37s
 
 
 **CALYPSO**  
@@ -2217,7 +2217,7 @@ Then let's put it in order.
 
 
 ## The Accusation — Okafor  
-`s38_accusation_okafor` · Command Booth · bed: `booth`
+`s38_accusation_okafor` · Command Booth · bed: `booth` · 101s
 
 
 **THE EXAMINER**  
@@ -2268,7 +2268,7 @@ Corpus access. Bus three. Trial fourteen, deleted eight months ago, recording wh
 
 
 ## The Accusation — Halloran  
-`s39_accusation_halloran` · Command Booth · bed: `booth`
+`s39_accusation_halloran` · Command Booth · bed: `booth` · 91s
 
 
 **THE EXAMINER**  
@@ -2315,7 +2315,7 @@ Noted.
 
 
 ## The Accusation — Unsupported  
-`s40_accusation_other` · Command Booth · bed: `booth`
+`s40_accusation_other` · Command Booth · bed: `booth` · 49s
 
 
 **CALYPSO**  
@@ -2354,7 +2354,7 @@ It is. And it will be the only account made by a neutral party, and every factio
 
 
 ## The Last Decision  
-`s41_policy` · POLICY · Command Booth · bed: `booth`
+`s41_policy` · POLICY · Command Booth · bed: `booth` · 46s
 
 
 **CALYPSO**  
@@ -2373,7 +2373,7 @@ The Pelagos Accord is unsigned. Four years of hydrophone corpus are sitting in m
 
 
 ## ENDING A — The Signal in the Blood  
-`e_A_signal` · Command Booth · bed: `lab`
+`e_A_signal` · Command Booth · bed: `lab` · 122s
 
 > SFX: `clicks`
 
@@ -2418,7 +2418,7 @@ Two reviews have examined it. The first concluded that a sufficiently good model
 
 
 ## ENDING B — A Clean Verdict  
-`e_B_verdict` · Command Booth · bed: `booth`
+`e_B_verdict` · Command Booth · bed: `booth` · 118s
 
 
 **CALYPSO**  
@@ -2461,7 +2461,7 @@ It repeated once. Then it stopped. [pause] There was nobody aboard to hear it.
 
 
 ## ENDING C — Deep Silence  
-`e_C_silence` · Command Booth · bed: `shaft`
+`e_C_silence` · Command Booth · bed: `shaft` · 135s
 
 
 **CALYPSO**  
@@ -2504,7 +2504,7 @@ Nobody recorded the date it stopped. There were sixty-one hydrophones in the wat
 
 
 ## Coda — Ratify  
-`coda_ratify` · Command Booth · bed: `rotunda`
+`coda_ratify` · Command Booth · bed: `rotunda` · 48s
 
 
 **CALYPSO**  
@@ -2527,7 +2527,7 @@ The Accord went into force. There is an inspection regime, and it works about si
 
 
 ## Coda — Suspend  
-`coda_suspend` · Command Booth · bed: `chamber`
+`coda_suspend` · Command Booth · bed: `chamber` · 62s
 
 
 **CALYPSO**  
@@ -2550,7 +2550,7 @@ There are no projector arrays in that water. There is one hydrophone, maintained
 
 
 ## Coda — Transmit  
-`coda_transmit` · Ocean Acoustic Lab · bed: `lab`
+`coda_transmit` · Ocean Acoustic Lab · bed: `lab` · 97s
 
 > SFX: `clicks`
 

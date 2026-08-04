@@ -2443,5 +2443,379 @@
     "end": 100.98
    }
   ]
+ },
+ "s39_accusation_halloran": {
+  "file": "audio/scenes/s39_accusation_halloran.mp3",
+  "duration": 91.04,
+  "cues": [
+   {
+    "i": 0,
+    "start": 0.0,
+    "end": 23.2
+   },
+   {
+    "i": 1,
+    "start": 23.2,
+    "end": 32.16
+   },
+   {
+    "i": 2,
+    "start": 32.16,
+    "end": 35.679
+   },
+   {
+    "i": 3,
+    "start": 35.679,
+    "end": 42.4
+   },
+   {
+    "i": 4,
+    "start": 42.4,
+    "end": 57.04
+   },
+   {
+    "i": 5,
+    "start": 57.04,
+    "end": 60.0
+   },
+   {
+    "i": 6,
+    "start": 60.0,
+    "end": 77.68
+   },
+   {
+    "i": 7,
+    "start": 77.68,
+    "end": 78.881
+   },
+   {
+    "i": 8,
+    "start": 78.881,
+    "end": 81.284
+   },
+   {
+    "i": 9,
+    "start": 81.284,
+    "end": 91.045
+   }
+  ]
+ },
+ "s40_accusation_other": {
+  "file": "audio/scenes/s40_accusation_other.mp3",
+  "duration": 49.36,
+  "cues": [
+   {
+    "i": 0,
+    "start": 0.0,
+    "end": 16.08
+   },
+   {
+    "i": 1,
+    "start": 16.08,
+    "end": 17.72
+   },
+   {
+    "i": 2,
+    "start": 17.72,
+    "end": 28.0
+   },
+   {
+    "i": 3,
+    "start": 28.0,
+    "end": 32.8
+   },
+   {
+    "i": 4,
+    "start": 32.8,
+    "end": 37.119
+   },
+   {
+    "i": 5,
+    "start": 37.119,
+    "end": 41.839
+   },
+   {
+    "i": 6,
+    "start": 41.839,
+    "end": 43.439
+   },
+   {
+    "i": 7,
+    "start": 43.439,
+    "end": 49.36
+   }
+  ]
+ },
+ "s41_policy": {
+  "file": "audio/scenes/s41_policy.mp3",
+  "duration": 45.68,
+  "cues": [
+   {
+    "i": 0,
+    "start": 0.0,
+    "end": 18.64
+   },
+   {
+    "i": 1,
+    "start": 18.64,
+    "end": 30.08
+   },
+   {
+    "i": 2,
+    "start": 30.08,
+    "end": 45.68
+   }
+  ]
+ },
+ "e_A_signal": {
+  "file": "audio/scenes/e_A_signal.mp3",
+  "duration": 122.32,
+  "cues": [
+   {
+    "i": 0,
+    "start": 0.0,
+    "end": 7.6
+   },
+   {
+    "i": 1,
+    "start": 7.6,
+    "end": 25.52
+   },
+   {
+    "i": 2,
+    "start": 25.52,
+    "end": 45.922
+   },
+   {
+    "i": 3,
+    "start": 45.922,
+    "end": 57.522
+   },
+   {
+    "i": 4,
+    "start": 57.522,
+    "end": 60.082
+   },
+   {
+    "i": 5,
+    "start": 60.082,
+    "end": 79.527
+   },
+   {
+    "i": 6,
+    "start": 79.527,
+    "end": 89.767
+   },
+   {
+    "i": 7,
+    "start": 89.767,
+    "end": 108.726
+   },
+   {
+    "i": 8,
+    "start": 108.726,
+    "end": 118.967
+   }
+  ]
+ },
+ "e_B_verdict": {
+  "file": "audio/scenes/e_B_verdict.mp3",
+  "duration": 118.08,
+  "cues": [
+   {
+    "i": 0,
+    "start": 0.0,
+    "end": 12.8
+   },
+   {
+    "i": 1,
+    "start": 12.8,
+    "end": 28.561
+   },
+   {
+    "i": 2,
+    "start": 28.561,
+    "end": 39.519
+   },
+   {
+    "i": 3,
+    "start": 39.519,
+    "end": 58.639
+   },
+   {
+    "i": 4,
+    "start": 58.639,
+    "end": 77.203
+   },
+   {
+    "i": 5,
+    "start": 77.203,
+    "end": 80.642
+   },
+   {
+    "i": 6,
+    "start": 80.642,
+    "end": 88.722
+   },
+   {
+    "i": 7,
+    "start": 88.722,
+    "end": 109.523
+   },
+   {
+    "i": 8,
+    "start": 109.523,
+    "end": 115.683
+   }
+  ]
+ },
+ "e_C_silence": {
+  "file": "audio/scenes/e_C_silence.mp3",
+  "duration": 134.8,
+  "cues": [
+   {
+    "i": 0,
+    "start": 0.0,
+    "end": 10.32
+   },
+   {
+    "i": 1,
+    "start": 10.32,
+    "end": 27.92
+   },
+   {
+    "i": 2,
+    "start": 27.92,
+    "end": 46.28
+   },
+   {
+    "i": 3,
+    "start": 46.28,
+    "end": 67.52
+   },
+   {
+    "i": 4,
+    "start": 67.52,
+    "end": 81.84
+   },
+   {
+    "i": 5,
+    "start": 81.84,
+    "end": 94.48
+   },
+   {
+    "i": 6,
+    "start": 94.48,
+    "end": 105.759
+   },
+   {
+    "i": 7,
+    "start": 105.759,
+    "end": 122.804
+   },
+   {
+    "i": 8,
+    "start": 122.804,
+    "end": 133.764
+   }
+  ]
+ },
+ "coda_ratify": {
+  "file": "audio/scenes/coda_ratify.mp3",
+  "duration": 48.16,
+  "cues": [
+   {
+    "i": 0,
+    "start": 0.0,
+    "end": 8.806
+   },
+   {
+    "i": 1,
+    "start": 8.806,
+    "end": 25.766
+   },
+   {
+    "i": 2,
+    "start": 25.766,
+    "end": 39.126
+   },
+   {
+    "i": 3,
+    "start": 39.126,
+    "end": 48.166
+   }
+  ]
+ },
+ "coda_suspend": {
+  "file": "audio/scenes/coda_suspend.mp3",
+  "duration": 61.76,
+  "cues": [
+   {
+    "i": 0,
+    "start": 0.0,
+    "end": 11.044
+   },
+   {
+    "i": 1,
+    "start": 11.044,
+    "end": 26.243
+   },
+   {
+    "i": 2,
+    "start": 26.243,
+    "end": 45.844
+   },
+   {
+    "i": 3,
+    "start": 45.844,
+    "end": 60.244
+   }
+  ]
+ },
+ "coda_transmit": {
+  "file": "audio/scenes/coda_transmit.mp3",
+  "duration": 96.72,
+  "cues": [
+   {
+    "i": 0,
+    "start": 0.0,
+    "end": 13.604
+   },
+   {
+    "i": 1,
+    "start": 13.604,
+    "end": 37.924
+   },
+   {
+    "i": 2,
+    "start": 37.924,
+    "end": 41.924
+   },
+   {
+    "i": 3,
+    "start": 41.924,
+    "end": 46.724
+   },
+   {
+    "i": 4,
+    "start": 46.724,
+    "end": 62.764
+   },
+   {
+    "i": 5,
+    "start": 62.764,
+    "end": 79.844
+   },
+   {
+    "i": 6,
+    "start": 79.844,
+    "end": 91.124
+   },
+   {
+    "i": 7,
+    "start": 91.124,
+    "end": 96.724
+   }
+  ]
  }
 }

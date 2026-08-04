@@ -9,8 +9,9 @@ You play the Neutral Incident Examiner. You never walk a corridor — you work a
 console: interview delegates over isolated channels, pull medical and engineering
 records, replay the dead man's last recording, and eventually name someone.
 
-Roughly **40 minutes** per playthrough. Fully voiced with ElevenLabs v3 dialogue mode.
-Headphones recommended. It is meant to be difficult; most examiners close the wrong case.
+A focused run is about **45 minutes** of audio; working every channel and record runs
+to a little over an hour. Fully voiced with ElevenLabs v3 dialogue mode. Headphones
+recommended. It is meant to be difficult; most examiners close the wrong case.
 
 ---
 
