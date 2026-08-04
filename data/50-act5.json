@@ -1,0 +1,265 @@
+{
+  "scenes": {
+
+    "s35_last_call": {
+      "act": 5,
+      "title": "Ten Minutes",
+      "time": "17:44",
+      "bed": "ops",
+      "cues": [
+        { "id": "c3501", "type": "tts", "sp": "meridian", "fx": "intercom",
+          "t": "[flat] Rolling overwrite begins in ten minutes. All pre-overwrite traffic will be unrecoverable. Consortium protocol requires an incident determination before archive loss." },
+        { "id": "c3502", "type": "tts", "sp": "okafor", "fx": "radio", "bed": "aurora",
+          "t": "Ten minutes, Control. You can chase one more thing or you can go now with what you've got. I'd think hard about which. Half a case is worse than no case — it warns them." }
+      ],
+      "choices": [
+        { "t": "Trace where the four replies entered the relay.", "next": "s35a_injection", "once": true },
+        { "t": "Put one more question to Dr. Voss. A quiet one.", "next": "s35b_quiet_question", "once": true },
+        { "t": "I have it. Open the channel to all stations.", "next": "s36_deduction" }
+      ]
+    },
+
+    "s35a_injection": {
+      "act": 5,
+      "title": "Ingress",
+      "time": "17:48",
+      "bed": "ops",
+      "cues": [
+        { "id": "c3511", "type": "tts", "sp": "trent", "fx": "radio", "bed": "chronos",
+          "t": "[fast, focused] Relay ingress log. The loop stamps every injection point — it has to, that's how it does store-and-forward. Four entries this morning that aren't from a handset." },
+        { "id": "c3512", "type": "tts", "sp": "meridian", "fx": "intercom",
+          "t": "[flat] Relay ingress. Eleven forty-two forty-four, eleven forty-four oh five, eleven forty-six forty, eleven forty-nine thirty. Source: file playback, terminal identifier S P E dash zero one." },
+        { "id": "c3513", "type": "synth", "synth": "pulse" },
+        { "id": "c3514", "type": "tts", "sp": "trent", "fx": "radio", "bed": "chronos",
+          "t": "[quiet] File playback. Not a microphone. Four files, played into the emergency loop from the Spectra terminal, while five of us stood in five separate buildings and thought we were talking to him." }
+      ],
+      "grants": ["E14"],
+      "set": { "found_ingress": true },
+      "next": "s35_last_call"
+    },
+
+    "s35b_quiet_question": {
+      "act": 5,
+      "title": "A Quiet One",
+      "time": "17:48",
+      "bed": "spectra",
+      "cues": [
+        { "id": "c3521", "type": "tts", "sp": "voss", "fx": "radio",
+          "t": "[calm] Go ahead, Control." },
+        { "id": "c3522", "type": "tts", "sp": "meridian", "fx": "intercom", "bed": "ops",
+          "t": "[flat] Question logged: at eleven forty-eight and two seconds, how did you know Professor Coll had found the fourteen-twenty feature?" },
+        { "id": "c3523", "type": "tts", "sp": "voss", "fx": "radio",
+          "t": "[a pause — the first real one] ...Because he said so. 'I have it.'" },
+        { "id": "c3524", "type": "tts", "sp": "okafor", "fx": "radio", "bed": "aurora",
+          "t": "[very softly] He said 'I have it.' He didn't say what. You told me an hour ago he'd waited eleven years to say that sentence. [beat] How did you know which sentence it was, Mara?" },
+        { "id": "c3525", "type": "tts", "sp": "voss", "fx": "radio",
+          "t": "[perfectly steady] Because I have worked beside that man for eleven years and I know what he was looking for. [beat] You'll want better than that, Control. I'd want better than that." },
+        { "id": "c3526", "type": "synth", "synth": "pulse", "bed": "ops" }
+      ],
+      "set": { "voss_slipped": true },
+      "next": "s35_last_call"
+    },
+
+    "s36_deduction": {
+      "act": 5,
+      "title": "Determination",
+      "time": "17:54",
+      "bed": "ops",
+      "deduction": true,
+      "cues": [
+        { "id": "c3601", "type": "tts", "sp": "meridian", "fx": "intercom",
+          "t": "[flat] All stations on open channel. Incident determination, Helios Peak, this date. Coordinator: Control. Recording for the consortium record and for the civil authority. Proceed." },
+        { "id": "c3602", "type": "tts", "sp": "voss", "fx": "radio", "bed": "spectra",
+          "t": "[quietly] We're all listening, Control." }
+      ]
+    },
+
+    "s37_confront_strong": {
+      "act": 5,
+      "title": "The Shadow Clock",
+      "time": "18:02",
+      "bed": "spectra",
+      "cues": [
+        { "id": "c3701", "type": "tts", "sp": "voss", "fx": "radio",
+          "t": "[a long silence, then, evenly] Yes." },
+        { "id": "c3702", "type": "dialogue", "fx": "radio", "lines": [
+          { "sp": "trent", "t": "[disbelieving] Mara—" },
+          { "sp": "voss", "t": "Don't, Elias. You've had a horrible enough day and you're about to have a worse one, and none of it is your fault. Your rubidium is ageing. That's all that was ever wrong with you." }
+        ]},
+        { "id": "c3703", "type": "tts", "sp": "voss", "fx": "radio",
+          "t": "[measured] I want it on the record that I did not do this to keep a job. I have been offered better jobs. I did it because on the twenty-ninth of this month a committee in Brussels decides whether four hundred people keep working, and the entire case rests on a result I published when I was thirty-seven years old." },
+        { "id": "c3704", "type": "tts", "sp": "voss", "fx": "radio",
+          "t": "[with feeling] And I saw it. That is the part none of you will believe and it is the only part that matters to me. I sat at that bench on the fourteenth of March and I saw a narrow line at fourteen-twenty point three and I knew — I *knew* — and it came out at one point nine sigma, and one point nine sigma is nothing. It's a shrug. It's a footnote." },
+        { "id": "c3705", "type": "tts", "sp": "voss", "fx": "radio",
+          "t": "[quietly fierce] So I moved it. Three point three sigma, by hand, on a Tuesday. And the thing I had seen became a thing the world could see, and this observatory was built on it, and every person on this mountain has a career because of a number I altered in a room on my own." },
+        { "id": "c3706", "type": "tts", "sp": "voss", "fx": "radio",
+          "t": "[flat] Adrian found the raw frames six weeks ago. He didn't confront me. He designed an entire eclipse campaign to settle it, because he was that kind of man — he'd rather be right in public than kind in private." },
+        { "id": "c3707", "type": "tts", "sp": "voss", "fx": "radio",
+          "t": "[breaking, very slightly] And he was going to be right. His run has it at eight sigma. It's real. It was always real. [beat] He was going to stand up in eleven days and prove that the thing I saw exists, and in the same breath prove that I am a fraud, and after that no one would ever be able to say the two things separately again." },
+        { "id": "c3708", "type": "tts", "sp": "voss", "fx": "radio",
+          "t": "[steady again] I have been listening to you find every single piece of it for six hours, Control. I handed you most of them. [beat] I think I wanted somebody to be good enough. That is not remorse. I want to be very clear that it is not remorse. It is closer to relief, and I'm aware of how that sounds." },
+        { "id": "c3709", "type": "tts", "sp": "rook", "fx": "radio", "bed": "mechbay",
+          "t": "[thick] You let me think it was my chair. You let me sit here for six hours thinking I'd killed him with my own bad paperwork." },
+        { "id": "c3710", "type": "tts", "sp": "voss", "fx": "radio",
+          "t": "[simply] Yes, Gabriel. I did. [beat] I'm sorry. That one I actually am sorry for." },
+        { "id": "c3711", "type": "tts", "sp": "meridian", "fx": "intercom", "bed": "ops",
+          "t": "[flat] Rolling overwrite in ninety seconds. One protected-archive designation remains available to the incident coordinator." }
+      ],
+      "set": { "voss_confessed": true },
+      "next": "s38_data_choice"
+    },
+
+    "s37_confront_weak": {
+      "act": 5,
+      "title": "Prove It",
+      "time": "18:02",
+      "bed": "spectra",
+      "cues": [
+        { "id": "c3721", "type": "tts", "sp": "voss", "fx": "radio",
+          "t": "[calm, almost gentle] No." },
+        { "id": "c3722", "type": "tts", "sp": "voss", "fx": "radio",
+          "t": "I understand why you got there, and I'd probably have got there myself. The key signs from an unlocked room. The chamber access is real and I declared it in the first hour. And the rest of it is a set of sounds, interpreted by people who are exhausted and frightened." },
+        { "id": "c3723", "type": "tts", "sp": "voss", "fx": "radio",
+          "t": "[levelly] You have not shown that those transmissions never left the mountain. You have not put my hands on that terminal at eleven forty-seven. You have a signature from a key that sits in a room with a broken door, and a theory. [beat] I've spent my life at the wrong end of five sigma, Control. This isn't three." },
+        { "id": "c3724", "type": "tts", "sp": "okafor", "fx": "radio", "bed": "aurora",
+          "t": "[frustrated] She's right about the standard of proof. [beat] She is not right about what happened. Those are different sentences and only one of them is going to survive a courtroom." },
+        { "id": "c3725", "type": "tts", "sp": "meridian", "fx": "intercom", "bed": "ops",
+          "t": "[flat] Rolling overwrite in ninety seconds. Determination logged. Civil authority notified.",
+          "mix": [{ "sfx": "archive_warning", "at": 0.5, "gain": 0.4 }] }
+      ],
+      "set": { "voss_denied": true },
+      "next": "end_consortium"
+    },
+
+    "s37_confront_wrong": {
+      "act": 5,
+      "title": "The Wrong Name",
+      "time": "18:02",
+      "bed": "ops",
+      "cues": [
+        { "id": "c3731", "type": "tts", "sp": "meridian", "fx": "intercom",
+          "t": "[flat] Determination logged. Named party notified. Civil authority notified." },
+        { "id": "c3732", "type": "tts", "sp": "voss", "fx": "radio", "bed": "spectra",
+          "t": "[carefully neutral] ...I see. [beat] Well. It's a defensible reading of the evidence, Control. I'd have wanted more, but you were working under a clock and I don't envy you the clock." },
+        { "id": "c3733", "type": "tts", "sp": "okafor", "fx": "radio", "bed": "aurora",
+          "t": "[quietly furious] It is not defensible. It is *tidy*. Those are different words." },
+        { "id": "c3734", "type": "tts", "sp": "voss", "fx": "radio", "bed": "spectra",
+          "t": "[kindly] Leila. It's been a very long day and we have all made mistakes today. [beat] Let it go." },
+        { "id": "c3735", "type": "sfx", "sfx": "archive_warning", "bed": "ops" }
+      ],
+      "set": { "wrong_accusation": true },
+      "next": "end_dead_air"
+    },
+
+    "s38_data_choice": {
+      "act": 5,
+      "title": "One Protected Archive",
+      "time": "18:06",
+      "bed": "ops",
+      "cues": [
+        { "id": "c3801", "type": "tts", "sp": "meridian", "fx": "intercom",
+          "t": "[flat] Coordinator. One archive may be protected from the rolling overwrite. Select: incident evidence and the fourteen March raw frames, or the eclipse dataset alone." },
+        { "id": "c3802", "type": "tts", "sp": "voss", "fx": "radio", "bed": "spectra",
+          "t": "[quietly] Control. Before you choose. [beat] If you protect the fourteen March frames, everything comes out — what I did, and what Adrian found, in the same file, on the same day. The detection will carry my name on it forever, in a sentence that begins 'discredited'." },
+        { "id": "c3803", "type": "tts", "sp": "voss", "fx": "radio", "bed": "spectra",
+          "t": "If you protect only the eclipse data, the discovery stands clean. Adrian's name, eight sigma, no asterisk. The consortium survives. I resign for health reasons and I am never heard of again, which I would find entirely bearable. [beat] I am not asking for mercy. I'm telling you what each button does." },
+        { "id": "c3804", "type": "tts", "sp": "okafor", "fx": "radio", "bed": "aurora",
+          "t": "[hard] Control, she is doing it *again*. She is standing in a burning building explaining very reasonably why we should not call the fire brigade." },
+        { "id": "c3805", "type": "tts", "sp": "voss", "fx": "radio", "bed": "spectra",
+          "t": "[without heat] Yes. And I'm still right. Those two things have been true together for eleven years." },
+        { "id": "c3806", "type": "tts", "sp": "meridian", "fx": "intercom",
+          "t": "[flat] Thirty seconds." }
+      ],
+      "choices": [
+        { "t": "Protect everything. The fraud and the discovery, in the same file.", "next": "end_shadow", "set": { "released_data": true } },
+        { "t": "Protect the eclipse data. Let the science stand clean.", "next": "end_consortium", "set": { "protected_consortium": true } }
+      ]
+    },
+
+    "end_shadow": {
+      "act": 5,
+      "title": "ENDING — The Shadow",
+      "time": "Three years later",
+      "bed": "ops",
+      "ending": "shadow",
+      "cues": [
+        { "id": "c3901", "type": "sfx", "sfx": "archive_warning", "caption": "18:07. Overwrite begins. One archive holds." },
+        { "id": "c3902", "type": "tts", "sp": "meridian", "fx": "intercom",
+          "t": "[flat] Protected archive designated: incident evidence, fourteen March raw frames, eclipse dataset. Overwrite proceeding on all other traffic. Helios Peak incident channel closing." },
+        { "id": "c3903", "type": "tts", "sp": "voss", "fx": "radio", "bed": "spectra",
+          "t": "[a breath] ...Thank you. [beat] That's the wrong word. There isn't a right one. Spectra out." },
+        { "id": "c3904", "type": "sfx", "sfx": "dead_carrier", "bed": "carrier" },
+        { "id": "c3905", "type": "tts", "sp": "okafor", "fx": "clean", "bed": "ops",
+          "t": "[measured, a debrief months on] They dismantled the consortium in fourteen months. Four hundred and eleven people. Gabriel lost his certification for the decommissioning certificate, which he expected and did not contest. Elias declared his correction and recalled two years of my data, and I have never once minded.",
+          "caption": "Consortium inquiry — closing statement of Dr. L. Okafor." },
+        { "id": "c3906", "type": "tts", "sp": "okafor", "fx": "clean", "bed": "ops",
+          "t": "Julian's film came out. It is better than any of us wanted it to be. It ends with her voice, and it does not explain her, and I have decided that is the correct choice." },
+        { "id": "c3907", "type": "tts", "sp": "okafor", "fx": "clean", "bed": "ops",
+          "t": "[slower] Three years after the eclipse, an independent array in the Karoo confirmed the fourteen-twenty point three feature at eleven sigma. It is real. It has been in the sky the entire time, waiting for somebody to be patient enough. [beat] The paper cites Coll. It also cites Voss, twice, because you cannot write the history honestly without her, and honesty was rather the point." },
+        { "id": "c3908", "type": "tts", "sp": "okafor", "fx": "clean", "bed": "totality",
+          "t": "[quiet] People ask me what I learned. [beat] Six people stood on one mountain and watched the same four minutes, and every one of us remembered it differently, and every one of us was certain. The moon's shadow crossed the ridge at eleven forty-six and twelve seconds and did not care what any of us thought about it." },
+        { "id": "c3909", "type": "tts", "sp": "okafor", "fx": "clean", "bed": "totality",
+          "t": "[final] The clocks disagreed. The shadow did not." }
+      ]
+    },
+
+    "end_consortium": {
+      "act": 5,
+      "title": "ENDING — The Consortium",
+      "time": "Eighteen months later",
+      "bed": "ops",
+      "ending": "consortium",
+      "cues": [
+        { "id": "c3921", "type": "tts", "sp": "meridian", "fx": "intercom",
+          "t": "[flat] Protected archive designated: eclipse dataset. Overwrite proceeding on all other traffic. Helios Peak incident channel closing." },
+        { "id": "c3922", "type": "sfx", "sfx": "dead_carrier", "bed": "carrier" },
+        { "id": "c3923", "type": "tts", "sp": "okafor", "fx": "clean", "bed": "ops",
+          "t": "[flat, tired] The prosecution ran for nine months. The physical evidence had been overwritten by the observatory's own retention policy, which the defence described, accurately, as routine. What remained was five exhausted people describing sounds.",
+          "caption": "Consortium inquiry — statement of Dr. L. Okafor." },
+        { "id": "c3924", "type": "tts", "sp": "okafor", "fx": "clean", "bed": "ops",
+          "t": "Dr. Voss stepped down citing her health. The consortium's funding renewed in March at four hundred and twelve million euros. The Helios detection stands in the literature exactly as published eleven years ago, at five point two sigma, and it will be cited for another forty years by people who have never heard of any of us." },
+        { "id": "c3925", "type": "tts", "sp": "okafor", "fx": "clean", "bed": "ops",
+          "t": "[quietly] Gabriel took the certification finding alone. Elias never declared his correction; there seemed no longer to be any point. Julian's film was not made. [beat] I am told this is what a stable institution looks like from the outside." },
+        { "id": "c3926", "type": "tts", "sp": "meridian", "fx": "intercom", "bed": "ops",
+          "t": "[flat] Consortium communications. Attached: recorded statement for release, Helios Peak, twelve months on." },
+        { "id": "c3927", "type": "tts", "sp": "coll", "fx": "synthetic", "bed": "annex",
+          "t": "The result stands. The work continues. I have every confidence in this institution.",
+          "caption": "Statement released under the late director's name. Duration 4.1 seconds.",
+          "clip": { "id": "CLIP_END_SYNTH", "label": "Posthumous statement", "evidence": null } },
+        { "id": "c3928", "type": "tts", "sp": "okafor", "fx": "clean", "bed": "ops",
+          "t": "[very quietly] I played it forty times. [beat] There is a laptop fan under it, eighteen inches from the microphone, in a small dry room. [beat] Nobody else has ever noticed, and I have stopped telling them." },
+        { "id": "c3929", "type": "tts", "sp": "okafor", "fx": "clean", "bed": "totality",
+          "t": "[final] The clocks disagreed. The shadow did not. [beat] It turns out that almost nobody is listening to the shadow." }
+      ]
+    },
+
+    "end_dead_air": {
+      "act": 5,
+      "title": "ENDING — Dead Air",
+      "time": "Four years later",
+      "bed": "ops",
+      "ending": "dead_air",
+      "cues": [
+        { "id": "c3941", "type": "tts", "sp": "meridian", "fx": "intercom",
+          "t": "[flat] Overwrite complete. Prior traffic unrecoverable. Helios Peak incident channel closed." },
+        { "id": "c3942", "type": "sfx", "sfx": "dead_carrier", "bed": "carrier" },
+        { "id": "c3943", "type": "tts", "sp": "okafor", "fx": "clean", "bed": "ops",
+          "t": "[flat] The named party was charged. Not with murder — that never held — but with what they had actually done, which each of them had actually done, and which was enough to end them. That is how it usually goes. You do not convict people of the crime. You convict them of the lie they told about the crime.",
+          "caption": "Four years on." },
+        { "id": "c3944", "type": "tts", "sp": "okafor", "fx": "clean", "bed": "ops",
+          "t": "Dr. Mara Voss was appointed director of Helios Peak Observatory that autumn. Her first act was to commission a full review of archival retention. Her second was to shorten it." },
+        { "id": "c3945", "type": "tts", "sp": "okafor", "fx": "clean", "bed": "ops",
+          "t": "[slowly] I have thought about the frost alarm every day for four years. It was in the first recording anyone played you. It was in the first recording anyone played *me*. [beat] A hundred and five decibels, and a man who did not blink." },
+        { "id": "c3946", "type": "tts", "sp": "okafor", "fx": "clean", "bed": "ops",
+          "t": "A package arrived at the operations centre last month. No sender. Inside: one drive, containing a communications rehearsal recorded at twenty-one forty the night before the eclipse, and a note, in Julian Cross's handwriting.",
+          "caption": "No return address." },
+        { "id": "c3947", "type": "tts", "sp": "cross", "fx": "voicemail", "bed": "annex",
+          "t": "[quiet] Four phrases. Play them in order, then play the morning. [beat] I sat on this for four years because nobody would have believed me alone, and because I was afraid, and neither of those is a reason. [beat] You listened to the clocks." },
+        { "id": "c3948", "type": "sfx", "sfx": "dead_carrier", "bed": "carrier" },
+        { "id": "c3949", "type": "tts", "sp": "okafor", "fx": "clean", "bed": "totality",
+          "t": "[final] The clocks disagreed. The shadow did not. [beat] We should have asked the shadow." }
+      ]
+    }
+
+  }
+}

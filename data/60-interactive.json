@@ -1,0 +1,160 @@
+{
+  "deduction": {
+    "prompt": "Incident determination. Four findings. You may change any answer until you commit.",
+    "fields": [
+      {
+        "id": "death_time",
+        "label": "Time of death",
+        "options": [
+          { "id": "a", "t": "Approximately 11:42 — four minutes before totality", "correct": true },
+          { "id": "b", "t": "Approximately 11:46 — as totality began" },
+          { "id": "c", "t": "Approximately 11:50 — at third contact, as the medical report states" },
+          { "id": "d", "t": "After 11:53, once the chamber lock released" }
+        ],
+        "supports": ["E12", "E02", "E14"]
+      },
+      {
+        "id": "method",
+        "label": "Method",
+        "options": [
+          { "id": "a", "t": "An intruder entered through the fibre maintenance conduit" },
+          { "id": "b", "t": "Delayed remote activation of the infusion rig in his chair", "correct": true },
+          { "id": "c", "t": "The dose was administered before he sealed the chamber" },
+          { "id": "d", "t": "Self-administered" }
+        ],
+        "supports": ["E15", "E10", "E13"]
+      },
+      {
+        "id": "false_recording",
+        "label": "Which transmission was manufactured — not merely replayed",
+        "options": [
+          { "id": "a", "t": "11:41:38 — the final genuine transmission" },
+          { "id": "b", "t": "11:44:05 — 'Proceed to sequence three'" },
+          { "id": "c", "t": "11:48:02 — 'I have it. Beautiful.'", "correct": true },
+          { "id": "d", "t": "10:58:04 — the voicemail to Dr. Okafor" }
+        ],
+        "supports": ["E16", "E08", "E09", "E11"]
+      },
+      {
+        "id": "culprit",
+        "label": "Responsible party",
+        "decisive": true,
+        "options": [
+          { "id": "voss", "t": "Dr. Mara Voss — deputy director, Spectra", "correct": true },
+          { "id": "trent", "t": "Dr. Elias Trent — precision timing, Chronos" },
+          { "id": "rook", "t": "Gabriel Rook — systems engineer" },
+          { "id": "okafor", "t": "Dr. Leila Okafor — radio astronomer, Aurora" },
+          { "id": "cross", "t": "Julian Cross — documentary journalist" },
+          { "id": "none", "t": "The evidence does not support an accusation" }
+        ]
+      }
+    ],
+    "routes": [
+      { "when": { "culprit": "voss", "strongCase": true }, "next": "s37_confront_strong" },
+      { "when": { "culprit": "voss", "strongCase": false }, "next": "s37_confront_weak" },
+      { "when": { "culprit": "*" }, "next": "s37_confront_wrong" }
+    ]
+  },
+
+  "puzzles": {
+    "ambience": {
+      "kind": "match",
+      "title": "Reference beds — match each recording to the room it was made in",
+      "instruction": "Play each reference, then assign every transmission to a room. Coll's chamber has ventilation, room resonance and — only while the telescope is tracking — a thin drive whine.",
+      "references": [
+        { "bed": "chamber_tracking", "label": "Meridian Chamber — telescope tracking" },
+        { "bed": "chamber_parked", "label": "Meridian Chamber — dome parked" },
+        { "bed": "annex", "label": "Visitor annex — edit room" },
+        { "bed": "chronos", "label": "Chronos timing laboratory" },
+        { "bed": "aurora", "label": "Aurora radio array" },
+        { "bed": "spectra", "label": "Spectra station" }
+      ],
+      "items": [
+        { "clip": "CLIP_1122", "label": "11:22:40 — Meridian", "answer": "chamber_tracking" },
+        { "clip": "CLIP_1135", "label": "11:35:50 — Meridian", "answer": "chamber_tracking" },
+        { "clip": "CLIP_1141", "label": "11:41:38 — Meridian", "answer": "chamber_tracking" },
+        { "clip": "CLIP_1144", "label": "11:44:05 — Meridian", "answer": "chamber_parked" },
+        { "clip": "CLIP_1146", "label": "11:46:40 — Meridian", "answer": "chamber_parked" },
+        { "clip": "CLIP_1148", "label": "11:48:02 — Meridian", "answer": "annex" }
+      ],
+      "onSolve": { "grants": ["E08"], "set": { "solved_ambience": true } },
+      "hint": "Three transmissions have a thin high whine under the ventilation. Three do not. One of the three that does not is not the chamber at all."
+    },
+
+    "phrasematch": {
+      "kind": "match",
+      "title": "Rehearsal, 21:40 — against this morning",
+      "instruction": "Four of this morning's five short transmissions already existed last night. Pair them. One will not pair with anything.",
+      "references": [
+        { "clip": "CLIP_REH_1", "label": "Rehearsal — 'Confirmed'" },
+        { "clip": "CLIP_REH_2", "label": "Rehearsal — 'Proceed to sequence three'" },
+        { "clip": "CLIP_REH_3", "label": "Rehearsal — 'Hold the sequence'" },
+        { "clip": "CLIP_REH_4", "label": "Rehearsal — 'Stand by'" },
+        { "clip": "NONE", "label": "No match in the rehearsal" }
+      ],
+      "items": [
+        { "clip": "CLIP_1142", "label": "11:42:44 — 'Confirmed.'", "answer": "CLIP_REH_1" },
+        { "clip": "CLIP_1144", "label": "11:44:05 — 'Proceed to sequence three.'", "answer": "CLIP_REH_2" },
+        { "clip": "CLIP_1146", "label": "11:46:40 — 'Hold the sequence.'", "answer": "CLIP_REH_3" },
+        { "clip": "CLIP_1149", "label": "11:49:30 — 'Stand by.'", "answer": "CLIP_REH_4" },
+        { "clip": "CLIP_1148", "label": "11:48:02 — 'I have it. Beautiful.'", "answer": "NONE" }
+      ],
+      "onSolve": { "grants": ["E11"], "set": { "solved_phrasematch": true } },
+      "hint": "Listen to the words, not the tone. Four are verbatim. The fifth is a sentence Coll never had a reason to rehearse."
+    },
+
+    "cardiac": {
+      "kind": "select",
+      "title": "Cardiac telemetry — identify the repeated interval",
+      "instruction": "Atrial fibrillation is irregular by definition — the interval between beats is effectively random. Play both windows. Select every four-minute interval whose beat pattern is identical to another interval.",
+      "options": [
+        { "id": "w1", "t": "11:34:20 – 11:38:20" },
+        { "id": "w2", "t": "11:38:20 – 11:42:20", "correct": true },
+        { "id": "w3", "t": "11:42:20 – 11:46:20", "correct": true },
+        { "id": "w4", "t": "11:46:20 – 11:50:20", "correct": true }
+      ],
+      "onSolve": { "grants": ["E12"], "set": { "solved_cardiac": true } },
+      "hint": "Three of the four windows carry the same beat pattern. Only one of the three can be a living heart — the earliest. Everything after it is that same four minutes, played again.",
+      "solution": "Windows 2, 3 and 4 are the same recording. The chair buffered 11:38:20–11:42:20 and replayed it on a loop from 11:42:20 onward. The last real heartbeat is at the end of window 2."
+    },
+
+    "packet": {
+      "kind": "select",
+      "title": "Calibration packet — 11:29:55, Spectra origin",
+      "instruction": "Select the field that does not belong in the calibration standard.",
+      "monospace": [
+        "BUS/CAL  v2.1",
+        "  origin      : SPECTRA",
+        "  dest        : MC-CHR-07",
+        "  issued      : 11:29:55.118",
+        "  profile     : STANDING-CAL-B",
+        "  gain_ref    : 1.0000",
+        "  temp_comp   : +0.4C",
+        "  exec_defer  : T+720",
+        "  retries     : 2",
+        "  sig_key     : SPE-01",
+        "  sig         : valid"
+      ],
+      "options": [
+        { "id": "dest", "t": "dest : MC-CHR-07" },
+        { "id": "profile", "t": "profile : STANDING-CAL-B" },
+        { "id": "exec_defer", "t": "exec_defer : T+720", "correct": true },
+        { "id": "gain_ref", "t": "gain_ref : 1.0000" },
+        { "id": "sig_key", "t": "sig_key : SPE-01" }
+      ],
+      "onSolve": { "grants": ["E15"], "set": { "solved_packet": true } },
+      "hint": "A calibration packet tells an instrument what it is. It has no business telling it when."
+    }
+  },
+
+  "archive": {
+    "title": "CLIP ARCHIVE",
+    "note": "Every recording you have heard is replayable here. Enhancement is available on all of them.",
+    "enhancements": [
+      { "id": "both", "label": "Full mix", "voice": 1.0, "bedMul": 1.0 },
+      { "id": "voice", "label": "Isolate voice", "voice": 1.0, "bedMul": 0.0 },
+      { "id": "bed", "label": "Isolate background", "voice": 0.04, "bedMul": 2.6 },
+      { "id": "slow", "label": "Half speed", "voice": 1.0, "bedMul": 1.0, "rate": 0.5 }
+    ]
+  }
+}

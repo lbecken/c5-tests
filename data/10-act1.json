@@ -1,0 +1,292 @@
+{
+  "scenes": {
+
+    "s01_cold_open": {
+      "act": 1,
+      "title": "Four Minutes",
+      "time": "10:27",
+      "bed": "summit_wind",
+      "cues": [
+        { "id": "c0101", "type": "sfx", "sfx": "storm_exterior", "caption": "Helios Peak Observatory. Cordillera del Sol, 4,180 metres. The road has been closed since eight this morning." },
+        { "id": "c0102", "type": "tts", "sp": "meridian", "fx": "intercom", "bed": "chamber_tracking",
+          "t": "Helios Peak. Eclipse sequence armed. First contact in four minutes. All stations report to Meridian on the primary loop." },
+        { "id": "c0103", "type": "dialogue", "fx": "radio", "bed": "chamber_tracking", "lines": [
+          { "sp": "coll", "t": "Meridian to the ring. Same order as last night's rehearsal. Chronos." },
+          { "sp": "trent", "t": "Chronos ready. Beacon's locked, all three standards green." },
+          { "sp": "coll", "t": "Aurora." },
+          { "sp": "okafor", "t": "Aurora ready. The fourteen-twenty receiver is still sulking, but I'll have it." },
+          { "sp": "coll", "t": "You'll have it, or you won't have it, Leila. Which is it." },
+          { "sp": "okafor", "t": "[dryly] I'll have it." }
+        ]},
+        { "id": "c0104", "type": "dialogue", "fx": "radio", "bed": "chamber_tracking", "lines": [
+          { "sp": "coll", "t": "Mechanical." },
+          { "sp": "rook", "t": "Bay's ready. West shutter's icing up on me again, but she'll hold for four minutes." },
+          { "sp": "coll", "t": "Spectra." },
+          { "sp": "voss", "t": "[warmly] Spectra ready, Adrian. Everything is exactly where it should be." },
+          { "sp": "coll", "t": "Annex." },
+          { "sp": "cross", "t": "Rolling. Don't mind me." },
+          { "sp": "coll", "t": "I always mind you, Mr. Cross." }
+        ]},
+        { "id": "c0105", "type": "tts", "sp": "coll", "fx": "radio", "bed": "chamber_tracking",
+          "t": "[firm] Four minutes. I'm sealing the chamber. Nobody leaves their post for anything short of a fire — and if there is a fire, put it out quietly." },
+        { "id": "c0106", "type": "sfx", "sfx": "eclipse_tone", "bed": "summit_wind", "caption": "10:31:40 — first contact." },
+        { "id": "c0107", "type": "tts", "sp": "meridian", "fx": "intercom", "bed": "totality",
+          "t": "[flat] Second contact. Totality. Four minutes, thirty-six seconds.", "caption": "11:46:12. On the ridge, the wind has stopped." },
+        { "id": "c0108", "type": "tts", "sp": "okafor", "fx": "relay", "bed": "aurora",
+          "t": "Meridian, Aurora. Adrian — are you reading anything at fourteen-twenty?",
+          "caption": "11:47:20." },
+        { "id": "c0109", "type": "sfx", "sfx": "frost_alarm", "bed": "carrier",
+          "caption": "11:48:00. The west shutter frost alarm, on every channel on the mountain." },
+        { "id": "c0110", "type": "tts", "sp": "coll", "fx": "synthetic", "bed": "annex",
+          "t": "I have it. Beautiful.",
+          "caption": "11:48:02.",
+          "tail": 3.0,
+          "mix": [{ "sfx": "frost_alarm", "at": 0.0, "gain": 0.5 }],
+          "clip": { "id": "CLIP_1148", "label": "11:48:02 — Meridian", "evidence": "E01" } },
+        { "id": "c0111", "type": "dialogue", "fx": "relay", "bed": "carrier", "lines": [
+          { "sp": "okafor", "t": "Meridian, say again? Which band, Adrian?" },
+          { "sp": "okafor", "t": "Meridian, Aurora. Say again." }
+        ]},
+        { "id": "c0112", "type": "sfx", "sfx": "dead_carrier", "bed": "carrier" },
+        { "id": "c0113", "type": "dialogue", "fx": "relay", "bed": "spectra", "lines": [
+          { "sp": "voss", "t": "Meridian, Spectra. Adrian, respond." },
+          { "sp": "voss", "t": "[tense] Meridian, respond." },
+          { "sp": "voss", "t": "Mechanical, Spectra — Gabriel, get down to the chamber." }
+        ]},
+        { "id": "c0114", "type": "tts", "sp": "meridian", "fx": "intercom", "bed": "chamber_tracking",
+          "t": "[flat] Observation cycle complete. Meridian Chamber lock released. Eleven fifty-three." }
+      ],
+      "grants": ["E01"],
+      "set": { "heard_final_exchange": true },
+      "next": "s02_briefing"
+    },
+
+    "s02_briefing": {
+      "act": 1,
+      "title": "Ops Control",
+      "time": "12:09",
+      "bed": "ops",
+      "cues": [
+        { "id": "c0201", "type": "tts", "sp": "meridian", "fx": "intercom",
+          "t": "[flat] Incident channel open. Consortium remote operations. You are logged as incident coordinator, call sign Control.",
+          "caption": "Two thousand kilometres away, in a room with no windows." },
+        { "id": "c0202", "type": "tts", "sp": "voss", "fx": "radio", "bed": "spectra",
+          "t": "[controlled] Control, this is Mara Voss, deputy director. I'll be your contact up here. I'm going to give you the situation once, cleanly, and then you can ask me anything you like." },
+        { "id": "c0203", "type": "dialogue", "fx": "radio", "bed": "spectra", "lines": [
+          { "sp": "voss", "t": "Professor Adrian Coll is dead in the Meridian Chamber. The chamber was sealed from the inside at eleven eighteen and did not open again until eleven fifty-three." },
+          { "sp": "voss", "t": "The road is closed. The lift is locked out. Nobody is coming up this mountain today, and nobody is going down it." },
+          { "sp": "voss", "t": "There are five of us left up here. All five of us spoke to Adrian while that door was shut." }
+        ]},
+        { "id": "c0204", "type": "tts", "sp": "voss", "fx": "radio", "bed": "spectra",
+          "t": "[quietly] And Control — I have to tell you this now, because it will matter. Not one of us agrees about when." },
+        { "id": "c0205", "type": "tts", "sp": "meridian", "fx": "intercom", "bed": "ops",
+          "t": "[flat] Advisory. Timing archive buffer at ninety-four percent. Eclipse dataset ingest in progress. Rolling overwrite of prior traffic will begin automatically.",
+          "mix": [{ "sfx": "archive_warning", "at": 0.5, "gain": 0.3 }] },
+        { "id": "c0206", "type": "tts", "sp": "voss", "fx": "radio", "bed": "spectra",
+          "t": "[flat] That's the part I like least. Every radio recording, every log, every timestamp from this morning sits in that buffer. When the eclipse data finishes writing, the morning gets erased. You have a few hours. Not a few days." }
+      ],
+      "next": "s03_chamber_opened"
+    },
+
+    "s03_chamber_opened": {
+      "act": 1,
+      "title": "What Rook Found",
+      "time": "11:58 — replayed",
+      "bed": "mechbay",
+      "cues": [
+        { "id": "c0301", "type": "tts", "sp": "voss", "fx": "radio", "bed": "spectra",
+          "t": "Gabriel Rook opened the door. This is his channel from eleven fifty-eight. It's not pleasant. I'd rather you heard it than read it." },
+        { "id": "c0302", "type": "sfx", "sfx": "chamber_unlock", "bed": "chamber_parked" },
+        { "id": "c0303", "type": "dialogue", "fx": "radio", "bed": "chamber_parked", "lines": [
+          { "sp": "rook", "t": "[breathless] I'm in. I'm in the chamber. Adrian? Adrian—" },
+          { "sp": "rook", "t": "[shaken] He's in the chair. He's — ah, God. He's not breathing." },
+          { "sp": "voss", "t": "Gabriel. Is there anyone else in there with you." },
+          { "sp": "rook", "t": "There's nobody. There's nobody, Mara, it's a sealed room, there's nowhere to be." }
+        ]},
+        { "id": "c0304", "type": "dialogue", "fx": "radio", "bed": "chamber_parked", "lines": [
+          { "sp": "voss", "t": "Is there anything in his hand? Anything on the console? A syringe, a bottle, a note—" },
+          { "sp": "rook", "t": "There's nothing. His hand's on the arm of the chair. He's just sat in the bloody chair." },
+          { "sp": "rook", "t": "[a beat] Mara. The chair's still got his heart on the screen. It's still — it says he's got a pulse." },
+          { "sp": "voss", "t": "[softly] That's the monitor lagging, Gabriel. Come out of there." }
+        ]},
+        { "id": "c0305", "type": "tts", "sp": "meridian", "fx": "intercom", "bed": "ops",
+          "t": "[flat] Preliminary medical assessment. Cause of death consistent with acute cardiac arrest following a large intravenous dose of the subject's own antiarrhythmic medication. No delivery device recovered. Estimated time of death: eleven forty-nine to eleven fifty-one." }
+      ],
+      "grants": ["E04"],
+      "next": "s04_locked_room"
+    },
+
+    "s04_locked_room": {
+      "act": 1,
+      "title": "A Room With One Door",
+      "time": "12:20",
+      "bed": "ops",
+      "cues": [
+        { "id": "c0401", "type": "tts", "sp": "meridian", "fx": "intercom",
+          "t": "[flat] Meridian Chamber. Circular control room, twelve metres, beneath the primary solar telescope. Single pressure door. During an observation cycle the door releases only from the interior, or by mechanical override requiring two operators at two separate stations." },
+        { "id": "c0402", "type": "dialogue", "fx": "radio", "bed": "spectra", "lines": [
+          { "sp": "voss", "t": "No override was performed. It can't be performed quietly — it takes two people, and both of them have to turn a physical key." },
+          { "sp": "voss", "t": "Adrian went in alone at eleven eighteen and locked it behind him. That is not in dispute and it is not going to become disputable." }
+        ]},
+        { "id": "c0403", "type": "tts", "sp": "voss", "fx": "radio", "bed": "spectra",
+          "t": "[carefully] Which leaves you with a man who died alone in a locked room, of a drug that was already in his bloodstream, in a chair that was monitoring his heart the entire time. Where would you like to start, Control?" }
+      ],
+      "grants": ["E03"],
+      "choices": [
+        { "t": "Play me the final exchange again. All of it.", "next": "s05_final_exchange", "set": { "started_audio": true } },
+        { "t": "The medical telemetry. I want to see his heart.", "next": "s06_medical", "set": { "started_medical": true } },
+        { "t": "The access log. Prove the room to me.", "next": "s07_access_log", "set": { "started_access": true } }
+      ]
+    },
+
+    "s05_final_exchange": {
+      "act": 1,
+      "title": "The Last Eight Minutes",
+      "time": "12:26",
+      "bed": "ops",
+      "cues": [
+        { "id": "c0501", "type": "tts", "sp": "voss", "fx": "radio", "bed": "spectra",
+          "t": "Here is everything Adrian said after the door sealed. Five transmissions in thirty-three minutes. He was a busy man." },
+        { "id": "c0502", "type": "tts", "sp": "coll", "fx": "radio", "bed": "chamber_tracking",
+          "t": "Meridian to the ring. Sequence one is running. I have the pointing solution and I am happy with it.",
+          "caption": "11:22:40.",
+          "mix": [{ "sfx": "motor_spinup", "at": 0.4, "gain": 0.22 }],
+          "clip": { "id": "CLIP_1122", "label": "11:22:40 — Meridian", "evidence": null } },
+        { "id": "c0503", "type": "tts", "sp": "coll", "fx": "radio", "bed": "chamber_tracking",
+          "t": "[irritable] Mechanical, Meridian. If that west shutter ices up during totality I will have your certification, Gabriel. Warm it.",
+          "caption": "11:31:06.",
+          "clip": { "id": "CLIP_1131", "label": "11:31:06 — Meridian", "evidence": null } },
+        { "id": "c0504", "type": "tts", "sp": "coll", "fx": "radio", "bed": "chamber_tracking",
+          "t": "Aurora, Meridian. Leila, I need that receiver. Fourteen-twenty is the entire reason we are all standing on this mountain in an ice storm.",
+          "caption": "11:35:50.",
+          "clip": { "id": "CLIP_1135", "label": "11:35:50 — Meridian", "evidence": null } },
+        { "id": "c0505", "type": "tts", "sp": "coll", "fx": "radio", "bed": "chamber_tracking",
+          "t": "Meridian to the ring. Sequence two is closed out, I am holding at the mark, and the corona is — [breaks off] ...hm.",
+          "caption": "11:41:38. The channel breaks up.",
+          "mix": [{ "synth": "double_click", "at": 3.6, "gain": 0.5 }, { "synth": "motor_spike", "at": 4.9, "gain": 0.32 }],
+          "tail": 4.5,
+          "clip": { "id": "CLIP_1141", "label": "11:41:38 — Meridian (final genuine)", "evidence": "E02" } },
+        { "id": "c0506", "type": "tts", "sp": "voss", "fx": "radio", "bed": "spectra",
+          "t": "Interference. The relay does that when the network's loaded. Then four more, all short." },
+        { "id": "c0507", "type": "tts", "sp": "coll", "fx": "relay", "bed": "chamber_parked",
+          "t": "Confirmed.", "caption": "11:42:44 — to Chronos.",
+          "clip": { "id": "CLIP_1142", "label": "11:42:44 — Meridian", "evidence": null } },
+        { "id": "c0508", "type": "tts", "sp": "coll", "fx": "relay", "bed": "chamber_parked",
+          "t": "Proceed to sequence three.", "caption": "11:44:05 — to Mechanical.",
+          "clip": { "id": "CLIP_1144", "label": "11:44:05 — Meridian", "evidence": null } },
+        { "id": "c0509", "type": "tts", "sp": "coll", "fx": "relay", "bed": "chamber_parked",
+          "t": "Hold the sequence.", "caption": "11:46:40 — to Aurora. Totality has begun.",
+          "clip": { "id": "CLIP_1146", "label": "11:46:40 — Meridian", "evidence": null } },
+        { "id": "c0510", "type": "tts", "sp": "coll", "fx": "relay", "bed": "chamber_parked",
+          "t": "Stand by.", "caption": "11:49:30 — to the annex.",
+          "clip": { "id": "CLIP_1149", "label": "11:49:30 — Meridian", "evidence": null } },
+        { "id": "c0511", "type": "tts", "sp": "voss", "fx": "radio", "bed": "spectra",
+          "t": "And then the line at eleven forty-eight, which you've already heard. That's the lot. Thirty-three minutes of a man's life, and eleven words of it after eleven forty-one." }
+      ],
+      "grants": ["E02"],
+      "set": { "heard_all_transmissions": true },
+      "choices": [
+        { "t": "Eleven words. That's a strange amount of talking for a man running an eclipse.", "next": "s05b_suspicious", "set": { "noticed_brevity": true } },
+        { "t": "Move on.", "nextIf": [
+            { "unlessSeen": "s06_medical", "next": "s06_medical" },
+            { "unlessSeen": "s07_access_log", "next": "s07_access_log" }
+          ], "next": "s08_hub_a" }
+      ]
+    },
+
+    "s05b_suspicious": {
+      "act": 1,
+      "title": "Eleven Words",
+      "time": "12:31",
+      "bed": "ops",
+      "cues": [
+        { "id": "c0521", "type": "dialogue", "fx": "radio", "bed": "spectra", "lines": [
+          { "sp": "voss", "t": "[a small pause] That's — a fair observation, Control." },
+          { "sp": "voss", "t": "Adrian talked constantly. He narrated. It drove everyone here to distraction for eleven years." },
+          { "sp": "voss", "t": "But it was totality. He'd have had his hands full and his mouth shut. Possibly for the first time in his career." }
+        ]},
+        { "id": "c0522", "type": "tts", "sp": "voss", "fx": "radio", "bed": "spectra",
+          "t": "[lightly] Although if you want my honest opinion — and you may not want it — the last four don't sound like him talking. They sound like him answering. There's a difference." }
+      ],
+      "set": { "voss_seeded_doubt": true },
+      "nextIf": [
+        { "unlessSeen": "s06_medical", "next": "s06_medical" },
+        { "unlessSeen": "s07_access_log", "next": "s07_access_log" }
+      ],
+      "next": "s08_hub_a"
+    },
+
+    "s06_medical": {
+      "act": 1,
+      "title": "A Heart on a Screen",
+      "time": "12:38",
+      "bed": "ops",
+      "cues": [
+        { "id": "c0601", "type": "tts", "sp": "meridian", "fx": "intercom",
+          "t": "[flat] Cardiac telemetry, Meridian Chamber, chair node M C dash C H R dash zero seven. Subject: Coll, A. Continuous monitoring, documented atrial fibrillation, under medical supervision since twenty-nineteen." },
+        { "id": "c0602", "type": "tts", "sp": "voss", "fx": "radio", "bed": "spectra",
+          "t": "Adrian had a bad heart and no intention of letting it inconvenience him. The chair watches him. It has watched him for two years. His cardiologist gets the trace in Santiago every evening, whether Adrian likes it or not." },
+        { "id": "c0603", "type": "synth", "synth": "cardiac_true", "bed": "ops",
+          "caption": "Telemetry, 11:38 to 11:42, sonified. An irregular rhythm — that irregularity is the whole point of the diagnosis.",
+          "clip": { "id": "CLIP_CARD_A", "label": "Cardiac telemetry 11:38–11:42", "evidence": null } },
+        { "id": "c0604", "type": "tts", "sp": "meridian", "fx": "intercom",
+          "t": "[flat] Trace continues without interruption until eleven fifty, thirty-one. Terminal asystole recorded thereafter. Estimated time of death: eleven forty-nine to eleven fifty-one." },
+        { "id": "c0605", "type": "tts", "sp": "voss", "fx": "radio", "bed": "spectra",
+          "t": "So he was alive at eleven fifty. His own chair says so, and his own chair has no opinions. Which means whatever killed him happened while five people were listening to him on the radio." }
+      ],
+      "grants": ["E04"],
+      "choices": [
+        { "t": "Store that trace. I want to compare it against the later window.", "set": { "flagged_cardiac": true },
+          "nextIf": [
+            { "unlessSeen": "s05_final_exchange", "next": "s05_final_exchange" },
+            { "unlessSeen": "s07_access_log", "next": "s07_access_log" }
+          ], "next": "s08_hub_a" },
+        { "t": "Accepted. Move on.",
+          "nextIf": [
+            { "unlessSeen": "s05_final_exchange", "next": "s05_final_exchange" },
+            { "unlessSeen": "s07_access_log", "next": "s07_access_log" }
+          ], "next": "s08_hub_a" }
+      ]
+    },
+
+    "s07_access_log": {
+      "act": 1,
+      "title": "No One Came In",
+      "time": "12:46",
+      "bed": "ops",
+      "cues": [
+        { "id": "c0701", "type": "tts", "sp": "meridian", "fx": "intercom",
+          "t": "[flat] Meridian Chamber access. Zero nine twelve: Voss, M., calibration, eleven minutes. Ten forty: Coll, A., entry. Ten fifty-eight: Coll, A., exit. Eleven eighteen: Coll, A., entry. Cycle seal engaged. No further events until automatic release at eleven fifty-three." },
+        { "id": "c0702", "type": "dialogue", "fx": "radio", "bed": "spectra", "lines": [
+          { "sp": "voss", "t": "That's me at nine twelve. Standing calibration, I do it before every major run, it's in the schedule and it's in the log because I badged in like everybody else." },
+          { "sp": "voss", "t": "[evenly] I'd rather you heard that from me than found it and wondered why I hadn't said." }
+        ]},
+        { "id": "c0703", "type": "tts", "sp": "meridian", "fx": "intercom",
+          "t": "[flat] Fibre maintenance conduit: cross-section one hundred and ten millimetres. Ventilation trunk: barred, intact. No mechanical override recorded on any station key." },
+        { "id": "c0704", "type": "tts", "sp": "voss", "fx": "radio", "bed": "spectra",
+          "t": "So. Nobody went in. Nothing came out. And a man died of an injection with nothing in the room to inject him with. [beat] Control, I run a spectroscopy station. I'm very good at the part where you stop believing the obvious explanation. This is where I'd start being rude to people." }
+      ],
+      "grants": ["E03"],
+      "nextIf": [
+        { "unlessSeen": "s05_final_exchange", "next": "s05_final_exchange" },
+        { "unlessSeen": "s06_medical", "next": "s06_medical" }
+      ],
+      "next": "s08_hub_a"
+    },
+
+    "s08_hub_a": {
+      "act": 1,
+      "title": "Five Voices",
+      "time": "12:52",
+      "bed": "ops",
+      "cues": [
+        { "id": "c0801", "type": "tts", "sp": "voss", "fx": "radio", "bed": "spectra",
+          "t": "Everyone is at their post and everyone is listening to this channel, so choose carefully who you talk to first. On a mountain this size, the second question is always harder than the first." },
+        { "id": "c0802", "type": "tts", "sp": "meridian", "fx": "intercom",
+          "t": "[flat] Archive buffer: ninety-five percent." }
+      ],
+      "next": "s09_hub_choice"
+    }
+
+  }
+}

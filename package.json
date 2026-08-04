@@ -1,0 +1,21 @@
+{
+  "name": "observatory-murder",
+  "version": "1.0.0",
+  "private": true,
+  "description": "An audio-first interactive mystery for the browser, voiced with ElevenLabs.",
+  "type": "module",
+  "scripts": {
+    "start": "node tools/serve.mjs",
+    "build": "node tools/build.mjs",
+    "audio": "node tools/generate.mjs",
+    "audio:dry": "node tools/generate.mjs --dry",
+    "clues": "python3 tools/synth_clues.py",
+    "playtest": "node tools/playtest.mjs",
+    "assets": "node tools/assetcheck.mjs",
+    "uitest": "node tools/uitest.mjs",
+    "test": "node tools/build.mjs && node tools/playtest.mjs && node tools/assetcheck.mjs"
+  },
+  "devDependencies": {
+    "playwright": "^1.62.1"
+  }
+}

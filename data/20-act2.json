@@ -1,0 +1,507 @@
+{
+  "scenes": {
+
+    "s09_hub_choice": {
+      "act": 2,
+      "title": "The Ring",
+      "time": "12:55",
+      "bed": "ops",
+      "hub": true,
+      "cues": [],
+      "choices": [
+        { "t": "Chronos. Dr. Trent — timing.", "next": "s10_trent", "once": true, "set": { "+interviews": 1 } },
+        { "t": "Mechanical bay. Gabriel Rook.", "next": "s11_rook", "once": true, "set": { "+interviews": 1 } },
+        { "t": "Aurora. Dr. Okafor — radio.", "next": "s12_okafor", "once": true, "set": { "+interviews": 1 } },
+        { "t": "The annex. Julian Cross.", "next": "s13_cross", "once": true, "set": { "+interviews": 1 } },
+        { "t": "Spectra. Dr. Voss herself.", "next": "s14_voss", "once": true, "set": { "+interviews": 1 } },
+        { "t": "I have enough voices. Let me look at the network.", "next": "s15_relay_spec", "requires": { "min": { "interviews": 4 } } }
+      ]
+    },
+
+    "s10_trent": {
+      "act": 2,
+      "title": "Chronos",
+      "time": "13:02",
+      "bed": "chronos",
+      "cues": [
+        { "id": "c1001", "type": "dialogue", "fx": "radio", "lines": [
+          { "sp": "trent", "t": "[nervous] Chronos. This is — sorry, this is Elias Trent, timing. I've been expecting you. Not expecting. Waiting. Sorry." },
+          { "sp": "trent", "t": "I spoke to him at eleven forty-two and forty-four seconds. Not about. At. I can give you the sample index if that's useful. It probably isn't useful." }
+        ]},
+        { "id": "c1002", "type": "tts", "sp": "trent", "fx": "radio",
+          "t": "He said 'Confirmed.' That's all. One word. I'd asked whether he wanted the beacon stepped for third contact and he said 'Confirmed', and I stepped it, and that was the last thing Adrian Coll ever said to me." },
+        { "id": "c1003", "type": "tts", "sp": "trent", "fx": "radio",
+          "t": "[quickly] And before you ask — yes, everyone else's number is different. Rook says eleven forty-four. Okafor says eleven forty-six and change. Cross says eleven forty-nine. Voss says eleven forty-eight." },
+        { "id": "c1004", "type": "tts", "sp": "trent", "fx": "radio",
+          "t": "[tight] And you're going to look at that spread and you're going to think: the timing man. Because if six clocks disagree on a mountain, that's the timing man's fault, isn't it." }
+      ],
+      "grants": [],
+      "choices": [
+        { "t": "It is the timing man's fault. Isn't it, Dr. Trent.", "next": "s10b_trent_press", "set": { "pressed_trent": true } },
+        { "t": "Nobody's accused you of anything. Talk me through the clocks.", "next": "s10c_trent_gentle", "set": { "gentle_trent": true } }
+      ]
+    },
+
+    "s10b_trent_press": {
+      "act": 2,
+      "title": "Four Point Eight",
+      "time": "13:06",
+      "bed": "chronos",
+      "cues": [
+        { "id": "c1011", "type": "dialogue", "fx": "radio", "lines": [
+          { "sp": "trent", "t": "[a long breath] ...Yes. Partly. Four point eight seconds of it is my fault." },
+          { "sp": "trent", "t": "The Aurora rubidium standard has been drifting since November. Ageing. It happens, it's not negligence, it's physics." },
+          { "sp": "trent", "t": "I put a correction in the feed. Four point eight seconds, in software, applied at the Aurora end. And I didn't declare it." }
+        ]},
+        { "id": "c1012", "type": "tts", "sp": "trent", "fx": "radio",
+          "t": "[miserable] Do you know what declaring it means? It means recalling two years of Leila's pulsar timing. Two years of somebody else's work, because my hardware got old. So I patched it and I told myself I'd order the replacement in the spring." },
+        { "id": "c1013", "type": "tts", "sp": "trent", "fx": "radio",
+          "t": "[flatly] So yes. Leila's log is four point eight seconds fast. That's mine. I'll resign this evening. [beat] But Control — four point eight seconds. The spread between the five of us is seven minutes. I've given you the smallest lie on this mountain." }
+      ],
+      "grants": ["E05"],
+      "set": { "found_clock_offset": true },
+      "next": "s10d_trent_out"
+    },
+
+    "s10c_trent_gentle": {
+      "act": 2,
+      "title": "Three Standards, All Green",
+      "time": "13:06",
+      "bed": "chronos",
+      "cues": [
+        { "id": "c1021", "type": "dialogue", "fx": "radio", "lines": [
+          { "sp": "trent", "t": "[steadier] Thank you. Right. Three caesium standards, one rubidium, all disciplined to the same beacon. Station clocks are within microseconds of each other. Microseconds." },
+          { "sp": "trent", "t": "So when I tell you the mountain's clocks cannot be seven minutes apart, I'm not being defensive. I'm being correct." }
+        ]},
+        { "id": "c1022", "type": "tts", "sp": "trent", "fx": "radio",
+          "t": "[carefully] There is one thing. And I want it on the record that I'm volunteering it. The Aurora feed carries a correction that isn't in the published table. Four point eight seconds. I applied it." },
+        { "id": "c1023", "type": "tts", "sp": "trent", "fx": "radio",
+          "t": "The rubidium's ageing and declaring it would have cost Leila two years of data, so I patched it and said nothing. It's misconduct. I know exactly what it is. [beat] It's also four point eight seconds out of a seven-minute problem, so I'd be grateful if you'd remember which of those two numbers matters." }
+      ],
+      "grants": ["E05"],
+      "set": { "found_clock_offset": true, "trent_trusts_you": true },
+      "next": "s10d_trent_out"
+    },
+
+    "s10d_trent_out": {
+      "act": 2,
+      "title": "What the Beacon Saw",
+      "time": "13:11",
+      "bed": "chronos",
+      "cues": [
+        { "id": "c1031", "type": "tts", "sp": "trent", "fx": "radio",
+          "t": "One more thing and then I'll let you go. There's a hierarchy, for time. It's not opinion, it's the discipline. Astronomical events first — they're physics, you can't argue with them. Then hardware telemetry. Then station clocks. Then, a very long way last, people." },
+        { "id": "c1032", "type": "tts", "sp": "trent", "fx": "radio",
+          "t": "[quietly] Five people have given you five times. Every single one of them is at the bottom of that list. Please don't build anything on top of us." }
+      ],
+      "set": { "knows_hierarchy": true },
+      "next": "s09_hub_choice"
+    },
+
+    "s11_rook": {
+      "act": 2,
+      "title": "Mechanical Bay",
+      "time": "13:18",
+      "bed": "mechbay",
+      "cues": [
+        { "id": "c1101", "type": "dialogue", "fx": "radio", "lines": [
+          { "sp": "rook", "t": "Rook. And before we start — I opened the door, I touched him, I've got his blood chemistry on my sleeve, and I know exactly how that reads." },
+          { "sp": "rook", "t": "So ask me what you're going to ask me." }
+        ]},
+        { "id": "c1102", "type": "tts", "sp": "rook", "fx": "radio",
+          "t": "Eleven forty-four and five seconds. He said 'Proceed to sequence three.' I proceeded to sequence three. That's the west drive and the shutter warmers, it's a ninety-second run, it's the same every eclipse." },
+        { "id": "c1103", "type": "tts", "sp": "rook", "fx": "radio",
+          "t": "[shrugging] Except I'd already started her. She was on the timer, she was always going to run at forty-four. Adrian's order and my drive coming up were the same second, more or less. Man liked to give the order for things that were happening anyway." }
+      ],
+      "choices": [
+        { "t": "More or less. Which was first, Mr. Rook — the order, or the motor?", "next": "s11b_rook_motor", "set": { "pressed_motor": true } },
+        { "t": "Tell me about the chair.", "next": "s11c_rook_chair" }
+      ]
+    },
+
+    "s11b_rook_motor": {
+      "act": 2,
+      "title": "One Point Two Seconds",
+      "time": "13:22",
+      "bed": "mechbay",
+      "cues": [
+        { "id": "c1111", "type": "dialogue", "fx": "radio", "lines": [
+          { "sp": "rook", "t": "[pause] ...The motor." },
+          { "sp": "rook", "t": "I've the current trace right here. Drive current starts to climb, and then one and a bit seconds later his voice comes over the loop telling me to do the thing I'm already doing." }
+        ]},
+        { "id": "c1112", "type": "synth", "synth": "motor_spike",
+          "caption": "Drive current, 11:44:03.8 — rising. Coll's order arrives at 11:44:05.0.",
+          "clip": { "id": "CLIP_MOTOR", "label": "West drive current, 11:44", "evidence": "E19" } },
+        { "id": "c1113", "type": "tts", "sp": "rook", "fx": "radio",
+          "t": "[uneasy] Which I put down to the loop being slow. It's been slow all day, everyone's been complaining. But you asked me which was first and the answer is the motor was first, and I don't much like saying it out loud." }
+      ],
+      "grants": ["E19"],
+      "next": "s11c_rook_chair"
+    },
+
+    "s11c_rook_chair": {
+      "act": 2,
+      "title": "The Chair",
+      "time": "13:26",
+      "bed": "mechbay",
+      "cues": [
+        { "id": "c1121", "type": "dialogue", "fx": "radio", "lines": [
+          { "sp": "rook", "t": "The chair. Right. [carefully] It's a monitoring chair. Heart rate, respiration, skin conductance. Adrian's cardiologist wanted eyes on him during the long runs and Adrian wanted to keep doing the long runs, so that was the deal." },
+          { "sp": "rook", "t": "It's on the instrument bus like everything else in this building. That's how the data gets off the mountain." }
+        ]},
+        { "id": "c1122", "type": "tts", "sp": "rook", "fx": "radio",
+          "t": "[too casual] That chair's had more hardware through it than a rally car over the years. Sensors, straps, a blood pressure cuff at one point. Studies come and go. I strip them out when they're done." },
+        { "id": "c1123", "type": "tts", "sp": "meridian", "fx": "intercom", "bed": "ops",
+          "t": "[flat] Note. Chair node M C dash C H R dash zero seven is registered on the instrument control bus as an addressable calibration endpoint." }
+      ],
+      "grants": [],
+      "set": { "chair_seeded": true },
+      "next": "s09_hub_choice"
+    },
+
+    "s12_okafor": {
+      "act": 2,
+      "title": "Aurora",
+      "time": "13:33",
+      "bed": "aurora",
+      "cues": [
+        { "id": "c1201", "type": "dialogue", "fx": "radio", "lines": [
+          { "sp": "okafor", "t": "Okafor. I'll save you the first three questions. Eleven forty-six, forty-five, by my log. He said 'Hold the sequence.' I held the sequence." },
+          { "sp": "okafor", "t": "And no, I didn't like the sound of it, and I've been sitting here for an hour trying to work out why." }
+        ]},
+        { "id": "c1202", "type": "tts", "sp": "okafor", "fx": "radio",
+          "t": "I listen to noise for a living, Control. Forty hours a week of hiss, looking for something in it that shouldn't be there. You develop opinions about backgrounds." },
+        { "id": "c1203", "type": "tts", "sp": "okafor", "fx": "radio",
+          "t": "[deliberate] Every transmission out of that chamber this morning had the tracking drive under it. A thin whine, right at the top, because the telescope was moving — that's what a telescope does during an eclipse. You stop hearing it after eleven years. But it's there. It's in every recording." },
+        { "id": "c1204", "type": "tts", "sp": "okafor", "fx": "radio",
+          "t": "[flatly] It is not under the last four." }
+      ],
+      "grants": [],
+      "choices": [
+        { "t": "You're telling me those four came from somewhere else.", "next": "s12b_okafor_where", "set": { "okafor_direct": true } },
+        { "t": "A drive can stop. Could he have parked it?", "next": "s12c_okafor_parked" }
+      ]
+    },
+
+    "s12b_okafor_where": {
+      "act": 2,
+      "title": "Somewhere Else",
+      "time": "13:37",
+      "bed": "aurora",
+      "cues": [
+        { "id": "c1211", "type": "dialogue", "fx": "radio", "lines": [
+          { "sp": "okafor", "t": "I'm telling you what's on the recording and declining to tell you what it means. Those are different jobs and I'm only qualified for one of them." },
+          { "sp": "okafor", "t": "[a beat] But since you asked directly: yes. Somewhere with the chamber's ventilation and no drive." },
+          { "sp": "okafor", "t": "And one of the four isn't even that. One of the four has a fan in it. Close. Small. Like a laptop sitting eighteen inches from a microphone." }
+        ]},
+        { "id": "c1212", "type": "tts", "sp": "okafor", "fx": "radio",
+          "t": "[carefully] There is no laptop in the Meridian Chamber. Adrian banned them. He said the fans ruined the room." }
+      ],
+      "grants": ["E08"],
+      "set": { "found_room_tone": true },
+      "next": "s12d_okafor_out"
+    },
+
+    "s12c_okafor_parked": {
+      "act": 2,
+      "title": "He Could Not Have Parked It",
+      "time": "13:37",
+      "bed": "aurora",
+      "cues": [
+        { "id": "c1221", "type": "dialogue", "fx": "radio", "lines": [
+          { "sp": "okafor", "t": "[patiently] He could have. He'd have been the first solar astronomer in history to park his telescope during totality, but the button exists." },
+          { "sp": "okafor", "t": "The drive log says it tracked continuously from eleven eighteen to twelve oh four. So no. It was moving. And it isn't in the recording." }
+        ]},
+        { "id": "c1222", "type": "tts", "sp": "okafor", "fx": "radio",
+          "t": "[levelly] Which leaves one of two things. Either the drive stopped making noise, or those four transmissions did not come from the room the telescope is in. I know which one I'd put money on and I'd like you to say it, not me." },
+        { "id": "c1223", "type": "tts", "sp": "okafor", "fx": "radio",
+          "t": "One of them's worse. One of them has a small fan close to the microphone. There are no laptops in that chamber — Adrian banned them, he said the fans ruined the room." }
+      ],
+      "grants": ["E08"],
+      "set": { "found_room_tone": true },
+      "next": "s12d_okafor_out"
+    },
+
+    "s12d_okafor_out": {
+      "act": 2,
+      "title": "Something She Isn't Saying",
+      "time": "13:41",
+      "bed": "aurora",
+      "cues": [
+        { "id": "c1231", "type": "tts", "sp": "okafor", "fx": "radio",
+          "t": "Was there anything else? [pause, slightly too long] No. Nothing else. Aurora out." },
+        { "id": "c1232", "type": "tts", "sp": "meridian", "fx": "intercom", "bed": "ops",
+          "t": "[flat] Note. Aurora station voicemail store: one message retained, received ten fifty-eight, unforwarded." }
+      ],
+      "set": { "okafor_holding_back": true },
+      "next": "s09_hub_choice"
+    },
+
+    "s13_cross": {
+      "act": 2,
+      "title": "The Annex",
+      "time": "13:48",
+      "bed": "annex",
+      "cues": [
+        { "id": "c1301", "type": "dialogue", "fx": "radio", "lines": [
+          { "sp": "cross", "t": "[warm] Control. Julian Cross. Let me get the awkward part out of the way — I'm a journalist, I'm on this mountain making a film about these people, and one of them is now dead. I understand precisely how I look." },
+          { "sp": "cross", "t": "Eleven forty-nine, thirty. He said 'Stand by.' I stood by. I've been standing by for four hours." }
+        ]},
+        { "id": "c1302", "type": "tts", "sp": "cross", "fx": "radio",
+          "t": "[easily] Here's what I have that you want. I record. Continuously, every channel, since I arrived. Ambient, radio, interviews, the lot. About two hundred hours." },
+        { "id": "c1303", "type": "tts", "sp": "cross", "fx": "radio",
+          "t": "Which is, strictly speaking, not permitted under my access agreement. Strictly speaking it ends my career and possibly starts a lawsuit. [beat] So let's talk about what happens to me afterwards." }
+      ],
+      "choices": [
+        { "t": "Nothing happens to you. Give me the archive.", "next": "s13b_cross_deal", "set": { "cross_deal": true } },
+        { "t": "I'm not negotiating with you. I'll subpoena the drives.", "next": "s13c_cross_refuse", "set": { "cross_refused": true } }
+      ]
+    },
+
+    "s13b_cross_deal": {
+      "act": 2,
+      "title": "The Deal",
+      "time": "13:53",
+      "bed": "annex",
+      "cues": [
+        { "id": "c1311", "type": "dialogue", "fx": "radio", "lines": [
+          { "sp": "cross", "t": "[surprised] ...Just like that." },
+          { "sp": "cross", "t": "[recovering] Right. Yes. Transferring now. Everything from the sixth onward, including — and I want you to note that I'm volunteering this — including last night." }
+        ]},
+        { "id": "c1312", "type": "tts", "sp": "cross", "fx": "radio",
+          "t": "There was a full communications rehearsal at twenty-one forty. Every station, the whole call-and-response script, Adrian in the chamber running it like a conductor. I recorded it because it's beautiful and I wanted it for the opening titles." },
+        { "id": "c1313", "type": "tts", "sp": "cross", "fx": "radio",
+          "t": "[slower] I've listened to it twice since Mara called it in. And I want you to listen to it before I say anything else, because if I say it first you'll think I'm steering you." }
+      ],
+      "grants": [],
+      "set": { "rehearsal_available": true, "cross_cooperative": true },
+      "next": "s13d_cross_out"
+    },
+
+    "s13c_cross_refuse": {
+      "act": 2,
+      "title": "Subpoena",
+      "time": "13:53",
+      "bed": "annex",
+      "cues": [
+        { "id": "c1321", "type": "dialogue", "fx": "radio", "lines": [
+          { "sp": "cross", "t": "[cheerfully] You can. It'll take eleven days and the drives are on a mountain you can't reach. [beat] But I'd have given them to you anyway, so let's both pretend that worked." },
+          { "sp": "cross", "t": "You'll get everything. You'll get it slowly, and with a lawyer's letter attached, because you've just told me I have no reason to be your friend." }
+        ]},
+        { "id": "c1322", "type": "tts", "sp": "cross", "fx": "radio",
+          "t": "[cooler] Two hundred hours, unindexed. You'll have to know what you're looking for. And Control — there is something in there worth finding. I'll leave you to find it." },
+        { "id": "c1323", "type": "tts", "sp": "cross", "fx": "radio",
+          "t": "[a beat] One free thing, because I liked Adrian more than he liked me. I had a microphone outside. On the ridge, in the open, running all morning. Nobody's clock touches that recording. Do with it what you like." }
+      ],
+      "grants": [],
+      "set": { "rehearsal_available": true, "cross_hostile": true },
+      "next": "s13d_cross_out"
+    },
+
+    "s13d_cross_out": {
+      "act": 2,
+      "title": "Outside Microphone",
+      "time": "13:58",
+      "bed": "annex",
+      "cues": [
+        { "id": "c1331", "type": "tts", "sp": "cross", "fx": "radio",
+          "t": "The outdoor rig. Stereo pair, on the ridge, forty metres from the dome, running since six this morning. It is the only recording on this mountain that isn't plugged into anything." },
+        { "id": "c1332", "type": "tts", "sp": "cross", "fx": "radio",
+          "t": "[quietly] When the shadow came over, everything stopped. The wind, the birds, all of it, at once. I've never heard anything like it and I've been doing this for fifteen years. [beat] You can hear the exact second the sun went out, Control. No clock required." }
+      ],
+      "set": { "outdoor_available": true },
+      "next": "s09_hub_choice"
+    },
+
+    "s14_voss": {
+      "act": 2,
+      "title": "Spectra",
+      "time": "14:06",
+      "bed": "spectra",
+      "cues": [
+        { "id": "c1401", "type": "dialogue", "fx": "radio", "lines": [
+          { "sp": "voss", "t": "My turn. Good. I'd have thought less of you if you'd skipped me." },
+          { "sp": "voss", "t": "Eleven forty-eight, oh two. I was on the loop when Leila asked him about the fourteen-twenty receiver, and I heard him answer. 'I have it. Beautiful.'" },
+          { "sp": "voss", "t": "[softly] He'd waited eleven years to say that sentence. I'm glad he got to." }
+        ]},
+        { "id": "c1402", "type": "tts", "sp": "voss", "fx": "radio",
+          "t": "Motive, since you'll have to ask. Adrian and I fought constantly and everyone will tell you so. He was going to put his name first on the eclipse paper and I was going to make that difficult for him. That is the entire war." },
+        { "id": "c1403", "type": "tts", "sp": "voss", "fx": "radio",
+          "t": "[dry] I'm also his deputy, which means I inherit a directorship I don't want, of an institution that's about to be investigated. If I'd wanted his job I'd have taken the Munich offer in March and had it with better weather." },
+        { "id": "c1404", "type": "tts", "sp": "voss", "fx": "radio",
+          "t": "Now. Three things you need and won't get from anyone else, because nobody else up here understands the network." }
+      ],
+      "next": "s14b_voss_three"
+    },
+
+    "s14b_voss_three": {
+      "act": 2,
+      "title": "Three Things",
+      "time": "14:11",
+      "bed": "spectra",
+      "cues": [
+        { "id": "c1411", "type": "tts", "sp": "voss", "fx": "radio",
+          "t": "One. We've been on the emergency voice relay since half past nine. The primary loop was saturating on eclipse telemetry — it does it every time and every time we swear we'll fix it. The relay works. The relay is also slow. It buffers." },
+        { "id": "c1412", "type": "tts", "sp": "voss", "fx": "radio",
+          "t": "Two. Elias Trent has been carrying a correction on the Aurora feed that isn't in the table. I've known for six weeks and said nothing, because the alternative was destroying a decent young man over an ageing rubidium. You may judge me for that. I'd do it again." },
+        { "id": "c1413", "type": "tts", "sp": "voss", "fx": "radio",
+          "t": "[lightly] Three. Every instrument on this mountain takes its calibration from Spectra. My station signs the packets. If you want to know what any box on this bus was told to do this morning, and when, you ask me — because there is nobody else to ask." },
+        { "id": "c1414", "type": "tts", "sp": "voss", "fx": "radio",
+          "t": "[warm again] So. Use me, Control. I'd rather be useful than comfortable." }
+      ],
+      "grants": ["E07"],
+      "set": { "found_relay_delay": true, "voss_bus_authority": true },
+      "next": "s09_hub_choice"
+    },
+
+    "s15_relay_spec": {
+      "act": 2,
+      "title": "Eleven Seconds",
+      "time": "14:22",
+      "bed": "ops",
+      "cues": [
+        { "id": "c1501", "type": "tts", "sp": "meridian", "fx": "intercom",
+          "t": "[flat] Emergency voice relay, specification extract. Store-and-forward fibre loop, independent of the summit repeater. Under sustained load, forwarding latency: nine to thirteen seconds. Engaged zero nine forty. Requesting authority: operations coordination." },
+        { "id": "c1502", "type": "tts", "sp": "meridian", "fx": "intercom",
+          "t": "[flat] Note. Requesting authority field is a free-text entry. Origin station is not recorded." },
+        { "id": "c1503", "type": "tts", "sp": "voss", "fx": "radio", "bed": "spectra",
+          "t": "That's your one point two seconds on Gabriel's motor, and rather more besides. Everything anyone heard this morning arrived somewhere between nine and thirteen seconds after it was said. Nobody on this mountain has been living in the present tense since half past nine." },
+        { "id": "c1504", "type": "tts", "sp": "meridian", "fx": "intercom",
+          "t": "[flat] Archive buffer: ninety-six percent." }
+      ],
+      "grants": ["E07"],
+      "set": { "found_relay_delay": true },
+      "next": "s16_ambience_lab"
+    },
+
+    "s16_ambience_lab": {
+      "act": 2,
+      "title": "Six Rooms",
+      "time": "14:31",
+      "bed": "ops",
+      "puzzle": "ambience",
+      "cues": [
+        { "id": "c1601", "type": "tts", "sp": "okafor", "fx": "radio", "bed": "aurora",
+          "t": "If you're going to do this properly you need reference beds. I've pulled thirty seconds of clean background from every station on the ring, labelled, with nobody talking over it. Learn them. Then go back to the transmissions." },
+        { "id": "c1602", "type": "tts", "sp": "okafor", "fx": "radio", "bed": "aurora",
+          "t": "[precisely] Listen for three things in the chamber. The ventilation, which is always there. The room — it's circular, it rings a little. And the drive whine, which is only there when the telescope is moving. [beat] Two of those three are a room. The third one is a clock." }
+      ],
+      "grants": ["E08"],
+      "set": { "ambience_unlocked": true },
+      "next": "s17_timing_layer"
+    },
+
+    "s17_timing_layer": {
+      "act": 2,
+      "title": "Which Clock",
+      "time": "14:44",
+      "bed": "ops",
+      "cues": [
+        { "id": "c1701", "type": "tts", "sp": "voss", "fx": "radio", "bed": "spectra",
+          "t": "Control, you have to make a decision and you have to make it now, because everything you do afterwards inherits it. Five sources of time. They do not agree. You're going to have to pick one and rebuild the morning on top of it." }
+      ],
+      "choices": [
+        { "t": "Station clocks. They're disciplined to microseconds.", "next": "s17a_clocks", "set": { "timing_choice": "clocks" } },
+        { "t": "Hardware telemetry. Machines don't misremember.", "next": "s17b_hardware", "set": { "timing_choice": "hardware" } },
+        { "t": "The eclipse. Physics doesn't have an agenda.", "next": "s17c_shadow", "set": { "timing_choice": "shadow", "trust_shadow": true } },
+        { "t": "The witnesses. Five people were there and I wasn't.", "next": "s17d_people", "set": { "timing_choice": "people" } }
+      ]
+    },
+
+    "s17a_clocks": {
+      "act": 2,
+      "title": "Microseconds",
+      "time": "14:48",
+      "bed": "ops",
+      "cues": [
+        { "id": "c1711", "type": "dialogue", "fx": "radio", "bed": "chronos", "lines": [
+          { "sp": "trent", "t": "[unhappy] You can. They're good clocks. They're my clocks and they're good." },
+          { "sp": "trent", "t": "But Control — a clock tells you when a recording was written down. It cannot tell you when the sound was made. If somebody hands the network an old sound, my clocks will stamp it beautifully, to the microsecond, with today's date." }
+        ]},
+        { "id": "c1712", "type": "tts", "sp": "trent", "fx": "radio", "bed": "chronos",
+          "t": "[quietly] I've spent my whole career making these clocks trustworthy and I'm telling you they're the wrong tool. That's not a nice sentence to say." }
+      ],
+      "set": { "timing_wrong": true },
+      "next": "s18_voicemail"
+    },
+
+    "s17b_hardware": {
+      "act": 2,
+      "title": "Machines Don't Misremember",
+      "time": "14:48",
+      "bed": "ops",
+      "cues": [
+        { "id": "c1721", "type": "dialogue", "fx": "radio", "bed": "mechbay", "lines": [
+          { "sp": "rook", "t": "Good instinct. Half right." },
+          { "sp": "rook", "t": "My drive current's honest, because a motor can't lie about pulling current. But everything that talks on the instrument bus takes its orders from somewhere, and what it does is whatever it was told." }
+        ]},
+        { "id": "c1722", "type": "tts", "sp": "rook", "fx": "radio", "bed": "mechbay",
+          "t": "You want the things that were never told anything. [beat] There's not many of those in a building like this." }
+      ],
+      "set": { "timing_partial": true },
+      "next": "s18_voicemail"
+    },
+
+    "s17c_shadow": {
+      "act": 2,
+      "title": "Trust the Shadow",
+      "time": "14:48",
+      "bed": "ops",
+      "cues": [
+        { "id": "c1731", "type": "dialogue", "fx": "radio", "bed": "aurora", "lines": [
+          { "sp": "okafor", "t": "[a beat] Yes." },
+          { "sp": "okafor", "t": "The moon's shadow crossed this ridge at eleven forty-six and twelve seconds. It did that because of orbital mechanics worked out three hundred years ago. Nobody on this mountain can edit it, delay it, sign it, or forget it." }
+        ]},
+        { "id": "c1732", "type": "tts", "sp": "okafor", "fx": "radio", "bed": "aurora",
+          "t": "[slowly] Control. I need to tell you something and I need you to understand why I didn't tell you an hour ago." },
+        { "id": "c1733", "type": "synth", "synth": "pulse", "bed": "ops" }
+      ],
+      "set": { "timing_right": true },
+      "next": "s18_voicemail"
+    },
+
+    "s17d_people": {
+      "act": 2,
+      "title": "Five People Were There",
+      "time": "14:48",
+      "bed": "ops",
+      "cues": [
+        { "id": "c1741", "type": "dialogue", "fx": "radio", "bed": "spectra", "lines": [
+          { "sp": "voss", "t": "[gently] No. And I say that as one of the five." },
+          { "sp": "voss", "t": "Ask me what I was doing at eleven forty-eight and I'll tell you I was listening to Adrian. Ask me what I was doing at eleven forty-three and I have no idea. None. I was watching a corona I'd waited eleven years for." }
+        ]},
+        { "id": "c1742", "type": "tts", "sp": "voss", "fx": "radio", "bed": "spectra",
+          "t": "We are all quite certain and we are all quite useless. [beat] Pick something that wasn't looking at the sky, Control. Or something that only looks at the sky." },
+        { "id": "c1743", "type": "tts", "sp": "trent", "fx": "radio", "bed": "chronos",
+          "t": "[cutting in] Control, Chronos — I'm sorry, I've been listening. Please don't. People are last. People are always last." }
+      ],
+      "set": { "timing_wrong": true },
+      "next": "s18_voicemail"
+    },
+
+    "s18_voicemail": {
+      "act": 2,
+      "title": "Ten Fifty-Eight",
+      "time": "14:56",
+      "bed": "aurora",
+      "cues": [
+        { "id": "c1801", "type": "dialogue", "fx": "radio", "lines": [
+          { "sp": "okafor", "t": "Adrian left me a voicemail at ten fifty-eight this morning. Twenty minutes before he sealed the chamber." },
+          { "sp": "okafor", "t": "I've had it for four hours. I'm going to explain why in a moment and you're not going to like it, but listen to it first." }
+        ]},
+        { "id": "c1802", "type": "tts", "sp": "coll", "fx": "voicemail", "bed": "chamber_parked",
+          "t": "[low, hurried] Leila. It's Adrian. Don't call back, I'm going in shortly. [beat] If I go quiet today — don't trust the clocks. Trust the shadow. [beat] And pull the Spectra bus log for the fourteenth of March. Not this year's. The old one. You'll know what you're looking at when you see it. [beat] I'm probably being ridiculous. Humour me.",
+          "caption": "10:58:04. Retained. Unforwarded.",
+          "clip": { "id": "CLIP_VM", "label": "Voicemail — 10:58:04", "evidence": "E06" } },
+        { "id": "c1803", "type": "tts", "sp": "okafor", "fx": "radio",
+          "t": "[hard] 'Don't trust the clocks.' Control, there is exactly one man on this mountain who is the clocks, and he is thirty-three years old and he has never been anything but decent to me." },
+        { "id": "c1804", "type": "tts", "sp": "okafor", "fx": "radio",
+          "t": "So I sat on it. Because a dead man's riddle is not evidence, and I was not going to end Elias Trent's career on a sentence I couldn't read. [beat] I was wrong. I'd like that noted, and then I'd like to get back to work." }
+      ],
+      "grants": ["E06"],
+      "set": { "has_voicemail": true, "knows_march14": true },
+      "next": "s19_shadow_anchor"
+    }
+
+  }
+}

@@ -3,3 +3,9 @@ node_modules/
 *.log
 .vscode/
 .idea/
+
+# Unprocessed ElevenLabs takes and the generation cache. Both are rebuilt by
+# `npm run audio`; the processed clips under web/audio/{cues,beds,sfx,synth}
+# are what the game actually loads and those ARE committed.
+web/audio/.takes/
+web/audio/.cache.json

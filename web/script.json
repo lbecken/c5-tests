@@ -1,0 +1,5634 @@
+{
+ "scenes": {
+  "s01_cold_open": {
+   "id": "s01_cold_open",
+   "act": 1,
+   "title": "Four Minutes",
+   "time": "10:27",
+   "bed": "summit_wind",
+   "cues": [
+    {
+     "id": "c0101",
+     "type": "sfx",
+     "sfx": "storm_exterior",
+     "caption": "Helios Peak Observatory. Cordillera del Sol, 4,180 metres. The road has been closed since eight this morning.",
+     "scene": "s01_cold_open",
+     "bed": "summit_wind"
+    },
+    {
+     "id": "c0102",
+     "type": "tts",
+     "sp": "meridian",
+     "fx": "intercom",
+     "bed": "chamber_tracking",
+     "t": "Helios Peak. Eclipse sequence armed. First contact in four minutes. All stations report to Meridian on the primary loop.",
+     "scene": "s01_cold_open"
+    },
+    {
+     "id": "c0103",
+     "type": "dialogue",
+     "fx": "radio",
+     "bed": "chamber_tracking",
+     "lines": [
+      {
+       "sp": "coll",
+       "t": "Meridian to the ring. Same order as last night's rehearsal. Chronos."
+      },
+      {
+       "sp": "trent",
+       "t": "Chronos ready. Beacon's locked, all three standards green."
+      },
+      {
+       "sp": "coll",
+       "t": "Aurora."
+      },
+      {
+       "sp": "okafor",
+       "t": "Aurora ready. The fourteen-twenty receiver is still sulking, but I'll have it."
+      },
+      {
+       "sp": "coll",
+       "t": "You'll have it, or you won't have it, Leila. Which is it."
+      },
+      {
+       "sp": "okafor",
+       "t": "[dryly] I'll have it."
+      }
+     ],
+     "scene": "s01_cold_open"
+    },
+    {
+     "id": "c0104",
+     "type": "dialogue",
+     "fx": "radio",
+     "bed": "chamber_tracking",
+     "lines": [
+      {
+       "sp": "coll",
+       "t": "Mechanical."
+      },
+      {
+       "sp": "rook",
+       "t": "Bay's ready. West shutter's icing up on me again, but she'll hold for four minutes."
+      },
+      {
+       "sp": "coll",
+       "t": "Spectra."
+      },
+      {
+       "sp": "voss",
+       "t": "[warmly] Spectra ready, Adrian. Everything is exactly where it should be."
+      },
+      {
+       "sp": "coll",
+       "t": "Annex."
+      },
+      {
+       "sp": "cross",
+       "t": "Rolling. Don't mind me."
+      },
+      {
+       "sp": "coll",
+       "t": "I always mind you, Mr. Cross."
+      }
+     ],
+     "scene": "s01_cold_open"
+    },
+    {
+     "id": "c0105",
+     "type": "tts",
+     "sp": "coll",
+     "fx": "radio",
+     "bed": "chamber_tracking",
+     "t": "[firm] Four minutes. I'm sealing the chamber. Nobody leaves their post for anything short of a fire — and if there is a fire, put it out quietly.",
+     "scene": "s01_cold_open"
+    },
+    {
+     "id": "c0106",
+     "type": "sfx",
+     "sfx": "eclipse_tone",
+     "bed": "summit_wind",
+     "caption": "10:31:40 — first contact.",
+     "scene": "s01_cold_open"
+    },
+    {
+     "id": "c0107",
+     "type": "tts",
+     "sp": "meridian",
+     "fx": "intercom",
+     "bed": "totality",
+     "t": "[flat] Second contact. Totality. Four minutes, thirty-six seconds.",
+     "caption": "11:46:12. On the ridge, the wind has stopped.",
+     "scene": "s01_cold_open"
+    },
+    {
+     "id": "c0108",
+     "type": "tts",
+     "sp": "okafor",
+     "fx": "relay",
+     "bed": "aurora",
+     "t": "Meridian, Aurora. Adrian — are you reading anything at fourteen-twenty?",
+     "caption": "11:47:20.",
+     "scene": "s01_cold_open"
+    },
+    {
+     "id": "c0109",
+     "type": "sfx",
+     "sfx": "frost_alarm",
+     "bed": "carrier",
+     "caption": "11:48:00. The west shutter frost alarm, on every channel on the mountain.",
+     "scene": "s01_cold_open"
+    },
+    {
+     "id": "c0110",
+     "type": "tts",
+     "sp": "coll",
+     "fx": "synthetic",
+     "bed": "annex",
+     "t": "I have it. Beautiful.",
+     "caption": "11:48:02.",
+     "tail": 3,
+     "mix": [
+      {
+       "sfx": "frost_alarm",
+       "at": 0,
+       "gain": 0.5
+      }
+     ],
+     "clip": {
+      "id": "CLIP_1148",
+      "label": "11:48:02 — Meridian",
+      "evidence": "E01"
+     },
+     "scene": "s01_cold_open"
+    },
+    {
+     "id": "c0111",
+     "type": "dialogue",
+     "fx": "relay",
+     "bed": "carrier",
+     "lines": [
+      {
+       "sp": "okafor",
+       "t": "Meridian, say again? Which band, Adrian?"
+      },
+      {
+       "sp": "okafor",
+       "t": "Meridian, Aurora. Say again."
+      }
+     ],
+     "scene": "s01_cold_open"
+    },
+    {
+     "id": "c0112",
+     "type": "sfx",
+     "sfx": "dead_carrier",
+     "bed": "carrier",
+     "scene": "s01_cold_open"
+    },
+    {
+     "id": "c0113",
+     "type": "dialogue",
+     "fx": "relay",
+     "bed": "spectra",
+     "lines": [
+      {
+       "sp": "voss",
+       "t": "Meridian, Spectra. Adrian, respond."
+      },
+      {
+       "sp": "voss",
+       "t": "[tense] Meridian, respond."
+      },
+      {
+       "sp": "voss",
+       "t": "Mechanical, Spectra — Gabriel, get down to the chamber."
+      }
+     ],
+     "scene": "s01_cold_open"
+    },
+    {
+     "id": "c0114",
+     "type": "tts",
+     "sp": "meridian",
+     "fx": "intercom",
+     "bed": "chamber_tracking",
+     "t": "[flat] Observation cycle complete. Meridian Chamber lock released. Eleven fifty-three.",
+     "scene": "s01_cold_open"
+    }
+   ],
+   "grants": [
+    "E01"
+   ],
+   "set": {
+    "heard_final_exchange": true
+   },
+   "next": "s02_briefing"
+  },
+  "s02_briefing": {
+   "id": "s02_briefing",
+   "act": 1,
+   "title": "Ops Control",
+   "time": "12:09",
+   "bed": "ops",
+   "cues": [
+    {
+     "id": "c0201",
+     "type": "tts",
+     "sp": "meridian",
+     "fx": "intercom",
+     "t": "[flat] Incident channel open. Consortium remote operations. You are logged as incident coordinator, call sign Control.",
+     "caption": "Two thousand kilometres away, in a room with no windows.",
+     "scene": "s02_briefing",
+     "bed": "ops"
+    },
+    {
+     "id": "c0202",
+     "type": "tts",
+     "sp": "voss",
+     "fx": "radio",
+     "bed": "spectra",
+     "t": "[controlled] Control, this is Mara Voss, deputy director. I'll be your contact up here. I'm going to give you the situation once, cleanly, and then you can ask me anything you like.",
+     "scene": "s02_briefing"
+    },
+    {
+     "id": "c0203",
+     "type": "dialogue",
+     "fx": "radio",
+     "bed": "spectra",
+     "lines": [
+      {
+       "sp": "voss",
+       "t": "Professor Adrian Coll is dead in the Meridian Chamber. The chamber was sealed from the inside at eleven eighteen and did not open again until eleven fifty-three."
+      },
+      {
+       "sp": "voss",
+       "t": "The road is closed. The lift is locked out. Nobody is coming up this mountain today, and nobody is going down it."
+      },
+      {
+       "sp": "voss",
+       "t": "There are five of us left up here. All five of us spoke to Adrian while that door was shut."
+      }
+     ],
+     "scene": "s02_briefing"
+    },
+    {
+     "id": "c0204",
+     "type": "tts",
+     "sp": "voss",
+     "fx": "radio",
+     "bed": "spectra",
+     "t": "[quietly] And Control — I have to tell you this now, because it will matter. Not one of us agrees about when.",
+     "scene": "s02_briefing"
+    },
+    {
+     "id": "c0205",
+     "type": "tts",
+     "sp": "meridian",
+     "fx": "intercom",
+     "bed": "ops",
+     "t": "[flat] Advisory. Timing archive buffer at ninety-four percent. Eclipse dataset ingest in progress. Rolling overwrite of prior traffic will begin automatically.",
+     "mix": [
+      {
+       "sfx": "archive_warning",
+       "at": 0.5,
+       "gain": 0.3
+      }
+     ],
+     "scene": "s02_briefing"
+    },
+    {
+     "id": "c0206",
+     "type": "tts",
+     "sp": "voss",
+     "fx": "radio",
+     "bed": "spectra",
+     "t": "[flat] That's the part I like least. Every radio recording, every log, every timestamp from this morning sits in that buffer. When the eclipse data finishes writing, the morning gets erased. You have a few hours. Not a few days.",
+     "scene": "s02_briefing"
+    }
+   ],
+   "next": "s03_chamber_opened"
+  },
+  "s03_chamber_opened": {
+   "id": "s03_chamber_opened",
+   "act": 1,
+   "title": "What Rook Found",
+   "time": "11:58 — replayed",
+   "bed": "mechbay",
+   "cues": [
+    {
+     "id": "c0301",
+     "type": "tts",
+     "sp": "voss",
+     "fx": "radio",
+     "bed": "spectra",
+     "t": "Gabriel Rook opened the door. This is his channel from eleven fifty-eight. It's not pleasant. I'd rather you heard it than read it.",
+     "scene": "s03_chamber_opened"
+    },
+    {
+     "id": "c0302",
+     "type": "sfx",
+     "sfx": "chamber_unlock",
+     "bed": "chamber_parked",
+     "scene": "s03_chamber_opened"
+    },
+    {
+     "id": "c0303",
+     "type": "dialogue",
+     "fx": "radio",
+     "bed": "chamber_parked",
+     "lines": [
+      {
+       "sp": "rook",
+       "t": "[breathless] I'm in. I'm in the chamber. Adrian? Adrian—"
+      },
+      {
+       "sp": "rook",
+       "t": "[shaken] He's in the chair. He's — ah, God. He's not breathing."
+      },
+      {
+       "sp": "voss",
+       "t": "Gabriel. Is there anyone else in there with you."
+      },
+      {
+       "sp": "rook",
+       "t": "There's nobody. There's nobody, Mara, it's a sealed room, there's nowhere to be."
+      }
+     ],
+     "scene": "s03_chamber_opened"
+    },
+    {
+     "id": "c0304",
+     "type": "dialogue",
+     "fx": "radio",
+     "bed": "chamber_parked",
+     "lines": [
+      {
+       "sp": "voss",
+       "t": "Is there anything in his hand? Anything on the console? A syringe, a bottle, a note—"
+      },
+      {
+       "sp": "rook",
+       "t": "There's nothing. His hand's on the arm of the chair. He's just sat in the bloody chair."
+      },
+      {
+       "sp": "rook",
+       "t": "[a beat] Mara. The chair's still got his heart on the screen. It's still — it says he's got a pulse."
+      },
+      {
+       "sp": "voss",
+       "t": "[softly] That's the monitor lagging, Gabriel. Come out of there."
+      }
+     ],
+     "scene": "s03_chamber_opened"
+    },
+    {
+     "id": "c0305",
+     "type": "tts",
+     "sp": "meridian",
+     "fx": "intercom",
+     "bed": "ops",
+     "t": "[flat] Preliminary medical assessment. Cause of death consistent with acute cardiac arrest following a large intravenous dose of the subject's own antiarrhythmic medication. No delivery device recovered. Estimated time of death: eleven forty-nine to eleven fifty-one.",
+     "scene": "s03_chamber_opened"
+    }
+   ],
+   "grants": [
+    "E04"
+   ],
+   "next": "s04_locked_room"
+  },
+  "s04_locked_room": {
+   "id": "s04_locked_room",
+   "act": 1,
+   "title": "A Room With One Door",
+   "time": "12:20",
+   "bed": "ops",
+   "cues": [
+    {
+     "id": "c0401",
+     "type": "tts",
+     "sp": "meridian",
+     "fx": "intercom",
+     "t": "[flat] Meridian Chamber. Circular control room, twelve metres, beneath the primary solar telescope. Single pressure door. During an observation cycle the door releases only from the interior, or by mechanical override requiring two operators at two separate stations.",
+     "scene": "s04_locked_room",
+     "bed": "ops"
+    },
+    {
+     "id": "c0402",
+     "type": "dialogue",
+     "fx": "radio",
+     "bed": "spectra",
+     "lines": [
+      {
+       "sp": "voss",
+       "t": "No override was performed. It can't be performed quietly — it takes two people, and both of them have to turn a physical key."
+      },
+      {
+       "sp": "voss",
+       "t": "Adrian went in alone at eleven eighteen and locked it behind him. That is not in dispute and it is not going to become disputable."
+      }
+     ],
+     "scene": "s04_locked_room"
+    },
+    {
+     "id": "c0403",
+     "type": "tts",
+     "sp": "voss",
+     "fx": "radio",
+     "bed": "spectra",
+     "t": "[carefully] Which leaves you with a man who died alone in a locked room, of a drug that was already in his bloodstream, in a chair that was monitoring his heart the entire time. Where would you like to start, Control?",
+     "scene": "s04_locked_room"
+    }
+   ],
+   "grants": [
+    "E03"
+   ],
+   "choices": [
+    {
+     "t": "Play me the final exchange again. All of it.",
+     "next": "s05_final_exchange",
+     "set": {
+      "started_audio": true
+     }
+    },
+    {
+     "t": "The medical telemetry. I want to see his heart.",
+     "next": "s06_medical",
+     "set": {
+      "started_medical": true
+     }
+    },
+    {
+     "t": "The access log. Prove the room to me.",
+     "next": "s07_access_log",
+     "set": {
+      "started_access": true
+     }
+    }
+   ]
+  },
+  "s05_final_exchange": {
+   "id": "s05_final_exchange",
+   "act": 1,
+   "title": "The Last Eight Minutes",
+   "time": "12:26",
+   "bed": "ops",
+   "cues": [
+    {
+     "id": "c0501",
+     "type": "tts",
+     "sp": "voss",
+     "fx": "radio",
+     "bed": "spectra",
+     "t": "Here is everything Adrian said after the door sealed. Five transmissions in thirty-three minutes. He was a busy man.",
+     "scene": "s05_final_exchange"
+    },
+    {
+     "id": "c0502",
+     "type": "tts",
+     "sp": "coll",
+     "fx": "radio",
+     "bed": "chamber_tracking",
+     "t": "Meridian to the ring. Sequence one is running. I have the pointing solution and I am happy with it.",
+     "caption": "11:22:40.",
+     "mix": [
+      {
+       "sfx": "motor_spinup",
+       "at": 0.4,
+       "gain": 0.22
+      }
+     ],
+     "clip": {
+      "id": "CLIP_1122",
+      "label": "11:22:40 — Meridian",
+      "evidence": null
+     },
+     "scene": "s05_final_exchange"
+    },
+    {
+     "id": "c0503",
+     "type": "tts",
+     "sp": "coll",
+     "fx": "radio",
+     "bed": "chamber_tracking",
+     "t": "[irritable] Mechanical, Meridian. If that west shutter ices up during totality I will have your certification, Gabriel. Warm it.",
+     "caption": "11:31:06.",
+     "clip": {
+      "id": "CLIP_1131",
+      "label": "11:31:06 — Meridian",
+      "evidence": null
+     },
+     "scene": "s05_final_exchange"
+    },
+    {
+     "id": "c0504",
+     "type": "tts",
+     "sp": "coll",
+     "fx": "radio",
+     "bed": "chamber_tracking",
+     "t": "Aurora, Meridian. Leila, I need that receiver. Fourteen-twenty is the entire reason we are all standing on this mountain in an ice storm.",
+     "caption": "11:35:50.",
+     "clip": {
+      "id": "CLIP_1135",
+      "label": "11:35:50 — Meridian",
+      "evidence": null
+     },
+     "scene": "s05_final_exchange"
+    },
+    {
+     "id": "c0505",
+     "type": "tts",
+     "sp": "coll",
+     "fx": "radio",
+     "bed": "chamber_tracking",
+     "t": "Meridian to the ring. Sequence two is closed out, I am holding at the mark, and the corona is — [breaks off] ...hm.",
+     "caption": "11:41:38. The channel breaks up.",
+     "mix": [
+      {
+       "synth": "double_click",
+       "at": 3.6,
+       "gain": 0.5
+      },
+      {
+       "synth": "motor_spike",
+       "at": 4.9,
+       "gain": 0.32
+      }
+     ],
+     "tail": 4.5,
+     "clip": {
+      "id": "CLIP_1141",
+      "label": "11:41:38 — Meridian (final genuine)",
+      "evidence": "E02"
+     },
+     "scene": "s05_final_exchange"
+    },
+    {
+     "id": "c0506",
+     "type": "tts",
+     "sp": "voss",
+     "fx": "radio",
+     "bed": "spectra",
+     "t": "Interference. The relay does that when the network's loaded. Then four more, all short.",
+     "scene": "s05_final_exchange"
+    },
+    {
+     "id": "c0507",
+     "type": "tts",
+     "sp": "coll",
+     "fx": "relay",
+     "bed": "chamber_parked",
+     "t": "Confirmed.",
+     "caption": "11:42:44 — to Chronos.",
+     "clip": {
+      "id": "CLIP_1142",
+      "label": "11:42:44 — Meridian",
+      "evidence": null
+     },
+     "scene": "s05_final_exchange"
+    },
+    {
+     "id": "c0508",
+     "type": "tts",
+     "sp": "coll",
+     "fx": "relay",
+     "bed": "chamber_parked",
+     "t": "Proceed to sequence three.",
+     "caption": "11:44:05 — to Mechanical.",
+     "clip": {
+      "id": "CLIP_1144",
+      "label": "11:44:05 — Meridian",
+      "evidence": null
+     },
+     "scene": "s05_final_exchange"
+    },
+    {
+     "id": "c0509",
+     "type": "tts",
+     "sp": "coll",
+     "fx": "relay",
+     "bed": "chamber_parked",
+     "t": "Hold the sequence.",
+     "caption": "11:46:40 — to Aurora. Totality has begun.",
+     "clip": {
+      "id": "CLIP_1146",
+      "label": "11:46:40 — Meridian",
+      "evidence": null
+     },
+     "scene": "s05_final_exchange"
+    },
+    {
+     "id": "c0510",
+     "type": "tts",
+     "sp": "coll",
+     "fx": "relay",
+     "bed": "chamber_parked",
+     "t": "Stand by.",
+     "caption": "11:49:30 — to the annex.",
+     "clip": {
+      "id": "CLIP_1149",
+      "label": "11:49:30 — Meridian",
+      "evidence": null
+     },
+     "scene": "s05_final_exchange"
+    },
+    {
+     "id": "c0511",
+     "type": "tts",
+     "sp": "voss",
+     "fx": "radio",
+     "bed": "spectra",
+     "t": "And then the line at eleven forty-eight, which you've already heard. That's the lot. Thirty-three minutes of a man's life, and eleven words of it after eleven forty-one.",
+     "scene": "s05_final_exchange"
+    }
+   ],
+   "grants": [
+    "E02"
+   ],
+   "set": {
+    "heard_all_transmissions": true
+   },
+   "choices": [
+    {
+     "t": "Eleven words. That's a strange amount of talking for a man running an eclipse.",
+     "next": "s05b_suspicious",
+     "set": {
+      "noticed_brevity": true
+     }
+    },
+    {
+     "t": "Move on.",
+     "nextIf": [
+      {
+       "unlessSeen": "s06_medical",
+       "next": "s06_medical"
+      },
+      {
+       "unlessSeen": "s07_access_log",
+       "next": "s07_access_log"
+      }
+     ],
+     "next": "s08_hub_a"
+    }
+   ]
+  },
+  "s05b_suspicious": {
+   "id": "s05b_suspicious",
+   "act": 1,
+   "title": "Eleven Words",
+   "time": "12:31",
+   "bed": "ops",
+   "cues": [
+    {
+     "id": "c0521",
+     "type": "dialogue",
+     "fx": "radio",
+     "bed": "spectra",
+     "lines": [
+      {
+       "sp": "voss",
+       "t": "[a small pause] That's — a fair observation, Control."
+      },
+      {
+       "sp": "voss",
+       "t": "Adrian talked constantly. He narrated. It drove everyone here to distraction for eleven years."
+      },
+      {
+       "sp": "voss",
+       "t": "But it was totality. He'd have had his hands full and his mouth shut. Possibly for the first time in his career."
+      }
+     ],
+     "scene": "s05b_suspicious"
+    },
+    {
+     "id": "c0522",
+     "type": "tts",
+     "sp": "voss",
+     "fx": "radio",
+     "bed": "spectra",
+     "t": "[lightly] Although if you want my honest opinion — and you may not want it — the last four don't sound like him talking. They sound like him answering. There's a difference.",
+     "scene": "s05b_suspicious"
+    }
+   ],
+   "set": {
+    "voss_seeded_doubt": true
+   },
+   "nextIf": [
+    {
+     "unlessSeen": "s06_medical",
+     "next": "s06_medical"
+    },
+    {
+     "unlessSeen": "s07_access_log",
+     "next": "s07_access_log"
+    }
+   ],
+   "next": "s08_hub_a"
+  },
+  "s06_medical": {
+   "id": "s06_medical",
+   "act": 1,
+   "title": "A Heart on a Screen",
+   "time": "12:38",
+   "bed": "ops",
+   "cues": [
+    {
+     "id": "c0601",
+     "type": "tts",
+     "sp": "meridian",
+     "fx": "intercom",
+     "t": "[flat] Cardiac telemetry, Meridian Chamber, chair node M C dash C H R dash zero seven. Subject: Coll, A. Continuous monitoring, documented atrial fibrillation, under medical supervision since twenty-nineteen.",
+     "scene": "s06_medical",
+     "bed": "ops"
+    },
+    {
+     "id": "c0602",
+     "type": "tts",
+     "sp": "voss",
+     "fx": "radio",
+     "bed": "spectra",
+     "t": "Adrian had a bad heart and no intention of letting it inconvenience him. The chair watches him. It has watched him for two years. His cardiologist gets the trace in Santiago every evening, whether Adrian likes it or not.",
+     "scene": "s06_medical"
+    },
+    {
+     "id": "c0603",
+     "type": "synth",
+     "synth": "cardiac_true",
+     "bed": "ops",
+     "caption": "Telemetry, 11:38 to 11:42, sonified. An irregular rhythm — that irregularity is the whole point of the diagnosis.",
+     "clip": {
+      "id": "CLIP_CARD_A",
+      "label": "Cardiac telemetry 11:38–11:42",
+      "evidence": null
+     },
+     "scene": "s06_medical"
+    },
+    {
+     "id": "c0604",
+     "type": "tts",
+     "sp": "meridian",
+     "fx": "intercom",
+     "t": "[flat] Trace continues without interruption until eleven fifty, thirty-one. Terminal asystole recorded thereafter. Estimated time of death: eleven forty-nine to eleven fifty-one.",
+     "scene": "s06_medical",
+     "bed": "ops"
+    },
+    {
+     "id": "c0605",
+     "type": "tts",
+     "sp": "voss",
+     "fx": "radio",
+     "bed": "spectra",
+     "t": "So he was alive at eleven fifty. His own chair says so, and his own chair has no opinions. Which means whatever killed him happened while five people were listening to him on the radio.",
+     "scene": "s06_medical"
+    }
+   ],
+   "grants": [
+    "E04"
+   ],
+   "choices": [
+    {
+     "t": "Store that trace. I want to compare it against the later window.",
+     "set": {
+      "flagged_cardiac": true
+     },
+     "nextIf": [
+      {
+       "unlessSeen": "s05_final_exchange",
+       "next": "s05_final_exchange"
+      },
+      {
+       "unlessSeen": "s07_access_log",
+       "next": "s07_access_log"
+      }
+     ],
+     "next": "s08_hub_a"
+    },
+    {
+     "t": "Accepted. Move on.",
+     "nextIf": [
+      {
+       "unlessSeen": "s05_final_exchange",
+       "next": "s05_final_exchange"
+      },
+      {
+       "unlessSeen": "s07_access_log",
+       "next": "s07_access_log"
+      }
+     ],
+     "next": "s08_hub_a"
+    }
+   ]
+  },
+  "s07_access_log": {
+   "id": "s07_access_log",
+   "act": 1,
+   "title": "No One Came In",
+   "time": "12:46",
+   "bed": "ops",
+   "cues": [
+    {
+     "id": "c0701",
+     "type": "tts",
+     "sp": "meridian",
+     "fx": "intercom",
+     "t": "[flat] Meridian Chamber access. Zero nine twelve: Voss, M., calibration, eleven minutes. Ten forty: Coll, A., entry. Ten fifty-eight: Coll, A., exit. Eleven eighteen: Coll, A., entry. Cycle seal engaged. No further events until automatic release at eleven fifty-three.",
+     "scene": "s07_access_log",
+     "bed": "ops"
+    },
+    {
+     "id": "c0702",
+     "type": "dialogue",
+     "fx": "radio",
+     "bed": "spectra",
+     "lines": [
+      {
+       "sp": "voss",
+       "t": "That's me at nine twelve. Standing calibration, I do it before every major run, it's in the schedule and it's in the log because I badged in like everybody else."
+      },
+      {
+       "sp": "voss",
+       "t": "[evenly] I'd rather you heard that from me than found it and wondered why I hadn't said."
+      }
+     ],
+     "scene": "s07_access_log"
+    },
+    {
+     "id": "c0703",
+     "type": "tts",
+     "sp": "meridian",
+     "fx": "intercom",
+     "t": "[flat] Fibre maintenance conduit: cross-section one hundred and ten millimetres. Ventilation trunk: barred, intact. No mechanical override recorded on any station key.",
+     "scene": "s07_access_log",
+     "bed": "ops"
+    },
+    {
+     "id": "c0704",
+     "type": "tts",
+     "sp": "voss",
+     "fx": "radio",
+     "bed": "spectra",
+     "t": "So. Nobody went in. Nothing came out. And a man died of an injection with nothing in the room to inject him with. [beat] Control, I run a spectroscopy station. I'm very good at the part where you stop believing the obvious explanation. This is where I'd start being rude to people.",
+     "scene": "s07_access_log"
+    }
+   ],
+   "grants": [
+    "E03"
+   ],
+   "nextIf": [
+    {
+     "unlessSeen": "s05_final_exchange",
+     "next": "s05_final_exchange"
+    },
+    {
+     "unlessSeen": "s06_medical",
+     "next": "s06_medical"
+    }
+   ],
+   "next": "s08_hub_a"
+  },
+  "s08_hub_a": {
+   "id": "s08_hub_a",
+   "act": 1,
+   "title": "Five Voices",
+   "time": "12:52",
+   "bed": "ops",
+   "cues": [
+    {
+     "id": "c0801",
+     "type": "tts",
+     "sp": "voss",
+     "fx": "radio",
+     "bed": "spectra",
+     "t": "Everyone is at their post and everyone is listening to this channel, so choose carefully who you talk to first. On a mountain this size, the second question is always harder than the first.",
+     "scene": "s08_hub_a"
+    },
+    {
+     "id": "c0802",
+     "type": "tts",
+     "sp": "meridian",
+     "fx": "intercom",
+     "t": "[flat] Archive buffer: ninety-five percent.",
+     "scene": "s08_hub_a",
+     "bed": "ops"
+    }
+   ],
+   "next": "s09_hub_choice"
+  },
+  "s09_hub_choice": {
+   "id": "s09_hub_choice",
+   "act": 2,
+   "title": "The Ring",
+   "time": "12:55",
+   "bed": "ops",
+   "hub": true,
+   "cues": [],
+   "choices": [
+    {
+     "t": "Chronos. Dr. Trent — timing.",
+     "next": "s10_trent",
+     "once": true,
+     "set": {
+      "+interviews": 1
+     }
+    },
+    {
+     "t": "Mechanical bay. Gabriel Rook.",
+     "next": "s11_rook",
+     "once": true,
+     "set": {
+      "+interviews": 1
+     }
+    },
+    {
+     "t": "Aurora. Dr. Okafor — radio.",
+     "next": "s12_okafor",
+     "once": true,
+     "set": {
+      "+interviews": 1
+     }
+    },
+    {
+     "t": "The annex. Julian Cross.",
+     "next": "s13_cross",
+     "once": true,
+     "set": {
+      "+interviews": 1
+     }
+    },
+    {
+     "t": "Spectra. Dr. Voss herself.",
+     "next": "s14_voss",
+     "once": true,
+     "set": {
+      "+interviews": 1
+     }
+    },
+    {
+     "t": "I have enough voices. Let me look at the network.",
+     "next": "s15_relay_spec",
+     "requires": {
+      "min": {
+       "interviews": 4
+      }
+     }
+    }
+   ]
+  },
+  "s10_trent": {
+   "id": "s10_trent",
+   "act": 2,
+   "title": "Chronos",
+   "time": "13:02",
+   "bed": "chronos",
+   "cues": [
+    {
+     "id": "c1001",
+     "type": "dialogue",
+     "fx": "radio",
+     "lines": [
+      {
+       "sp": "trent",
+       "t": "[nervous] Chronos. This is — sorry, this is Elias Trent, timing. I've been expecting you. Not expecting. Waiting. Sorry."
+      },
+      {
+       "sp": "trent",
+       "t": "I spoke to him at eleven forty-two and forty-four seconds. Not about. At. I can give you the sample index if that's useful. It probably isn't useful."
+      }
+     ],
+     "scene": "s10_trent",
+     "bed": "chronos"
+    },
+    {
+     "id": "c1002",
+     "type": "tts",
+     "sp": "trent",
+     "fx": "radio",
+     "t": "He said 'Confirmed.' That's all. One word. I'd asked whether he wanted the beacon stepped for third contact and he said 'Confirmed', and I stepped it, and that was the last thing Adrian Coll ever said to me.",
+     "scene": "s10_trent",
+     "bed": "chronos"
+    },
+    {
+     "id": "c1003",
+     "type": "tts",
+     "sp": "trent",
+     "fx": "radio",
+     "t": "[quickly] And before you ask — yes, everyone else's number is different. Rook says eleven forty-four. Okafor says eleven forty-six and change. Cross says eleven forty-nine. Voss says eleven forty-eight.",
+     "scene": "s10_trent",
+     "bed": "chronos"
+    },
+    {
+     "id": "c1004",
+     "type": "tts",
+     "sp": "trent",
+     "fx": "radio",
+     "t": "[tight] And you're going to look at that spread and you're going to think: the timing man. Because if six clocks disagree on a mountain, that's the timing man's fault, isn't it.",
+     "scene": "s10_trent",
+     "bed": "chronos"
+    }
+   ],
+   "grants": [],
+   "choices": [
+    {
+     "t": "It is the timing man's fault. Isn't it, Dr. Trent.",
+     "next": "s10b_trent_press",
+     "set": {
+      "pressed_trent": true
+     }
+    },
+    {
+     "t": "Nobody's accused you of anything. Talk me through the clocks.",
+     "next": "s10c_trent_gentle",
+     "set": {
+      "gentle_trent": true
+     }
+    }
+   ]
+  },
+  "s10b_trent_press": {
+   "id": "s10b_trent_press",
+   "act": 2,
+   "title": "Four Point Eight",
+   "time": "13:06",
+   "bed": "chronos",
+   "cues": [
+    {
+     "id": "c1011",
+     "type": "dialogue",
+     "fx": "radio",
+     "lines": [
+      {
+       "sp": "trent",
+       "t": "[a long breath] ...Yes. Partly. Four point eight seconds of it is my fault."
+      },
+      {
+       "sp": "trent",
+       "t": "The Aurora rubidium standard has been drifting since November. Ageing. It happens, it's not negligence, it's physics."
+      },
+      {
+       "sp": "trent",
+       "t": "I put a correction in the feed. Four point eight seconds, in software, applied at the Aurora end. And I didn't declare it."
+      }
+     ],
+     "scene": "s10b_trent_press",
+     "bed": "chronos"
+    },
+    {
+     "id": "c1012",
+     "type": "tts",
+     "sp": "trent",
+     "fx": "radio",
+     "t": "[miserable] Do you know what declaring it means? It means recalling two years of Leila's pulsar timing. Two years of somebody else's work, because my hardware got old. So I patched it and I told myself I'd order the replacement in the spring.",
+     "scene": "s10b_trent_press",
+     "bed": "chronos"
+    },
+    {
+     "id": "c1013",
+     "type": "tts",
+     "sp": "trent",
+     "fx": "radio",
+     "t": "[flatly] So yes. Leila's log is four point eight seconds fast. That's mine. I'll resign this evening. [beat] But Control — four point eight seconds. The spread between the five of us is seven minutes. I've given you the smallest lie on this mountain.",
+     "scene": "s10b_trent_press",
+     "bed": "chronos"
+    }
+   ],
+   "grants": [
+    "E05"
+   ],
+   "set": {
+    "found_clock_offset": true
+   },
+   "next": "s10d_trent_out"
+  },
+  "s10c_trent_gentle": {
+   "id": "s10c_trent_gentle",
+   "act": 2,
+   "title": "Three Standards, All Green",
+   "time": "13:06",
+   "bed": "chronos",
+   "cues": [
+    {
+     "id": "c1021",
+     "type": "dialogue",
+     "fx": "radio",
+     "lines": [
+      {
+       "sp": "trent",
+       "t": "[steadier] Thank you. Right. Three caesium standards, one rubidium, all disciplined to the same beacon. Station clocks are within microseconds of each other. Microseconds."
+      },
+      {
+       "sp": "trent",
+       "t": "So when I tell you the mountain's clocks cannot be seven minutes apart, I'm not being defensive. I'm being correct."
+      }
+     ],
+     "scene": "s10c_trent_gentle",
+     "bed": "chronos"
+    },
+    {
+     "id": "c1022",
+     "type": "tts",
+     "sp": "trent",
+     "fx": "radio",
+     "t": "[carefully] There is one thing. And I want it on the record that I'm volunteering it. The Aurora feed carries a correction that isn't in the published table. Four point eight seconds. I applied it.",
+     "scene": "s10c_trent_gentle",
+     "bed": "chronos"
+    },
+    {
+     "id": "c1023",
+     "type": "tts",
+     "sp": "trent",
+     "fx": "radio",
+     "t": "The rubidium's ageing and declaring it would have cost Leila two years of data, so I patched it and said nothing. It's misconduct. I know exactly what it is. [beat] It's also four point eight seconds out of a seven-minute problem, so I'd be grateful if you'd remember which of those two numbers matters.",
+     "scene": "s10c_trent_gentle",
+     "bed": "chronos"
+    }
+   ],
+   "grants": [
+    "E05"
+   ],
+   "set": {
+    "found_clock_offset": true,
+    "trent_trusts_you": true
+   },
+   "next": "s10d_trent_out"
+  },
+  "s10d_trent_out": {
+   "id": "s10d_trent_out",
+   "act": 2,
+   "title": "What the Beacon Saw",
+   "time": "13:11",
+   "bed": "chronos",
+   "cues": [
+    {
+     "id": "c1031",
+     "type": "tts",
+     "sp": "trent",
+     "fx": "radio",
+     "t": "One more thing and then I'll let you go. There's a hierarchy, for time. It's not opinion, it's the discipline. Astronomical events first — they're physics, you can't argue with them. Then hardware telemetry. Then station clocks. Then, a very long way last, people.",
+     "scene": "s10d_trent_out",
+     "bed": "chronos"
+    },
+    {
+     "id": "c1032",
+     "type": "tts",
+     "sp": "trent",
+     "fx": "radio",
+     "t": "[quietly] Five people have given you five times. Every single one of them is at the bottom of that list. Please don't build anything on top of us.",
+     "scene": "s10d_trent_out",
+     "bed": "chronos"
+    }
+   ],
+   "set": {
+    "knows_hierarchy": true
+   },
+   "next": "s09_hub_choice"
+  },
+  "s11_rook": {
+   "id": "s11_rook",
+   "act": 2,
+   "title": "Mechanical Bay",
+   "time": "13:18",
+   "bed": "mechbay",
+   "cues": [
+    {
+     "id": "c1101",
+     "type": "dialogue",
+     "fx": "radio",
+     "lines": [
+      {
+       "sp": "rook",
+       "t": "Rook. And before we start — I opened the door, I touched him, I've got his blood chemistry on my sleeve, and I know exactly how that reads."
+      },
+      {
+       "sp": "rook",
+       "t": "So ask me what you're going to ask me."
+      }
+     ],
+     "scene": "s11_rook",
+     "bed": "mechbay"
+    },
+    {
+     "id": "c1102",
+     "type": "tts",
+     "sp": "rook",
+     "fx": "radio",
+     "t": "Eleven forty-four and five seconds. He said 'Proceed to sequence three.' I proceeded to sequence three. That's the west drive and the shutter warmers, it's a ninety-second run, it's the same every eclipse.",
+     "scene": "s11_rook",
+     "bed": "mechbay"
+    },
+    {
+     "id": "c1103",
+     "type": "tts",
+     "sp": "rook",
+     "fx": "radio",
+     "t": "[shrugging] Except I'd already started her. She was on the timer, she was always going to run at forty-four. Adrian's order and my drive coming up were the same second, more or less. Man liked to give the order for things that were happening anyway.",
+     "scene": "s11_rook",
+     "bed": "mechbay"
+    }
+   ],
+   "choices": [
+    {
+     "t": "More or less. Which was first, Mr. Rook — the order, or the motor?",
+     "next": "s11b_rook_motor",
+     "set": {
+      "pressed_motor": true
+     }
+    },
+    {
+     "t": "Tell me about the chair.",
+     "next": "s11c_rook_chair"
+    }
+   ]
+  },
+  "s11b_rook_motor": {
+   "id": "s11b_rook_motor",
+   "act": 2,
+   "title": "One Point Two Seconds",
+   "time": "13:22",
+   "bed": "mechbay",
+   "cues": [
+    {
+     "id": "c1111",
+     "type": "dialogue",
+     "fx": "radio",
+     "lines": [
+      {
+       "sp": "rook",
+       "t": "[pause] ...The motor."
+      },
+      {
+       "sp": "rook",
+       "t": "I've the current trace right here. Drive current starts to climb, and then one and a bit seconds later his voice comes over the loop telling me to do the thing I'm already doing."
+      }
+     ],
+     "scene": "s11b_rook_motor",
+     "bed": "mechbay"
+    },
+    {
+     "id": "c1112",
+     "type": "synth",
+     "synth": "motor_spike",
+     "caption": "Drive current, 11:44:03.8 — rising. Coll's order arrives at 11:44:05.0.",
+     "clip": {
+      "id": "CLIP_MOTOR",
+      "label": "West drive current, 11:44",
+      "evidence": "E19"
+     },
+     "scene": "s11b_rook_motor",
+     "bed": "mechbay"
+    },
+    {
+     "id": "c1113",
+     "type": "tts",
+     "sp": "rook",
+     "fx": "radio",
+     "t": "[uneasy] Which I put down to the loop being slow. It's been slow all day, everyone's been complaining. But you asked me which was first and the answer is the motor was first, and I don't much like saying it out loud.",
+     "scene": "s11b_rook_motor",
+     "bed": "mechbay"
+    }
+   ],
+   "grants": [
+    "E19"
+   ],
+   "next": "s11c_rook_chair"
+  },
+  "s11c_rook_chair": {
+   "id": "s11c_rook_chair",
+   "act": 2,
+   "title": "The Chair",
+   "time": "13:26",
+   "bed": "mechbay",
+   "cues": [
+    {
+     "id": "c1121",
+     "type": "dialogue",
+     "fx": "radio",
+     "lines": [
+      {
+       "sp": "rook",
+       "t": "The chair. Right. [carefully] It's a monitoring chair. Heart rate, respiration, skin conductance. Adrian's cardiologist wanted eyes on him during the long runs and Adrian wanted to keep doing the long runs, so that was the deal."
+      },
+      {
+       "sp": "rook",
+       "t": "It's on the instrument bus like everything else in this building. That's how the data gets off the mountain."
+      }
+     ],
+     "scene": "s11c_rook_chair",
+     "bed": "mechbay"
+    },
+    {
+     "id": "c1122",
+     "type": "tts",
+     "sp": "rook",
+     "fx": "radio",
+     "t": "[too casual] That chair's had more hardware through it than a rally car over the years. Sensors, straps, a blood pressure cuff at one point. Studies come and go. I strip them out when they're done.",
+     "scene": "s11c_rook_chair",
+     "bed": "mechbay"
+    },
+    {
+     "id": "c1123",
+     "type": "tts",
+     "sp": "meridian",
+     "fx": "intercom",
+     "bed": "ops",
+     "t": "[flat] Note. Chair node M C dash C H R dash zero seven is registered on the instrument control bus as an addressable calibration endpoint.",
+     "scene": "s11c_rook_chair"
+    }
+   ],
+   "grants": [],
+   "set": {
+    "chair_seeded": true
+   },
+   "next": "s09_hub_choice"
+  },
+  "s12_okafor": {
+   "id": "s12_okafor",
+   "act": 2,
+   "title": "Aurora",
+   "time": "13:33",
+   "bed": "aurora",
+   "cues": [
+    {
+     "id": "c1201",
+     "type": "dialogue",
+     "fx": "radio",
+     "lines": [
+      {
+       "sp": "okafor",
+       "t": "Okafor. I'll save you the first three questions. Eleven forty-six, forty-five, by my log. He said 'Hold the sequence.' I held the sequence."
+      },
+      {
+       "sp": "okafor",
+       "t": "And no, I didn't like the sound of it, and I've been sitting here for an hour trying to work out why."
+      }
+     ],
+     "scene": "s12_okafor",
+     "bed": "aurora"
+    },
+    {
+     "id": "c1202",
+     "type": "tts",
+     "sp": "okafor",
+     "fx": "radio",
+     "t": "I listen to noise for a living, Control. Forty hours a week of hiss, looking for something in it that shouldn't be there. You develop opinions about backgrounds.",
+     "scene": "s12_okafor",
+     "bed": "aurora"
+    },
+    {
+     "id": "c1203",
+     "type": "tts",
+     "sp": "okafor",
+     "fx": "radio",
+     "t": "[deliberate] Every transmission out of that chamber this morning had the tracking drive under it. A thin whine, right at the top, because the telescope was moving — that's what a telescope does during an eclipse. You stop hearing it after eleven years. But it's there. It's in every recording.",
+     "scene": "s12_okafor",
+     "bed": "aurora"
+    },
+    {
+     "id": "c1204",
+     "type": "tts",
+     "sp": "okafor",
+     "fx": "radio",
+     "t": "[flatly] It is not under the last four.",
+     "scene": "s12_okafor",
+     "bed": "aurora"
+    }
+   ],
+   "grants": [],
+   "choices": [
+    {
+     "t": "You're telling me those four came from somewhere else.",
+     "next": "s12b_okafor_where",
+     "set": {
+      "okafor_direct": true
+     }
+    },
+    {
+     "t": "A drive can stop. Could he have parked it?",
+     "next": "s12c_okafor_parked"
+    }
+   ]
+  },
+  "s12b_okafor_where": {
+   "id": "s12b_okafor_where",
+   "act": 2,
+   "title": "Somewhere Else",
+   "time": "13:37",
+   "bed": "aurora",
+   "cues": [
+    {
+     "id": "c1211",
+     "type": "dialogue",
+     "fx": "radio",
+     "lines": [
+      {
+       "sp": "okafor",
+       "t": "I'm telling you what's on the recording and declining to tell you what it means. Those are different jobs and I'm only qualified for one of them."
+      },
+      {
+       "sp": "okafor",
+       "t": "[a beat] But since you asked directly: yes. Somewhere with the chamber's ventilation and no drive."
+      },
+      {
+       "sp": "okafor",
+       "t": "And one of the four isn't even that. One of the four has a fan in it. Close. Small. Like a laptop sitting eighteen inches from a microphone."
+      }
+     ],
+     "scene": "s12b_okafor_where",
+     "bed": "aurora"
+    },
+    {
+     "id": "c1212",
+     "type": "tts",
+     "sp": "okafor",
+     "fx": "radio",
+     "t": "[carefully] There is no laptop in the Meridian Chamber. Adrian banned them. He said the fans ruined the room.",
+     "scene": "s12b_okafor_where",
+     "bed": "aurora"
+    }
+   ],
+   "grants": [
+    "E08"
+   ],
+   "set": {
+    "found_room_tone": true
+   },
+   "next": "s12d_okafor_out"
+  },
+  "s12c_okafor_parked": {
+   "id": "s12c_okafor_parked",
+   "act": 2,
+   "title": "He Could Not Have Parked It",
+   "time": "13:37",
+   "bed": "aurora",
+   "cues": [
+    {
+     "id": "c1221",
+     "type": "dialogue",
+     "fx": "radio",
+     "lines": [
+      {
+       "sp": "okafor",
+       "t": "[patiently] He could have. He'd have been the first solar astronomer in history to park his telescope during totality, but the button exists."
+      },
+      {
+       "sp": "okafor",
+       "t": "The drive log says it tracked continuously from eleven eighteen to twelve oh four. So no. It was moving. And it isn't in the recording."
+      }
+     ],
+     "scene": "s12c_okafor_parked",
+     "bed": "aurora"
+    },
+    {
+     "id": "c1222",
+     "type": "tts",
+     "sp": "okafor",
+     "fx": "radio",
+     "t": "[levelly] Which leaves one of two things. Either the drive stopped making noise, or those four transmissions did not come from the room the telescope is in. I know which one I'd put money on and I'd like you to say it, not me.",
+     "scene": "s12c_okafor_parked",
+     "bed": "aurora"
+    },
+    {
+     "id": "c1223",
+     "type": "tts",
+     "sp": "okafor",
+     "fx": "radio",
+     "t": "One of them's worse. One of them has a small fan close to the microphone. There are no laptops in that chamber — Adrian banned them, he said the fans ruined the room.",
+     "scene": "s12c_okafor_parked",
+     "bed": "aurora"
+    }
+   ],
+   "grants": [
+    "E08"
+   ],
+   "set": {
+    "found_room_tone": true
+   },
+   "next": "s12d_okafor_out"
+  },
+  "s12d_okafor_out": {
+   "id": "s12d_okafor_out",
+   "act": 2,
+   "title": "Something She Isn't Saying",
+   "time": "13:41",
+   "bed": "aurora",
+   "cues": [
+    {
+     "id": "c1231",
+     "type": "tts",
+     "sp": "okafor",
+     "fx": "radio",
+     "t": "Was there anything else? [pause, slightly too long] No. Nothing else. Aurora out.",
+     "scene": "s12d_okafor_out",
+     "bed": "aurora"
+    },
+    {
+     "id": "c1232",
+     "type": "tts",
+     "sp": "meridian",
+     "fx": "intercom",
+     "bed": "ops",
+     "t": "[flat] Note. Aurora station voicemail store: one message retained, received ten fifty-eight, unforwarded.",
+     "scene": "s12d_okafor_out"
+    }
+   ],
+   "set": {
+    "okafor_holding_back": true
+   },
+   "next": "s09_hub_choice"
+  },
+  "s13_cross": {
+   "id": "s13_cross",
+   "act": 2,
+   "title": "The Annex",
+   "time": "13:48",
+   "bed": "annex",
+   "cues": [
+    {
+     "id": "c1301",
+     "type": "dialogue",
+     "fx": "radio",
+     "lines": [
+      {
+       "sp": "cross",
+       "t": "[warm] Control. Julian Cross. Let me get the awkward part out of the way — I'm a journalist, I'm on this mountain making a film about these people, and one of them is now dead. I understand precisely how I look."
+      },
+      {
+       "sp": "cross",
+       "t": "Eleven forty-nine, thirty. He said 'Stand by.' I stood by. I've been standing by for four hours."
+      }
+     ],
+     "scene": "s13_cross",
+     "bed": "annex"
+    },
+    {
+     "id": "c1302",
+     "type": "tts",
+     "sp": "cross",
+     "fx": "radio",
+     "t": "[easily] Here's what I have that you want. I record. Continuously, every channel, since I arrived. Ambient, radio, interviews, the lot. About two hundred hours.",
+     "scene": "s13_cross",
+     "bed": "annex"
+    },
+    {
+     "id": "c1303",
+     "type": "tts",
+     "sp": "cross",
+     "fx": "radio",
+     "t": "Which is, strictly speaking, not permitted under my access agreement. Strictly speaking it ends my career and possibly starts a lawsuit. [beat] So let's talk about what happens to me afterwards.",
+     "scene": "s13_cross",
+     "bed": "annex"
+    }
+   ],
+   "choices": [
+    {
+     "t": "Nothing happens to you. Give me the archive.",
+     "next": "s13b_cross_deal",
+     "set": {
+      "cross_deal": true
+     }
+    },
+    {
+     "t": "I'm not negotiating with you. I'll subpoena the drives.",
+     "next": "s13c_cross_refuse",
+     "set": {
+      "cross_refused": true
+     }
+    }
+   ]
+  },
+  "s13b_cross_deal": {
+   "id": "s13b_cross_deal",
+   "act": 2,
+   "title": "The Deal",
+   "time": "13:53",
+   "bed": "annex",
+   "cues": [
+    {
+     "id": "c1311",
+     "type": "dialogue",
+     "fx": "radio",
+     "lines": [
+      {
+       "sp": "cross",
+       "t": "[surprised] ...Just like that."
+      },
+      {
+       "sp": "cross",
+       "t": "[recovering] Right. Yes. Transferring now. Everything from the sixth onward, including — and I want you to note that I'm volunteering this — including last night."
+      }
+     ],
+     "scene": "s13b_cross_deal",
+     "bed": "annex"
+    },
+    {
+     "id": "c1312",
+     "type": "tts",
+     "sp": "cross",
+     "fx": "radio",
+     "t": "There was a full communications rehearsal at twenty-one forty. Every station, the whole call-and-response script, Adrian in the chamber running it like a conductor. I recorded it because it's beautiful and I wanted it for the opening titles.",
+     "scene": "s13b_cross_deal",
+     "bed": "annex"
+    },
+    {
+     "id": "c1313",
+     "type": "tts",
+     "sp": "cross",
+     "fx": "radio",
+     "t": "[slower] I've listened to it twice since Mara called it in. And I want you to listen to it before I say anything else, because if I say it first you'll think I'm steering you.",
+     "scene": "s13b_cross_deal",
+     "bed": "annex"
+    }
+   ],
+   "grants": [],
+   "set": {
+    "rehearsal_available": true,
+    "cross_cooperative": true
+   },
+   "next": "s13d_cross_out"
+  },
+  "s13c_cross_refuse": {
+   "id": "s13c_cross_refuse",
+   "act": 2,
+   "title": "Subpoena",
+   "time": "13:53",
+   "bed": "annex",
+   "cues": [
+    {
+     "id": "c1321",
+     "type": "dialogue",
+     "fx": "radio",
+     "lines": [
+      {
+       "sp": "cross",
+       "t": "[cheerfully] You can. It'll take eleven days and the drives are on a mountain you can't reach. [beat] But I'd have given them to you anyway, so let's both pretend that worked."
+      },
+      {
+       "sp": "cross",
+       "t": "You'll get everything. You'll get it slowly, and with a lawyer's letter attached, because you've just told me I have no reason to be your friend."
+      }
+     ],
+     "scene": "s13c_cross_refuse",
+     "bed": "annex"
+    },
+    {
+     "id": "c1322",
+     "type": "tts",
+     "sp": "cross",
+     "fx": "radio",
+     "t": "[cooler] Two hundred hours, unindexed. You'll have to know what you're looking for. And Control — there is something in there worth finding. I'll leave you to find it.",
+     "scene": "s13c_cross_refuse",
+     "bed": "annex"
+    },
+    {
+     "id": "c1323",
+     "type": "tts",
+     "sp": "cross",
+     "fx": "radio",
+     "t": "[a beat] One free thing, because I liked Adrian more than he liked me. I had a microphone outside. On the ridge, in the open, running all morning. Nobody's clock touches that recording. Do with it what you like.",
+     "scene": "s13c_cross_refuse",
+     "bed": "annex"
+    }
+   ],
+   "grants": [],
+   "set": {
+    "rehearsal_available": true,
+    "cross_hostile": true
+   },
+   "next": "s13d_cross_out"
+  },
+  "s13d_cross_out": {
+   "id": "s13d_cross_out",
+   "act": 2,
+   "title": "Outside Microphone",
+   "time": "13:58",
+   "bed": "annex",
+   "cues": [
+    {
+     "id": "c1331",
+     "type": "tts",
+     "sp": "cross",
+     "fx": "radio",
+     "t": "The outdoor rig. Stereo pair, on the ridge, forty metres from the dome, running since six this morning. It is the only recording on this mountain that isn't plugged into anything.",
+     "scene": "s13d_cross_out",
+     "bed": "annex"
+    },
+    {
+     "id": "c1332",
+     "type": "tts",
+     "sp": "cross",
+     "fx": "radio",
+     "t": "[quietly] When the shadow came over, everything stopped. The wind, the birds, all of it, at once. I've never heard anything like it and I've been doing this for fifteen years. [beat] You can hear the exact second the sun went out, Control. No clock required.",
+     "scene": "s13d_cross_out",
+     "bed": "annex"
+    }
+   ],
+   "set": {
+    "outdoor_available": true
+   },
+   "next": "s09_hub_choice"
+  },
+  "s14_voss": {
+   "id": "s14_voss",
+   "act": 2,
+   "title": "Spectra",
+   "time": "14:06",
+   "bed": "spectra",
+   "cues": [
+    {
+     "id": "c1401",
+     "type": "dialogue",
+     "fx": "radio",
+     "lines": [
+      {
+       "sp": "voss",
+       "t": "My turn. Good. I'd have thought less of you if you'd skipped me."
+      },
+      {
+       "sp": "voss",
+       "t": "Eleven forty-eight, oh two. I was on the loop when Leila asked him about the fourteen-twenty receiver, and I heard him answer. 'I have it. Beautiful.'"
+      },
+      {
+       "sp": "voss",
+       "t": "[softly] He'd waited eleven years to say that sentence. I'm glad he got to."
+      }
+     ],
+     "scene": "s14_voss",
+     "bed": "spectra"
+    },
+    {
+     "id": "c1402",
+     "type": "tts",
+     "sp": "voss",
+     "fx": "radio",
+     "t": "Motive, since you'll have to ask. Adrian and I fought constantly and everyone will tell you so. He was going to put his name first on the eclipse paper and I was going to make that difficult for him. That is the entire war.",
+     "scene": "s14_voss",
+     "bed": "spectra"
+    },
+    {
+     "id": "c1403",
+     "type": "tts",
+     "sp": "voss",
+     "fx": "radio",
+     "t": "[dry] I'm also his deputy, which means I inherit a directorship I don't want, of an institution that's about to be investigated. If I'd wanted his job I'd have taken the Munich offer in March and had it with better weather.",
+     "scene": "s14_voss",
+     "bed": "spectra"
+    },
+    {
+     "id": "c1404",
+     "type": "tts",
+     "sp": "voss",
+     "fx": "radio",
+     "t": "Now. Three things you need and won't get from anyone else, because nobody else up here understands the network.",
+     "scene": "s14_voss",
+     "bed": "spectra"
+    }
+   ],
+   "next": "s14b_voss_three"
+  },
+  "s14b_voss_three": {
+   "id": "s14b_voss_three",
+   "act": 2,
+   "title": "Three Things",
+   "time": "14:11",
+   "bed": "spectra",
+   "cues": [
+    {
+     "id": "c1411",
+     "type": "tts",
+     "sp": "voss",
+     "fx": "radio",
+     "t": "One. We've been on the emergency voice relay since half past nine. The primary loop was saturating on eclipse telemetry — it does it every time and every time we swear we'll fix it. The relay works. The relay is also slow. It buffers.",
+     "scene": "s14b_voss_three",
+     "bed": "spectra"
+    },
+    {
+     "id": "c1412",
+     "type": "tts",
+     "sp": "voss",
+     "fx": "radio",
+     "t": "Two. Elias Trent has been carrying a correction on the Aurora feed that isn't in the table. I've known for six weeks and said nothing, because the alternative was destroying a decent young man over an ageing rubidium. You may judge me for that. I'd do it again.",
+     "scene": "s14b_voss_three",
+     "bed": "spectra"
+    },
+    {
+     "id": "c1413",
+     "type": "tts",
+     "sp": "voss",
+     "fx": "radio",
+     "t": "[lightly] Three. Every instrument on this mountain takes its calibration from Spectra. My station signs the packets. If you want to know what any box on this bus was told to do this morning, and when, you ask me — because there is nobody else to ask.",
+     "scene": "s14b_voss_three",
+     "bed": "spectra"
+    },
+    {
+     "id": "c1414",
+     "type": "tts",
+     "sp": "voss",
+     "fx": "radio",
+     "t": "[warm again] So. Use me, Control. I'd rather be useful than comfortable.",
+     "scene": "s14b_voss_three",
+     "bed": "spectra"
+    }
+   ],
+   "grants": [
+    "E07"
+   ],
+   "set": {
+    "found_relay_delay": true,
+    "voss_bus_authority": true
+   },
+   "next": "s09_hub_choice"
+  },
+  "s15_relay_spec": {
+   "id": "s15_relay_spec",
+   "act": 2,
+   "title": "Eleven Seconds",
+   "time": "14:22",
+   "bed": "ops",
+   "cues": [
+    {
+     "id": "c1501",
+     "type": "tts",
+     "sp": "meridian",
+     "fx": "intercom",
+     "t": "[flat] Emergency voice relay, specification extract. Store-and-forward fibre loop, independent of the summit repeater. Under sustained load, forwarding latency: nine to thirteen seconds. Engaged zero nine forty. Requesting authority: operations coordination.",
+     "scene": "s15_relay_spec",
+     "bed": "ops"
+    },
+    {
+     "id": "c1502",
+     "type": "tts",
+     "sp": "meridian",
+     "fx": "intercom",
+     "t": "[flat] Note. Requesting authority field is a free-text entry. Origin station is not recorded.",
+     "scene": "s15_relay_spec",
+     "bed": "ops"
+    },
+    {
+     "id": "c1503",
+     "type": "tts",
+     "sp": "voss",
+     "fx": "radio",
+     "bed": "spectra",
+     "t": "That's your one point two seconds on Gabriel's motor, and rather more besides. Everything anyone heard this morning arrived somewhere between nine and thirteen seconds after it was said. Nobody on this mountain has been living in the present tense since half past nine.",
+     "scene": "s15_relay_spec"
+    },
+    {
+     "id": "c1504",
+     "type": "tts",
+     "sp": "meridian",
+     "fx": "intercom",
+     "t": "[flat] Archive buffer: ninety-six percent.",
+     "scene": "s15_relay_spec",
+     "bed": "ops"
+    }
+   ],
+   "grants": [
+    "E07"
+   ],
+   "set": {
+    "found_relay_delay": true
+   },
+   "next": "s16_ambience_lab"
+  },
+  "s16_ambience_lab": {
+   "id": "s16_ambience_lab",
+   "act": 2,
+   "title": "Six Rooms",
+   "time": "14:31",
+   "bed": "ops",
+   "puzzle": "ambience",
+   "cues": [
+    {
+     "id": "c1601",
+     "type": "tts",
+     "sp": "okafor",
+     "fx": "radio",
+     "bed": "aurora",
+     "t": "If you're going to do this properly you need reference beds. I've pulled thirty seconds of clean background from every station on the ring, labelled, with nobody talking over it. Learn them. Then go back to the transmissions.",
+     "scene": "s16_ambience_lab"
+    },
+    {
+     "id": "c1602",
+     "type": "tts",
+     "sp": "okafor",
+     "fx": "radio",
+     "bed": "aurora",
+     "t": "[precisely] Listen for three things in the chamber. The ventilation, which is always there. The room — it's circular, it rings a little. And the drive whine, which is only there when the telescope is moving. [beat] Two of those three are a room. The third one is a clock.",
+     "scene": "s16_ambience_lab"
+    }
+   ],
+   "grants": [
+    "E08"
+   ],
+   "set": {
+    "ambience_unlocked": true
+   },
+   "next": "s17_timing_layer"
+  },
+  "s17_timing_layer": {
+   "id": "s17_timing_layer",
+   "act": 2,
+   "title": "Which Clock",
+   "time": "14:44",
+   "bed": "ops",
+   "cues": [
+    {
+     "id": "c1701",
+     "type": "tts",
+     "sp": "voss",
+     "fx": "radio",
+     "bed": "spectra",
+     "t": "Control, you have to make a decision and you have to make it now, because everything you do afterwards inherits it. Five sources of time. They do not agree. You're going to have to pick one and rebuild the morning on top of it.",
+     "scene": "s17_timing_layer"
+    }
+   ],
+   "choices": [
+    {
+     "t": "Station clocks. They're disciplined to microseconds.",
+     "next": "s17a_clocks",
+     "set": {
+      "timing_choice": "clocks"
+     }
+    },
+    {
+     "t": "Hardware telemetry. Machines don't misremember.",
+     "next": "s17b_hardware",
+     "set": {
+      "timing_choice": "hardware"
+     }
+    },
+    {
+     "t": "The eclipse. Physics doesn't have an agenda.",
+     "next": "s17c_shadow",
+     "set": {
+      "timing_choice": "shadow",
+      "trust_shadow": true
+     }
+    },
+    {
+     "t": "The witnesses. Five people were there and I wasn't.",
+     "next": "s17d_people",
+     "set": {
+      "timing_choice": "people"
+     }
+    }
+   ]
+  },
+  "s17a_clocks": {
+   "id": "s17a_clocks",
+   "act": 2,
+   "title": "Microseconds",
+   "time": "14:48",
+   "bed": "ops",
+   "cues": [
+    {
+     "id": "c1711",
+     "type": "dialogue",
+     "fx": "radio",
+     "bed": "chronos",
+     "lines": [
+      {
+       "sp": "trent",
+       "t": "[unhappy] You can. They're good clocks. They're my clocks and they're good."
+      },
+      {
+       "sp": "trent",
+       "t": "But Control — a clock tells you when a recording was written down. It cannot tell you when the sound was made. If somebody hands the network an old sound, my clocks will stamp it beautifully, to the microsecond, with today's date."
+      }
+     ],
+     "scene": "s17a_clocks"
+    },
+    {
+     "id": "c1712",
+     "type": "tts",
+     "sp": "trent",
+     "fx": "radio",
+     "bed": "chronos",
+     "t": "[quietly] I've spent my whole career making these clocks trustworthy and I'm telling you they're the wrong tool. That's not a nice sentence to say.",
+     "scene": "s17a_clocks"
+    }
+   ],
+   "set": {
+    "timing_wrong": true
+   },
+   "next": "s18_voicemail"
+  },
+  "s17b_hardware": {
+   "id": "s17b_hardware",
+   "act": 2,
+   "title": "Machines Don't Misremember",
+   "time": "14:48",
+   "bed": "ops",
+   "cues": [
+    {
+     "id": "c1721",
+     "type": "dialogue",
+     "fx": "radio",
+     "bed": "mechbay",
+     "lines": [
+      {
+       "sp": "rook",
+       "t": "Good instinct. Half right."
+      },
+      {
+       "sp": "rook",
+       "t": "My drive current's honest, because a motor can't lie about pulling current. But everything that talks on the instrument bus takes its orders from somewhere, and what it does is whatever it was told."
+      }
+     ],
+     "scene": "s17b_hardware"
+    },
+    {
+     "id": "c1722",
+     "type": "tts",
+     "sp": "rook",
+     "fx": "radio",
+     "bed": "mechbay",
+     "t": "You want the things that were never told anything. [beat] There's not many of those in a building like this.",
+     "scene": "s17b_hardware"
+    }
+   ],
+   "set": {
+    "timing_partial": true
+   },
+   "next": "s18_voicemail"
+  },
+  "s17c_shadow": {
+   "id": "s17c_shadow",
+   "act": 2,
+   "title": "Trust the Shadow",
+   "time": "14:48",
+   "bed": "ops",
+   "cues": [
+    {
+     "id": "c1731",
+     "type": "dialogue",
+     "fx": "radio",
+     "bed": "aurora",
+     "lines": [
+      {
+       "sp": "okafor",
+       "t": "[a beat] Yes."
+      },
+      {
+       "sp": "okafor",
+       "t": "The moon's shadow crossed this ridge at eleven forty-six and twelve seconds. It did that because of orbital mechanics worked out three hundred years ago. Nobody on this mountain can edit it, delay it, sign it, or forget it."
+      }
+     ],
+     "scene": "s17c_shadow"
+    },
+    {
+     "id": "c1732",
+     "type": "tts",
+     "sp": "okafor",
+     "fx": "radio",
+     "bed": "aurora",
+     "t": "[slowly] Control. I need to tell you something and I need you to understand why I didn't tell you an hour ago.",
+     "scene": "s17c_shadow"
+    },
+    {
+     "id": "c1733",
+     "type": "synth",
+     "synth": "pulse",
+     "bed": "ops",
+     "scene": "s17c_shadow"
+    }
+   ],
+   "set": {
+    "timing_right": true
+   },
+   "next": "s18_voicemail"
+  },
+  "s17d_people": {
+   "id": "s17d_people",
+   "act": 2,
+   "title": "Five People Were There",
+   "time": "14:48",
+   "bed": "ops",
+   "cues": [
+    {
+     "id": "c1741",
+     "type": "dialogue",
+     "fx": "radio",
+     "bed": "spectra",
+     "lines": [
+      {
+       "sp": "voss",
+       "t": "[gently] No. And I say that as one of the five."
+      },
+      {
+       "sp": "voss",
+       "t": "Ask me what I was doing at eleven forty-eight and I'll tell you I was listening to Adrian. Ask me what I was doing at eleven forty-three and I have no idea. None. I was watching a corona I'd waited eleven years for."
+      }
+     ],
+     "scene": "s17d_people"
+    },
+    {
+     "id": "c1742",
+     "type": "tts",
+     "sp": "voss",
+     "fx": "radio",
+     "bed": "spectra",
+     "t": "We are all quite certain and we are all quite useless. [beat] Pick something that wasn't looking at the sky, Control. Or something that only looks at the sky.",
+     "scene": "s17d_people"
+    },
+    {
+     "id": "c1743",
+     "type": "tts",
+     "sp": "trent",
+     "fx": "radio",
+     "bed": "chronos",
+     "t": "[cutting in] Control, Chronos — I'm sorry, I've been listening. Please don't. People are last. People are always last.",
+     "scene": "s17d_people"
+    }
+   ],
+   "set": {
+    "timing_wrong": true
+   },
+   "next": "s18_voicemail"
+  },
+  "s18_voicemail": {
+   "id": "s18_voicemail",
+   "act": 2,
+   "title": "Ten Fifty-Eight",
+   "time": "14:56",
+   "bed": "aurora",
+   "cues": [
+    {
+     "id": "c1801",
+     "type": "dialogue",
+     "fx": "radio",
+     "lines": [
+      {
+       "sp": "okafor",
+       "t": "Adrian left me a voicemail at ten fifty-eight this morning. Twenty minutes before he sealed the chamber."
+      },
+      {
+       "sp": "okafor",
+       "t": "I've had it for four hours. I'm going to explain why in a moment and you're not going to like it, but listen to it first."
+      }
+     ],
+     "scene": "s18_voicemail",
+     "bed": "aurora"
+    },
+    {
+     "id": "c1802",
+     "type": "tts",
+     "sp": "coll",
+     "fx": "voicemail",
+     "bed": "chamber_parked",
+     "t": "[low, hurried] Leila. It's Adrian. Don't call back, I'm going in shortly. [beat] If I go quiet today — don't trust the clocks. Trust the shadow. [beat] And pull the Spectra bus log for the fourteenth of March. Not this year's. The old one. You'll know what you're looking at when you see it. [beat] I'm probably being ridiculous. Humour me.",
+     "caption": "10:58:04. Retained. Unforwarded.",
+     "clip": {
+      "id": "CLIP_VM",
+      "label": "Voicemail — 10:58:04",
+      "evidence": "E06"
+     },
+     "scene": "s18_voicemail"
+    },
+    {
+     "id": "c1803",
+     "type": "tts",
+     "sp": "okafor",
+     "fx": "radio",
+     "t": "[hard] 'Don't trust the clocks.' Control, there is exactly one man on this mountain who is the clocks, and he is thirty-three years old and he has never been anything but decent to me.",
+     "scene": "s18_voicemail",
+     "bed": "aurora"
+    },
+    {
+     "id": "c1804",
+     "type": "tts",
+     "sp": "okafor",
+     "fx": "radio",
+     "t": "So I sat on it. Because a dead man's riddle is not evidence, and I was not going to end Elias Trent's career on a sentence I couldn't read. [beat] I was wrong. I'd like that noted, and then I'd like to get back to work.",
+     "scene": "s18_voicemail",
+     "bed": "aurora"
+    }
+   ],
+   "grants": [
+    "E06"
+   ],
+   "set": {
+    "has_voicemail": true,
+    "knows_march14": true
+   },
+   "next": "s19_shadow_anchor"
+  },
+  "s19_shadow_anchor": {
+   "id": "s19_shadow_anchor",
+   "act": 3,
+   "title": "The Only Honest Clock",
+   "time": "15:04",
+   "bed": "ops",
+   "cues": [
+    {
+     "id": "c1901",
+     "type": "tts",
+     "sp": "cross",
+     "fx": "radio",
+     "bed": "annex",
+     "t": "Outdoor pair, ridge east, unattended. I'm going to shut up now. Listen to the wind.",
+     "scene": "s19_shadow_anchor"
+    },
+    {
+     "id": "c1902",
+     "type": "sfx",
+     "sfx": "outdoor_totality",
+     "bed": "totality",
+     "caption": "Second contact. The wind drops. Everything on the mountain that was making a noise stops making it.",
+     "clip": {
+      "id": "CLIP_OUTDOOR",
+      "label": "Outdoor microphone — second contact",
+      "evidence": null
+     },
+     "scene": "s19_shadow_anchor"
+    },
+    {
+     "id": "c1903",
+     "type": "tts",
+     "sp": "okafor",
+     "fx": "radio",
+     "bed": "aurora",
+     "t": "There. That's eleven forty-six and twelve seconds, and I can prove it to four decimal places from an almanac published before any of us were born. Everything in that recording after that instant happened during totality. Everything before it did not.",
+     "scene": "s19_shadow_anchor"
+    },
+    {
+     "id": "c1903b",
+     "type": "sfx",
+     "sfx": "outdoor_third",
+     "bed": "summit_wind",
+     "caption": "11:50:48 — third contact. The wind comes back, and so do the birds. Four minutes, thirty-six seconds, measured by a mountain.",
+     "clip": {
+      "id": "CLIP_OUTDOOR_2",
+      "label": "Outdoor microphone — third contact",
+      "evidence": null
+     },
+     "scene": "s19_shadow_anchor"
+    },
+    {
+     "id": "c1904",
+     "type": "tts",
+     "sp": "okafor",
+     "fx": "radio",
+     "bed": "aurora",
+     "t": "[grimly] Now. Julian's outdoor pair also picked up the loudspeakers on the dome. Which means the radio traffic is *in* this recording, timestamped by the moon. So let us go and put the morning back together properly.",
+     "scene": "s19_shadow_anchor"
+    },
+    {
+     "id": "c1905",
+     "type": "tts",
+     "sp": "meridian",
+     "fx": "intercom",
+     "t": "[flat] Archive buffer: ninety-seven percent.",
+     "scene": "s19_shadow_anchor",
+     "bed": "ops"
+    }
+   ],
+   "set": {
+    "shadow_anchored": true
+   },
+   "next": "s20_frost_alarm"
+  },
+  "s20_frost_alarm": {
+   "id": "s20_frost_alarm",
+   "act": 3,
+   "title": "The Alarm",
+   "time": "15:12",
+   "bed": "ops",
+   "cues": [
+    {
+     "id": "c2001",
+     "type": "dialogue",
+     "fx": "radio",
+     "bed": "mechbay",
+     "lines": [
+      {
+       "sp": "rook",
+       "t": "Control, Mechanical. Something's been bothering me and I've worked out what."
+      },
+      {
+       "sp": "rook",
+       "t": "West shutter frost alarm went at eleven forty-eight exactly. That's a station-wide alarm. It goes everywhere — every station, every handset, the chamber, the toilets, everywhere. It is designed to be impossible to ignore."
+      }
+     ],
+     "scene": "s20_frost_alarm"
+    },
+    {
+     "id": "c2002",
+     "type": "tts",
+     "sp": "rook",
+     "fx": "radio",
+     "bed": "mechbay",
+     "t": "[flat] Adrian screamed at me about that shutter at eleven thirty-one. Said he'd have my certification. [beat] Play his eleven forty-eight again, Control. And this time listen to what's underneath him.",
+     "scene": "s20_frost_alarm"
+    },
+    {
+     "id": "c2003",
+     "type": "tts",
+     "sp": "coll",
+     "fx": "synthetic",
+     "bed": "annex",
+     "t": "I have it. Beautiful.",
+     "caption": "11:48:02 — with the frost alarm at full level underneath.",
+     "tail": 3.5,
+     "mix": [
+      {
+       "sfx": "frost_alarm",
+       "at": 0,
+       "gain": 0.95
+      }
+     ],
+     "clip": {
+      "id": "CLIP_1148_ALARM",
+      "label": "11:48:02 — alarm isolated",
+      "evidence": "E09"
+     },
+     "scene": "s20_frost_alarm"
+    }
+   ],
+   "choices": [
+    {
+     "t": "He doesn't stop. He doesn't even change rhythm.",
+     "next": "s20a_correct",
+     "set": {
+      "heard_alarm": true
+     }
+    },
+    {
+     "t": "He's mid-sentence during a once-in-a-lifetime corona. He tuned it out.",
+     "next": "s20b_doubt"
+    }
+   ]
+  },
+  "s20a_correct": {
+   "id": "s20a_correct",
+   "act": 3,
+   "title": "He Doesn't Stop",
+   "time": "15:15",
+   "bed": "ops",
+   "cues": [
+    {
+     "id": "c2011",
+     "type": "synth",
+     "synth": "pulse",
+     "scene": "s20a_correct",
+     "bed": "ops"
+    },
+    {
+     "id": "c2012",
+     "type": "dialogue",
+     "fx": "radio",
+     "bed": "mechbay",
+     "lines": [
+      {
+       "sp": "rook",
+       "t": "[quietly] No. He doesn't."
+      },
+      {
+       "sp": "rook",
+       "t": "That man had been threatening my job over that exact shutter for two hours. If that alarm went off in his ear he'd have been on the loop inside a second, and it would not have been polite."
+      }
+     ],
+     "scene": "s20a_correct"
+    },
+    {
+     "id": "c2013",
+     "type": "tts",
+     "sp": "okafor",
+     "fx": "radio",
+     "bed": "aurora",
+     "t": "[cold] And I'd asked him a direct question at eleven forty-seven, twenty. He answered it forty-two seconds later, with a sentence that doesn't actually contain an answer. 'I have it.' Has what? At what frequency? At what flux?",
+     "scene": "s20a_correct"
+    },
+    {
+     "id": "c2014",
+     "type": "tts",
+     "sp": "okafor",
+     "fx": "radio",
+     "bed": "aurora",
+     "t": "[flatly] I have been trying to tell myself for four hours that a great man got poetic at the moment of his greatest result. [beat] He didn't. That is not Adrian answering me. That is something shaped like Adrian, arriving late, and not hearing the alarm because there was no alarm where it was made.",
+     "scene": "s20a_correct"
+    }
+   ],
+   "grants": [
+    "E09"
+   ],
+   "set": {
+    "knows_not_live": true
+   },
+   "next": "s21_rehearsal"
+  },
+  "s20b_doubt": {
+   "id": "s20b_doubt",
+   "act": 3,
+   "title": "Nobody Tunes It Out",
+   "time": "15:15",
+   "bed": "ops",
+   "cues": [
+    {
+     "id": "c2021",
+     "type": "dialogue",
+     "fx": "radio",
+     "bed": "mechbay",
+     "lines": [
+      {
+       "sp": "rook",
+       "t": "[patiently] Control. That alarm is one hundred and five decibels and it means the roof is freezing shut over a live telescope."
+      },
+      {
+       "sp": "rook",
+       "t": "Nobody tunes it out. I've had grown men drop coffee. Adrian had threatened my certification over that shutter ninety minutes earlier."
+      }
+     ],
+     "scene": "s20b_doubt"
+    },
+    {
+     "id": "c2022",
+     "type": "tts",
+     "sp": "rook",
+     "fx": "radio",
+     "bed": "mechbay",
+     "t": "And here's the part I'd like you to sit with. Every other station has that alarm in their recording of that minute. Chronos has it. Aurora has it. The annex has it. [beat] Play it once more. Not for him. For the room.",
+     "scene": "s20b_doubt"
+    },
+    {
+     "id": "c2023",
+     "type": "tts",
+     "sp": "coll",
+     "fx": "synthetic",
+     "bed": "annex",
+     "t": "I have it. Beautiful.",
+     "caption": "11:48:02 — third pass.",
+     "tail": 3.5,
+     "mix": [
+      {
+       "sfx": "frost_alarm",
+       "at": 0,
+       "gain": 0.95
+      }
+     ],
+     "scene": "s20b_doubt"
+    },
+    {
+     "id": "c2024",
+     "type": "tts",
+     "sp": "okafor",
+     "fx": "radio",
+     "bed": "aurora",
+     "t": "[quietly] It's not a man ignoring an alarm, Control. It's a man who was never in the same building as one.",
+     "scene": "s20b_doubt"
+    }
+   ],
+   "grants": [
+    "E09"
+   ],
+   "set": {
+    "knows_not_live": true
+   },
+   "next": "s21_rehearsal"
+  },
+  "s21_rehearsal": {
+   "id": "s21_rehearsal",
+   "act": 3,
+   "title": "Twenty-One Forty",
+   "time": "15:24",
+   "bed": "annex",
+   "cues": [
+    {
+     "id": "c2101",
+     "type": "tts",
+     "sp": "cross",
+     "fx": "radio",
+     "t": "The rehearsal. Last night, twenty-one forty. Adrian in the chamber, dome parked, running the whole eclipse script from the top so nobody would fluff it on the day.",
+     "scene": "s21_rehearsal",
+     "bed": "annex"
+    },
+    {
+     "id": "c2102",
+     "type": "dialogue",
+     "fx": "archive",
+     "bed": "chamber_parked",
+     "lines": [
+      {
+       "sp": "coll",
+       "t": "[relaxed] From the top, then. And do try to sound like scientists tomorrow. Chronos — request your beacon step for third contact."
+      },
+      {
+       "sp": "trent",
+       "t": "Requesting beacon step for third contact."
+      }
+     ],
+     "caption": "21:40:12, the previous night.",
+     "scene": "s21_rehearsal"
+    },
+    {
+     "id": "c2102b",
+     "type": "tts",
+     "sp": "coll",
+     "fx": "archive",
+     "bed": "chamber_parked",
+     "reuse": "c0507",
+     "t": "Confirmed.",
+     "clip": {
+      "id": "CLIP_REH_1",
+      "label": "Rehearsal — 'Confirmed'",
+      "evidence": "E11"
+     },
+     "scene": "s21_rehearsal"
+    },
+    {
+     "id": "c2103",
+     "type": "dialogue",
+     "fx": "archive",
+     "bed": "chamber_parked",
+     "lines": [
+      {
+       "sp": "coll",
+       "t": "Mechanical, you'll want sequence three at the shutter check. Tell me when you're ready for it."
+      },
+      {
+       "sp": "rook",
+       "t": "Ready when you are, Adrian."
+      }
+     ],
+     "scene": "s21_rehearsal"
+    },
+    {
+     "id": "c2103b",
+     "type": "tts",
+     "sp": "coll",
+     "fx": "archive",
+     "bed": "chamber_parked",
+     "reuse": "c0508",
+     "t": "Proceed to sequence three.",
+     "clip": {
+      "id": "CLIP_REH_2",
+      "label": "Rehearsal — 'Proceed to sequence three'",
+      "evidence": null
+     },
+     "scene": "s21_rehearsal"
+    },
+    {
+     "id": "c2104",
+     "type": "dialogue",
+     "fx": "archive",
+     "bed": "chamber_parked",
+     "lines": [
+      {
+       "sp": "coll",
+       "t": "Aurora — if that receiver misbehaves on the day, I will want you holding, not improvising. Acknowledge."
+      },
+      {
+       "sp": "okafor",
+       "t": "Understood. Holding, not improvising."
+      }
+     ],
+     "scene": "s21_rehearsal"
+    },
+    {
+     "id": "c2104b",
+     "type": "tts",
+     "sp": "coll",
+     "fx": "archive",
+     "bed": "chamber_parked",
+     "reuse": "c0509",
+     "t": "Hold the sequence.",
+     "clip": {
+      "id": "CLIP_REH_3",
+      "label": "Rehearsal — 'Hold the sequence'",
+      "evidence": null
+     },
+     "scene": "s21_rehearsal"
+    },
+    {
+     "id": "c2105",
+     "type": "dialogue",
+     "fx": "archive",
+     "bed": "chamber_parked",
+     "lines": [
+      {
+       "sp": "coll",
+       "t": "And Mr. Cross — when I say this to you tomorrow, it will mean stop filming and get out of the way."
+      },
+      {
+       "sp": "cross",
+       "t": "[laughing] Noted. Word for word."
+      }
+     ],
+     "scene": "s21_rehearsal"
+    },
+    {
+     "id": "c2105b",
+     "type": "tts",
+     "sp": "coll",
+     "fx": "archive",
+     "bed": "chamber_parked",
+     "reuse": "c0510",
+     "t": "Stand by.",
+     "clip": {
+      "id": "CLIP_REH_4",
+      "label": "Rehearsal — 'Stand by'",
+      "evidence": null
+     },
+     "scene": "s21_rehearsal"
+    },
+    {
+     "id": "c2106",
+     "type": "tts",
+     "sp": "cross",
+     "fx": "radio",
+     "bed": "annex",
+     "t": "[very quietly] Four phrases. In order. Fourteen hours before anybody heard them on the day.",
+     "scene": "s21_rehearsal"
+    }
+   ],
+   "grants": [
+    "E11"
+   ],
+   "set": {
+    "found_rehearsal": true
+   },
+   "next": "s22_phrase_match"
+  },
+  "s22_phrase_match": {
+   "id": "s22_phrase_match",
+   "act": 3,
+   "title": "Word For Word",
+   "time": "15:33",
+   "bed": "ops",
+   "puzzle": "phrasematch",
+   "cues": [
+    {
+     "id": "c2201",
+     "type": "tts",
+     "sp": "okafor",
+     "fx": "radio",
+     "bed": "aurora",
+     "t": "Put them side by side. Rehearsal on the left, this morning on the right. Don't take my word for any of it — your ears are as good as mine and I'd rather you owned this conclusion than borrowed it.",
+     "scene": "s22_phrase_match"
+    }
+   ],
+   "next": "s22b_phrase_result"
+  },
+  "s22b_phrase_result": {
+   "id": "s22b_phrase_result",
+   "act": 3,
+   "title": "Four Out of Five",
+   "time": "15:39",
+   "bed": "ops",
+   "cues": [
+    {
+     "id": "c2211",
+     "type": "synth",
+     "synth": "pulse",
+     "scene": "s22b_phrase_result",
+     "bed": "ops"
+    },
+    {
+     "id": "c2212",
+     "type": "tts",
+     "sp": "okafor",
+     "fx": "radio",
+     "bed": "aurora",
+     "t": "Four of the five are the rehearsal. Not similar — identical. Same waveform, same breath, same tiny crackle on the second syllable of 'sequence'. That is not a man repeating himself. That is a file.",
+     "scene": "s22b_phrase_result"
+    },
+    {
+     "id": "c2213",
+     "type": "tts",
+     "sp": "okafor",
+     "fx": "radio",
+     "bed": "aurora",
+     "t": "[slowly] Four of the five. The eleven forty-eight is not in the rehearsal. It is not in any recording of Adrian Coll that exists, because he never said it. [beat] So where did it come from?",
+     "scene": "s22b_phrase_result"
+    },
+    {
+     "id": "c2214",
+     "type": "tts",
+     "sp": "voss",
+     "fx": "radio",
+     "bed": "spectra",
+     "t": "[carefully] Control — I want to say something before someone else says it worse. There is exactly one machine on this mountain that can make a voice say a sentence it never said. It is in the annex. It belongs to Julian Cross.",
+     "scene": "s22b_phrase_result"
+    }
+   ],
+   "set": {
+    "phrases_matched": true,
+    "voss_points_at_cross": true
+   },
+   "next": "s23_rook_breaks"
+  },
+  "s23_rook_breaks": {
+   "id": "s23_rook_breaks",
+   "act": 3,
+   "title": "The Fuse",
+   "time": "15:48",
+   "bed": "mechbay",
+   "cues": [
+    {
+     "id": "c2301",
+     "type": "dialogue",
+     "fx": "radio",
+     "lines": [
+      {
+       "sp": "rook",
+       "t": "[heavy] Control. Mechanical. I need to tell you about the chair and I need to do it before someone finds it, because how I say it now is the only thing I've got left."
+      },
+      {
+       "sp": "rook",
+       "t": "Two years ago there was a study. Autonomic stress in long observation runs. Micro-dose infusion — beta blocker, tiny amounts, properly approved, ethics board, the lot. Adrian volunteered himself as subject one. Of course he did."
+      }
+     ],
+     "scene": "s23_rook_breaks",
+     "bed": "mechbay"
+    },
+    {
+     "id": "c2302",
+     "type": "tts",
+     "sp": "rook",
+     "fx": "radio",
+     "t": "There's a line and a reservoir in the lumbar support of that chair. It ran for eight months and then the study finished and I was told to decommission it.",
+     "scene": "s23_rook_breaks",
+     "bed": "mechbay"
+    },
+    {
+     "id": "c2303",
+     "type": "tts",
+     "sp": "rook",
+     "fx": "radio",
+     "t": "[quiet] I drained the reservoir. I pulled the fuse on the line. I signed the certificate. [beat] And I did not take the hardware out, because taking it out means lifting the console, and lifting the console means three days with the dome shut, and I could not tell Adrian Coll he was losing three nights for a study that was already over.",
+     "scene": "s23_rook_breaks",
+     "bed": "mechbay"
+    },
+    {
+     "id": "c2304",
+     "type": "tts",
+     "sp": "rook",
+     "fx": "radio",
+     "t": "[breaking] So there has been a drug line in that man's chair for two years, with my signature saying there isn't. [beat] Go and look at the fuse, Control. Because I know where I left it, and if it's not where I left it then this is not my fault, and I would very much like it not to be my fault.",
+     "scene": "s23_rook_breaks",
+     "bed": "mechbay"
+    }
+   ],
+   "grants": [
+    "E10"
+   ],
+   "set": {
+    "found_injector": true
+   },
+   "next": "s24_chair_forensics"
+  },
+  "s24_chair_forensics": {
+   "id": "s24_chair_forensics",
+   "act": 3,
+   "title": "Node MC-CHR-07",
+   "time": "15:56",
+   "bed": "ops",
+   "cues": [
+    {
+     "id": "c2401",
+     "type": "tts",
+     "sp": "meridian",
+     "fx": "intercom",
+     "t": "[flat] Chair assembly, Meridian Chamber. Infusion reservoir: present. Volume: zero millilitres. Line fuse: seated and conducting. Decommissioning certificate on file, dated two years, three months. Extraction record: none.",
+     "scene": "s24_chair_forensics",
+     "bed": "ops"
+    },
+    {
+     "id": "c2402",
+     "type": "tts",
+     "sp": "meridian",
+     "fx": "intercom",
+     "t": "[flat] Node M C dash C H R dash zero seven. Bus endpoint status: enabled. Last configuration change: zero nine sixteen today.",
+     "scene": "s24_chair_forensics",
+     "bed": "ops"
+    },
+    {
+     "id": "c2403",
+     "type": "dialogue",
+     "fx": "radio",
+     "bed": "mechbay",
+     "lines": [
+      {
+       "sp": "rook",
+       "t": "[hollow] Nine sixteen."
+      },
+      {
+       "sp": "rook",
+       "t": "I pulled that fuse two years ago with my own hands. Somebody put it back. And somebody filled a reservoir I emptied."
+      },
+      {
+       "sp": "rook",
+       "t": "[hard] I'm a bad engineer, Control. I've been a bad engineer for two years and I'll answer for it. I am not this."
+      }
+     ],
+     "scene": "s24_chair_forensics"
+    },
+    {
+     "id": "c2404",
+     "type": "tts",
+     "sp": "meridian",
+     "fx": "intercom",
+     "t": "[flat] Meridian Chamber access, zero nine twelve to zero nine twenty-three: Voss, M. Sole occupant.",
+     "scene": "s24_chair_forensics",
+     "bed": "ops"
+    },
+    {
+     "id": "c2405",
+     "type": "tts",
+     "sp": "voss",
+     "fx": "radio",
+     "bed": "spectra",
+     "t": "[unruffled] Yes. That's me, and I've said so from the first minute. I ran a standing calibration on the chamber console. [beat] The chair is two metres from that console, Control. If you're about to tell me that puts my hands on it, then it also puts the hands of every single person who has walked into that room for two years on it.",
+     "scene": "s24_chair_forensics"
+    }
+   ],
+   "grants": [
+    "E13"
+   ],
+   "next": "s25_cardiac_loop"
+  },
+  "s25_cardiac_loop": {
+   "id": "s25_cardiac_loop",
+   "act": 3,
+   "title": "A Heart That Repeats",
+   "time": "16:08",
+   "bed": "ops",
+   "puzzle": "cardiac",
+   "cues": [
+    {
+     "id": "c2501",
+     "type": "tts",
+     "sp": "okafor",
+     "fx": "radio",
+     "bed": "aurora",
+     "t": "The telemetry. You told me the chair had him alive until eleven fifty. I've been staring at that trace for twenty minutes and I want you to hear what I'm hearing.",
+     "scene": "s25_cardiac_loop"
+    },
+    {
+     "id": "c2502",
+     "type": "tts",
+     "sp": "okafor",
+     "fx": "radio",
+     "bed": "aurora",
+     "t": "[precise] Atrial fibrillation. It is, by definition, irregular. The interval between beats is effectively random — that randomness is the diagnosis. Two windows of a fibrillating heart cannot look the same. Not similar. Cannot be the same.",
+     "scene": "s25_cardiac_loop"
+    },
+    {
+     "id": "c2503",
+     "type": "synth",
+     "synth": "cardiac_true",
+     "bed": "ops",
+     "caption": "Window A — 11:38:00 to 11:42:00.",
+     "clip": {
+      "id": "CLIP_CARD_A2",
+      "label": "Cardiac — window A",
+      "evidence": null
+     },
+     "scene": "s25_cardiac_loop"
+    },
+    {
+     "id": "c2504",
+     "type": "synth",
+     "synth": "cardiac_looped",
+     "bed": "ops",
+     "caption": "Window B — 11:42:20 to 11:46:20. Listen to the pattern.",
+     "clip": {
+      "id": "CLIP_CARD_B",
+      "label": "Cardiac — window B",
+      "evidence": "E12"
+     },
+     "scene": "s25_cardiac_loop"
+    }
+   ],
+   "next": "s25b_cardiac_result"
+  },
+  "s25b_cardiac_result": {
+   "id": "s25b_cardiac_result",
+   "act": 3,
+   "title": "Four Minutes, On Repeat",
+   "time": "16:14",
+   "bed": "ops",
+   "cues": [
+    {
+     "id": "c2511",
+     "type": "synth",
+     "synth": "pulse",
+     "scene": "s25b_cardiac_result",
+     "bed": "ops"
+    },
+    {
+     "id": "c2512",
+     "type": "dialogue",
+     "fx": "radio",
+     "bed": "aurora",
+     "lines": [
+      {
+       "sp": "okafor",
+       "t": "It's the same four minutes. Sample for sample. From eleven forty-two, twenty, that chair stopped measuring a heart and started replaying the last four minutes of one, over and over, until the buffer was told to stop."
+      },
+      {
+       "sp": "okafor",
+       "t": "[quiet] Adrian Coll died at approximately eleven forty-two and twenty seconds. Four minutes before totality."
+      }
+     ],
+     "scene": "s25b_cardiac_result"
+    },
+    {
+     "id": "c2513",
+     "type": "tts",
+     "sp": "trent",
+     "fx": "radio",
+     "bed": "chronos",
+     "t": "[shaky] Control, Chronos — I've been listening, I'm sorry. If he died at eleven forty-two twenty, then he was already dead when he said 'Confirmed' to me at eleven forty-two forty-four.",
+     "scene": "s25b_cardiac_result"
+    },
+    {
+     "id": "c2514",
+     "type": "tts",
+     "sp": "trent",
+     "fx": "radio",
+     "bed": "chronos",
+     "t": "[very quietly] I stepped the beacon. I stepped the beacon because a dead man told me to. [beat] I'd like a minute, if that's all right.",
+     "scene": "s25b_cardiac_result"
+    },
+    {
+     "id": "c2515",
+     "type": "tts",
+     "sp": "meridian",
+     "fx": "intercom",
+     "t": "[flat] Archive buffer: ninety-eight percent.",
+     "scene": "s25b_cardiac_result",
+     "bed": "ops"
+    }
+   ],
+   "grants": [
+    "E12"
+   ],
+   "set": {
+    "confirmed_early_death": true
+   },
+   "next": "s26_solaris_window"
+  },
+  "s26_solaris_window": {
+   "id": "s26_solaris_window",
+   "act": 3,
+   "title": "One Uplink Window",
+   "time": "16:22",
+   "bed": "ops",
+   "cues": [
+    {
+     "id": "c2601",
+     "type": "tts",
+     "sp": "voss",
+     "fx": "radio",
+     "bed": "spectra",
+     "t": "[urgent] Control, stop. There's something we haven't used and we have eleven minutes to use it.",
+     "scene": "s26_solaris_window"
+    },
+    {
+     "id": "c2602",
+     "type": "tts",
+     "sp": "voss",
+     "fx": "radio",
+     "bed": "spectra",
+     "t": "SOLARIS-2. The orbital solar platform. It's been observing the same eclipse from four hundred kilometres up, and it carries a timing cross-link to our summit repeater — that's how we co-register their frames with ours.",
+     "scene": "s26_solaris_window"
+    },
+    {
+     "id": "c2603",
+     "type": "tts",
+     "sp": "okafor",
+     "fx": "radio",
+     "bed": "aurora",
+     "t": "[sharply] Which means it has been listening to this mountain all morning, on a clock nobody here can touch, and writing it down in orbit.",
+     "scene": "s26_solaris_window"
+    },
+    {
+     "id": "c2604",
+     "type": "tts",
+     "sp": "meridian",
+     "fx": "intercom",
+     "t": "[flat] SOLARIS-2 acquisition of signal in ninety seconds. Window duration: six minutes, forty seconds. One archival request may be serviced per pass. Next pass: four hours, eleven minutes.",
+     "scene": "s26_solaris_window",
+     "bed": "ops"
+    },
+    {
+     "id": "c2605",
+     "type": "tts",
+     "sp": "voss",
+     "fx": "radio",
+     "bed": "spectra",
+     "t": "[tight] One request. The archive is at ninety-eight percent and the next pass is after it finishes overwriting. Whatever you ask them for, Control, it is the only thing you are ever going to get from orbit.",
+     "scene": "s26_solaris_window"
+    }
+   ],
+   "choices": [
+    {
+     "t": "The sky log. Every transmission the repeater put into space this morning.",
+     "next": "s27_solaris_sky",
+     "set": {
+      "solaris_choice": "sky"
+     }
+    },
+    {
+     "t": "Their eclipse frames. I want an independent time for second contact.",
+     "next": "s27_solaris_frames",
+     "set": {
+      "solaris_choice": "frames"
+     }
+    },
+    {
+     "t": "Their downlink of our instrument bus traffic.",
+     "next": "s27_solaris_bus",
+     "set": {
+      "solaris_choice": "bus"
+     }
+    }
+   ]
+  },
+  "s27_solaris_sky": {
+   "id": "s27_solaris_sky",
+   "act": 3,
+   "title": "A Hole in the Sky",
+   "time": "16:31",
+   "bed": "orbit",
+   "cues": [
+    {
+     "id": "c2701",
+     "type": "dialogue",
+     "fx": "orbit",
+     "lines": [
+      {
+       "sp": "solaris",
+       "t": "Helios, SOLARIS-2, we have you. Sorry about your morning — genuinely, we all liked him."
+      },
+      {
+       "sp": "solaris",
+       "t": "You want the repeater log. Right. Everything your summit repeater radiated skyward this morning, with our clock on it, and our clock does not care what yours thinks."
+      }
+     ],
+     "scene": "s27_solaris_sky",
+     "bed": "orbit"
+    },
+    {
+     "id": "c2702",
+     "type": "tts",
+     "sp": "solaris",
+     "fx": "orbit",
+     "t": "Running it against the list you sent up. Coll, A. Eleven twenty-two forty — got it. Eleven thirty-one oh six — got it. Eleven thirty-five fifty — got it. Eleven forty-one thirty-eight — got it, and it ends the way you said it ends.",
+     "scene": "s27_solaris_sky",
+     "bed": "orbit"
+    },
+    {
+     "id": "c2703",
+     "type": "tts",
+     "sp": "solaris",
+     "fx": "orbit",
+     "t": "[slower] Eleven forty-two forty-four. [beat] Nothing. Eleven forty-four oh five — nothing. Eleven forty-six forty — nothing. Eleven forty-eight oh two — nothing. Eleven forty-nine thirty — nothing.",
+     "scene": "s27_solaris_sky",
+     "bed": "orbit"
+    },
+    {
+     "id": "c2704",
+     "type": "dialogue",
+     "fx": "orbit",
+     "lines": [
+      {
+       "sp": "solaris",
+       "t": "Helios, confirm your list. Because from up here, after eleven forty-one thirty-eight, that repeater goes quiet on Meridian and stays quiet."
+      },
+      {
+       "sp": "solaris",
+       "t": "[carefully] Whatever your people heard after that — it never left the mountain."
+      }
+     ],
+     "scene": "s27_solaris_sky",
+     "bed": "orbit"
+    },
+    {
+     "id": "c2705",
+     "type": "synth",
+     "synth": "pulse",
+     "bed": "ops",
+     "scene": "s27_solaris_sky"
+    },
+    {
+     "id": "c2706",
+     "type": "tts",
+     "sp": "okafor",
+     "fx": "radio",
+     "bed": "aurora",
+     "t": "[very quietly] Not the repeater. The relay. Somebody put them into the emergency loop, downstream of the antenna. Into our ears, and nowhere else in the universe.",
+     "scene": "s27_solaris_sky"
+    }
+   ],
+   "grants": [
+    "E14"
+   ],
+   "set": {
+    "has_solaris": true,
+    "solaris_decisive": true
+   },
+   "next": "s28_bus_log"
+  },
+  "s27_solaris_frames": {
+   "id": "s27_solaris_frames",
+   "act": 3,
+   "title": "Second Contact, From Orbit",
+   "time": "16:31",
+   "bed": "orbit",
+   "cues": [
+    {
+     "id": "c2711",
+     "type": "dialogue",
+     "fx": "orbit",
+     "lines": [
+      {
+       "sp": "solaris",
+       "t": "Helios, SOLARIS-2. Eclipse frames, co-registered to your ridge. Second contact at your position: eleven forty-six, twelve point one four. Third contact: eleven fifty, forty-eight point oh two."
+      },
+      {
+       "sp": "solaris",
+       "t": "Which — and I say this gently, Helios — is exactly what the almanac said this morning, and exactly what your colleague's outdoor microphone already told you."
+      }
+     ],
+     "scene": "s27_solaris_frames",
+     "bed": "orbit"
+    },
+    {
+     "id": "c2712",
+     "type": "tts",
+     "sp": "okafor",
+     "fx": "radio",
+     "bed": "aurora",
+     "t": "[frustrated] It confirms the shadow. We had the shadow. [beat] I'd have asked them what they *heard*, Control.",
+     "scene": "s27_solaris_frames"
+    },
+    {
+     "id": "c2713",
+     "type": "tts",
+     "sp": "solaris",
+     "fx": "orbit",
+     "t": "[helpfully] For what it's worth — and I can't run the query, we're already losing you — our repeater cross-link logs voice traffic too. If anyone ever asks, the answer's in there. Someone should pull it. SOLARIS-2 out.",
+     "scene": "s27_solaris_frames",
+     "bed": "orbit"
+    },
+    {
+     "id": "c2714",
+     "type": "tts",
+     "sp": "voss",
+     "fx": "radio",
+     "bed": "spectra",
+     "t": "[evenly] Four hours until the next pass. The archive will be gone. [beat] It was a reasonable request, Control. It just wasn't the one.",
+     "scene": "s27_solaris_frames"
+    }
+   ],
+   "set": {
+    "has_solaris": false,
+    "solaris_wasted": true
+   },
+   "next": "s28_bus_log"
+  },
+  "s27_solaris_bus": {
+   "id": "s27_solaris_bus",
+   "act": 3,
+   "title": "Partial Downlink",
+   "time": "16:31",
+   "bed": "orbit",
+   "cues": [
+    {
+     "id": "c2721",
+     "type": "dialogue",
+     "fx": "orbit",
+     "lines": [
+      {
+       "sp": "solaris",
+       "t": "Helios, SOLARIS-2. Instrument bus mirror — we only take the calibration subset, we don't carry your whole bus. But we've got the subset."
+      },
+      {
+       "sp": "solaris",
+       "t": "Eleven twenty-nine, fifty-five. Calibration packet, origin Spectra, destination — hold on, that's an odd one. Destination M C dash C H R dash zero seven."
+      }
+     ],
+     "scene": "s27_solaris_bus",
+     "bed": "orbit"
+    },
+    {
+     "id": "c2722",
+     "type": "tts",
+     "sp": "solaris",
+     "fx": "orbit",
+     "t": "[puzzled] That's not an instrument. That's in your chair register. Why is your calibration service talking to a chair? [beat] Anyway — it's in the pass, it's yours, and we're going over the horizon. Good luck down there. SOLARIS-2 out.",
+     "scene": "s27_solaris_bus",
+     "bed": "orbit"
+    },
+    {
+     "id": "c2723",
+     "type": "synth",
+     "synth": "pulse",
+     "bed": "ops",
+     "scene": "s27_solaris_bus"
+    },
+    {
+     "id": "c2724",
+     "type": "tts",
+     "sp": "okafor",
+     "fx": "radio",
+     "bed": "aurora",
+     "t": "[intent] That's the trigger. That is the trigger and we have it from orbit, which means nobody down here can argue about whether it existed.",
+     "scene": "s27_solaris_bus"
+    },
+    {
+     "id": "c2725",
+     "type": "tts",
+     "sp": "voss",
+     "fx": "radio",
+     "bed": "spectra",
+     "t": "[a fraction late] ...Yes. Well caught, Control. [beat] Though I'd have spent the pass on the voice log, personally. We still can't prove what anyone actually heard.",
+     "scene": "s27_solaris_bus"
+    }
+   ],
+   "grants": [
+    "E15"
+   ],
+   "set": {
+    "has_solaris": true,
+    "has_packet_early": true
+   },
+   "next": "s28_bus_log"
+  },
+  "s28_bus_log": {
+   "id": "s28_bus_log",
+   "act": 4,
+   "title": "The Fourteenth of March",
+   "time": "16:44",
+   "bed": "ops",
+   "cues": [
+    {
+     "id": "c2801",
+     "type": "tts",
+     "sp": "okafor",
+     "fx": "radio",
+     "bed": "aurora",
+     "t": "'Pull the Spectra bus log for the fourteenth of March.' He gave us the station, the log and the date, and we've spent five hours doing everything except the one thing he asked for.",
+     "scene": "s28_bus_log"
+    },
+    {
+     "id": "c2802",
+     "type": "tts",
+     "sp": "meridian",
+     "fx": "intercom",
+     "t": "[flat] Spectra instrument bus. Two archives retrieved. Fourteen March, eleven years prior — flagged, read four times in the past six weeks by Coll, A. And today, zero six hundred to present.",
+     "scene": "s28_bus_log",
+     "bed": "ops"
+    },
+    {
+     "id": "c2803",
+     "type": "tts",
+     "sp": "okafor",
+     "fx": "radio",
+     "bed": "aurora",
+     "t": "Today first. The dead man can wait eleven more minutes; he's waited eleven years.",
+     "scene": "s28_bus_log"
+    },
+    {
+     "id": "c2804",
+     "type": "tts",
+     "sp": "meridian",
+     "fx": "intercom",
+     "t": "[flat] Today's bus traffic, Spectra origin. Four hundred and twelve packets. Filtering: destinations outside the instrument register. One result. Eleven twenty-nine, fifty-five.",
+     "mix": [
+      {
+       "sfx": "relay_click",
+       "at": 0.2,
+       "gain": 0.4
+      }
+     ],
+     "scene": "s28_bus_log",
+     "bed": "ops"
+    },
+    {
+     "id": "c2805",
+     "type": "tts",
+     "sp": "voss",
+     "fx": "radio",
+     "bed": "spectra",
+     "t": "[interested] One packet out of four hundred and twelve, going somewhere it has no business going. [beat] Read it out, Control. All of it. I want to hear this.",
+     "scene": "s28_bus_log"
+    }
+   ],
+   "grants": [
+    "E15"
+   ],
+   "next": "s29_packet_puzzle"
+  },
+  "s29_packet_puzzle": {
+   "id": "s29_packet_puzzle",
+   "act": 4,
+   "title": "T Plus Seven Hundred and Twenty",
+   "time": "16:52",
+   "bed": "ops",
+   "puzzle": "packet",
+   "cues": [
+    {
+     "id": "c2901",
+     "type": "tts",
+     "sp": "meridian",
+     "fx": "intercom",
+     "t": "[flat] Packet displayed. Header, routing, payload, signature block. Standard calibration format. One non-standard field present.",
+     "scene": "s29_packet_puzzle",
+     "bed": "ops"
+    },
+    {
+     "id": "c2902",
+     "type": "tts",
+     "sp": "trent",
+     "fx": "radio",
+     "bed": "chronos",
+     "t": "[steadier now] Control, Chronos. I know this format better than anyone alive, it's half my job. Read the fields. One of them shouldn't be there and I'd like you to find it, not me.",
+     "scene": "s29_packet_puzzle"
+    }
+   ],
+   "next": "s30_signature"
+  },
+  "s30_signature": {
+   "id": "s30_signature",
+   "act": 4,
+   "title": "Signed",
+   "time": "16:58",
+   "bed": "ops",
+   "cues": [
+    {
+     "id": "c3001",
+     "type": "synth",
+     "synth": "pulse",
+     "scene": "s30_signature",
+     "bed": "ops"
+    },
+    {
+     "id": "c3002",
+     "type": "dialogue",
+     "fx": "radio",
+     "bed": "chronos",
+     "lines": [
+      {
+       "sp": "trent",
+       "t": "Deferred execution. T plus seven hundred and twenty seconds."
+      },
+      {
+       "sp": "trent",
+       "t": "Sent at eleven twenty-nine, fifty-five. Seven hundred and twenty seconds is twelve minutes. Eleven forty-one, fifty-five."
+      },
+      {
+       "sp": "trent",
+       "t": "[quiet] Twenty-five seconds before Adrian stopped talking."
+      }
+     ],
+     "scene": "s30_signature"
+    },
+    {
+     "id": "c3003",
+     "type": "tts",
+     "sp": "trent",
+     "fx": "radio",
+     "bed": "chronos",
+     "t": "[flat] And that field does not exist in the calibration standard. Not deprecated. Not optional. It is not in the specification. Somebody wrote it by hand, into a format that only accepts it because our parser is old and forgiving.",
+     "scene": "s30_signature"
+    },
+    {
+     "id": "c3004",
+     "type": "tts",
+     "sp": "meridian",
+     "fx": "intercom",
+     "t": "[flat] Signature block. Issuing station: Spectra. Key identifier: S P E dash zero one. Validity: current. Signature: valid.",
+     "scene": "s30_signature",
+     "bed": "ops"
+    },
+    {
+     "id": "c3005",
+     "type": "tts",
+     "sp": "okafor",
+     "fx": "radio",
+     "bed": "aurora",
+     "t": "[carefully] Mara. Who holds S P E dash zero one.",
+     "scene": "s30_signature"
+    },
+    {
+     "id": "c3006",
+     "type": "tts",
+     "sp": "voss",
+     "fx": "radio",
+     "bed": "spectra",
+     "t": "[without hesitation] I do. It's the station key for the calibration service, it lives on the Spectra terminal, and I am the only person authorised to use it. [beat] I told you that myself, three hours ago, when nobody had asked.",
+     "scene": "s30_signature"
+    }
+   ],
+   "grants": [
+    "E15"
+   ],
+   "set": {
+    "found_packet": true
+   },
+   "next": "s31_voss_deflect"
+  },
+  "s31_voss_deflect": {
+   "id": "s31_voss_deflect",
+   "act": 4,
+   "title": "The Reasonable Explanation",
+   "time": "17:05",
+   "bed": "spectra",
+   "cues": [
+    {
+     "id": "c3101",
+     "type": "dialogue",
+     "fx": "radio",
+     "lines": [
+      {
+       "sp": "voss",
+       "t": "So let's do this properly rather than dramatically. The key signs from the Spectra terminal. The Spectra terminal sits in a room that does not lock, because the door mechanism has been broken since February and it is on Gabriel's list."
+      },
+      {
+       "sp": "voss",
+       "t": "I was not in that room between eleven twenty and eleven fifty. I was at the coudé bench with my hands inside a spectrograph."
+      }
+     ],
+     "scene": "s31_voss_deflect",
+     "bed": "spectra"
+    },
+    {
+     "id": "c3102",
+     "type": "tts",
+     "sp": "voss",
+     "fx": "radio",
+     "t": "[steady] Now. Who on this mountain would know that a calibration packet can carry a deferred field? Elias, obviously — he wrote half the parser. Who would know there was a live infusion line in that chair? Gabriel, who put it there and lied about it for two years.",
+     "scene": "s31_voss_deflect",
+     "bed": "spectra"
+    },
+    {
+     "id": "c3103",
+     "type": "tts",
+     "sp": "voss",
+     "fx": "radio",
+     "t": "[very level] And who has a machine that can make Adrian Coll say a sentence he never said, and two hundred hours of illegal recordings, and a documentary that has just become the most valuable thing he will ever own? [beat] I'm not accusing Julian Cross. I'm telling you that if I were sitting where you are, I would not have looked at me first, and I'd be embarrassed about that later.",
+     "scene": "s31_voss_deflect",
+     "bed": "spectra"
+    },
+    {
+     "id": "c3104",
+     "type": "tts",
+     "sp": "cross",
+     "fx": "radio",
+     "bed": "annex",
+     "t": "[stiffly] I'm on this channel, Mara.",
+     "scene": "s31_voss_deflect"
+    },
+    {
+     "id": "c3105",
+     "type": "tts",
+     "sp": "voss",
+     "fx": "radio",
+     "t": "I know you are, Julian. I'd have said it either way.",
+     "scene": "s31_voss_deflect",
+     "bed": "spectra"
+    }
+   ],
+   "choices": [
+    {
+     "t": "She's right about one thing. Cross — open your workstation to me.",
+     "next": "s32_cross_workstation",
+     "set": {
+      "tested_cross": true
+     }
+    },
+    {
+     "t": "Dr. Voss. Where exactly were you at eleven forty-seven?",
+     "next": "s31b_voss_alibi",
+     "set": {
+      "pressed_voss": true
+     }
+    },
+    {
+     "t": "Nobody's accusing anybody. Show me the fourteenth of March.",
+     "next": "s34_the_fraud",
+     "set": {
+      "went_for_motive": true
+     }
+    }
+   ]
+  },
+  "s31b_voss_alibi": {
+   "id": "s31b_voss_alibi",
+   "act": 4,
+   "title": "Eleven Forty-Seven",
+   "time": "17:11",
+   "bed": "spectra",
+   "cues": [
+    {
+     "id": "c3111",
+     "type": "dialogue",
+     "fx": "radio",
+     "lines": [
+      {
+       "sp": "voss",
+       "t": "[unhurried] At the coudé bench. Alone, because everyone is alone on this mountain during totality — that's rather the design."
+      },
+      {
+       "sp": "voss",
+       "t": "No, I can't prove it. Neither can Elias, or Gabriel, or Leila, or Julian. There are five of us and five separate buildings and one shadow."
+      }
+     ],
+     "scene": "s31b_voss_alibi",
+     "bed": "spectra"
+    },
+    {
+     "id": "c3112",
+     "type": "tts",
+     "sp": "voss",
+     "fx": "radio",
+     "t": "[a shade cooler] If you'd like to spend your last hour testing the alibi of the person who has handed you every piece of evidence you own, Control, that is entirely your prerogative. [beat] I'd just point out that I gave you the relay delay. I gave you Elias's correction. I told you about my own nine-twelve access before you found it. I have been the reason you are not still on the first question.",
+     "scene": "s31b_voss_alibi",
+     "bed": "spectra"
+    },
+    {
+     "id": "c3113",
+     "type": "tts",
+     "sp": "okafor",
+     "fx": "radio",
+     "bed": "aurora",
+     "t": "[thoughtful, half to herself] ...Yes. She has, hasn't she.",
+     "scene": "s31b_voss_alibi"
+    },
+    {
+     "id": "c3114",
+     "type": "tts",
+     "sp": "voss",
+     "fx": "radio",
+     "t": "[warm again] Test the workstation, Control. If Julian's machine was touched this morning, it will say so, and that is a fact rather than a feeling. Facts have been in short supply up here.",
+     "scene": "s31b_voss_alibi",
+     "bed": "spectra"
+    }
+   ],
+   "set": {
+    "voss_flagged": true
+   },
+   "next": "s32_cross_workstation"
+  },
+  "s32_cross_workstation": {
+   "id": "s32_cross_workstation",
+   "act": 4,
+   "title": "Eleven Forty-Seven, Thirty-Six",
+   "time": "17:18",
+   "bed": "annex",
+   "cues": [
+    {
+     "id": "c3201",
+     "type": "dialogue",
+     "fx": "radio",
+     "lines": [
+      {
+       "sp": "cross",
+       "t": "[tight] It's open. Take all of it. And yes — before the log says it, I'll say it. I built a voice model of Adrian."
+      },
+      {
+       "sp": "cross",
+       "t": "Forty hours of his archived lectures. It's for narration repair — when an interview clips, when a great line has a cough in it. Every documentary house on earth does it and every single one of us pretends we don't."
+      }
+     ],
+     "scene": "s32_cross_workstation",
+     "bed": "annex"
+    },
+    {
+     "id": "c3202",
+     "type": "tts",
+     "sp": "cross",
+     "fx": "radio",
+     "t": "[bitter] I demonstrated it exactly once, in the mess, in October, after two glasses of wine, to Mara Voss. Who asked me two very good questions about it. [beat] I have thought about that conversation continuously since about half past three.",
+     "scene": "s32_cross_workstation",
+     "bed": "annex"
+    },
+    {
+     "id": "c3203",
+     "type": "tts",
+     "sp": "meridian",
+     "fx": "intercom",
+     "bed": "ops",
+     "t": "[flat] Annex workstation. Model 'COLL-NARR-3' invoked once today. Timestamp: eleven forty-seven, thirty-six. Credential: Cross, J. Originating terminal: Spectra.",
+     "scene": "s32_cross_workstation"
+    },
+    {
+     "id": "c3204",
+     "type": "synth",
+     "synth": "pulse",
+     "bed": "ops",
+     "scene": "s32_cross_workstation"
+    },
+    {
+     "id": "c3205",
+     "type": "dialogue",
+     "fx": "radio",
+     "bed": "annex",
+     "lines": [
+      {
+       "sp": "cross",
+       "t": "[very quietly] Say the terminal again."
+      },
+      {
+       "sp": "meridian",
+       "t": "[flat] Originating terminal: Spectra."
+      },
+      {
+       "sp": "cross",
+       "t": "I was in the annex at eleven forty-seven. On my own camera. Timecode running. Four hundred metres and a locked bridge from that terminal."
+      }
+     ],
+     "scene": "s32_cross_workstation"
+    },
+    {
+     "id": "c3206",
+     "type": "tts",
+     "sp": "okafor",
+     "fx": "radio",
+     "bed": "aurora",
+     "t": "[hard] Sixteen seconds after I asked Adrian a question nobody had rehearsed an answer to.",
+     "scene": "s32_cross_workstation"
+    }
+   ],
+   "grants": [
+    "E16"
+   ],
+   "set": {
+    "found_synthetic_origin": true
+   },
+   "next": "s33_synthetic_proof"
+  },
+  "s33_synthetic_proof": {
+   "id": "s33_synthetic_proof",
+   "act": 4,
+   "title": "The Breath",
+   "time": "17:26",
+   "bed": "ops",
+   "cues": [
+    {
+     "id": "c3301",
+     "type": "tts",
+     "sp": "okafor",
+     "fx": "radio",
+     "bed": "aurora",
+     "t": "Last piece, and then I'm done being clever. The eleven forty-eight line, background isolated. Everything I can hear that isn't him.",
+     "scene": "s33_synthetic_proof"
+    },
+    {
+     "id": "c3302",
+     "type": "tts",
+     "sp": "coll",
+     "fx": "synthetic",
+     "bed": "annex",
+     "t": "I have it. Beautiful.",
+     "caption": "11:48:02 — background isolated. Laptop fan. Dry, treated room. No ventilation. No drive.",
+     "isolate": "bed",
+     "clip": {
+      "id": "CLIP_1148_ISO",
+      "label": "11:48:02 — background only",
+      "evidence": "E08"
+     },
+     "scene": "s33_synthetic_proof"
+    },
+    {
+     "id": "c3303",
+     "type": "tts",
+     "sp": "okafor",
+     "fx": "radio",
+     "bed": "aurora",
+     "t": "That is the annex. That is a small fan eighteen inches from a microphone, in a dead room, four hundred metres from where Adrian Coll was sitting.",
+     "scene": "s33_synthetic_proof"
+    },
+    {
+     "id": "c3304",
+     "type": "tts",
+     "sp": "okafor",
+     "fx": "radio",
+     "bed": "aurora",
+     "t": "[precise] And one more thing, because it settles it. The breath before 'Beautiful.' I've matched it against his archive. It is bit-identical to a breath in a lecture he gave in Utrecht in twenty-nineteen. [beat] Men do not breathe the same way twice. Models do.",
+     "scene": "s33_synthetic_proof"
+    },
+    {
+     "id": "c3305",
+     "type": "synth",
+     "synth": "pulse",
+     "scene": "s33_synthetic_proof",
+     "bed": "ops"
+    },
+    {
+     "id": "c3306",
+     "type": "tts",
+     "sp": "voss",
+     "fx": "radio",
+     "bed": "spectra",
+     "t": "[quiet, and for the first time slightly slow] ...Well. [beat] That's rather conclusive, isn't it.",
+     "scene": "s33_synthetic_proof"
+    }
+   ],
+   "grants": [
+    "E08"
+   ],
+   "set": {
+    "found_synthetic_line": true
+   },
+   "next": "s34_the_fraud"
+  },
+  "s34_the_fraud": {
+   "id": "s34_the_fraud",
+   "act": 4,
+   "title": "Helios",
+   "time": "17:35",
+   "bed": "ops",
+   "cues": [
+    {
+     "id": "c3401",
+     "type": "tts",
+     "sp": "meridian",
+     "fx": "intercom",
+     "t": "[flat] Spectra bus archive, fourteen March, eleven years prior. Raw spectrometer frames, ninety-one minutes. Accompanying file: personal memorandum, Coll, A., dated six weeks ago, unsent.",
+     "scene": "s34_the_fraud",
+     "bed": "ops"
+    },
+    {
+     "id": "c3402",
+     "type": "tts",
+     "sp": "coll",
+     "fx": "archive",
+     "bed": "chamber_parked",
+     "t": "[tired, private] Memorandum to myself, because I have nobody I can put this to yet. I have re-reduced the fourteen March frames from the original bus archive rather than the published set. The published significance is five point two sigma. [beat] The raw frames give one point nine.",
+     "caption": "Coll's private memo. Read four times in six weeks.",
+     "clip": {
+      "id": "CLIP_MEMO",
+      "label": "Coll — private memo",
+      "evidence": "E17"
+     },
+     "scene": "s34_the_fraud"
+    },
+    {
+     "id": "c3403",
+     "type": "tts",
+     "sp": "coll",
+     "fx": "archive",
+     "bed": "chamber_parked",
+     "t": "[heavily] One point nine sigma is a shrug. Five point two is a career, a chair, a consortium and four hundred million euros. The difference between them was made by hand, and I know whose hand, and I have known for eleven years that she is better at this than I am, which is why I did not want it to be true.",
+     "scene": "s34_the_fraud"
+    },
+    {
+     "id": "c3404",
+     "type": "tts",
+     "sp": "coll",
+     "fx": "archive",
+     "bed": "chamber_parked",
+     "t": "[a long pause] And here is the joke. The eclipse run will detect it properly. I am nearly certain of it. The signal is real. [beat] She was right. She was simply eleven years early, and she wrote it down anyway. [beat] I have to say all of this out loud in eleven days and it will destroy her, and it will destroy the only evidence that the thing she saw is actually there.",
+     "scene": "s34_the_fraud"
+    },
+    {
+     "id": "c3405",
+     "type": "synth",
+     "synth": "pulse",
+     "scene": "s34_the_fraud",
+     "bed": "ops"
+    },
+    {
+     "id": "c3406",
+     "type": "tts",
+     "sp": "meridian",
+     "fx": "intercom",
+     "t": "[flat] Eclipse dataset ingest complete. Preliminary reduction: narrow-band feature detected at fourteen twenty point three megahertz. Significance: eight point one sigma.",
+     "scene": "s34_the_fraud",
+     "bed": "ops"
+    },
+    {
+     "id": "c3407",
+     "type": "tts",
+     "sp": "okafor",
+     "fx": "radio",
+     "bed": "aurora",
+     "t": "[stunned, quiet] Eight point one. [beat] It's there. It was always there. She lied about seeing something that was actually in the sky.",
+     "scene": "s34_the_fraud"
+    },
+    {
+     "id": "c3408",
+     "type": "tts",
+     "sp": "meridian",
+     "fx": "intercom",
+     "t": "[flat] Warning. Archive buffer at one hundred percent. Rolling overwrite of prior traffic begins in ten minutes.",
+     "mix": [
+      {
+       "sfx": "archive_warning",
+       "at": 0.4,
+       "gain": 0.45
+      }
+     ],
+     "scene": "s34_the_fraud",
+     "bed": "ops"
+    }
+   ],
+   "grants": [
+    "E17",
+    "E18",
+    "E20"
+   ],
+   "set": {
+    "knows_motive": true
+   },
+   "next": "s35_last_call"
+  },
+  "s35_last_call": {
+   "id": "s35_last_call",
+   "act": 5,
+   "title": "Ten Minutes",
+   "time": "17:44",
+   "bed": "ops",
+   "cues": [
+    {
+     "id": "c3501",
+     "type": "tts",
+     "sp": "meridian",
+     "fx": "intercom",
+     "t": "[flat] Rolling overwrite begins in ten minutes. All pre-overwrite traffic will be unrecoverable. Consortium protocol requires an incident determination before archive loss.",
+     "scene": "s35_last_call",
+     "bed": "ops"
+    },
+    {
+     "id": "c3502",
+     "type": "tts",
+     "sp": "okafor",
+     "fx": "radio",
+     "bed": "aurora",
+     "t": "Ten minutes, Control. You can chase one more thing or you can go now with what you've got. I'd think hard about which. Half a case is worse than no case — it warns them.",
+     "scene": "s35_last_call"
+    }
+   ],
+   "choices": [
+    {
+     "t": "Trace where the four replies entered the relay.",
+     "next": "s35a_injection",
+     "once": true
+    },
+    {
+     "t": "Put one more question to Dr. Voss. A quiet one.",
+     "next": "s35b_quiet_question",
+     "once": true
+    },
+    {
+     "t": "I have it. Open the channel to all stations.",
+     "next": "s36_deduction"
+    }
+   ]
+  },
+  "s35a_injection": {
+   "id": "s35a_injection",
+   "act": 5,
+   "title": "Ingress",
+   "time": "17:48",
+   "bed": "ops",
+   "cues": [
+    {
+     "id": "c3511",
+     "type": "tts",
+     "sp": "trent",
+     "fx": "radio",
+     "bed": "chronos",
+     "t": "[fast, focused] Relay ingress log. The loop stamps every injection point — it has to, that's how it does store-and-forward. Four entries this morning that aren't from a handset.",
+     "scene": "s35a_injection"
+    },
+    {
+     "id": "c3512",
+     "type": "tts",
+     "sp": "meridian",
+     "fx": "intercom",
+     "t": "[flat] Relay ingress. Eleven forty-two forty-four, eleven forty-four oh five, eleven forty-six forty, eleven forty-nine thirty. Source: file playback, terminal identifier S P E dash zero one.",
+     "scene": "s35a_injection",
+     "bed": "ops"
+    },
+    {
+     "id": "c3513",
+     "type": "synth",
+     "synth": "pulse",
+     "scene": "s35a_injection",
+     "bed": "ops"
+    },
+    {
+     "id": "c3514",
+     "type": "tts",
+     "sp": "trent",
+     "fx": "radio",
+     "bed": "chronos",
+     "t": "[quiet] File playback. Not a microphone. Four files, played into the emergency loop from the Spectra terminal, while five of us stood in five separate buildings and thought we were talking to him.",
+     "scene": "s35a_injection"
+    }
+   ],
+   "grants": [
+    "E14"
+   ],
+   "set": {
+    "found_ingress": true
+   },
+   "next": "s35_last_call"
+  },
+  "s35b_quiet_question": {
+   "id": "s35b_quiet_question",
+   "act": 5,
+   "title": "A Quiet One",
+   "time": "17:48",
+   "bed": "spectra",
+   "cues": [
+    {
+     "id": "c3521",
+     "type": "tts",
+     "sp": "voss",
+     "fx": "radio",
+     "t": "[calm] Go ahead, Control.",
+     "scene": "s35b_quiet_question",
+     "bed": "spectra"
+    },
+    {
+     "id": "c3522",
+     "type": "tts",
+     "sp": "meridian",
+     "fx": "intercom",
+     "bed": "ops",
+     "t": "[flat] Question logged: at eleven forty-eight and two seconds, how did you know Professor Coll had found the fourteen-twenty feature?",
+     "scene": "s35b_quiet_question"
+    },
+    {
+     "id": "c3523",
+     "type": "tts",
+     "sp": "voss",
+     "fx": "radio",
+     "t": "[a pause — the first real one] ...Because he said so. 'I have it.'",
+     "scene": "s35b_quiet_question",
+     "bed": "spectra"
+    },
+    {
+     "id": "c3524",
+     "type": "tts",
+     "sp": "okafor",
+     "fx": "radio",
+     "bed": "aurora",
+     "t": "[very softly] He said 'I have it.' He didn't say what. You told me an hour ago he'd waited eleven years to say that sentence. [beat] How did you know which sentence it was, Mara?",
+     "scene": "s35b_quiet_question"
+    },
+    {
+     "id": "c3525",
+     "type": "tts",
+     "sp": "voss",
+     "fx": "radio",
+     "t": "[perfectly steady] Because I have worked beside that man for eleven years and I know what he was looking for. [beat] You'll want better than that, Control. I'd want better than that.",
+     "scene": "s35b_quiet_question",
+     "bed": "spectra"
+    },
+    {
+     "id": "c3526",
+     "type": "synth",
+     "synth": "pulse",
+     "bed": "ops",
+     "scene": "s35b_quiet_question"
+    }
+   ],
+   "set": {
+    "voss_slipped": true
+   },
+   "next": "s35_last_call"
+  },
+  "s36_deduction": {
+   "id": "s36_deduction",
+   "act": 5,
+   "title": "Determination",
+   "time": "17:54",
+   "bed": "ops",
+   "deduction": true,
+   "cues": [
+    {
+     "id": "c3601",
+     "type": "tts",
+     "sp": "meridian",
+     "fx": "intercom",
+     "t": "[flat] All stations on open channel. Incident determination, Helios Peak, this date. Coordinator: Control. Recording for the consortium record and for the civil authority. Proceed.",
+     "scene": "s36_deduction",
+     "bed": "ops"
+    },
+    {
+     "id": "c3602",
+     "type": "tts",
+     "sp": "voss",
+     "fx": "radio",
+     "bed": "spectra",
+     "t": "[quietly] We're all listening, Control.",
+     "scene": "s36_deduction"
+    }
+   ]
+  },
+  "s37_confront_strong": {
+   "id": "s37_confront_strong",
+   "act": 5,
+   "title": "The Shadow Clock",
+   "time": "18:02",
+   "bed": "spectra",
+   "cues": [
+    {
+     "id": "c3701",
+     "type": "tts",
+     "sp": "voss",
+     "fx": "radio",
+     "t": "[a long silence, then, evenly] Yes.",
+     "scene": "s37_confront_strong",
+     "bed": "spectra"
+    },
+    {
+     "id": "c3702",
+     "type": "dialogue",
+     "fx": "radio",
+     "lines": [
+      {
+       "sp": "trent",
+       "t": "[disbelieving] Mara—"
+      },
+      {
+       "sp": "voss",
+       "t": "Don't, Elias. You've had a horrible enough day and you're about to have a worse one, and none of it is your fault. Your rubidium is ageing. That's all that was ever wrong with you."
+      }
+     ],
+     "scene": "s37_confront_strong",
+     "bed": "spectra"
+    },
+    {
+     "id": "c3703",
+     "type": "tts",
+     "sp": "voss",
+     "fx": "radio",
+     "t": "[measured] I want it on the record that I did not do this to keep a job. I have been offered better jobs. I did it because on the twenty-ninth of this month a committee in Brussels decides whether four hundred people keep working, and the entire case rests on a result I published when I was thirty-seven years old.",
+     "scene": "s37_confront_strong",
+     "bed": "spectra"
+    },
+    {
+     "id": "c3704",
+     "type": "tts",
+     "sp": "voss",
+     "fx": "radio",
+     "t": "[with feeling] And I saw it. That is the part none of you will believe and it is the only part that matters to me. I sat at that bench on the fourteenth of March and I saw a narrow line at fourteen-twenty point three and I knew — I *knew* — and it came out at one point nine sigma, and one point nine sigma is nothing. It's a shrug. It's a footnote.",
+     "scene": "s37_confront_strong",
+     "bed": "spectra"
+    },
+    {
+     "id": "c3705",
+     "type": "tts",
+     "sp": "voss",
+     "fx": "radio",
+     "t": "[quietly fierce] So I moved it. Three point three sigma, by hand, on a Tuesday. And the thing I had seen became a thing the world could see, and this observatory was built on it, and every person on this mountain has a career because of a number I altered in a room on my own.",
+     "scene": "s37_confront_strong",
+     "bed": "spectra"
+    },
+    {
+     "id": "c3706",
+     "type": "tts",
+     "sp": "voss",
+     "fx": "radio",
+     "t": "[flat] Adrian found the raw frames six weeks ago. He didn't confront me. He designed an entire eclipse campaign to settle it, because he was that kind of man — he'd rather be right in public than kind in private.",
+     "scene": "s37_confront_strong",
+     "bed": "spectra"
+    },
+    {
+     "id": "c3707",
+     "type": "tts",
+     "sp": "voss",
+     "fx": "radio",
+     "t": "[breaking, very slightly] And he was going to be right. His run has it at eight sigma. It's real. It was always real. [beat] He was going to stand up in eleven days and prove that the thing I saw exists, and in the same breath prove that I am a fraud, and after that no one would ever be able to say the two things separately again.",
+     "scene": "s37_confront_strong",
+     "bed": "spectra"
+    },
+    {
+     "id": "c3708",
+     "type": "tts",
+     "sp": "voss",
+     "fx": "radio",
+     "t": "[steady again] I have been listening to you find every single piece of it for six hours, Control. I handed you most of them. [beat] I think I wanted somebody to be good enough. That is not remorse. I want to be very clear that it is not remorse. It is closer to relief, and I'm aware of how that sounds.",
+     "scene": "s37_confront_strong",
+     "bed": "spectra"
+    },
+    {
+     "id": "c3709",
+     "type": "tts",
+     "sp": "rook",
+     "fx": "radio",
+     "bed": "mechbay",
+     "t": "[thick] You let me think it was my chair. You let me sit here for six hours thinking I'd killed him with my own bad paperwork.",
+     "scene": "s37_confront_strong"
+    },
+    {
+     "id": "c3710",
+     "type": "tts",
+     "sp": "voss",
+     "fx": "radio",
+     "t": "[simply] Yes, Gabriel. I did. [beat] I'm sorry. That one I actually am sorry for.",
+     "scene": "s37_confront_strong",
+     "bed": "spectra"
+    },
+    {
+     "id": "c3711",
+     "type": "tts",
+     "sp": "meridian",
+     "fx": "intercom",
+     "bed": "ops",
+     "t": "[flat] Rolling overwrite in ninety seconds. One protected-archive designation remains available to the incident coordinator.",
+     "scene": "s37_confront_strong"
+    }
+   ],
+   "set": {
+    "voss_confessed": true
+   },
+   "next": "s38_data_choice"
+  },
+  "s37_confront_weak": {
+   "id": "s37_confront_weak",
+   "act": 5,
+   "title": "Prove It",
+   "time": "18:02",
+   "bed": "spectra",
+   "cues": [
+    {
+     "id": "c3721",
+     "type": "tts",
+     "sp": "voss",
+     "fx": "radio",
+     "t": "[calm, almost gentle] No.",
+     "scene": "s37_confront_weak",
+     "bed": "spectra"
+    },
+    {
+     "id": "c3722",
+     "type": "tts",
+     "sp": "voss",
+     "fx": "radio",
+     "t": "I understand why you got there, and I'd probably have got there myself. The key signs from an unlocked room. The chamber access is real and I declared it in the first hour. And the rest of it is a set of sounds, interpreted by people who are exhausted and frightened.",
+     "scene": "s37_confront_weak",
+     "bed": "spectra"
+    },
+    {
+     "id": "c3723",
+     "type": "tts",
+     "sp": "voss",
+     "fx": "radio",
+     "t": "[levelly] You have not shown that those transmissions never left the mountain. You have not put my hands on that terminal at eleven forty-seven. You have a signature from a key that sits in a room with a broken door, and a theory. [beat] I've spent my life at the wrong end of five sigma, Control. This isn't three.",
+     "scene": "s37_confront_weak",
+     "bed": "spectra"
+    },
+    {
+     "id": "c3724",
+     "type": "tts",
+     "sp": "okafor",
+     "fx": "radio",
+     "bed": "aurora",
+     "t": "[frustrated] She's right about the standard of proof. [beat] She is not right about what happened. Those are different sentences and only one of them is going to survive a courtroom.",
+     "scene": "s37_confront_weak"
+    },
+    {
+     "id": "c3725",
+     "type": "tts",
+     "sp": "meridian",
+     "fx": "intercom",
+     "bed": "ops",
+     "t": "[flat] Rolling overwrite in ninety seconds. Determination logged. Civil authority notified.",
+     "mix": [
+      {
+       "sfx": "archive_warning",
+       "at": 0.5,
+       "gain": 0.4
+      }
+     ],
+     "scene": "s37_confront_weak"
+    }
+   ],
+   "set": {
+    "voss_denied": true
+   },
+   "next": "end_consortium"
+  },
+  "s37_confront_wrong": {
+   "id": "s37_confront_wrong",
+   "act": 5,
+   "title": "The Wrong Name",
+   "time": "18:02",
+   "bed": "ops",
+   "cues": [
+    {
+     "id": "c3731",
+     "type": "tts",
+     "sp": "meridian",
+     "fx": "intercom",
+     "t": "[flat] Determination logged. Named party notified. Civil authority notified.",
+     "scene": "s37_confront_wrong",
+     "bed": "ops"
+    },
+    {
+     "id": "c3732",
+     "type": "tts",
+     "sp": "voss",
+     "fx": "radio",
+     "bed": "spectra",
+     "t": "[carefully neutral] ...I see. [beat] Well. It's a defensible reading of the evidence, Control. I'd have wanted more, but you were working under a clock and I don't envy you the clock.",
+     "scene": "s37_confront_wrong"
+    },
+    {
+     "id": "c3733",
+     "type": "tts",
+     "sp": "okafor",
+     "fx": "radio",
+     "bed": "aurora",
+     "t": "[quietly furious] It is not defensible. It is *tidy*. Those are different words.",
+     "scene": "s37_confront_wrong"
+    },
+    {
+     "id": "c3734",
+     "type": "tts",
+     "sp": "voss",
+     "fx": "radio",
+     "bed": "spectra",
+     "t": "[kindly] Leila. It's been a very long day and we have all made mistakes today. [beat] Let it go.",
+     "scene": "s37_confront_wrong"
+    },
+    {
+     "id": "c3735",
+     "type": "sfx",
+     "sfx": "archive_warning",
+     "bed": "ops",
+     "scene": "s37_confront_wrong"
+    }
+   ],
+   "set": {
+    "wrong_accusation": true
+   },
+   "next": "end_dead_air"
+  },
+  "s38_data_choice": {
+   "id": "s38_data_choice",
+   "act": 5,
+   "title": "One Protected Archive",
+   "time": "18:06",
+   "bed": "ops",
+   "cues": [
+    {
+     "id": "c3801",
+     "type": "tts",
+     "sp": "meridian",
+     "fx": "intercom",
+     "t": "[flat] Coordinator. One archive may be protected from the rolling overwrite. Select: incident evidence and the fourteen March raw frames, or the eclipse dataset alone.",
+     "scene": "s38_data_choice",
+     "bed": "ops"
+    },
+    {
+     "id": "c3802",
+     "type": "tts",
+     "sp": "voss",
+     "fx": "radio",
+     "bed": "spectra",
+     "t": "[quietly] Control. Before you choose. [beat] If you protect the fourteen March frames, everything comes out — what I did, and what Adrian found, in the same file, on the same day. The detection will carry my name on it forever, in a sentence that begins 'discredited'.",
+     "scene": "s38_data_choice"
+    },
+    {
+     "id": "c3803",
+     "type": "tts",
+     "sp": "voss",
+     "fx": "radio",
+     "bed": "spectra",
+     "t": "If you protect only the eclipse data, the discovery stands clean. Adrian's name, eight sigma, no asterisk. The consortium survives. I resign for health reasons and I am never heard of again, which I would find entirely bearable. [beat] I am not asking for mercy. I'm telling you what each button does.",
+     "scene": "s38_data_choice"
+    },
+    {
+     "id": "c3804",
+     "type": "tts",
+     "sp": "okafor",
+     "fx": "radio",
+     "bed": "aurora",
+     "t": "[hard] Control, she is doing it *again*. She is standing in a burning building explaining very reasonably why we should not call the fire brigade.",
+     "scene": "s38_data_choice"
+    },
+    {
+     "id": "c3805",
+     "type": "tts",
+     "sp": "voss",
+     "fx": "radio",
+     "bed": "spectra",
+     "t": "[without heat] Yes. And I'm still right. Those two things have been true together for eleven years.",
+     "scene": "s38_data_choice"
+    },
+    {
+     "id": "c3806",
+     "type": "tts",
+     "sp": "meridian",
+     "fx": "intercom",
+     "t": "[flat] Thirty seconds.",
+     "scene": "s38_data_choice",
+     "bed": "ops"
+    }
+   ],
+   "choices": [
+    {
+     "t": "Protect everything. The fraud and the discovery, in the same file.",
+     "next": "end_shadow",
+     "set": {
+      "released_data": true
+     }
+    },
+    {
+     "t": "Protect the eclipse data. Let the science stand clean.",
+     "next": "end_consortium",
+     "set": {
+      "protected_consortium": true
+     }
+    }
+   ]
+  },
+  "end_shadow": {
+   "id": "end_shadow",
+   "act": 5,
+   "title": "ENDING — The Shadow",
+   "time": "Three years later",
+   "bed": "ops",
+   "ending": "shadow",
+   "cues": [
+    {
+     "id": "c3901",
+     "type": "sfx",
+     "sfx": "archive_warning",
+     "caption": "18:07. Overwrite begins. One archive holds.",
+     "scene": "end_shadow",
+     "bed": "ops"
+    },
+    {
+     "id": "c3902",
+     "type": "tts",
+     "sp": "meridian",
+     "fx": "intercom",
+     "t": "[flat] Protected archive designated: incident evidence, fourteen March raw frames, eclipse dataset. Overwrite proceeding on all other traffic. Helios Peak incident channel closing.",
+     "scene": "end_shadow",
+     "bed": "ops"
+    },
+    {
+     "id": "c3903",
+     "type": "tts",
+     "sp": "voss",
+     "fx": "radio",
+     "bed": "spectra",
+     "t": "[a breath] ...Thank you. [beat] That's the wrong word. There isn't a right one. Spectra out.",
+     "scene": "end_shadow"
+    },
+    {
+     "id": "c3904",
+     "type": "sfx",
+     "sfx": "dead_carrier",
+     "bed": "carrier",
+     "scene": "end_shadow"
+    },
+    {
+     "id": "c3905",
+     "type": "tts",
+     "sp": "okafor",
+     "fx": "clean",
+     "bed": "ops",
+     "t": "[measured, a debrief months on] They dismantled the consortium in fourteen months. Four hundred and eleven people. Gabriel lost his certification for the decommissioning certificate, which he expected and did not contest. Elias declared his correction and recalled two years of my data, and I have never once minded.",
+     "caption": "Consortium inquiry — closing statement of Dr. L. Okafor.",
+     "scene": "end_shadow"
+    },
+    {
+     "id": "c3906",
+     "type": "tts",
+     "sp": "okafor",
+     "fx": "clean",
+     "bed": "ops",
+     "t": "Julian's film came out. It is better than any of us wanted it to be. It ends with her voice, and it does not explain her, and I have decided that is the correct choice.",
+     "scene": "end_shadow"
+    },
+    {
+     "id": "c3907",
+     "type": "tts",
+     "sp": "okafor",
+     "fx": "clean",
+     "bed": "ops",
+     "t": "[slower] Three years after the eclipse, an independent array in the Karoo confirmed the fourteen-twenty point three feature at eleven sigma. It is real. It has been in the sky the entire time, waiting for somebody to be patient enough. [beat] The paper cites Coll. It also cites Voss, twice, because you cannot write the history honestly without her, and honesty was rather the point.",
+     "scene": "end_shadow"
+    },
+    {
+     "id": "c3908",
+     "type": "tts",
+     "sp": "okafor",
+     "fx": "clean",
+     "bed": "totality",
+     "t": "[quiet] People ask me what I learned. [beat] Six people stood on one mountain and watched the same four minutes, and every one of us remembered it differently, and every one of us was certain. The moon's shadow crossed the ridge at eleven forty-six and twelve seconds and did not care what any of us thought about it.",
+     "scene": "end_shadow"
+    },
+    {
+     "id": "c3909",
+     "type": "tts",
+     "sp": "okafor",
+     "fx": "clean",
+     "bed": "totality",
+     "t": "[final] The clocks disagreed. The shadow did not.",
+     "scene": "end_shadow"
+    }
+   ]
+  },
+  "end_consortium": {
+   "id": "end_consortium",
+   "act": 5,
+   "title": "ENDING — The Consortium",
+   "time": "Eighteen months later",
+   "bed": "ops",
+   "ending": "consortium",
+   "cues": [
+    {
+     "id": "c3921",
+     "type": "tts",
+     "sp": "meridian",
+     "fx": "intercom",
+     "t": "[flat] Protected archive designated: eclipse dataset. Overwrite proceeding on all other traffic. Helios Peak incident channel closing.",
+     "scene": "end_consortium",
+     "bed": "ops"
+    },
+    {
+     "id": "c3922",
+     "type": "sfx",
+     "sfx": "dead_carrier",
+     "bed": "carrier",
+     "scene": "end_consortium"
+    },
+    {
+     "id": "c3923",
+     "type": "tts",
+     "sp": "okafor",
+     "fx": "clean",
+     "bed": "ops",
+     "t": "[flat, tired] The prosecution ran for nine months. The physical evidence had been overwritten by the observatory's own retention policy, which the defence described, accurately, as routine. What remained was five exhausted people describing sounds.",
+     "caption": "Consortium inquiry — statement of Dr. L. Okafor.",
+     "scene": "end_consortium"
+    },
+    {
+     "id": "c3924",
+     "type": "tts",
+     "sp": "okafor",
+     "fx": "clean",
+     "bed": "ops",
+     "t": "Dr. Voss stepped down citing her health. The consortium's funding renewed in March at four hundred and twelve million euros. The Helios detection stands in the literature exactly as published eleven years ago, at five point two sigma, and it will be cited for another forty years by people who have never heard of any of us.",
+     "scene": "end_consortium"
+    },
+    {
+     "id": "c3925",
+     "type": "tts",
+     "sp": "okafor",
+     "fx": "clean",
+     "bed": "ops",
+     "t": "[quietly] Gabriel took the certification finding alone. Elias never declared his correction; there seemed no longer to be any point. Julian's film was not made. [beat] I am told this is what a stable institution looks like from the outside.",
+     "scene": "end_consortium"
+    },
+    {
+     "id": "c3926",
+     "type": "tts",
+     "sp": "meridian",
+     "fx": "intercom",
+     "bed": "ops",
+     "t": "[flat] Consortium communications. Attached: recorded statement for release, Helios Peak, twelve months on.",
+     "scene": "end_consortium"
+    },
+    {
+     "id": "c3927",
+     "type": "tts",
+     "sp": "coll",
+     "fx": "synthetic",
+     "bed": "annex",
+     "t": "The result stands. The work continues. I have every confidence in this institution.",
+     "caption": "Statement released under the late director's name. Duration 4.1 seconds.",
+     "clip": {
+      "id": "CLIP_END_SYNTH",
+      "label": "Posthumous statement",
+      "evidence": null
+     },
+     "scene": "end_consortium"
+    },
+    {
+     "id": "c3928",
+     "type": "tts",
+     "sp": "okafor",
+     "fx": "clean",
+     "bed": "ops",
+     "t": "[very quietly] I played it forty times. [beat] There is a laptop fan under it, eighteen inches from the microphone, in a small dry room. [beat] Nobody else has ever noticed, and I have stopped telling them.",
+     "scene": "end_consortium"
+    },
+    {
+     "id": "c3929",
+     "type": "tts",
+     "sp": "okafor",
+     "fx": "clean",
+     "bed": "totality",
+     "t": "[final] The clocks disagreed. The shadow did not. [beat] It turns out that almost nobody is listening to the shadow.",
+     "scene": "end_consortium"
+    }
+   ]
+  },
+  "end_dead_air": {
+   "id": "end_dead_air",
+   "act": 5,
+   "title": "ENDING — Dead Air",
+   "time": "Four years later",
+   "bed": "ops",
+   "ending": "dead_air",
+   "cues": [
+    {
+     "id": "c3941",
+     "type": "tts",
+     "sp": "meridian",
+     "fx": "intercom",
+     "t": "[flat] Overwrite complete. Prior traffic unrecoverable. Helios Peak incident channel closed.",
+     "scene": "end_dead_air",
+     "bed": "ops"
+    },
+    {
+     "id": "c3942",
+     "type": "sfx",
+     "sfx": "dead_carrier",
+     "bed": "carrier",
+     "scene": "end_dead_air"
+    },
+    {
+     "id": "c3943",
+     "type": "tts",
+     "sp": "okafor",
+     "fx": "clean",
+     "bed": "ops",
+     "t": "[flat] The named party was charged. Not with murder — that never held — but with what they had actually done, which each of them had actually done, and which was enough to end them. That is how it usually goes. You do not convict people of the crime. You convict them of the lie they told about the crime.",
+     "caption": "Four years on.",
+     "scene": "end_dead_air"
+    },
+    {
+     "id": "c3944",
+     "type": "tts",
+     "sp": "okafor",
+     "fx": "clean",
+     "bed": "ops",
+     "t": "Dr. Mara Voss was appointed director of Helios Peak Observatory that autumn. Her first act was to commission a full review of archival retention. Her second was to shorten it.",
+     "scene": "end_dead_air"
+    },
+    {
+     "id": "c3945",
+     "type": "tts",
+     "sp": "okafor",
+     "fx": "clean",
+     "bed": "ops",
+     "t": "[slowly] I have thought about the frost alarm every day for four years. It was in the first recording anyone played you. It was in the first recording anyone played *me*. [beat] A hundred and five decibels, and a man who did not blink.",
+     "scene": "end_dead_air"
+    },
+    {
+     "id": "c3946",
+     "type": "tts",
+     "sp": "okafor",
+     "fx": "clean",
+     "bed": "ops",
+     "t": "A package arrived at the operations centre last month. No sender. Inside: one drive, containing a communications rehearsal recorded at twenty-one forty the night before the eclipse, and a note, in Julian Cross's handwriting.",
+     "caption": "No return address.",
+     "scene": "end_dead_air"
+    },
+    {
+     "id": "c3947",
+     "type": "tts",
+     "sp": "cross",
+     "fx": "voicemail",
+     "bed": "annex",
+     "t": "[quiet] Four phrases. Play them in order, then play the morning. [beat] I sat on this for four years because nobody would have believed me alone, and because I was afraid, and neither of those is a reason. [beat] You listened to the clocks.",
+     "scene": "end_dead_air"
+    },
+    {
+     "id": "c3948",
+     "type": "sfx",
+     "sfx": "dead_carrier",
+     "bed": "carrier",
+     "scene": "end_dead_air"
+    },
+    {
+     "id": "c3949",
+     "type": "tts",
+     "sp": "okafor",
+     "fx": "clean",
+     "bed": "totality",
+     "t": "[final] The clocks disagreed. The shadow did not. [beat] We should have asked the shadow.",
+     "scene": "end_dead_air"
+    }
+   ]
+  }
+ },
+ "meta": {
+  "title": "THE OBSERVATORY MURDER",
+  "tagline": "The clocks disagreed. The shadow did not.",
+  "version": "1.0.0",
+  "start": "s01_cold_open",
+  "keyEvidence": [
+   "E02",
+   "E08",
+   "E09",
+   "E11",
+   "E12",
+   "E14",
+   "E15",
+   "E16",
+   "E17"
+  ],
+  "strongCaseThreshold": 7,
+  "strongCaseRequiresOneOf": [
+   "E14",
+   "E16"
+  ],
+  "stats": {
+   "scenes": 69,
+   "cues": 304,
+   "spokenLines": 345,
+   "words": 8535,
+   "ttsCharacters": 51146,
+   "clips": 24,
+   "evidence": 20,
+   "endings": 3
+  }
+ },
+ "characters": {
+  "coll": {
+   "name": "Prof. Adrian Coll",
+   "short": "COLL",
+   "station": "Meridian Chamber",
+   "role": "Observatory director",
+   "voiceId": "JBFqnCBsd6RMkjVDRZzb",
+   "stability": 0.45,
+   "similarity": 0.75,
+   "colour": "#d8c9a8"
+  },
+  "voss": {
+   "name": "Dr. Mara Voss",
+   "short": "VOSS",
+   "station": "Spectra",
+   "role": "Deputy director",
+   "voiceId": "pFZP5JQG7iQjIQuC4Bku",
+   "stability": 0.55,
+   "similarity": 0.8,
+   "colour": "#9fc7d4"
+  },
+  "trent": {
+   "name": "Dr. Elias Trent",
+   "short": "TRENT",
+   "station": "Chronos",
+   "role": "Precision timing",
+   "voiceId": "YImgdHB2KYPPVa2Ew8pp",
+   "stability": 0.4,
+   "similarity": 0.75,
+   "colour": "#c9b6dd"
+  },
+  "rook": {
+   "name": "Gabriel Rook",
+   "short": "ROOK",
+   "station": "Mechanical bay",
+   "role": "Systems engineer",
+   "voiceId": "thYWTC3ObLUgoeN0sEv3",
+   "stability": 0.45,
+   "similarity": 0.75,
+   "colour": "#d4a98c"
+  },
+  "okafor": {
+   "name": "Dr. Leila Okafor",
+   "short": "OKAFOR",
+   "station": "Aurora array",
+   "role": "Radio astronomer",
+   "voiceId": "hpp4J3VqNfWAUOO0d1Us",
+   "stability": 0.5,
+   "similarity": 0.8,
+   "colour": "#a8d4b4"
+  },
+  "cross": {
+   "name": "Julian Cross",
+   "short": "CROSS",
+   "station": "Visitor annex",
+   "role": "Documentary journalist",
+   "voiceId": "cjVigY5qzO86Huf0OWal",
+   "stability": 0.45,
+   "similarity": 0.75,
+   "colour": "#dbc48a"
+  },
+  "meridian": {
+   "name": "MERIDIAN",
+   "short": "MERIDIAN",
+   "station": "Station automation",
+   "role": "Automated systems voice",
+   "voiceId": "SAz9YHcvj6GT2YYXdXww",
+   "stability": 1,
+   "similarity": 0.9,
+   "colour": "#8d9aa8"
+  },
+  "solaris": {
+   "name": "SOLARIS-2",
+   "short": "SOLARIS-2",
+   "station": "Low Earth orbit",
+   "role": "Payload specialist",
+   "voiceId": "IKne3meq5aSn9XLyUdCD",
+   "stability": 0.45,
+   "similarity": 0.75,
+   "colour": "#e0a0a0"
+  }
+ },
+ "fx": {
+  "clean": {
+   "chain": "loudnorm=I=-17:TP=-2:LRA=11"
+  },
+  "radio": {
+   "chain": "highpass=f=310,lowpass=f=3300,acompressor=threshold=-18dB:ratio=4:attack=6:release=90,loudnorm=I=-17:TP=-2:LRA=11"
+  },
+  "relay": {
+   "chain": "highpass=f=420,lowpass=f=2700,acompressor=threshold=-16dB:ratio=6:attack=4:release=60,loudnorm=I=-17:TP=-2:LRA=11"
+  },
+  "archive": {
+   "chain": "highpass=f=280,lowpass=f=3000,acompressor=threshold=-20dB:ratio=3:attack=10:release=140,loudnorm=I=-18:TP=-2:LRA=11"
+  },
+  "synthetic": {
+   "chain": "highpass=f=430,lowpass=f=2700,acompressor=threshold=-30dB:ratio=12:attack=2:release=40,loudnorm=I=-16:TP=-2:LRA=6"
+  },
+  "intercom": {
+   "chain": "highpass=f=340,lowpass=f=3600,acompressor=threshold=-22dB:ratio=8:attack=3:release=50,loudnorm=I=-18:TP=-2:LRA=8"
+  },
+  "orbit": {
+   "chain": "highpass=f=380,lowpass=f=3100,acompressor=threshold=-18dB:ratio=5:attack=5:release=70,aphaser=type=t:speed=0.12:decay=0.25,loudnorm=I=-17:TP=-2:LRA=11"
+  },
+  "voicemail": {
+   "chain": "highpass=f=300,lowpass=f=3400,acompressor=threshold=-20dB:ratio=5:attack=5:release=80,loudnorm=I=-19:TP=-3:LRA=11"
+  }
+ },
+ "beds": {
+  "ops": {
+   "label": "Ops Control — remote operations centre",
+   "prompt": "Quiet windowless operations room, low steady air conditioning hum, very faint distant keyboard typing, subtle electrical mains hum, no music, no voices",
+   "duration": 22,
+   "gain": 0.16
+  },
+  "summit_wind": {
+   "label": "Helios Peak — exterior, ridge",
+   "prompt": "High altitude mountain wind against metal structures, thin cold gusting wind, faint cable rattle, distant ice pellets on steel, no music, no voices",
+   "duration": 22,
+   "gain": 0.3
+  },
+  "chamber_tracking": {
+   "label": "Meridian Chamber — telescope tracking",
+   "prompt": "Sealed circular control room, soft ventilation hum, and a continuous faint high pitched electric servo motor whine of a telescope drive slowly tracking, occasional tiny mechanical tick, no music, no voices",
+   "duration": 22,
+   "gain": 0.26
+  },
+  "chamber_parked": {
+   "label": "Meridian Chamber — dome parked",
+   "prompt": "Sealed circular control room at night, soft steady ventilation hum only, rounded room resonance, completely still, no motors, no music, no voices",
+   "duration": 22,
+   "gain": 0.24
+  },
+  "annex": {
+   "label": "Visitor annex — edit room",
+   "prompt": "Small acoustically treated edit room, close laptop cooling fan whirring steadily, very dry dead room tone, faint hard drive clicking, no music, no voices",
+   "duration": 22,
+   "gain": 0.26
+  },
+  "chronos": {
+   "label": "Chronos timing laboratory",
+   "prompt": "Laboratory with rack equipment cooling fans, a precise short electronic chirp beeping once every two seconds, clean digital environment, no music, no voices",
+   "duration": 22,
+   "gain": 0.24
+  },
+  "aurora": {
+   "label": "Aurora radio array",
+   "prompt": "Radio telescope control room, broadband radio static hiss from monitor speaker, intermittent crackling interference, low equipment hum, no music, no voices",
+   "duration": 22,
+   "gain": 0.24
+  },
+  "mechbay": {
+   "label": "Mechanical and optical systems bay",
+   "prompt": "Large industrial machine bay, heavy relays clunking occasionally, low metallic structural vibration, distant electric motor running, echoing concrete space, no music, no voices",
+   "duration": 22,
+   "gain": 0.26
+  },
+  "spectra": {
+   "label": "Spectra spectroscopy station",
+   "prompt": "Instrument room with steady cryogenic cooling compressor and a constant high frequency instrument whine, very stable machine tone, no music, no voices",
+   "duration": 22,
+   "gain": 0.24
+  },
+  "orbit": {
+   "label": "SOLARIS-2 — orbital platform",
+   "prompt": "Inside a small spacecraft cabin, steady air circulation fans, faint electronic beeps, enclosed metallic hum, no music, no voices",
+   "duration": 22,
+   "gain": 0.22
+  },
+  "totality": {
+   "label": "Helios Peak — totality",
+   "prompt": "Mountain ridge during a total solar eclipse, wind has completely dropped to nothing, eerie profound stillness, no birds, only a faint distant instrument hum, no music, no voices",
+   "duration": 22,
+   "gain": 0.3
+  },
+  "carrier": {
+   "label": "Open channel — no traffic",
+   "prompt": "Empty open radio channel, gentle carrier hiss and occasional faint squelch, dead air, no music, no voices",
+   "duration": 20,
+   "gain": 0.3
+  }
+ },
+ "sfx": {
+  "eclipse_tone": {
+   "label": "Eclipse contact tone",
+   "prompt": "Single clean electronic timing tone beep, three short pips then a longer tone, laboratory countdown marker",
+   "duration": 5
+  },
+  "frost_alarm": {
+   "label": "West shutter frost alarm",
+   "prompt": "Insistent electronic alarm chirping urgently, three-pulse repeating warning pattern, industrial plant alarm over a PA system",
+   "duration": 6
+  },
+  "relay_click": {
+   "label": "Bus relay click",
+   "prompt": "A single soft electromechanical relay click followed by a very short data burst chirp",
+   "duration": 3
+  },
+  "chamber_unlock": {
+   "label": "Meridian Chamber lock release",
+   "prompt": "Heavy pressure door lock disengaging, pneumatic hiss, large metal bolts retracting, heavy door swinging open",
+   "duration": 7
+  },
+  "motor_spinup": {
+   "label": "Telescope drive spin-up",
+   "prompt": "Large electric telescope drive motor starting up, current surge whine rising then settling into steady rotation",
+   "duration": 6
+  },
+  "outdoor_totality": {
+   "label": "Outdoor microphone — second contact",
+   "prompt": "Outdoor mountain recording: gusting wind steadily dying away to complete stillness, birdsong and insects abruptly stopping, then profound silence with only faint air movement",
+   "duration": 20
+  },
+  "outdoor_third": {
+   "label": "Outdoor microphone — third contact",
+   "prompt": "Outdoor mountain recording: profound silence broken as wind returns in a rising gust and birds abruptly start calling again all at once",
+   "duration": 14
+  },
+  "archive_warning": {
+   "label": "Archive overwrite warning",
+   "prompt": "Low urgent electronic warning tone repeating slowly, data centre alert klaxon, muted and mechanical",
+   "duration": 6
+  },
+  "dead_carrier": {
+   "label": "Channel drops",
+   "prompt": "Radio transmission abruptly cutting out into flat empty carrier hiss and squelch",
+   "duration": 5
+  },
+  "storm_exterior": {
+   "label": "Ice storm",
+   "prompt": "Severe mountain ice storm, hard sleet driving against metal cladding, howling wind, structure creaking under load",
+   "duration": 16
+  }
+ },
+ "synth": {
+  "cardiac_true": {
+   "label": "Cardiac telemetry — 11:38 to 11:42",
+   "kind": "cardiac",
+   "loop": false
+  },
+  "cardiac_looped": {
+   "label": "Cardiac telemetry — 11:42 to 11:50",
+   "kind": "cardiac",
+   "loop": true
+  },
+  "double_click": {
+   "label": "11:41:38 — terminal artefact, isolated",
+   "kind": "click"
+  },
+  "pulse": {
+   "label": "Contradiction motif",
+   "kind": "pulse"
+  },
+  "motor_spike": {
+   "label": "Drive current — 11:44:04",
+   "kind": "motorspike"
+  }
+ },
+ "evidence": {
+  "E01": {
+   "name": "The final exchange",
+   "act": 1,
+   "initial": "Coll answers Okafor at 11:48:02. He is alive, thirteen minutes before the chamber is opened.",
+   "truth": "He has been dead for six minutes. This line was generated, not spoken."
+  },
+  "E02": {
+   "name": "Coll's last genuine transmission",
+   "act": 1,
+   "key": true,
+   "initial": "11:41:38. The channel breaks up mid-report. Interference, presumably.",
+   "truth": "Not interference. A soft double click, a confused breath, and the chair servo taking a change of weight. You are listening to the murder."
+  },
+  "E03": {
+   "name": "Chamber access log",
+   "act": 1,
+   "initial": "Coll enters at 11:18:00. The door seals. Nobody enters after him and no override is recorded.",
+   "truth": "Entirely accurate. The weapon was installed at 09:12 and triggered from four kilometres away."
+  },
+  "E04": {
+   "name": "Preliminary medical report",
+   "act": 1,
+   "initial": "Fatal cardiac event consistent with a large dose of his own antiarrhythmic. Estimated 11:49 to 11:51.",
+   "truth": "The estimate is anchored to telemetry that was replaying a buffer."
+  },
+  "E05": {
+   "name": "Trent's concealed correction",
+   "act": 2,
+   "initial": "Trent applied an undeclared +4.8 second correction to the Aurora clock feed.",
+   "truth": "Real misconduct, and irrelevant. It accounts for 4.8 seconds of a discrepancy over seven minutes long."
+  },
+  "E06": {
+   "name": "Coll's voicemail to Okafor",
+   "act": 2,
+   "key": false,
+   "initial": "10:58. 'If I go quiet today, don't trust the clocks. Trust the shadow. And pull the Spectra bus log for the fourteenth of March.'",
+   "truth": "He knew. He named the station, the log, and the date, and nobody listened for an hour."
+  },
+  "E07": {
+   "name": "Emergency relay specification",
+   "act": 2,
+   "initial": "The backup voice loop buffers approximately eleven seconds under load. Engaged at 09:40 at Ops request.",
+   "truth": "It does not pass through the summit repeater — which is why anything injected into it never reached orbit. Voss requested it."
+  },
+  "E08": {
+   "name": "Room tone analysis",
+   "act": 2,
+   "key": true,
+   "initial": "The 11:48:02 transmission carries different background noise from the rest.",
+   "truth": "Three tiers. Live Coll has chamber ventilation plus tracking servo. The four short replies have chamber tone with no servo. The 11:48 line has the annex."
+  },
+  "E09": {
+   "name": "The frost alarm",
+   "act": 3,
+   "key": true,
+   "initial": "The west shutter alarm sounds observatory-wide at 11:48:00.",
+   "truth": "Coll talks straight through it without a pause. No living person on that mountain ignored that alarm."
+  },
+  "E10": {
+   "name": "Chair decommissioning certificate",
+   "act": 3,
+   "initial": "The physiology infusion rig was decommissioned two years ago. Signed: G. Rook.",
+   "truth": "Signed, drained, fused out — and never physically extracted. The hardware is still in the chair."
+  },
+  "E11": {
+   "name": "The rehearsal recording",
+   "act": 3,
+   "key": true,
+   "initial": "21:40 the previous night. A routine communications rehearsal.",
+   "truth": "Contains 'Confirmed', 'Proceed to sequence three', 'Hold the sequence' and 'Stand by' — verbatim, in Coll's voice, hours before he died."
+  },
+  "E12": {
+   "name": "Looped cardiac telemetry",
+   "act": 3,
+   "key": true,
+   "initial": "Coll's heart trace continues until 11:50:31.",
+   "truth": "Two windows of a documented arrhythmia are sample-identical. An irregular rhythm cannot repeat. The chair was replaying a four-minute buffer."
+  },
+  "E13": {
+   "name": "Chair hardware examination",
+   "act": 3,
+   "initial": "The reservoir is empty and the line fuse is seated.",
+   "truth": "Rook pulled that fuse two years ago. Someone refitted it, and it was not Rook."
+  },
+  "E14": {
+   "name": "SOLARIS-2 sky log",
+   "act": 4,
+   "key": true,
+   "initial": "The orbital platform logs every transmission through the summit repeater.",
+   "truth": "Five of Coll's transmissions do not appear in it. They never left the mountain. They were injected into the relay."
+  },
+  "E15": {
+   "name": "The calibration packet",
+   "act": 4,
+   "key": true,
+   "initial": "A routine instrument calibration packet at 11:29:55.",
+   "truth": "Addressed to node MC-CHR-07 — the chair — with a deferred execution field of T+720 seconds. Signed by Spectra."
+  },
+  "E16": {
+   "name": "Annex workstation log",
+   "act": 4,
+   "key": true,
+   "initial": "Cross's voice model was invoked at 11:47:36.",
+   "truth": "From a Spectra terminal, on Cross's credentials, while Cross was on his own camera in the annex."
+  },
+  "E17": {
+   "name": "Coll's memo — 14 March",
+   "act": 4,
+   "key": true,
+   "initial": "Coll had reopened an eleven-year-old dataset.",
+   "truth": "The Helios detection was padded. Voss's career, and the consortium's funding, rest on a fabricated significance."
+  },
+  "E18": {
+   "name": "The funding call",
+   "act": 4,
+   "initial": "A recorded consortium call about the renewal cycle.",
+   "truth": "€400 million, contingent on the Helios result, decided eleven days from now."
+  },
+  "E19": {
+   "name": "Motor current trace",
+   "act": 2,
+   "initial": "Rook starts sequence three on Coll's order at 11:44:05.",
+   "truth": "The drive current rises 1.2 seconds before the order arrives. The relay delayed the audio; the sequence was already running on its timer."
+  },
+  "E20": {
+   "name": "Coll's final data",
+   "act": 4,
+   "initial": "The eclipse observation completed and wrote to the archive.",
+   "truth": "The 1420.3 MHz feature is there, and it is real. Voss did not invent the signal. She only claimed it before she had it."
+  }
+ },
+ "deduction": {
+  "prompt": "Incident determination. Four findings. You may change any answer until you commit.",
+  "fields": [
+   {
+    "id": "death_time",
+    "label": "Time of death",
+    "options": [
+     {
+      "id": "a",
+      "t": "Approximately 11:42 — four minutes before totality",
+      "correct": true
+     },
+     {
+      "id": "b",
+      "t": "Approximately 11:46 — as totality began"
+     },
+     {
+      "id": "c",
+      "t": "Approximately 11:50 — at third contact, as the medical report states"
+     },
+     {
+      "id": "d",
+      "t": "After 11:53, once the chamber lock released"
+     }
+    ],
+    "supports": [
+     "E12",
+     "E02",
+     "E14"
+    ]
+   },
+   {
+    "id": "method",
+    "label": "Method",
+    "options": [
+     {
+      "id": "a",
+      "t": "An intruder entered through the fibre maintenance conduit"
+     },
+     {
+      "id": "b",
+      "t": "Delayed remote activation of the infusion rig in his chair",
+      "correct": true
+     },
+     {
+      "id": "c",
+      "t": "The dose was administered before he sealed the chamber"
+     },
+     {
+      "id": "d",
+      "t": "Self-administered"
+     }
+    ],
+    "supports": [
+     "E15",
+     "E10",
+     "E13"
+    ]
+   },
+   {
+    "id": "false_recording",
+    "label": "Which transmission was manufactured — not merely replayed",
+    "options": [
+     {
+      "id": "a",
+      "t": "11:41:38 — the final genuine transmission"
+     },
+     {
+      "id": "b",
+      "t": "11:44:05 — 'Proceed to sequence three'"
+     },
+     {
+      "id": "c",
+      "t": "11:48:02 — 'I have it. Beautiful.'",
+      "correct": true
+     },
+     {
+      "id": "d",
+      "t": "10:58:04 — the voicemail to Dr. Okafor"
+     }
+    ],
+    "supports": [
+     "E16",
+     "E08",
+     "E09",
+     "E11"
+    ]
+   },
+   {
+    "id": "culprit",
+    "label": "Responsible party",
+    "decisive": true,
+    "options": [
+     {
+      "id": "voss",
+      "t": "Dr. Mara Voss — deputy director, Spectra",
+      "correct": true
+     },
+     {
+      "id": "trent",
+      "t": "Dr. Elias Trent — precision timing, Chronos"
+     },
+     {
+      "id": "rook",
+      "t": "Gabriel Rook — systems engineer"
+     },
+     {
+      "id": "okafor",
+      "t": "Dr. Leila Okafor — radio astronomer, Aurora"
+     },
+     {
+      "id": "cross",
+      "t": "Julian Cross — documentary journalist"
+     },
+     {
+      "id": "none",
+      "t": "The evidence does not support an accusation"
+     }
+    ]
+   }
+  ],
+  "routes": [
+   {
+    "when": {
+     "culprit": "voss",
+     "strongCase": true
+    },
+    "next": "s37_confront_strong"
+   },
+   {
+    "when": {
+     "culprit": "voss",
+     "strongCase": false
+    },
+    "next": "s37_confront_weak"
+   },
+   {
+    "when": {
+     "culprit": "*"
+    },
+    "next": "s37_confront_wrong"
+   }
+  ]
+ },
+ "puzzles": {
+  "ambience": {
+   "kind": "match",
+   "title": "Reference beds — match each recording to the room it was made in",
+   "instruction": "Play each reference, then assign every transmission to a room. Coll's chamber has ventilation, room resonance and — only while the telescope is tracking — a thin drive whine.",
+   "references": [
+    {
+     "bed": "chamber_tracking",
+     "label": "Meridian Chamber — telescope tracking"
+    },
+    {
+     "bed": "chamber_parked",
+     "label": "Meridian Chamber — dome parked"
+    },
+    {
+     "bed": "annex",
+     "label": "Visitor annex — edit room"
+    },
+    {
+     "bed": "chronos",
+     "label": "Chronos timing laboratory"
+    },
+    {
+     "bed": "aurora",
+     "label": "Aurora radio array"
+    },
+    {
+     "bed": "spectra",
+     "label": "Spectra station"
+    }
+   ],
+   "items": [
+    {
+     "clip": "CLIP_1122",
+     "label": "11:22:40 — Meridian",
+     "answer": "chamber_tracking"
+    },
+    {
+     "clip": "CLIP_1135",
+     "label": "11:35:50 — Meridian",
+     "answer": "chamber_tracking"
+    },
+    {
+     "clip": "CLIP_1141",
+     "label": "11:41:38 — Meridian",
+     "answer": "chamber_tracking"
+    },
+    {
+     "clip": "CLIP_1144",
+     "label": "11:44:05 — Meridian",
+     "answer": "chamber_parked"
+    },
+    {
+     "clip": "CLIP_1146",
+     "label": "11:46:40 — Meridian",
+     "answer": "chamber_parked"
+    },
+    {
+     "clip": "CLIP_1148",
+     "label": "11:48:02 — Meridian",
+     "answer": "annex"
+    }
+   ],
+   "onSolve": {
+    "grants": [
+     "E08"
+    ],
+    "set": {
+     "solved_ambience": true
+    }
+   },
+   "hint": "Three transmissions have a thin high whine under the ventilation. Three do not. One of the three that does not is not the chamber at all."
+  },
+  "phrasematch": {
+   "kind": "match",
+   "title": "Rehearsal, 21:40 — against this morning",
+   "instruction": "Four of this morning's five short transmissions already existed last night. Pair them. One will not pair with anything.",
+   "references": [
+    {
+     "clip": "CLIP_REH_1",
+     "label": "Rehearsal — 'Confirmed'"
+    },
+    {
+     "clip": "CLIP_REH_2",
+     "label": "Rehearsal — 'Proceed to sequence three'"
+    },
+    {
+     "clip": "CLIP_REH_3",
+     "label": "Rehearsal — 'Hold the sequence'"
+    },
+    {
+     "clip": "CLIP_REH_4",
+     "label": "Rehearsal — 'Stand by'"
+    },
+    {
+     "clip": "NONE",
+     "label": "No match in the rehearsal"
+    }
+   ],
+   "items": [
+    {
+     "clip": "CLIP_1142",
+     "label": "11:42:44 — 'Confirmed.'",
+     "answer": "CLIP_REH_1"
+    },
+    {
+     "clip": "CLIP_1144",
+     "label": "11:44:05 — 'Proceed to sequence three.'",
+     "answer": "CLIP_REH_2"
+    },
+    {
+     "clip": "CLIP_1146",
+     "label": "11:46:40 — 'Hold the sequence.'",
+     "answer": "CLIP_REH_3"
+    },
+    {
+     "clip": "CLIP_1149",
+     "label": "11:49:30 — 'Stand by.'",
+     "answer": "CLIP_REH_4"
+    },
+    {
+     "clip": "CLIP_1148",
+     "label": "11:48:02 — 'I have it. Beautiful.'",
+     "answer": "NONE"
+    }
+   ],
+   "onSolve": {
+    "grants": [
+     "E11"
+    ],
+    "set": {
+     "solved_phrasematch": true
+    }
+   },
+   "hint": "Listen to the words, not the tone. Four are verbatim. The fifth is a sentence Coll never had a reason to rehearse."
+  },
+  "cardiac": {
+   "kind": "select",
+   "title": "Cardiac telemetry — identify the repeated interval",
+   "instruction": "Atrial fibrillation is irregular by definition — the interval between beats is effectively random. Play both windows. Select every four-minute interval whose beat pattern is identical to another interval.",
+   "options": [
+    {
+     "id": "w1",
+     "t": "11:34:20 – 11:38:20"
+    },
+    {
+     "id": "w2",
+     "t": "11:38:20 – 11:42:20",
+     "correct": true
+    },
+    {
+     "id": "w3",
+     "t": "11:42:20 – 11:46:20",
+     "correct": true
+    },
+    {
+     "id": "w4",
+     "t": "11:46:20 – 11:50:20",
+     "correct": true
+    }
+   ],
+   "onSolve": {
+    "grants": [
+     "E12"
+    ],
+    "set": {
+     "solved_cardiac": true
+    }
+   },
+   "hint": "Three of the four windows carry the same beat pattern. Only one of the three can be a living heart — the earliest. Everything after it is that same four minutes, played again.",
+   "solution": "Windows 2, 3 and 4 are the same recording. The chair buffered 11:38:20–11:42:20 and replayed it on a loop from 11:42:20 onward. The last real heartbeat is at the end of window 2."
+  },
+  "packet": {
+   "kind": "select",
+   "title": "Calibration packet — 11:29:55, Spectra origin",
+   "instruction": "Select the field that does not belong in the calibration standard.",
+   "monospace": [
+    "BUS/CAL  v2.1",
+    "  origin      : SPECTRA",
+    "  dest        : MC-CHR-07",
+    "  issued      : 11:29:55.118",
+    "  profile     : STANDING-CAL-B",
+    "  gain_ref    : 1.0000",
+    "  temp_comp   : +0.4C",
+    "  exec_defer  : T+720",
+    "  retries     : 2",
+    "  sig_key     : SPE-01",
+    "  sig         : valid"
+   ],
+   "options": [
+    {
+     "id": "dest",
+     "t": "dest : MC-CHR-07"
+    },
+    {
+     "id": "profile",
+     "t": "profile : STANDING-CAL-B"
+    },
+    {
+     "id": "exec_defer",
+     "t": "exec_defer : T+720",
+     "correct": true
+    },
+    {
+     "id": "gain_ref",
+     "t": "gain_ref : 1.0000"
+    },
+    {
+     "id": "sig_key",
+     "t": "sig_key : SPE-01"
+    }
+   ],
+   "onSolve": {
+    "grants": [
+     "E15"
+    ],
+    "set": {
+     "solved_packet": true
+    }
+   },
+   "hint": "A calibration packet tells an instrument what it is. It has no business telling it when."
+  }
+ },
+ "archive": {
+  "title": "CLIP ARCHIVE",
+  "note": "Every recording you have heard is replayable here. Enhancement is available on all of them.",
+  "enhancements": [
+   {
+    "id": "both",
+    "label": "Full mix",
+    "voice": 1,
+    "bedMul": 1
+   },
+   {
+    "id": "voice",
+    "label": "Isolate voice",
+    "voice": 1,
+    "bedMul": 0
+   },
+   {
+    "id": "bed",
+    "label": "Isolate background",
+    "voice": 0.04,
+    "bedMul": 2.6
+   },
+   {
+    "id": "slow",
+    "label": "Half speed",
+    "voice": 1,
+    "bedMul": 1,
+    "rate": 0.5
+   }
+  ]
+ },
+ "clips": {
+  "CLIP_1148": {
+   "id": "CLIP_1148",
+   "label": "11:48:02 — Meridian",
+   "evidence": "E01",
+   "cue": "c0110",
+   "bed": "annex",
+   "scene": "s01_cold_open"
+  },
+  "CLIP_1122": {
+   "id": "CLIP_1122",
+   "label": "11:22:40 — Meridian",
+   "evidence": null,
+   "cue": "c0502",
+   "bed": "chamber_tracking",
+   "scene": "s05_final_exchange"
+  },
+  "CLIP_1131": {
+   "id": "CLIP_1131",
+   "label": "11:31:06 — Meridian",
+   "evidence": null,
+   "cue": "c0503",
+   "bed": "chamber_tracking",
+   "scene": "s05_final_exchange"
+  },
+  "CLIP_1135": {
+   "id": "CLIP_1135",
+   "label": "11:35:50 — Meridian",
+   "evidence": null,
+   "cue": "c0504",
+   "bed": "chamber_tracking",
+   "scene": "s05_final_exchange"
+  },
+  "CLIP_1141": {
+   "id": "CLIP_1141",
+   "label": "11:41:38 — Meridian (final genuine)",
+   "evidence": "E02",
+   "cue": "c0505",
+   "bed": "chamber_tracking",
+   "scene": "s05_final_exchange"
+  },
+  "CLIP_1142": {
+   "id": "CLIP_1142",
+   "label": "11:42:44 — Meridian",
+   "evidence": null,
+   "cue": "c0507",
+   "bed": "chamber_parked",
+   "scene": "s05_final_exchange"
+  },
+  "CLIP_1144": {
+   "id": "CLIP_1144",
+   "label": "11:44:05 — Meridian",
+   "evidence": null,
+   "cue": "c0508",
+   "bed": "chamber_parked",
+   "scene": "s05_final_exchange"
+  },
+  "CLIP_1146": {
+   "id": "CLIP_1146",
+   "label": "11:46:40 — Meridian",
+   "evidence": null,
+   "cue": "c0509",
+   "bed": "chamber_parked",
+   "scene": "s05_final_exchange"
+  },
+  "CLIP_1149": {
+   "id": "CLIP_1149",
+   "label": "11:49:30 — Meridian",
+   "evidence": null,
+   "cue": "c0510",
+   "bed": "chamber_parked",
+   "scene": "s05_final_exchange"
+  },
+  "CLIP_CARD_A": {
+   "id": "CLIP_CARD_A",
+   "label": "Cardiac telemetry 11:38–11:42",
+   "evidence": null,
+   "cue": "c0603",
+   "bed": "ops",
+   "scene": "s06_medical"
+  },
+  "CLIP_MOTOR": {
+   "id": "CLIP_MOTOR",
+   "label": "West drive current, 11:44",
+   "evidence": "E19",
+   "cue": "c1112",
+   "bed": "mechbay",
+   "scene": "s11b_rook_motor"
+  },
+  "CLIP_VM": {
+   "id": "CLIP_VM",
+   "label": "Voicemail — 10:58:04",
+   "evidence": "E06",
+   "cue": "c1802",
+   "bed": "chamber_parked",
+   "scene": "s18_voicemail"
+  },
+  "CLIP_OUTDOOR": {
+   "id": "CLIP_OUTDOOR",
+   "label": "Outdoor microphone — second contact",
+   "evidence": null,
+   "cue": "c1902",
+   "bed": "totality",
+   "scene": "s19_shadow_anchor"
+  },
+  "CLIP_OUTDOOR_2": {
+   "id": "CLIP_OUTDOOR_2",
+   "label": "Outdoor microphone — third contact",
+   "evidence": null,
+   "cue": "c1903b",
+   "bed": "summit_wind",
+   "scene": "s19_shadow_anchor"
+  },
+  "CLIP_1148_ALARM": {
+   "id": "CLIP_1148_ALARM",
+   "label": "11:48:02 — alarm isolated",
+   "evidence": "E09",
+   "cue": "c2003",
+   "bed": "annex",
+   "scene": "s20_frost_alarm"
+  },
+  "CLIP_REH_1": {
+   "id": "CLIP_REH_1",
+   "label": "Rehearsal — 'Confirmed'",
+   "evidence": "E11",
+   "cue": "c2102b",
+   "bed": "chamber_parked",
+   "scene": "s21_rehearsal"
+  },
+  "CLIP_REH_2": {
+   "id": "CLIP_REH_2",
+   "label": "Rehearsal — 'Proceed to sequence three'",
+   "evidence": null,
+   "cue": "c2103b",
+   "bed": "chamber_parked",
+   "scene": "s21_rehearsal"
+  },
+  "CLIP_REH_3": {
+   "id": "CLIP_REH_3",
+   "label": "Rehearsal — 'Hold the sequence'",
+   "evidence": null,
+   "cue": "c2104b",
+   "bed": "chamber_parked",
+   "scene": "s21_rehearsal"
+  },
+  "CLIP_REH_4": {
+   "id": "CLIP_REH_4",
+   "label": "Rehearsal — 'Stand by'",
+   "evidence": null,
+   "cue": "c2105b",
+   "bed": "chamber_parked",
+   "scene": "s21_rehearsal"
+  },
+  "CLIP_CARD_A2": {
+   "id": "CLIP_CARD_A2",
+   "label": "Cardiac — window A",
+   "evidence": null,
+   "cue": "c2503",
+   "bed": "ops",
+   "scene": "s25_cardiac_loop"
+  },
+  "CLIP_CARD_B": {
+   "id": "CLIP_CARD_B",
+   "label": "Cardiac — window B",
+   "evidence": "E12",
+   "cue": "c2504",
+   "bed": "ops",
+   "scene": "s25_cardiac_loop"
+  },
+  "CLIP_1148_ISO": {
+   "id": "CLIP_1148_ISO",
+   "label": "11:48:02 — background only",
+   "evidence": "E08",
+   "cue": "c3302",
+   "bed": "annex",
+   "scene": "s33_synthetic_proof"
+  },
+  "CLIP_MEMO": {
+   "id": "CLIP_MEMO",
+   "label": "Coll — private memo",
+   "evidence": "E17",
+   "cue": "c3402",
+   "bed": "chamber_parked",
+   "scene": "s34_the_fraud"
+  },
+  "CLIP_END_SYNTH": {
+   "id": "CLIP_END_SYNTH",
+   "label": "Posthumous statement",
+   "evidence": null,
+   "cue": "c3927",
+   "bed": "annex",
+   "scene": "end_consortium"
+  }
+ }
+}

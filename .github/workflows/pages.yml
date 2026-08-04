@@ -1,0 +1,55 @@
+name: Deploy the game to GitHub Pages
+
+on:
+  push:
+    branches: [claude/observatory-murder-game-5dyh6a, main]
+    paths: ['web/**', 'data/**', 'tools/**', '.github/workflows/pages.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      # Rebuild script.json from data/ and fail the deploy if the scene graph
+      # is broken, an ending became unreachable, or an asset is missing.
+      - name: Build and validate the scene graph
+        run: node tools/build.mjs
+
+      - name: Verify every referenced audio asset exists
+        run: |
+          node tools/serve.mjs &
+          for i in $(seq 1 20); do curl -sf http://localhost:8099/index.html >/dev/null && break; sleep 0.5; done
+          node tools/assetcheck.mjs
+
+      - name: Measure playthrough length and ending reachability
+        run: node tools/playtest.mjs
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: web
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

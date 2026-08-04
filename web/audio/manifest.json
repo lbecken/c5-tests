@@ -1,0 +1,1521 @@
+{
+ "beds": {
+  "annex": {
+   "file": "audio/beds/annex.mp3",
+   "dur": 22.03,
+   "bytes": 264717
+  },
+  "aurora": {
+   "file": "audio/beds/aurora.mp3",
+   "dur": 22.03,
+   "bytes": 264717
+  },
+  "carrier": {
+   "file": "audio/beds/carrier.mp3",
+   "dur": 20.04,
+   "bytes": 240813
+  },
+  "chamber_parked": {
+   "file": "audio/beds/chamber_parked.mp3",
+   "dur": 22.03,
+   "bytes": 264717
+  },
+  "chamber_tracking": {
+   "file": "audio/beds/chamber_tracking.mp3",
+   "dur": 22.03,
+   "bytes": 264717
+  },
+  "chronos": {
+   "file": "audio/beds/chronos.mp3",
+   "dur": 22.03,
+   "bytes": 264717
+  },
+  "mechbay": {
+   "file": "audio/beds/mechbay.mp3",
+   "dur": 22.03,
+   "bytes": 264717
+  },
+  "ops": {
+   "file": "audio/beds/ops.mp3",
+   "dur": 22.03,
+   "bytes": 264717
+  },
+  "orbit": {
+   "file": "audio/beds/orbit.mp3",
+   "dur": 22.03,
+   "bytes": 264717
+  },
+  "spectra": {
+   "file": "audio/beds/spectra.mp3",
+   "dur": 22.03,
+   "bytes": 264717
+  },
+  "summit_wind": {
+   "file": "audio/beds/summit_wind.mp3",
+   "dur": 22.03,
+   "bytes": 264717
+  },
+  "totality": {
+   "file": "audio/beds/totality.mp3",
+   "dur": 22.03,
+   "bytes": 264717
+  }
+ },
+ "sfx": {
+  "archive_warning": {
+   "file": "audio/sfx/archive_warning.mp3",
+   "dur": 6.02,
+   "bytes": 72621
+  },
+  "chamber_unlock": {
+   "file": "audio/sfx/chamber_unlock.mp3",
+   "dur": 7.03,
+   "bytes": 84717
+  },
+  "dead_carrier": {
+   "file": "audio/sfx/dead_carrier.mp3",
+   "dur": 5.04,
+   "bytes": 60813
+  },
+  "eclipse_tone": {
+   "file": "audio/sfx/eclipse_tone.mp3",
+   "dur": 5.04,
+   "bytes": 60813
+  },
+  "frost_alarm": {
+   "file": "audio/sfx/frost_alarm.mp3",
+   "dur": 6.02,
+   "bytes": 72621
+  },
+  "motor_spinup": {
+   "file": "audio/sfx/motor_spinup.mp3",
+   "dur": 6.02,
+   "bytes": 72621
+  },
+  "outdoor_third": {
+   "file": "audio/sfx/outdoor_third.mp3",
+   "dur": 14.04,
+   "bytes": 168813
+  },
+  "outdoor_totality": {
+   "file": "audio/sfx/outdoor_totality.mp3",
+   "dur": 20.04,
+   "bytes": 240813
+  },
+  "relay_click": {
+   "file": "audio/sfx/relay_click.mp3",
+   "dur": 3.02,
+   "bytes": 36621
+  },
+  "storm_exterior": {
+   "file": "audio/sfx/storm_exterior.mp3",
+   "dur": 16.03,
+   "bytes": 192717
+  }
+ },
+ "cues": {
+  "c0102": {
+   "file": "audio/cues/c0102.mp3",
+   "dur": 8.18,
+   "bytes": 82125
+  },
+  "c0103": {
+   "file": "audio/cues/c0103.mp3",
+   "dur": 23.52,
+   "bytes": 235485
+  },
+  "c0104": {
+   "file": "audio/cues/c0104.mp3",
+   "dur": 22.03,
+   "bytes": 220605
+  },
+  "c0105": {
+   "file": "audio/cues/c0105.mp3",
+   "dur": 8.04,
+   "bytes": 80685
+  },
+  "c0107": {
+   "file": "audio/cues/c0107.mp3",
+   "dur": 3.62,
+   "bytes": 36525
+  },
+  "c0108": {
+   "file": "audio/cues/c0108.mp3",
+   "dur": 4.54,
+   "bytes": 45645
+  },
+  "c0110": {
+   "file": "audio/cues/c0110.mp3",
+   "dur": 4.54,
+   "bytes": 45645
+  },
+  "c0111": {
+   "file": "audio/cues/c0111.mp3",
+   "dur": 5.64,
+   "bytes": 56685
+  },
+  "c0113": {
+   "file": "audio/cues/c0113.mp3",
+   "dur": 10.32,
+   "bytes": 103485
+  },
+  "c0114": {
+   "file": "audio/cues/c0114.mp3",
+   "dur": 4.92,
+   "bytes": 49485
+  },
+  "c0201": {
+   "file": "audio/cues/c0201.mp3",
+   "dur": 6.91,
+   "bytes": 69405
+  },
+  "c0202": {
+   "file": "audio/cues/c0202.mp3",
+   "dur": 12.58,
+   "bytes": 126045
+  },
+  "c0203": {
+   "file": "audio/cues/c0203.mp3",
+   "dur": 27.46,
+   "bytes": 274845
+  },
+  "c0204": {
+   "file": "audio/cues/c0204.mp3",
+   "dur": 6.46,
+   "bytes": 64845
+  },
+  "c0205": {
+   "file": "audio/cues/c0205.mp3",
+   "dur": 10.82,
+   "bytes": 108525
+  },
+  "c0206": {
+   "file": "audio/cues/c0206.mp3",
+   "dur": 17.9,
+   "bytes": 179325
+  },
+  "c0301": {
+   "file": "audio/cues/c0301.mp3",
+   "dur": 9.31,
+   "bytes": 93405
+  },
+  "c0303": {
+   "file": "audio/cues/c0303.mp3",
+   "dur": 20.59,
+   "bytes": 206205
+  },
+  "c0304": {
+   "file": "audio/cues/c0304.mp3",
+   "dur": 24.43,
+   "bytes": 244605
+  },
+  "c0305": {
+   "file": "audio/cues/c0305.mp3",
+   "dur": 17.23,
+   "bytes": 172605
+  },
+  "c0401": {
+   "file": "audio/cues/c0401.mp3",
+   "dur": 16.66,
+   "bytes": 166845
+  },
+  "c0402": {
+   "file": "audio/cues/c0402.mp3",
+   "dur": 17.86,
+   "bytes": 178845
+  },
+  "c0403": {
+   "file": "audio/cues/c0403.mp3",
+   "dur": 16.3,
+   "bytes": 163245
+  },
+  "c0501": {
+   "file": "audio/cues/c0501.mp3",
+   "dur": 7.27,
+   "bytes": 73005
+  },
+  "c0502": {
+   "file": "audio/cues/c0502.mp3",
+   "dur": 5.18,
+   "bytes": 52125
+  },
+  "c0503": {
+   "file": "audio/cues/c0503.mp3",
+   "dur": 7.7,
+   "bytes": 77325
+  },
+  "c0504": {
+   "file": "audio/cues/c0504.mp3",
+   "dur": 10.7,
+   "bytes": 107325
+  },
+  "c0505": {
+   "file": "audio/cues/c0505.mp3",
+   "dur": 7.51,
+   "bytes": 75405
+  },
+  "c0506": {
+   "file": "audio/cues/c0506.mp3",
+   "dur": 5.52,
+   "bytes": 55485
+  },
+  "c0507": {
+   "file": "audio/cues/c0507.mp3",
+   "dur": 0.91,
+   "bytes": 9405
+  },
+  "c0508": {
+   "file": "audio/cues/c0508.mp3",
+   "dur": 1.78,
+   "bytes": 18045
+  },
+  "c0509": {
+   "file": "audio/cues/c0509.mp3",
+   "dur": 1.32,
+   "bytes": 13485
+  },
+  "c0510": {
+   "file": "audio/cues/c0510.mp3",
+   "dur": 0.94,
+   "bytes": 9645
+  },
+  "c0511": {
+   "file": "audio/cues/c0511.mp3",
+   "dur": 11.9,
+   "bytes": 119325
+  },
+  "c0521": {
+   "file": "audio/cues/c0521.mp3",
+   "dur": 18.43,
+   "bytes": 184605
+  },
+  "c0522": {
+   "file": "audio/cues/c0522.mp3",
+   "dur": 11.06,
+   "bytes": 110925
+  },
+  "c0601": {
+   "file": "audio/cues/c0601.mp3",
+   "dur": 16.03,
+   "bytes": 160605
+  },
+  "c0602": {
+   "file": "audio/cues/c0602.mp3",
+   "dur": 14.98,
+   "bytes": 150045
+  },
+  "c0604": {
+   "file": "audio/cues/c0604.mp3",
+   "dur": 10.92,
+   "bytes": 109485
+  },
+  "c0605": {
+   "file": "audio/cues/c0605.mp3",
+   "dur": 12.43,
+   "bytes": 124605
+  },
+  "c0701": {
+   "file": "audio/cues/c0701.mp3",
+   "dur": 21.05,
+   "bytes": 210765
+  },
+  "c0702": {
+   "file": "audio/cues/c0702.mp3",
+   "dur": 15.86,
+   "bytes": 158925
+  },
+  "c0703": {
+   "file": "audio/cues/c0703.mp3",
+   "dur": 10.92,
+   "bytes": 109485
+  },
+  "c0704": {
+   "file": "audio/cues/c0704.mp3",
+   "dur": 22.32,
+   "bytes": 223485
+  },
+  "c0801": {
+   "file": "audio/cues/c0801.mp3",
+   "dur": 13.46,
+   "bytes": 134925
+  },
+  "c0802": {
+   "file": "audio/cues/c0802.mp3",
+   "dur": 2.21,
+   "bytes": 22365
+  },
+  "c1001": {
+   "file": "audio/cues/c1001.mp3",
+   "dur": 18.84,
+   "bytes": 188685
+  },
+  "c1002": {
+   "file": "audio/cues/c1002.mp3",
+   "dur": 11.86,
+   "bytes": 118845
+  },
+  "c1003": {
+   "file": "audio/cues/c1003.mp3",
+   "dur": 11.9,
+   "bytes": 119325
+  },
+  "c1004": {
+   "file": "audio/cues/c1004.mp3",
+   "dur": 10.58,
+   "bytes": 106125
+  },
+  "c1011": {
+   "file": "audio/cues/c1011.mp3",
+   "dur": 20.18,
+   "bytes": 202125
+  },
+  "c1012": {
+   "file": "audio/cues/c1012.mp3",
+   "dur": 12.7,
+   "bytes": 127245
+  },
+  "c1013": {
+   "file": "audio/cues/c1013.mp3",
+   "dur": 15.62,
+   "bytes": 156525
+  },
+  "c1021": {
+   "file": "audio/cues/c1021.mp3",
+   "dur": 18.5,
+   "bytes": 185325
+  },
+  "c1022": {
+   "file": "audio/cues/c1022.mp3",
+   "dur": 10.82,
+   "bytes": 108525
+  },
+  "c1023": {
+   "file": "audio/cues/c1023.mp3",
+   "dur": 17.45,
+   "bytes": 174765
+  },
+  "c1031": {
+   "file": "audio/cues/c1031.mp3",
+   "dur": 17.5,
+   "bytes": 175245
+  },
+  "c1032": {
+   "file": "audio/cues/c1032.mp3",
+   "dur": 8.42,
+   "bytes": 84525
+  },
+  "c1101": {
+   "file": "audio/cues/c1101.mp3",
+   "dur": 13.39,
+   "bytes": 134205
+  },
+  "c1102": {
+   "file": "audio/cues/c1102.mp3",
+   "dur": 12.84,
+   "bytes": 128685
+  },
+  "c1103": {
+   "file": "audio/cues/c1103.mp3",
+   "dur": 16.66,
+   "bytes": 166845
+  },
+  "c1111": {
+   "file": "audio/cues/c1111.mp3",
+   "dur": 11.06,
+   "bytes": 110925
+  },
+  "c1113": {
+   "file": "audio/cues/c1113.mp3",
+   "dur": 12.12,
+   "bytes": 121485
+  },
+  "c1121": {
+   "file": "audio/cues/c1121.mp3",
+   "dur": 21.46,
+   "bytes": 214845
+  },
+  "c1122": {
+   "file": "audio/cues/c1122.mp3",
+   "dur": 11.06,
+   "bytes": 110925
+  },
+  "c1123": {
+   "file": "audio/cues/c1123.mp3",
+   "dur": 10.03,
+   "bytes": 100605
+  },
+  "c1201": {
+   "file": "audio/cues/c1201.mp3",
+   "dur": 15.46,
+   "bytes": 154845
+  },
+  "c1202": {
+   "file": "audio/cues/c1202.mp3",
+   "dur": 8.98,
+   "bytes": 90045
+  },
+  "c1203": {
+   "file": "audio/cues/c1203.mp3",
+   "dur": 17.78,
+   "bytes": 178125
+  },
+  "c1204": {
+   "file": "audio/cues/c1204.mp3",
+   "dur": 2.06,
+   "bytes": 20925
+  },
+  "c1211": {
+   "file": "audio/cues/c1211.mp3",
+   "dur": 23.64,
+   "bytes": 236685
+  },
+  "c1212": {
+   "file": "audio/cues/c1212.mp3",
+   "dur": 6.48,
+   "bytes": 65085
+  },
+  "c1221": {
+   "file": "audio/cues/c1221.mp3",
+   "dur": 17.9,
+   "bytes": 179325
+  },
+  "c1222": {
+   "file": "audio/cues/c1222.mp3",
+   "dur": 13.32,
+   "bytes": 133485
+  },
+  "c1223": {
+   "file": "audio/cues/c1223.mp3",
+   "dur": 10.51,
+   "bytes": 105405
+  },
+  "c1231": {
+   "file": "audio/cues/c1231.mp3",
+   "dur": 3.86,
+   "bytes": 38925
+  },
+  "c1232": {
+   "file": "audio/cues/c1232.mp3",
+   "dur": 6.41,
+   "bytes": 64365
+  },
+  "c1301": {
+   "file": "audio/cues/c1301.mp3",
+   "dur": 22.82,
+   "bytes": 228525
+  },
+  "c1302": {
+   "file": "audio/cues/c1302.mp3",
+   "dur": 12.12,
+   "bytes": 121485
+  },
+  "c1303": {
+   "file": "audio/cues/c1303.mp3",
+   "dur": 13.46,
+   "bytes": 134925
+  },
+  "c1311": {
+   "file": "audio/cues/c1311.mp3",
+   "dur": 11.3,
+   "bytes": 113325
+  },
+  "c1312": {
+   "file": "audio/cues/c1312.mp3",
+   "dur": 14.52,
+   "bytes": 145485
+  },
+  "c1313": {
+   "file": "audio/cues/c1313.mp3",
+   "dur": 10.51,
+   "bytes": 105405
+  },
+  "c1321": {
+   "file": "audio/cues/c1321.mp3",
+   "dur": 19.22,
+   "bytes": 192525
+  },
+  "c1322": {
+   "file": "audio/cues/c1322.mp3",
+   "dur": 9.38,
+   "bytes": 94125
+  },
+  "c1323": {
+   "file": "audio/cues/c1323.mp3",
+   "dur": 13.63,
+   "bytes": 136605
+  },
+  "c1331": {
+   "file": "audio/cues/c1331.mp3",
+   "dur": 12.19,
+   "bytes": 122205
+  },
+  "c1332": {
+   "file": "audio/cues/c1332.mp3",
+   "dur": 18.84,
+   "bytes": 188685
+  },
+  "c1401": {
+   "file": "audio/cues/c1401.mp3",
+   "dur": 22.66,
+   "bytes": 226845
+  },
+  "c1402": {
+   "file": "audio/cues/c1402.mp3",
+   "dur": 17.11,
+   "bytes": 171405
+  },
+  "c1403": {
+   "file": "audio/cues/c1403.mp3",
+   "dur": 15.31,
+   "bytes": 153405
+  },
+  "c1404": {
+   "file": "audio/cues/c1404.mp3",
+   "dur": 6.74,
+   "bytes": 67725
+  },
+  "c1411": {
+   "file": "audio/cues/c1411.mp3",
+   "dur": 18.43,
+   "bytes": 184605
+  },
+  "c1412": {
+   "file": "audio/cues/c1412.mp3",
+   "dur": 17.78,
+   "bytes": 178125
+  },
+  "c1413": {
+   "file": "audio/cues/c1413.mp3",
+   "dur": 17.64,
+   "bytes": 176685
+  },
+  "c1414": {
+   "file": "audio/cues/c1414.mp3",
+   "dur": 3.98,
+   "bytes": 40125
+  },
+  "c1501": {
+   "file": "audio/cues/c1501.mp3",
+   "dur": 17.11,
+   "bytes": 171405
+  },
+  "c1502": {
+   "file": "audio/cues/c1502.mp3",
+   "dur": 5.09,
+   "bytes": 51165
+  },
+  "c1503": {
+   "file": "audio/cues/c1503.mp3",
+   "dur": 18.31,
+   "bytes": 183405
+  },
+  "c1504": {
+   "file": "audio/cues/c1504.mp3",
+   "dur": 2.26,
+   "bytes": 22845
+  },
+  "c1601": {
+   "file": "audio/cues/c1601.mp3",
+   "dur": 13.85,
+   "bytes": 138765
+  },
+  "c1602": {
+   "file": "audio/cues/c1602.mp3",
+   "dur": 16.25,
+   "bytes": 162765
+  },
+  "c1701": {
+   "file": "audio/cues/c1701.mp3",
+   "dur": 17.11,
+   "bytes": 171405
+  },
+  "c1711": {
+   "file": "audio/cues/c1711.mp3",
+   "dur": 17.5,
+   "bytes": 175245
+  },
+  "c1712": {
+   "file": "audio/cues/c1712.mp3",
+   "dur": 7.22,
+   "bytes": 72525
+  },
+  "c1721": {
+   "file": "audio/cues/c1721.mp3",
+   "dur": 14.11,
+   "bytes": 141405
+  },
+  "c1722": {
+   "file": "audio/cues/c1722.mp3",
+   "dur": 5.93,
+   "bytes": 59565
+  },
+  "c1731": {
+   "file": "audio/cues/c1731.mp3",
+   "dur": 15.31,
+   "bytes": 153405
+  },
+  "c1732": {
+   "file": "audio/cues/c1732.mp3",
+   "dur": 5.52,
+   "bytes": 55485
+  },
+  "c1741": {
+   "file": "audio/cues/c1741.mp3",
+   "dur": 17.11,
+   "bytes": 171405
+  },
+  "c1742": {
+   "file": "audio/cues/c1742.mp3",
+   "dur": 10.92,
+   "bytes": 109485
+  },
+  "c1743": {
+   "file": "audio/cues/c1743.mp3",
+   "dur": 5.26,
+   "bytes": 52845
+  },
+  "c1801": {
+   "file": "audio/cues/c1801.mp3",
+   "dur": 13.22,
+   "bytes": 132525
+  },
+  "c1802": {
+   "file": "audio/cues/c1802.mp3",
+   "dur": 22.66,
+   "bytes": 226845
+  },
+  "c1803": {
+   "file": "audio/cues/c1803.mp3",
+   "dur": 10.82,
+   "bytes": 108525
+  },
+  "c1804": {
+   "file": "audio/cues/c1804.mp3",
+   "dur": 13.9,
+   "bytes": 139245
+  },
+  "c1901": {
+   "file": "audio/cues/c1901.mp3",
+   "dur": 4.39,
+   "bytes": 44205
+  },
+  "c1903": {
+   "file": "audio/cues/c1903.mp3",
+   "dur": 15.38,
+   "bytes": 154125
+  },
+  "c1904": {
+   "file": "audio/cues/c1904.mp3",
+   "dur": 14.52,
+   "bytes": 145485
+  },
+  "c1905": {
+   "file": "audio/cues/c1905.mp3",
+   "dur": 2.35,
+   "bytes": 23805
+  },
+  "c2001": {
+   "file": "audio/cues/c2001.mp3",
+   "dur": 23.71,
+   "bytes": 237405
+  },
+  "c2002": {
+   "file": "audio/cues/c2002.mp3",
+   "dur": 11.11,
+   "bytes": 111405
+  },
+  "c2003": {
+   "file": "audio/cues/c2003.mp3",
+   "dur": 4.54,
+   "bytes": 45645
+  },
+  "c2012": {
+   "file": "audio/cues/c2012.mp3",
+   "dur": 15.62,
+   "bytes": 156525
+  },
+  "c2013": {
+   "file": "audio/cues/c2013.mp3",
+   "dur": 14.52,
+   "bytes": 145485
+  },
+  "c2014": {
+   "file": "audio/cues/c2014.mp3",
+   "dur": 17.23,
+   "bytes": 172605
+  },
+  "c2021": {
+   "file": "audio/cues/c2021.mp3",
+   "dur": 17.5,
+   "bytes": 175245
+  },
+  "c2022": {
+   "file": "audio/cues/c2022.mp3",
+   "dur": 16.2,
+   "bytes": 162285
+  },
+  "c2023": {
+   "file": "audio/cues/c2023.mp3",
+   "dur": 4.54,
+   "bytes": 45645
+  },
+  "c2024": {
+   "file": "audio/cues/c2024.mp3",
+   "dur": 5.35,
+   "bytes": 53805
+  },
+  "c2101": {
+   "file": "audio/cues/c2101.mp3",
+   "dur": 11.11,
+   "bytes": 111405
+  },
+  "c2102": {
+   "file": "audio/cues/c2102.mp3",
+   "dur": 12.02,
+   "bytes": 120525
+  },
+  "c2102b": {
+   "file": "audio/cues/c2102b.mp3",
+   "dur": 0.94,
+   "bytes": 9645
+  },
+  "c2103": {
+   "file": "audio/cues/c2103.mp3",
+   "dur": 6.98,
+   "bytes": 70125
+  },
+  "c2103b": {
+   "file": "audio/cues/c2103b.mp3",
+   "dur": 1.78,
+   "bytes": 18045
+  },
+  "c2104": {
+   "file": "audio/cues/c2104.mp3",
+   "dur": 10.7,
+   "bytes": 107325
+  },
+  "c2104b": {
+   "file": "audio/cues/c2104b.mp3",
+   "dur": 1.32,
+   "bytes": 13485
+  },
+  "c2105": {
+   "file": "audio/cues/c2105.mp3",
+   "dur": 9.84,
+   "bytes": 98685
+  },
+  "c2105b": {
+   "file": "audio/cues/c2105b.mp3",
+   "dur": 0.94,
+   "bytes": 9645
+  },
+  "c2106": {
+   "file": "audio/cues/c2106.mp3",
+   "dur": 4.44,
+   "bytes": 44685
+  },
+  "c2201": {
+   "file": "audio/cues/c2201.mp3",
+   "dur": 12.02,
+   "bytes": 120525
+  },
+  "c2212": {
+   "file": "audio/cues/c2212.mp3",
+   "dur": 14.42,
+   "bytes": 144525
+  },
+  "c2213": {
+   "file": "audio/cues/c2213.mp3",
+   "dur": 12.02,
+   "bytes": 120525
+  },
+  "c2214": {
+   "file": "audio/cues/c2214.mp3",
+   "dur": 17.4,
+   "bytes": 174285
+  },
+  "c2301": {
+   "file": "audio/cues/c2301.mp3",
+   "dur": 27.79,
+   "bytes": 278205
+  },
+  "c2302": {
+   "file": "audio/cues/c2302.mp3",
+   "dur": 8.26,
+   "bytes": 82845
+  },
+  "c2303": {
+   "file": "audio/cues/c2303.mp3",
+   "dur": 21.38,
+   "bytes": 214125
+  },
+  "c2304": {
+   "file": "audio/cues/c2304.mp3",
+   "dur": 17.5,
+   "bytes": 175245
+  },
+  "c2401": {
+   "file": "audio/cues/c2401.mp3",
+   "dur": 15.79,
+   "bytes": 158205
+  },
+  "c2402": {
+   "file": "audio/cues/c2402.mp3",
+   "dur": 9.31,
+   "bytes": 93405
+  },
+  "c2403": {
+   "file": "audio/cues/c2403.mp3",
+   "dur": 17.06,
+   "bytes": 170925
+  },
+  "c2404": {
+   "file": "audio/cues/c2404.mp3",
+   "dur": 6.31,
+   "bytes": 63405
+  },
+  "c2405": {
+   "file": "audio/cues/c2405.mp3",
+   "dur": 20.9,
+   "bytes": 209325
+  },
+  "c2501": {
+   "file": "audio/cues/c2501.mp3",
+   "dur": 9.07,
+   "bytes": 91005
+  },
+  "c2502": {
+   "file": "audio/cues/c2502.mp3",
+   "dur": 15.53,
+   "bytes": 155565
+  },
+  "c2512": {
+   "file": "audio/cues/c2512.mp3",
+   "dur": 22.2,
+   "bytes": 222285
+  },
+  "c2513": {
+   "file": "audio/cues/c2513.mp3",
+   "dur": 9.91,
+   "bytes": 99405
+  },
+  "c2514": {
+   "file": "audio/cues/c2514.mp3",
+   "dur": 5.62,
+   "bytes": 56445
+  },
+  "c2515": {
+   "file": "audio/cues/c2515.mp3",
+   "dur": 2.21,
+   "bytes": 22365
+  },
+  "c2601": {
+   "file": "audio/cues/c2601.mp3",
+   "dur": 4.82,
+   "bytes": 48525
+  },
+  "c2602": {
+   "file": "audio/cues/c2602.mp3",
+   "dur": 14.9,
+   "bytes": 149325
+  },
+  "c2603": {
+   "file": "audio/cues/c2603.mp3",
+   "dur": 6.5,
+   "bytes": 65325
+  },
+  "c2604": {
+   "file": "audio/cues/c2604.mp3",
+   "dur": 13.06,
+   "bytes": 130845
+  },
+  "c2605": {
+   "file": "audio/cues/c2605.mp3",
+   "dur": 13.9,
+   "bytes": 139245
+  },
+  "c2701": {
+   "file": "audio/cues/c2701.mp3",
+   "dur": 17.3,
+   "bytes": 173325
+  },
+  "c2702": {
+   "file": "audio/cues/c2702.mp3",
+   "dur": 17.86,
+   "bytes": 178845
+  },
+  "c2703": {
+   "file": "audio/cues/c2703.mp3",
+   "dur": 22.32,
+   "bytes": 223485
+  },
+  "c2704": {
+   "file": "audio/cues/c2704.mp3",
+   "dur": 13.85,
+   "bytes": 138765
+  },
+  "c2706": {
+   "file": "audio/cues/c2706.mp3",
+   "dur": 10.44,
+   "bytes": 104685
+  },
+  "c2711": {
+   "file": "audio/cues/c2711.mp3",
+   "dur": 27.24,
+   "bytes": 272685
+  },
+  "c2712": {
+   "file": "audio/cues/c2712.mp3",
+   "dur": 5.69,
+   "bytes": 57165
+  },
+  "c2713": {
+   "file": "audio/cues/c2713.mp3",
+   "dur": 14.9,
+   "bytes": 149325
+  },
+  "c2714": {
+   "file": "audio/cues/c2714.mp3",
+   "dur": 10.7,
+   "bytes": 107325
+  },
+  "c2721": {
+   "file": "audio/cues/c2721.mp3",
+   "dur": 25.39,
+   "bytes": 254205
+  },
+  "c2722": {
+   "file": "audio/cues/c2722.mp3",
+   "dur": 15.53,
+   "bytes": 155565
+  },
+  "c2724": {
+   "file": "audio/cues/c2724.mp3",
+   "dur": 7.06,
+   "bytes": 70845
+  },
+  "c2725": {
+   "file": "audio/cues/c2725.mp3",
+   "dur": 10.58,
+   "bytes": 106125
+  },
+  "c2801": {
+   "file": "audio/cues/c2801.mp3",
+   "dur": 11.23,
+   "bytes": 112605
+  },
+  "c2802": {
+   "file": "audio/cues/c2802.mp3",
+   "dur": 13.7,
+   "bytes": 137325
+  },
+  "c2803": {
+   "file": "audio/cues/c2803.mp3",
+   "dur": 5.09,
+   "bytes": 51165
+  },
+  "c2804": {
+   "file": "audio/cues/c2804.mp3",
+   "dur": 11.71,
+   "bytes": 117405
+  },
+  "c2805": {
+   "file": "audio/cues/c2805.mp3",
+   "dur": 9.12,
+   "bytes": 91485
+  },
+  "c2901": {
+   "file": "audio/cues/c2901.mp3",
+   "dur": 8.9,
+   "bytes": 89325
+  },
+  "c2902": {
+   "file": "audio/cues/c2902.mp3",
+   "dur": 9.72,
+   "bytes": 97485
+  },
+  "c3002": {
+   "file": "audio/cues/c3002.mp3",
+   "dur": 15.86,
+   "bytes": 158925
+  },
+  "c3003": {
+   "file": "audio/cues/c3003.mp3",
+   "dur": 13.39,
+   "bytes": 134205
+  },
+  "c3004": {
+   "file": "audio/cues/c3004.mp3",
+   "dur": 8.74,
+   "bytes": 87645
+  },
+  "c3005": {
+   "file": "audio/cues/c3005.mp3",
+   "dur": 3.14,
+   "bytes": 31725
+  },
+  "c3006": {
+   "file": "audio/cues/c3006.mp3",
+   "dur": 15.62,
+   "bytes": 156525
+  },
+  "c3101": {
+   "file": "audio/cues/c3101.mp3",
+   "dur": 23.86,
+   "bytes": 238845
+  },
+  "c3102": {
+   "file": "audio/cues/c3102.mp3",
+   "dur": 18.5,
+   "bytes": 185325
+  },
+  "c3103": {
+   "file": "audio/cues/c3103.mp3",
+   "dur": 22.25,
+   "bytes": 222765
+  },
+  "c3104": {
+   "file": "audio/cues/c3104.mp3",
+   "dur": 1.42,
+   "bytes": 14445
+  },
+  "c3105": {
+   "file": "audio/cues/c3105.mp3",
+   "dur": 3.19,
+   "bytes": 32205
+  },
+  "c3111": {
+   "file": "audio/cues/c3111.mp3",
+   "dur": 19.85,
+   "bytes": 198765
+  },
+  "c3112": {
+   "file": "audio/cues/c3112.mp3",
+   "dur": 29.45,
+   "bytes": 294765
+  },
+  "c3113": {
+   "file": "audio/cues/c3113.mp3",
+   "dur": 2.16,
+   "bytes": 21885
+  },
+  "c3114": {
+   "file": "audio/cues/c3114.mp3",
+   "dur": 12.02,
+   "bytes": 120525
+  },
+  "c3201": {
+   "file": "audio/cues/c3201.mp3",
+   "dur": 21.94,
+   "bytes": 219645
+  },
+  "c3202": {
+   "file": "audio/cues/c3202.mp3",
+   "dur": 15.31,
+   "bytes": 153405
+  },
+  "c3203": {
+   "file": "audio/cues/c3203.mp3",
+   "dur": 12.84,
+   "bytes": 128685
+  },
+  "c3205": {
+   "file": "audio/cues/c3205.mp3",
+   "dur": 14.11,
+   "bytes": 141405
+  },
+  "c3206": {
+   "file": "audio/cues/c3206.mp3",
+   "dur": 4.82,
+   "bytes": 48525
+  },
+  "c3301": {
+   "file": "audio/cues/c3301.mp3",
+   "dur": 8.04,
+   "bytes": 80685
+  },
+  "c3302": {
+   "file": "audio/cues/c3302.mp3",
+   "dur": 1.66,
+   "bytes": 16845
+  },
+  "c3303": {
+   "file": "audio/cues/c3303.mp3",
+   "dur": 9.72,
+   "bytes": 97485
+  },
+  "c3304": {
+   "file": "audio/cues/c3304.mp3",
+   "dur": 15.53,
+   "bytes": 155565
+  },
+  "c3306": {
+   "file": "audio/cues/c3306.mp3",
+   "dur": 2.54,
+   "bytes": 25725
+  },
+  "c3401": {
+   "file": "audio/cues/c3401.mp3",
+   "dur": 12.98,
+   "bytes": 130125
+  },
+  "c3402": {
+   "file": "audio/cues/c3402.mp3",
+   "dur": 17.71,
+   "bytes": 177405
+  },
+  "c3403": {
+   "file": "audio/cues/c3403.mp3",
+   "dur": 19.46,
+   "bytes": 194925
+  },
+  "c3404": {
+   "file": "audio/cues/c3404.mp3",
+   "dur": 24.84,
+   "bytes": 248685
+  },
+  "c3406": {
+   "file": "audio/cues/c3406.mp3",
+   "dur": 11.86,
+   "bytes": 118845
+  },
+  "c3407": {
+   "file": "audio/cues/c3407.mp3",
+   "dur": 6.46,
+   "bytes": 64845
+  },
+  "c3408": {
+   "file": "audio/cues/c3408.mp3",
+   "dur": 6.48,
+   "bytes": 65085
+  },
+  "c3501": {
+   "file": "audio/cues/c3501.mp3",
+   "dur": 10.44,
+   "bytes": 104685
+  },
+  "c3502": {
+   "file": "audio/cues/c3502.mp3",
+   "dur": 10.7,
+   "bytes": 107325
+  },
+  "c3511": {
+   "file": "audio/cues/c3511.mp3",
+   "dur": 8.64,
+   "bytes": 86685
+  },
+  "c3512": {
+   "file": "audio/cues/c3512.mp3",
+   "dur": 15.38,
+   "bytes": 154125
+  },
+  "c3514": {
+   "file": "audio/cues/c3514.mp3",
+   "dur": 11.45,
+   "bytes": 114765
+  },
+  "c3521": {
+   "file": "audio/cues/c3521.mp3",
+   "dur": 1.54,
+   "bytes": 15645
+  },
+  "c3522": {
+   "file": "audio/cues/c3522.mp3",
+   "dur": 9.46,
+   "bytes": 94845
+  },
+  "c3523": {
+   "file": "audio/cues/c3523.mp3",
+   "dur": 2.5,
+   "bytes": 25245
+  },
+  "c3524": {
+   "file": "audio/cues/c3524.mp3",
+   "dur": 10.99,
+   "bytes": 110205
+  },
+  "c3525": {
+   "file": "audio/cues/c3525.mp3",
+   "dur": 10.25,
+   "bytes": 102765
+  },
+  "c3601": {
+   "file": "audio/cues/c3601.mp3",
+   "dur": 11.86,
+   "bytes": 118845
+  },
+  "c3602": {
+   "file": "audio/cues/c3602.mp3",
+   "dur": 1.7,
+   "bytes": 17325
+  },
+  "c3701": {
+   "file": "audio/cues/c3701.mp3",
+   "dur": 0.77,
+   "bytes": 7965
+  },
+  "c3702": {
+   "file": "audio/cues/c3702.mp3",
+   "dur": 11.86,
+   "bytes": 118845
+  },
+  "c3703": {
+   "file": "audio/cues/c3703.mp3",
+   "dur": 20.04,
+   "bytes": 200685
+  },
+  "c3704": {
+   "file": "audio/cues/c3704.mp3",
+   "dur": 28.66,
+   "bytes": 286845
+  },
+  "c3705": {
+   "file": "audio/cues/c3705.mp3",
+   "dur": 20.42,
+   "bytes": 204525
+  },
+  "c3706": {
+   "file": "audio/cues/c3706.mp3",
+   "dur": 15.91,
+   "bytes": 159405
+  },
+  "c3707": {
+   "file": "audio/cues/c3707.mp3",
+   "dur": 24.72,
+   "bytes": 247485
+  },
+  "c3708": {
+   "file": "audio/cues/c3708.mp3",
+   "dur": 21.24,
+   "bytes": 212685
+  },
+  "c3709": {
+   "file": "audio/cues/c3709.mp3",
+   "dur": 7.7,
+   "bytes": 77325
+  },
+  "c3710": {
+   "file": "audio/cues/c3710.mp3",
+   "dur": 3.82,
+   "bytes": 38445
+  },
+  "c3711": {
+   "file": "audio/cues/c3711.mp3",
+   "dur": 6.82,
+   "bytes": 68445
+  },
+  "c3721": {
+   "file": "audio/cues/c3721.mp3",
+   "dur": 0.7,
+   "bytes": 7245
+  },
+  "c3722": {
+   "file": "audio/cues/c3722.mp3",
+   "dur": 18.98,
+   "bytes": 190125
+  },
+  "c3723": {
+   "file": "audio/cues/c3723.mp3",
+   "dur": 19.46,
+   "bytes": 194925
+  },
+  "c3724": {
+   "file": "audio/cues/c3724.mp3",
+   "dur": 9.07,
+   "bytes": 91005
+  },
+  "c3725": {
+   "file": "audio/cues/c3725.mp3",
+   "dur": 4.99,
+   "bytes": 50205
+  },
+  "c3731": {
+   "file": "audio/cues/c3731.mp3",
+   "dur": 4.39,
+   "bytes": 44205
+  },
+  "c3732": {
+   "file": "audio/cues/c3732.mp3",
+   "dur": 10.99,
+   "bytes": 110205
+  },
+  "c3733": {
+   "file": "audio/cues/c3733.mp3",
+   "dur": 4.18,
+   "bytes": 42045
+  },
+  "c3734": {
+   "file": "audio/cues/c3734.mp3",
+   "dur": 5.62,
+   "bytes": 56445
+  },
+  "c3801": {
+   "file": "audio/cues/c3801.mp3",
+   "dur": 11.11,
+   "bytes": 111405
+  },
+  "c3802": {
+   "file": "audio/cues/c3802.mp3",
+   "dur": 20.42,
+   "bytes": 204525
+  },
+  "c3803": {
+   "file": "audio/cues/c3803.mp3",
+   "dur": 26.42,
+   "bytes": 264525
+  },
+  "c3804": {
+   "file": "audio/cues/c3804.mp3",
+   "dur": 8.3,
+   "bytes": 83325
+  },
+  "c3805": {
+   "file": "audio/cues/c3805.mp3",
+   "dur": 5.35,
+   "bytes": 53805
+  },
+  "c3806": {
+   "file": "audio/cues/c3806.mp3",
+   "dur": 1.18,
+   "bytes": 12045
+  },
+  "c3902": {
+   "file": "audio/cues/c3902.mp3",
+   "dur": 11.78,
+   "bytes": 118125
+  },
+  "c3903": {
+   "file": "audio/cues/c3903.mp3",
+   "dur": 4.34,
+   "bytes": 43725
+  },
+  "c3905": {
+   "file": "audio/cues/c3905.mp3",
+   "dur": 18.84,
+   "bytes": 188685
+  },
+  "c3906": {
+   "file": "audio/cues/c3906.mp3",
+   "dur": 10.25,
+   "bytes": 102765
+  },
+  "c3907": {
+   "file": "audio/cues/c3907.mp3",
+   "dur": 23.86,
+   "bytes": 238845
+  },
+  "c3908": {
+   "file": "audio/cues/c3908.mp3",
+   "dur": 18.98,
+   "bytes": 190125
+  },
+  "c3909": {
+   "file": "audio/cues/c3909.mp3",
+   "dur": 2.74,
+   "bytes": 27645
+  },
+  "c3921": {
+   "file": "audio/cues/c3921.mp3",
+   "dur": 8.52,
+   "bytes": 85485
+  },
+  "c3923": {
+   "file": "audio/cues/c3923.mp3",
+   "dur": 15.72,
+   "bytes": 157485
+  },
+  "c3924": {
+   "file": "audio/cues/c3924.mp3",
+   "dur": 20.83,
+   "bytes": 208605
+  },
+  "c3925": {
+   "file": "audio/cues/c3925.mp3",
+   "dur": 14.83,
+   "bytes": 148605
+  },
+  "c3926": {
+   "file": "audio/cues/c3926.mp3",
+   "dur": 6.72,
+   "bytes": 67485
+  },
+  "c3927": {
+   "file": "audio/cues/c3927.mp3",
+   "dur": 5.52,
+   "bytes": 55485
+  },
+  "c3928": {
+   "file": "audio/cues/c3928.mp3",
+   "dur": 12.91,
+   "bytes": 129405
+  },
+  "c3929": {
+   "file": "audio/cues/c3929.mp3",
+   "dur": 6.72,
+   "bytes": 67485
+  },
+  "c3941": {
+   "file": "audio/cues/c3941.mp3",
+   "dur": 5.18,
+   "bytes": 52125
+  },
+  "c3943": {
+   "file": "audio/cues/c3943.mp3",
+   "dur": 18.6,
+   "bytes": 186285
+  },
+  "c3944": {
+   "file": "audio/cues/c3944.mp3",
+   "dur": 11.86,
+   "bytes": 118845
+  },
+  "c3945": {
+   "file": "audio/cues/c3945.mp3",
+   "dur": 14.59,
+   "bytes": 146205
+  },
+  "c3946": {
+   "file": "audio/cues/c3946.mp3",
+   "dur": 15.05,
+   "bytes": 150765
+  },
+  "c3947": {
+   "file": "audio/cues/c3947.mp3",
+   "dur": 14.9,
+   "bytes": 149325
+  },
+  "c3949": {
+   "file": "audio/cues/c3949.mp3",
+   "dur": 5.26,
+   "bytes": 52845
+  }
+ },
+ "synth": {
+  "cardiac_looped": {
+   "file": "audio/synth/cardiac_looped.mp3",
+   "dur": 32.83,
+   "bytes": 394317
+  },
+  "cardiac_true": {
+   "file": "audio/synth/cardiac_true.mp3",
+   "dur": 16.44,
+   "bytes": 197613
+  },
+  "double_click": {
+   "file": "audio/synth/double_click.mp3",
+   "dur": 2.64,
+   "bytes": 32013
+  },
+  "motor_spike": {
+   "file": "audio/synth/motor_spike.mp3",
+   "dur": 4.03,
+   "bytes": 48717
+  },
+  "pulse": {
+   "file": "audio/synth/pulse.mp3",
+   "dur": 2.64,
+   "bytes": 32013
+  }
+ },
+ "totalCueSeconds": 3362
+}

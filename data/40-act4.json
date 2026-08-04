@@ -1,0 +1,199 @@
+{
+  "scenes": {
+
+    "s28_bus_log": {
+      "act": 4,
+      "title": "The Fourteenth of March",
+      "time": "16:44",
+      "bed": "ops",
+      "cues": [
+        { "id": "c2801", "type": "tts", "sp": "okafor", "fx": "radio", "bed": "aurora",
+          "t": "'Pull the Spectra bus log for the fourteenth of March.' He gave us the station, the log and the date, and we've spent five hours doing everything except the one thing he asked for." },
+        { "id": "c2802", "type": "tts", "sp": "meridian", "fx": "intercom",
+          "t": "[flat] Spectra instrument bus. Two archives retrieved. Fourteen March, eleven years prior — flagged, read four times in the past six weeks by Coll, A. And today, zero six hundred to present." },
+        { "id": "c2803", "type": "tts", "sp": "okafor", "fx": "radio", "bed": "aurora",
+          "t": "Today first. The dead man can wait eleven more minutes; he's waited eleven years." },
+        { "id": "c2804", "type": "tts", "sp": "meridian", "fx": "intercom",
+          "t": "[flat] Today's bus traffic, Spectra origin. Four hundred and twelve packets. Filtering: destinations outside the instrument register. One result. Eleven twenty-nine, fifty-five.",
+          "mix": [{ "sfx": "relay_click", "at": 0.2, "gain": 0.4 }] },
+        { "id": "c2805", "type": "tts", "sp": "voss", "fx": "radio", "bed": "spectra",
+          "t": "[interested] One packet out of four hundred and twelve, going somewhere it has no business going. [beat] Read it out, Control. All of it. I want to hear this." }
+      ],
+      "grants": ["E15"],
+      "next": "s29_packet_puzzle"
+    },
+
+    "s29_packet_puzzle": {
+      "act": 4,
+      "title": "T Plus Seven Hundred and Twenty",
+      "time": "16:52",
+      "bed": "ops",
+      "puzzle": "packet",
+      "cues": [
+        { "id": "c2901", "type": "tts", "sp": "meridian", "fx": "intercom",
+          "t": "[flat] Packet displayed. Header, routing, payload, signature block. Standard calibration format. One non-standard field present." },
+        { "id": "c2902", "type": "tts", "sp": "trent", "fx": "radio", "bed": "chronos",
+          "t": "[steadier now] Control, Chronos. I know this format better than anyone alive, it's half my job. Read the fields. One of them shouldn't be there and I'd like you to find it, not me." }
+      ],
+      "next": "s30_signature"
+    },
+
+    "s30_signature": {
+      "act": 4,
+      "title": "Signed",
+      "time": "16:58",
+      "bed": "ops",
+      "cues": [
+        { "id": "c3001", "type": "synth", "synth": "pulse" },
+        { "id": "c3002", "type": "dialogue", "fx": "radio", "bed": "chronos", "lines": [
+          { "sp": "trent", "t": "Deferred execution. T plus seven hundred and twenty seconds." },
+          { "sp": "trent", "t": "Sent at eleven twenty-nine, fifty-five. Seven hundred and twenty seconds is twelve minutes. Eleven forty-one, fifty-five." },
+          { "sp": "trent", "t": "[quiet] Twenty-five seconds before Adrian stopped talking." }
+        ]},
+        { "id": "c3003", "type": "tts", "sp": "trent", "fx": "radio", "bed": "chronos",
+          "t": "[flat] And that field does not exist in the calibration standard. Not deprecated. Not optional. It is not in the specification. Somebody wrote it by hand, into a format that only accepts it because our parser is old and forgiving." },
+        { "id": "c3004", "type": "tts", "sp": "meridian", "fx": "intercom",
+          "t": "[flat] Signature block. Issuing station: Spectra. Key identifier: S P E dash zero one. Validity: current. Signature: valid." },
+        { "id": "c3005", "type": "tts", "sp": "okafor", "fx": "radio", "bed": "aurora",
+          "t": "[carefully] Mara. Who holds S P E dash zero one." },
+        { "id": "c3006", "type": "tts", "sp": "voss", "fx": "radio", "bed": "spectra",
+          "t": "[without hesitation] I do. It's the station key for the calibration service, it lives on the Spectra terminal, and I am the only person authorised to use it. [beat] I told you that myself, three hours ago, when nobody had asked." }
+      ],
+      "grants": ["E15"],
+      "set": { "found_packet": true },
+      "next": "s31_voss_deflect"
+    },
+
+    "s31_voss_deflect": {
+      "act": 4,
+      "title": "The Reasonable Explanation",
+      "time": "17:05",
+      "bed": "spectra",
+      "cues": [
+        { "id": "c3101", "type": "dialogue", "fx": "radio", "lines": [
+          { "sp": "voss", "t": "So let's do this properly rather than dramatically. The key signs from the Spectra terminal. The Spectra terminal sits in a room that does not lock, because the door mechanism has been broken since February and it is on Gabriel's list." },
+          { "sp": "voss", "t": "I was not in that room between eleven twenty and eleven fifty. I was at the coudé bench with my hands inside a spectrograph." }
+        ]},
+        { "id": "c3102", "type": "tts", "sp": "voss", "fx": "radio",
+          "t": "[steady] Now. Who on this mountain would know that a calibration packet can carry a deferred field? Elias, obviously — he wrote half the parser. Who would know there was a live infusion line in that chair? Gabriel, who put it there and lied about it for two years." },
+        { "id": "c3103", "type": "tts", "sp": "voss", "fx": "radio",
+          "t": "[very level] And who has a machine that can make Adrian Coll say a sentence he never said, and two hundred hours of illegal recordings, and a documentary that has just become the most valuable thing he will ever own? [beat] I'm not accusing Julian Cross. I'm telling you that if I were sitting where you are, I would not have looked at me first, and I'd be embarrassed about that later." },
+        { "id": "c3104", "type": "tts", "sp": "cross", "fx": "radio", "bed": "annex",
+          "t": "[stiffly] I'm on this channel, Mara." },
+        { "id": "c3105", "type": "tts", "sp": "voss", "fx": "radio",
+          "t": "I know you are, Julian. I'd have said it either way." }
+      ],
+      "choices": [
+        { "t": "She's right about one thing. Cross — open your workstation to me.", "next": "s32_cross_workstation", "set": { "tested_cross": true } },
+        { "t": "Dr. Voss. Where exactly were you at eleven forty-seven?", "next": "s31b_voss_alibi", "set": { "pressed_voss": true } },
+        { "t": "Nobody's accusing anybody. Show me the fourteenth of March.", "next": "s34_the_fraud", "set": { "went_for_motive": true } }
+      ]
+    },
+
+    "s31b_voss_alibi": {
+      "act": 4,
+      "title": "Eleven Forty-Seven",
+      "time": "17:11",
+      "bed": "spectra",
+      "cues": [
+        { "id": "c3111", "type": "dialogue", "fx": "radio", "lines": [
+          { "sp": "voss", "t": "[unhurried] At the coudé bench. Alone, because everyone is alone on this mountain during totality — that's rather the design." },
+          { "sp": "voss", "t": "No, I can't prove it. Neither can Elias, or Gabriel, or Leila, or Julian. There are five of us and five separate buildings and one shadow." }
+        ]},
+        { "id": "c3112", "type": "tts", "sp": "voss", "fx": "radio",
+          "t": "[a shade cooler] If you'd like to spend your last hour testing the alibi of the person who has handed you every piece of evidence you own, Control, that is entirely your prerogative. [beat] I'd just point out that I gave you the relay delay. I gave you Elias's correction. I told you about my own nine-twelve access before you found it. I have been the reason you are not still on the first question." },
+        { "id": "c3113", "type": "tts", "sp": "okafor", "fx": "radio", "bed": "aurora",
+          "t": "[thoughtful, half to herself] ...Yes. She has, hasn't she." },
+        { "id": "c3114", "type": "tts", "sp": "voss", "fx": "radio",
+          "t": "[warm again] Test the workstation, Control. If Julian's machine was touched this morning, it will say so, and that is a fact rather than a feeling. Facts have been in short supply up here." }
+      ],
+      "set": { "voss_flagged": true },
+      "next": "s32_cross_workstation"
+    },
+
+    "s32_cross_workstation": {
+      "act": 4,
+      "title": "Eleven Forty-Seven, Thirty-Six",
+      "time": "17:18",
+      "bed": "annex",
+      "cues": [
+        { "id": "c3201", "type": "dialogue", "fx": "radio", "lines": [
+          { "sp": "cross", "t": "[tight] It's open. Take all of it. And yes — before the log says it, I'll say it. I built a voice model of Adrian." },
+          { "sp": "cross", "t": "Forty hours of his archived lectures. It's for narration repair — when an interview clips, when a great line has a cough in it. Every documentary house on earth does it and every single one of us pretends we don't." }
+        ]},
+        { "id": "c3202", "type": "tts", "sp": "cross", "fx": "radio",
+          "t": "[bitter] I demonstrated it exactly once, in the mess, in October, after two glasses of wine, to Mara Voss. Who asked me two very good questions about it. [beat] I have thought about that conversation continuously since about half past three." },
+        { "id": "c3203", "type": "tts", "sp": "meridian", "fx": "intercom", "bed": "ops",
+          "t": "[flat] Annex workstation. Model 'COLL-NARR-3' invoked once today. Timestamp: eleven forty-seven, thirty-six. Credential: Cross, J. Originating terminal: Spectra." },
+        { "id": "c3204", "type": "synth", "synth": "pulse", "bed": "ops" },
+        { "id": "c3205", "type": "dialogue", "fx": "radio", "bed": "annex", "lines": [
+          { "sp": "cross", "t": "[very quietly] Say the terminal again." },
+          { "sp": "meridian", "t": "[flat] Originating terminal: Spectra." },
+          { "sp": "cross", "t": "I was in the annex at eleven forty-seven. On my own camera. Timecode running. Four hundred metres and a locked bridge from that terminal." }
+        ]},
+        { "id": "c3206", "type": "tts", "sp": "okafor", "fx": "radio", "bed": "aurora",
+          "t": "[hard] Sixteen seconds after I asked Adrian a question nobody had rehearsed an answer to." }
+      ],
+      "grants": ["E16"],
+      "set": { "found_synthetic_origin": true },
+      "next": "s33_synthetic_proof"
+    },
+
+    "s33_synthetic_proof": {
+      "act": 4,
+      "title": "The Breath",
+      "time": "17:26",
+      "bed": "ops",
+      "cues": [
+        { "id": "c3301", "type": "tts", "sp": "okafor", "fx": "radio", "bed": "aurora",
+          "t": "Last piece, and then I'm done being clever. The eleven forty-eight line, background isolated. Everything I can hear that isn't him." },
+        { "id": "c3302", "type": "tts", "sp": "coll", "fx": "synthetic", "bed": "annex",
+          "t": "I have it. Beautiful.",
+          "caption": "11:48:02 — background isolated. Laptop fan. Dry, treated room. No ventilation. No drive.",
+          "isolate": "bed",
+          "clip": { "id": "CLIP_1148_ISO", "label": "11:48:02 — background only", "evidence": "E08" } },
+        { "id": "c3303", "type": "tts", "sp": "okafor", "fx": "radio", "bed": "aurora",
+          "t": "That is the annex. That is a small fan eighteen inches from a microphone, in a dead room, four hundred metres from where Adrian Coll was sitting." },
+        { "id": "c3304", "type": "tts", "sp": "okafor", "fx": "radio", "bed": "aurora",
+          "t": "[precise] And one more thing, because it settles it. The breath before 'Beautiful.' I've matched it against his archive. It is bit-identical to a breath in a lecture he gave in Utrecht in twenty-nineteen. [beat] Men do not breathe the same way twice. Models do." },
+        { "id": "c3305", "type": "synth", "synth": "pulse" },
+        { "id": "c3306", "type": "tts", "sp": "voss", "fx": "radio", "bed": "spectra",
+          "t": "[quiet, and for the first time slightly slow] ...Well. [beat] That's rather conclusive, isn't it." }
+      ],
+      "grants": ["E08"],
+      "set": { "found_synthetic_line": true },
+      "next": "s34_the_fraud"
+    },
+
+    "s34_the_fraud": {
+      "act": 4,
+      "title": "Helios",
+      "time": "17:35",
+      "bed": "ops",
+      "cues": [
+        { "id": "c3401", "type": "tts", "sp": "meridian", "fx": "intercom",
+          "t": "[flat] Spectra bus archive, fourteen March, eleven years prior. Raw spectrometer frames, ninety-one minutes. Accompanying file: personal memorandum, Coll, A., dated six weeks ago, unsent." },
+        { "id": "c3402", "type": "tts", "sp": "coll", "fx": "archive", "bed": "chamber_parked",
+          "t": "[tired, private] Memorandum to myself, because I have nobody I can put this to yet. I have re-reduced the fourteen March frames from the original bus archive rather than the published set. The published significance is five point two sigma. [beat] The raw frames give one point nine.",
+          "caption": "Coll's private memo. Read four times in six weeks.",
+          "clip": { "id": "CLIP_MEMO", "label": "Coll — private memo", "evidence": "E17" } },
+        { "id": "c3403", "type": "tts", "sp": "coll", "fx": "archive", "bed": "chamber_parked",
+          "t": "[heavily] One point nine sigma is a shrug. Five point two is a career, a chair, a consortium and four hundred million euros. The difference between them was made by hand, and I know whose hand, and I have known for eleven years that she is better at this than I am, which is why I did not want it to be true." },
+        { "id": "c3404", "type": "tts", "sp": "coll", "fx": "archive", "bed": "chamber_parked",
+          "t": "[a long pause] And here is the joke. The eclipse run will detect it properly. I am nearly certain of it. The signal is real. [beat] She was right. She was simply eleven years early, and she wrote it down anyway. [beat] I have to say all of this out loud in eleven days and it will destroy her, and it will destroy the only evidence that the thing she saw is actually there." },
+        { "id": "c3405", "type": "synth", "synth": "pulse" },
+        { "id": "c3406", "type": "tts", "sp": "meridian", "fx": "intercom",
+          "t": "[flat] Eclipse dataset ingest complete. Preliminary reduction: narrow-band feature detected at fourteen twenty point three megahertz. Significance: eight point one sigma." },
+        { "id": "c3407", "type": "tts", "sp": "okafor", "fx": "radio", "bed": "aurora",
+          "t": "[stunned, quiet] Eight point one. [beat] It's there. It was always there. She lied about seeing something that was actually in the sky." },
+        { "id": "c3408", "type": "tts", "sp": "meridian", "fx": "intercom",
+          "t": "[flat] Warning. Archive buffer at one hundred percent. Rolling overwrite of prior traffic begins in ten minutes.",
+          "mix": [{ "sfx": "archive_warning", "at": 0.4, "gain": 0.45 }] }
+      ],
+      "grants": ["E17", "E18", "E20"],
+      "set": { "knows_motive": true },
+      "next": "s35_last_call"
+    }
+
+  }
+}

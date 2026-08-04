@@ -1,0 +1,361 @@
+{
+  "scenes": {
+
+    "s19_shadow_anchor": {
+      "act": 3,
+      "title": "The Only Honest Clock",
+      "time": "15:04",
+      "bed": "ops",
+      "cues": [
+        { "id": "c1901", "type": "tts", "sp": "cross", "fx": "radio", "bed": "annex",
+          "t": "Outdoor pair, ridge east, unattended. I'm going to shut up now. Listen to the wind." },
+        { "id": "c1902", "type": "sfx", "sfx": "outdoor_totality", "bed": "totality",
+          "caption": "Second contact. The wind drops. Everything on the mountain that was making a noise stops making it.",
+          "clip": { "id": "CLIP_OUTDOOR", "label": "Outdoor microphone — second contact", "evidence": null } },
+        { "id": "c1903", "type": "tts", "sp": "okafor", "fx": "radio", "bed": "aurora",
+          "t": "There. That's eleven forty-six and twelve seconds, and I can prove it to four decimal places from an almanac published before any of us were born. Everything in that recording after that instant happened during totality. Everything before it did not." },
+        { "id": "c1903b", "type": "sfx", "sfx": "outdoor_third", "bed": "summit_wind",
+          "caption": "11:50:48 — third contact. The wind comes back, and so do the birds. Four minutes, thirty-six seconds, measured by a mountain.",
+          "clip": { "id": "CLIP_OUTDOOR_2", "label": "Outdoor microphone — third contact", "evidence": null } },
+        { "id": "c1904", "type": "tts", "sp": "okafor", "fx": "radio", "bed": "aurora",
+          "t": "[grimly] Now. Julian's outdoor pair also picked up the loudspeakers on the dome. Which means the radio traffic is *in* this recording, timestamped by the moon. So let us go and put the morning back together properly." },
+        { "id": "c1905", "type": "tts", "sp": "meridian", "fx": "intercom",
+          "t": "[flat] Archive buffer: ninety-seven percent." }
+      ],
+      "set": { "shadow_anchored": true },
+      "next": "s20_frost_alarm"
+    },
+
+    "s20_frost_alarm": {
+      "act": 3,
+      "title": "The Alarm",
+      "time": "15:12",
+      "bed": "ops",
+      "cues": [
+        { "id": "c2001", "type": "dialogue", "fx": "radio", "bed": "mechbay", "lines": [
+          { "sp": "rook", "t": "Control, Mechanical. Something's been bothering me and I've worked out what." },
+          { "sp": "rook", "t": "West shutter frost alarm went at eleven forty-eight exactly. That's a station-wide alarm. It goes everywhere — every station, every handset, the chamber, the toilets, everywhere. It is designed to be impossible to ignore." }
+        ]},
+        { "id": "c2002", "type": "tts", "sp": "rook", "fx": "radio", "bed": "mechbay",
+          "t": "[flat] Adrian screamed at me about that shutter at eleven thirty-one. Said he'd have my certification. [beat] Play his eleven forty-eight again, Control. And this time listen to what's underneath him." },
+        { "id": "c2003", "type": "tts", "sp": "coll", "fx": "synthetic", "bed": "annex",
+          "t": "I have it. Beautiful.",
+          "caption": "11:48:02 — with the frost alarm at full level underneath.",
+          "tail": 3.5,
+          "mix": [{ "sfx": "frost_alarm", "at": 0.0, "gain": 0.95 }],
+          "clip": { "id": "CLIP_1148_ALARM", "label": "11:48:02 — alarm isolated", "evidence": "E09" } }
+      ],
+      "choices": [
+        { "t": "He doesn't stop. He doesn't even change rhythm.", "next": "s20a_correct", "set": { "heard_alarm": true } },
+        { "t": "He's mid-sentence during a once-in-a-lifetime corona. He tuned it out.", "next": "s20b_doubt" }
+      ]
+    },
+
+    "s20a_correct": {
+      "act": 3,
+      "title": "He Doesn't Stop",
+      "time": "15:15",
+      "bed": "ops",
+      "cues": [
+        { "id": "c2011", "type": "synth", "synth": "pulse" },
+        { "id": "c2012", "type": "dialogue", "fx": "radio", "bed": "mechbay", "lines": [
+          { "sp": "rook", "t": "[quietly] No. He doesn't." },
+          { "sp": "rook", "t": "That man had been threatening my job over that exact shutter for two hours. If that alarm went off in his ear he'd have been on the loop inside a second, and it would not have been polite." }
+        ]},
+        { "id": "c2013", "type": "tts", "sp": "okafor", "fx": "radio", "bed": "aurora",
+          "t": "[cold] And I'd asked him a direct question at eleven forty-seven, twenty. He answered it forty-two seconds later, with a sentence that doesn't actually contain an answer. 'I have it.' Has what? At what frequency? At what flux?" },
+        { "id": "c2014", "type": "tts", "sp": "okafor", "fx": "radio", "bed": "aurora",
+          "t": "[flatly] I have been trying to tell myself for four hours that a great man got poetic at the moment of his greatest result. [beat] He didn't. That is not Adrian answering me. That is something shaped like Adrian, arriving late, and not hearing the alarm because there was no alarm where it was made." }
+      ],
+      "grants": ["E09"],
+      "set": { "knows_not_live": true },
+      "next": "s21_rehearsal"
+    },
+
+    "s20b_doubt": {
+      "act": 3,
+      "title": "Nobody Tunes It Out",
+      "time": "15:15",
+      "bed": "ops",
+      "cues": [
+        { "id": "c2021", "type": "dialogue", "fx": "radio", "bed": "mechbay", "lines": [
+          { "sp": "rook", "t": "[patiently] Control. That alarm is one hundred and five decibels and it means the roof is freezing shut over a live telescope." },
+          { "sp": "rook", "t": "Nobody tunes it out. I've had grown men drop coffee. Adrian had threatened my certification over that shutter ninety minutes earlier." }
+        ]},
+        { "id": "c2022", "type": "tts", "sp": "rook", "fx": "radio", "bed": "mechbay",
+          "t": "And here's the part I'd like you to sit with. Every other station has that alarm in their recording of that minute. Chronos has it. Aurora has it. The annex has it. [beat] Play it once more. Not for him. For the room." },
+        { "id": "c2023", "type": "tts", "sp": "coll", "fx": "synthetic", "bed": "annex",
+          "t": "I have it. Beautiful.",
+          "caption": "11:48:02 — third pass.",
+          "tail": 3.5,
+          "mix": [{ "sfx": "frost_alarm", "at": 0.0, "gain": 0.95 }] },
+        { "id": "c2024", "type": "tts", "sp": "okafor", "fx": "radio", "bed": "aurora",
+          "t": "[quietly] It's not a man ignoring an alarm, Control. It's a man who was never in the same building as one." }
+      ],
+      "grants": ["E09"],
+      "set": { "knows_not_live": true },
+      "next": "s21_rehearsal"
+    },
+
+    "s21_rehearsal": {
+      "act": 3,
+      "title": "Twenty-One Forty",
+      "time": "15:24",
+      "bed": "annex",
+      "cues": [
+        { "id": "c2101", "type": "tts", "sp": "cross", "fx": "radio",
+          "t": "The rehearsal. Last night, twenty-one forty. Adrian in the chamber, dome parked, running the whole eclipse script from the top so nobody would fluff it on the day." },
+        { "id": "c2102", "type": "dialogue", "fx": "archive", "bed": "chamber_parked", "lines": [
+          { "sp": "coll", "t": "[relaxed] From the top, then. And do try to sound like scientists tomorrow. Chronos — request your beacon step for third contact." },
+          { "sp": "trent", "t": "Requesting beacon step for third contact." }
+        ], "caption": "21:40:12, the previous night." },
+        { "id": "c2102b", "type": "tts", "sp": "coll", "fx": "archive", "bed": "chamber_parked",
+          "reuse": "c0507", "t": "Confirmed.",
+          "clip": { "id": "CLIP_REH_1", "label": "Rehearsal — 'Confirmed'", "evidence": "E11" } },
+        { "id": "c2103", "type": "dialogue", "fx": "archive", "bed": "chamber_parked", "lines": [
+          { "sp": "coll", "t": "Mechanical, you'll want sequence three at the shutter check. Tell me when you're ready for it." },
+          { "sp": "rook", "t": "Ready when you are, Adrian." }
+        ]},
+        { "id": "c2103b", "type": "tts", "sp": "coll", "fx": "archive", "bed": "chamber_parked",
+          "reuse": "c0508", "t": "Proceed to sequence three.",
+          "clip": { "id": "CLIP_REH_2", "label": "Rehearsal — 'Proceed to sequence three'", "evidence": null } },
+        { "id": "c2104", "type": "dialogue", "fx": "archive", "bed": "chamber_parked", "lines": [
+          { "sp": "coll", "t": "Aurora — if that receiver misbehaves on the day, I will want you holding, not improvising. Acknowledge." },
+          { "sp": "okafor", "t": "Understood. Holding, not improvising." }
+        ]},
+        { "id": "c2104b", "type": "tts", "sp": "coll", "fx": "archive", "bed": "chamber_parked",
+          "reuse": "c0509", "t": "Hold the sequence.",
+          "clip": { "id": "CLIP_REH_3", "label": "Rehearsal — 'Hold the sequence'", "evidence": null } },
+        { "id": "c2105", "type": "dialogue", "fx": "archive", "bed": "chamber_parked", "lines": [
+          { "sp": "coll", "t": "And Mr. Cross — when I say this to you tomorrow, it will mean stop filming and get out of the way." },
+          { "sp": "cross", "t": "[laughing] Noted. Word for word." }
+        ]},
+        { "id": "c2105b", "type": "tts", "sp": "coll", "fx": "archive", "bed": "chamber_parked",
+          "reuse": "c0510", "t": "Stand by.",
+          "clip": { "id": "CLIP_REH_4", "label": "Rehearsal — 'Stand by'", "evidence": null } },
+        { "id": "c2106", "type": "tts", "sp": "cross", "fx": "radio", "bed": "annex",
+          "t": "[very quietly] Four phrases. In order. Fourteen hours before anybody heard them on the day." }
+      ],
+      "grants": ["E11"],
+      "set": { "found_rehearsal": true },
+      "next": "s22_phrase_match"
+    },
+
+    "s22_phrase_match": {
+      "act": 3,
+      "title": "Word For Word",
+      "time": "15:33",
+      "bed": "ops",
+      "puzzle": "phrasematch",
+      "cues": [
+        { "id": "c2201", "type": "tts", "sp": "okafor", "fx": "radio", "bed": "aurora",
+          "t": "Put them side by side. Rehearsal on the left, this morning on the right. Don't take my word for any of it — your ears are as good as mine and I'd rather you owned this conclusion than borrowed it." }
+      ],
+      "next": "s22b_phrase_result"
+    },
+
+    "s22b_phrase_result": {
+      "act": 3,
+      "title": "Four Out of Five",
+      "time": "15:39",
+      "bed": "ops",
+      "cues": [
+        { "id": "c2211", "type": "synth", "synth": "pulse" },
+        { "id": "c2212", "type": "tts", "sp": "okafor", "fx": "radio", "bed": "aurora",
+          "t": "Four of the five are the rehearsal. Not similar — identical. Same waveform, same breath, same tiny crackle on the second syllable of 'sequence'. That is not a man repeating himself. That is a file." },
+        { "id": "c2213", "type": "tts", "sp": "okafor", "fx": "radio", "bed": "aurora",
+          "t": "[slowly] Four of the five. The eleven forty-eight is not in the rehearsal. It is not in any recording of Adrian Coll that exists, because he never said it. [beat] So where did it come from?" },
+        { "id": "c2214", "type": "tts", "sp": "voss", "fx": "radio", "bed": "spectra",
+          "t": "[carefully] Control — I want to say something before someone else says it worse. There is exactly one machine on this mountain that can make a voice say a sentence it never said. It is in the annex. It belongs to Julian Cross." }
+      ],
+      "set": { "phrases_matched": true, "voss_points_at_cross": true },
+      "next": "s23_rook_breaks"
+    },
+
+    "s23_rook_breaks": {
+      "act": 3,
+      "title": "The Fuse",
+      "time": "15:48",
+      "bed": "mechbay",
+      "cues": [
+        { "id": "c2301", "type": "dialogue", "fx": "radio", "lines": [
+          { "sp": "rook", "t": "[heavy] Control. Mechanical. I need to tell you about the chair and I need to do it before someone finds it, because how I say it now is the only thing I've got left." },
+          { "sp": "rook", "t": "Two years ago there was a study. Autonomic stress in long observation runs. Micro-dose infusion — beta blocker, tiny amounts, properly approved, ethics board, the lot. Adrian volunteered himself as subject one. Of course he did." }
+        ]},
+        { "id": "c2302", "type": "tts", "sp": "rook", "fx": "radio",
+          "t": "There's a line and a reservoir in the lumbar support of that chair. It ran for eight months and then the study finished and I was told to decommission it." },
+        { "id": "c2303", "type": "tts", "sp": "rook", "fx": "radio",
+          "t": "[quiet] I drained the reservoir. I pulled the fuse on the line. I signed the certificate. [beat] And I did not take the hardware out, because taking it out means lifting the console, and lifting the console means three days with the dome shut, and I could not tell Adrian Coll he was losing three nights for a study that was already over." },
+        { "id": "c2304", "type": "tts", "sp": "rook", "fx": "radio",
+          "t": "[breaking] So there has been a drug line in that man's chair for two years, with my signature saying there isn't. [beat] Go and look at the fuse, Control. Because I know where I left it, and if it's not where I left it then this is not my fault, and I would very much like it not to be my fault." }
+      ],
+      "grants": ["E10"],
+      "set": { "found_injector": true },
+      "next": "s24_chair_forensics"
+    },
+
+    "s24_chair_forensics": {
+      "act": 3,
+      "title": "Node MC-CHR-07",
+      "time": "15:56",
+      "bed": "ops",
+      "cues": [
+        { "id": "c2401", "type": "tts", "sp": "meridian", "fx": "intercom",
+          "t": "[flat] Chair assembly, Meridian Chamber. Infusion reservoir: present. Volume: zero millilitres. Line fuse: seated and conducting. Decommissioning certificate on file, dated two years, three months. Extraction record: none." },
+        { "id": "c2402", "type": "tts", "sp": "meridian", "fx": "intercom",
+          "t": "[flat] Node M C dash C H R dash zero seven. Bus endpoint status: enabled. Last configuration change: zero nine sixteen today." },
+        { "id": "c2403", "type": "dialogue", "fx": "radio", "bed": "mechbay", "lines": [
+          { "sp": "rook", "t": "[hollow] Nine sixteen." },
+          { "sp": "rook", "t": "I pulled that fuse two years ago with my own hands. Somebody put it back. And somebody filled a reservoir I emptied." },
+          { "sp": "rook", "t": "[hard] I'm a bad engineer, Control. I've been a bad engineer for two years and I'll answer for it. I am not this." }
+        ]},
+        { "id": "c2404", "type": "tts", "sp": "meridian", "fx": "intercom",
+          "t": "[flat] Meridian Chamber access, zero nine twelve to zero nine twenty-three: Voss, M. Sole occupant." },
+        { "id": "c2405", "type": "tts", "sp": "voss", "fx": "radio", "bed": "spectra",
+          "t": "[unruffled] Yes. That's me, and I've said so from the first minute. I ran a standing calibration on the chamber console. [beat] The chair is two metres from that console, Control. If you're about to tell me that puts my hands on it, then it also puts the hands of every single person who has walked into that room for two years on it." }
+      ],
+      "grants": ["E13"],
+      "next": "s25_cardiac_loop"
+    },
+
+    "s25_cardiac_loop": {
+      "act": 3,
+      "title": "A Heart That Repeats",
+      "time": "16:08",
+      "bed": "ops",
+      "puzzle": "cardiac",
+      "cues": [
+        { "id": "c2501", "type": "tts", "sp": "okafor", "fx": "radio", "bed": "aurora",
+          "t": "The telemetry. You told me the chair had him alive until eleven fifty. I've been staring at that trace for twenty minutes and I want you to hear what I'm hearing." },
+        { "id": "c2502", "type": "tts", "sp": "okafor", "fx": "radio", "bed": "aurora",
+          "t": "[precise] Atrial fibrillation. It is, by definition, irregular. The interval between beats is effectively random — that randomness is the diagnosis. Two windows of a fibrillating heart cannot look the same. Not similar. Cannot be the same." },
+        { "id": "c2503", "type": "synth", "synth": "cardiac_true", "bed": "ops",
+          "caption": "Window A — 11:38:00 to 11:42:00.",
+          "clip": { "id": "CLIP_CARD_A2", "label": "Cardiac — window A", "evidence": null } },
+        { "id": "c2504", "type": "synth", "synth": "cardiac_looped", "bed": "ops",
+          "caption": "Window B — 11:42:20 to 11:46:20. Listen to the pattern.",
+          "clip": { "id": "CLIP_CARD_B", "label": "Cardiac — window B", "evidence": "E12" } }
+      ],
+      "next": "s25b_cardiac_result"
+    },
+
+    "s25b_cardiac_result": {
+      "act": 3,
+      "title": "Four Minutes, On Repeat",
+      "time": "16:14",
+      "bed": "ops",
+      "cues": [
+        { "id": "c2511", "type": "synth", "synth": "pulse" },
+        { "id": "c2512", "type": "dialogue", "fx": "radio", "bed": "aurora", "lines": [
+          { "sp": "okafor", "t": "It's the same four minutes. Sample for sample. From eleven forty-two, twenty, that chair stopped measuring a heart and started replaying the last four minutes of one, over and over, until the buffer was told to stop." },
+          { "sp": "okafor", "t": "[quiet] Adrian Coll died at approximately eleven forty-two and twenty seconds. Four minutes before totality." }
+        ]},
+        { "id": "c2513", "type": "tts", "sp": "trent", "fx": "radio", "bed": "chronos",
+          "t": "[shaky] Control, Chronos — I've been listening, I'm sorry. If he died at eleven forty-two twenty, then he was already dead when he said 'Confirmed' to me at eleven forty-two forty-four." },
+        { "id": "c2514", "type": "tts", "sp": "trent", "fx": "radio", "bed": "chronos",
+          "t": "[very quietly] I stepped the beacon. I stepped the beacon because a dead man told me to. [beat] I'd like a minute, if that's all right." },
+        { "id": "c2515", "type": "tts", "sp": "meridian", "fx": "intercom",
+          "t": "[flat] Archive buffer: ninety-eight percent." }
+      ],
+      "grants": ["E12"],
+      "set": { "confirmed_early_death": true },
+      "next": "s26_solaris_window"
+    },
+
+    "s26_solaris_window": {
+      "act": 3,
+      "title": "One Uplink Window",
+      "time": "16:22",
+      "bed": "ops",
+      "cues": [
+        { "id": "c2601", "type": "tts", "sp": "voss", "fx": "radio", "bed": "spectra",
+          "t": "[urgent] Control, stop. There's something we haven't used and we have eleven minutes to use it." },
+        { "id": "c2602", "type": "tts", "sp": "voss", "fx": "radio", "bed": "spectra",
+          "t": "SOLARIS-2. The orbital solar platform. It's been observing the same eclipse from four hundred kilometres up, and it carries a timing cross-link to our summit repeater — that's how we co-register their frames with ours." },
+        { "id": "c2603", "type": "tts", "sp": "okafor", "fx": "radio", "bed": "aurora",
+          "t": "[sharply] Which means it has been listening to this mountain all morning, on a clock nobody here can touch, and writing it down in orbit." },
+        { "id": "c2604", "type": "tts", "sp": "meridian", "fx": "intercom",
+          "t": "[flat] SOLARIS-2 acquisition of signal in ninety seconds. Window duration: six minutes, forty seconds. One archival request may be serviced per pass. Next pass: four hours, eleven minutes." },
+        { "id": "c2605", "type": "tts", "sp": "voss", "fx": "radio", "bed": "spectra",
+          "t": "[tight] One request. The archive is at ninety-eight percent and the next pass is after it finishes overwriting. Whatever you ask them for, Control, it is the only thing you are ever going to get from orbit." }
+      ],
+      "choices": [
+        { "t": "The sky log. Every transmission the repeater put into space this morning.", "next": "s27_solaris_sky", "set": { "solaris_choice": "sky" } },
+        { "t": "Their eclipse frames. I want an independent time for second contact.", "next": "s27_solaris_frames", "set": { "solaris_choice": "frames" } },
+        { "t": "Their downlink of our instrument bus traffic.", "next": "s27_solaris_bus", "set": { "solaris_choice": "bus" } }
+      ]
+    },
+
+    "s27_solaris_sky": {
+      "act": 3,
+      "title": "A Hole in the Sky",
+      "time": "16:31",
+      "bed": "orbit",
+      "cues": [
+        { "id": "c2701", "type": "dialogue", "fx": "orbit", "lines": [
+          { "sp": "solaris", "t": "Helios, SOLARIS-2, we have you. Sorry about your morning — genuinely, we all liked him." },
+          { "sp": "solaris", "t": "You want the repeater log. Right. Everything your summit repeater radiated skyward this morning, with our clock on it, and our clock does not care what yours thinks." }
+        ]},
+        { "id": "c2702", "type": "tts", "sp": "solaris", "fx": "orbit",
+          "t": "Running it against the list you sent up. Coll, A. Eleven twenty-two forty — got it. Eleven thirty-one oh six — got it. Eleven thirty-five fifty — got it. Eleven forty-one thirty-eight — got it, and it ends the way you said it ends." },
+        { "id": "c2703", "type": "tts", "sp": "solaris", "fx": "orbit",
+          "t": "[slower] Eleven forty-two forty-four. [beat] Nothing. Eleven forty-four oh five — nothing. Eleven forty-six forty — nothing. Eleven forty-eight oh two — nothing. Eleven forty-nine thirty — nothing." },
+        { "id": "c2704", "type": "dialogue", "fx": "orbit", "lines": [
+          { "sp": "solaris", "t": "Helios, confirm your list. Because from up here, after eleven forty-one thirty-eight, that repeater goes quiet on Meridian and stays quiet." },
+          { "sp": "solaris", "t": "[carefully] Whatever your people heard after that — it never left the mountain." }
+        ]},
+        { "id": "c2705", "type": "synth", "synth": "pulse", "bed": "ops" },
+        { "id": "c2706", "type": "tts", "sp": "okafor", "fx": "radio", "bed": "aurora",
+          "t": "[very quietly] Not the repeater. The relay. Somebody put them into the emergency loop, downstream of the antenna. Into our ears, and nowhere else in the universe." }
+      ],
+      "grants": ["E14"],
+      "set": { "has_solaris": true, "solaris_decisive": true },
+      "next": "s28_bus_log"
+    },
+
+    "s27_solaris_frames": {
+      "act": 3,
+      "title": "Second Contact, From Orbit",
+      "time": "16:31",
+      "bed": "orbit",
+      "cues": [
+        { "id": "c2711", "type": "dialogue", "fx": "orbit", "lines": [
+          { "sp": "solaris", "t": "Helios, SOLARIS-2. Eclipse frames, co-registered to your ridge. Second contact at your position: eleven forty-six, twelve point one four. Third contact: eleven fifty, forty-eight point oh two." },
+          { "sp": "solaris", "t": "Which — and I say this gently, Helios — is exactly what the almanac said this morning, and exactly what your colleague's outdoor microphone already told you." }
+        ]},
+        { "id": "c2712", "type": "tts", "sp": "okafor", "fx": "radio", "bed": "aurora",
+          "t": "[frustrated] It confirms the shadow. We had the shadow. [beat] I'd have asked them what they *heard*, Control." },
+        { "id": "c2713", "type": "tts", "sp": "solaris", "fx": "orbit",
+          "t": "[helpfully] For what it's worth — and I can't run the query, we're already losing you — our repeater cross-link logs voice traffic too. If anyone ever asks, the answer's in there. Someone should pull it. SOLARIS-2 out." },
+        { "id": "c2714", "type": "tts", "sp": "voss", "fx": "radio", "bed": "spectra",
+          "t": "[evenly] Four hours until the next pass. The archive will be gone. [beat] It was a reasonable request, Control. It just wasn't the one." }
+      ],
+      "set": { "has_solaris": false, "solaris_wasted": true },
+      "next": "s28_bus_log"
+    },
+
+    "s27_solaris_bus": {
+      "act": 3,
+      "title": "Partial Downlink",
+      "time": "16:31",
+      "bed": "orbit",
+      "cues": [
+        { "id": "c2721", "type": "dialogue", "fx": "orbit", "lines": [
+          { "sp": "solaris", "t": "Helios, SOLARIS-2. Instrument bus mirror — we only take the calibration subset, we don't carry your whole bus. But we've got the subset." },
+          { "sp": "solaris", "t": "Eleven twenty-nine, fifty-five. Calibration packet, origin Spectra, destination — hold on, that's an odd one. Destination M C dash C H R dash zero seven." }
+        ]},
+        { "id": "c2722", "type": "tts", "sp": "solaris", "fx": "orbit",
+          "t": "[puzzled] That's not an instrument. That's in your chair register. Why is your calibration service talking to a chair? [beat] Anyway — it's in the pass, it's yours, and we're going over the horizon. Good luck down there. SOLARIS-2 out." },
+        { "id": "c2723", "type": "synth", "synth": "pulse", "bed": "ops" },
+        { "id": "c2724", "type": "tts", "sp": "okafor", "fx": "radio", "bed": "aurora",
+          "t": "[intent] That's the trigger. That is the trigger and we have it from orbit, which means nobody down here can argue about whether it existed." },
+        { "id": "c2725", "type": "tts", "sp": "voss", "fx": "radio", "bed": "spectra",
+          "t": "[a fraction late] ...Yes. Well caught, Control. [beat] Though I'd have spent the pass on the voice log, personally. We still can't prove what anyone actually heard." }
+      ],
+      "grants": ["E15"],
+      "set": { "has_solaris": true, "has_packet_early": true },
+      "next": "s28_bus_log"
+    }
+
+  }
+}

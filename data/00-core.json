@@ -1,0 +1,292 @@
+{
+  "meta": {
+    "title": "THE OBSERVATORY MURDER",
+    "tagline": "The clocks disagreed. The shadow did not.",
+    "version": "1.0.0",
+    "start": "s01_cold_open",
+    "keyEvidence": ["E02", "E08", "E09", "E11", "E12", "E14", "E15", "E16", "E17"],
+    "strongCaseThreshold": 7,
+    "strongCaseRequiresOneOf": ["E14", "E16"]
+  },
+
+  "characters": {
+    "coll": {
+      "name": "Prof. Adrian Coll",
+      "short": "COLL",
+      "station": "Meridian Chamber",
+      "role": "Observatory director",
+      "voiceId": "JBFqnCBsd6RMkjVDRZzb",
+      "stability": 0.45,
+      "similarity": 0.75,
+      "colour": "#d8c9a8"
+    },
+    "voss": {
+      "name": "Dr. Mara Voss",
+      "short": "VOSS",
+      "station": "Spectra",
+      "role": "Deputy director",
+      "voiceId": "pFZP5JQG7iQjIQuC4Bku",
+      "stability": 0.55,
+      "similarity": 0.8,
+      "colour": "#9fc7d4"
+    },
+    "trent": {
+      "name": "Dr. Elias Trent",
+      "short": "TRENT",
+      "station": "Chronos",
+      "role": "Precision timing",
+      "voiceId": "YImgdHB2KYPPVa2Ew8pp",
+      "stability": 0.4,
+      "similarity": 0.75,
+      "colour": "#c9b6dd"
+    },
+    "rook": {
+      "name": "Gabriel Rook",
+      "short": "ROOK",
+      "station": "Mechanical bay",
+      "role": "Systems engineer",
+      "voiceId": "thYWTC3ObLUgoeN0sEv3",
+      "stability": 0.45,
+      "similarity": 0.75,
+      "colour": "#d4a98c"
+    },
+    "okafor": {
+      "name": "Dr. Leila Okafor",
+      "short": "OKAFOR",
+      "station": "Aurora array",
+      "role": "Radio astronomer",
+      "voiceId": "hpp4J3VqNfWAUOO0d1Us",
+      "stability": 0.5,
+      "similarity": 0.8,
+      "colour": "#a8d4b4"
+    },
+    "cross": {
+      "name": "Julian Cross",
+      "short": "CROSS",
+      "station": "Visitor annex",
+      "role": "Documentary journalist",
+      "voiceId": "cjVigY5qzO86Huf0OWal",
+      "stability": 0.45,
+      "similarity": 0.75,
+      "colour": "#dbc48a"
+    },
+    "meridian": {
+      "name": "MERIDIAN",
+      "short": "MERIDIAN",
+      "station": "Station automation",
+      "role": "Automated systems voice",
+      "voiceId": "SAz9YHcvj6GT2YYXdXww",
+      "stability": 1.0,
+      "similarity": 0.9,
+      "colour": "#8d9aa8"
+    },
+    "solaris": {
+      "name": "SOLARIS-2",
+      "short": "SOLARIS-2",
+      "station": "Low Earth orbit",
+      "role": "Payload specialist",
+      "voiceId": "IKne3meq5aSn9XLyUdCD",
+      "stability": 0.45,
+      "similarity": 0.75,
+      "colour": "#e0a0a0"
+    }
+  },
+
+  "fx": {
+    "clean": { "chain": "loudnorm=I=-17:TP=-2:LRA=11" },
+    "radio": { "chain": "highpass=f=310,lowpass=f=3300,acompressor=threshold=-18dB:ratio=4:attack=6:release=90,loudnorm=I=-17:TP=-2:LRA=11" },
+    "relay": { "chain": "highpass=f=420,lowpass=f=2700,acompressor=threshold=-16dB:ratio=6:attack=4:release=60,loudnorm=I=-17:TP=-2:LRA=11" },
+    "archive": { "chain": "highpass=f=280,lowpass=f=3000,acompressor=threshold=-20dB:ratio=3:attack=10:release=140,loudnorm=I=-18:TP=-2:LRA=11" },
+    "synthetic": { "chain": "highpass=f=430,lowpass=f=2700,acompressor=threshold=-30dB:ratio=12:attack=2:release=40,loudnorm=I=-16:TP=-2:LRA=6" },
+    "intercom": { "chain": "highpass=f=340,lowpass=f=3600,acompressor=threshold=-22dB:ratio=8:attack=3:release=50,loudnorm=I=-18:TP=-2:LRA=8" },
+    "orbit": { "chain": "highpass=f=380,lowpass=f=3100,acompressor=threshold=-18dB:ratio=5:attack=5:release=70,aphaser=type=t:speed=0.12:decay=0.25,loudnorm=I=-17:TP=-2:LRA=11" },
+    "voicemail": { "chain": "highpass=f=300,lowpass=f=3400,acompressor=threshold=-20dB:ratio=5:attack=5:release=80,loudnorm=I=-19:TP=-3:LRA=11" }
+  },
+
+  "beds": {
+    "ops": {
+      "label": "Ops Control — remote operations centre",
+      "prompt": "Quiet windowless operations room, low steady air conditioning hum, very faint distant keyboard typing, subtle electrical mains hum, no music, no voices",
+      "duration": 22, "gain": 0.16
+    },
+    "summit_wind": {
+      "label": "Helios Peak — exterior, ridge",
+      "prompt": "High altitude mountain wind against metal structures, thin cold gusting wind, faint cable rattle, distant ice pellets on steel, no music, no voices",
+      "duration": 22, "gain": 0.3
+    },
+    "chamber_tracking": {
+      "label": "Meridian Chamber — telescope tracking",
+      "prompt": "Sealed circular control room, soft ventilation hum, and a continuous faint high pitched electric servo motor whine of a telescope drive slowly tracking, occasional tiny mechanical tick, no music, no voices",
+      "duration": 22, "gain": 0.26
+    },
+    "chamber_parked": {
+      "label": "Meridian Chamber — dome parked",
+      "prompt": "Sealed circular control room at night, soft steady ventilation hum only, rounded room resonance, completely still, no motors, no music, no voices",
+      "duration": 22, "gain": 0.24
+    },
+    "annex": {
+      "label": "Visitor annex — edit room",
+      "prompt": "Small acoustically treated edit room, close laptop cooling fan whirring steadily, very dry dead room tone, faint hard drive clicking, no music, no voices",
+      "duration": 22, "gain": 0.26
+    },
+    "chronos": {
+      "label": "Chronos timing laboratory",
+      "prompt": "Laboratory with rack equipment cooling fans, a precise short electronic chirp beeping once every two seconds, clean digital environment, no music, no voices",
+      "duration": 22, "gain": 0.24
+    },
+    "aurora": {
+      "label": "Aurora radio array",
+      "prompt": "Radio telescope control room, broadband radio static hiss from monitor speaker, intermittent crackling interference, low equipment hum, no music, no voices",
+      "duration": 22, "gain": 0.24
+    },
+    "mechbay": {
+      "label": "Mechanical and optical systems bay",
+      "prompt": "Large industrial machine bay, heavy relays clunking occasionally, low metallic structural vibration, distant electric motor running, echoing concrete space, no music, no voices",
+      "duration": 22, "gain": 0.26
+    },
+    "spectra": {
+      "label": "Spectra spectroscopy station",
+      "prompt": "Instrument room with steady cryogenic cooling compressor and a constant high frequency instrument whine, very stable machine tone, no music, no voices",
+      "duration": 22, "gain": 0.24
+    },
+    "orbit": {
+      "label": "SOLARIS-2 — orbital platform",
+      "prompt": "Inside a small spacecraft cabin, steady air circulation fans, faint electronic beeps, enclosed metallic hum, no music, no voices",
+      "duration": 22, "gain": 0.22
+    },
+    "totality": {
+      "label": "Helios Peak — totality",
+      "prompt": "Mountain ridge during a total solar eclipse, wind has completely dropped to nothing, eerie profound stillness, no birds, only a faint distant instrument hum, no music, no voices",
+      "duration": 22, "gain": 0.3
+    },
+    "carrier": {
+      "label": "Open channel — no traffic",
+      "prompt": "Empty open radio channel, gentle carrier hiss and occasional faint squelch, dead air, no music, no voices",
+      "duration": 20, "gain": 0.3
+    }
+  },
+
+  "sfx": {
+    "eclipse_tone": {
+      "label": "Eclipse contact tone",
+      "prompt": "Single clean electronic timing tone beep, three short pips then a longer tone, laboratory countdown marker",
+      "duration": 5
+    },
+    "frost_alarm": {
+      "label": "West shutter frost alarm",
+      "prompt": "Insistent electronic alarm chirping urgently, three-pulse repeating warning pattern, industrial plant alarm over a PA system",
+      "duration": 6
+    },
+    "relay_click": {
+      "label": "Bus relay click",
+      "prompt": "A single soft electromechanical relay click followed by a very short data burst chirp",
+      "duration": 3
+    },
+    "chamber_unlock": {
+      "label": "Meridian Chamber lock release",
+      "prompt": "Heavy pressure door lock disengaging, pneumatic hiss, large metal bolts retracting, heavy door swinging open",
+      "duration": 7
+    },
+    "motor_spinup": {
+      "label": "Telescope drive spin-up",
+      "prompt": "Large electric telescope drive motor starting up, current surge whine rising then settling into steady rotation",
+      "duration": 6
+    },
+    "outdoor_totality": {
+      "label": "Outdoor microphone — second contact",
+      "prompt": "Outdoor mountain recording: gusting wind steadily dying away to complete stillness, birdsong and insects abruptly stopping, then profound silence with only faint air movement",
+      "duration": 20
+    },
+    "outdoor_third": {
+      "label": "Outdoor microphone — third contact",
+      "prompt": "Outdoor mountain recording: profound silence broken as wind returns in a rising gust and birds abruptly start calling again all at once",
+      "duration": 14
+    },
+    "archive_warning": {
+      "label": "Archive overwrite warning",
+      "prompt": "Low urgent electronic warning tone repeating slowly, data centre alert klaxon, muted and mechanical",
+      "duration": 6
+    },
+    "dead_carrier": {
+      "label": "Channel drops",
+      "prompt": "Radio transmission abruptly cutting out into flat empty carrier hiss and squelch",
+      "duration": 5
+    },
+    "storm_exterior": {
+      "label": "Ice storm",
+      "prompt": "Severe mountain ice storm, hard sleet driving against metal cladding, howling wind, structure creaking under load",
+      "duration": 16
+    }
+  },
+
+  "synth": {
+    "cardiac_true": { "label": "Cardiac telemetry — 11:38 to 11:42", "kind": "cardiac", "loop": false },
+    "cardiac_looped": { "label": "Cardiac telemetry — 11:42 to 11:50", "kind": "cardiac", "loop": true },
+    "double_click": { "label": "11:41:38 — terminal artefact, isolated", "kind": "click" },
+    "pulse": { "label": "Contradiction motif", "kind": "pulse" },
+    "motor_spike": { "label": "Drive current — 11:44:04", "kind": "motorspike" }
+  },
+
+  "evidence": {
+    "E01": { "name": "The final exchange", "act": 1,
+      "initial": "Coll answers Okafor at 11:48:02. He is alive, thirteen minutes before the chamber is opened.",
+      "truth": "He has been dead for six minutes. This line was generated, not spoken." },
+    "E02": { "name": "Coll's last genuine transmission", "act": 1, "key": true,
+      "initial": "11:41:38. The channel breaks up mid-report. Interference, presumably.",
+      "truth": "Not interference. A soft double click, a confused breath, and the chair servo taking a change of weight. You are listening to the murder." },
+    "E03": { "name": "Chamber access log", "act": 1,
+      "initial": "Coll enters at 11:18:00. The door seals. Nobody enters after him and no override is recorded.",
+      "truth": "Entirely accurate. The weapon was installed at 09:12 and triggered from four kilometres away." },
+    "E04": { "name": "Preliminary medical report", "act": 1,
+      "initial": "Fatal cardiac event consistent with a large dose of his own antiarrhythmic. Estimated 11:49 to 11:51.",
+      "truth": "The estimate is anchored to telemetry that was replaying a buffer." },
+    "E05": { "name": "Trent's concealed correction", "act": 2,
+      "initial": "Trent applied an undeclared +4.8 second correction to the Aurora clock feed.",
+      "truth": "Real misconduct, and irrelevant. It accounts for 4.8 seconds of a discrepancy over seven minutes long." },
+    "E06": { "name": "Coll's voicemail to Okafor", "act": 2, "key": false,
+      "initial": "10:58. 'If I go quiet today, don't trust the clocks. Trust the shadow. And pull the Spectra bus log for the fourteenth of March.'",
+      "truth": "He knew. He named the station, the log, and the date, and nobody listened for an hour." },
+    "E07": { "name": "Emergency relay specification", "act": 2,
+      "initial": "The backup voice loop buffers approximately eleven seconds under load. Engaged at 09:40 at Ops request.",
+      "truth": "It does not pass through the summit repeater — which is why anything injected into it never reached orbit. Voss requested it." },
+    "E08": { "name": "Room tone analysis", "act": 2, "key": true,
+      "initial": "The 11:48:02 transmission carries different background noise from the rest.",
+      "truth": "Three tiers. Live Coll has chamber ventilation plus tracking servo. The four short replies have chamber tone with no servo. The 11:48 line has the annex." },
+    "E09": { "name": "The frost alarm", "act": 3, "key": true,
+      "initial": "The west shutter alarm sounds observatory-wide at 11:48:00.",
+      "truth": "Coll talks straight through it without a pause. No living person on that mountain ignored that alarm." },
+    "E10": { "name": "Chair decommissioning certificate", "act": 3,
+      "initial": "The physiology infusion rig was decommissioned two years ago. Signed: G. Rook.",
+      "truth": "Signed, drained, fused out — and never physically extracted. The hardware is still in the chair." },
+    "E11": { "name": "The rehearsal recording", "act": 3, "key": true,
+      "initial": "21:40 the previous night. A routine communications rehearsal.",
+      "truth": "Contains 'Confirmed', 'Proceed to sequence three', 'Hold the sequence' and 'Stand by' — verbatim, in Coll's voice, hours before he died." },
+    "E12": { "name": "Looped cardiac telemetry", "act": 3, "key": true,
+      "initial": "Coll's heart trace continues until 11:50:31.",
+      "truth": "Two windows of a documented arrhythmia are sample-identical. An irregular rhythm cannot repeat. The chair was replaying a four-minute buffer." },
+    "E13": { "name": "Chair hardware examination", "act": 3,
+      "initial": "The reservoir is empty and the line fuse is seated.",
+      "truth": "Rook pulled that fuse two years ago. Someone refitted it, and it was not Rook." },
+    "E14": { "name": "SOLARIS-2 sky log", "act": 4, "key": true,
+      "initial": "The orbital platform logs every transmission through the summit repeater.",
+      "truth": "Five of Coll's transmissions do not appear in it. They never left the mountain. They were injected into the relay." },
+    "E15": { "name": "The calibration packet", "act": 4, "key": true,
+      "initial": "A routine instrument calibration packet at 11:29:55.",
+      "truth": "Addressed to node MC-CHR-07 — the chair — with a deferred execution field of T+720 seconds. Signed by Spectra." },
+    "E16": { "name": "Annex workstation log", "act": 4, "key": true,
+      "initial": "Cross's voice model was invoked at 11:47:36.",
+      "truth": "From a Spectra terminal, on Cross's credentials, while Cross was on his own camera in the annex." },
+    "E17": { "name": "Coll's memo — 14 March", "act": 4, "key": true,
+      "initial": "Coll had reopened an eleven-year-old dataset.",
+      "truth": "The Helios detection was padded. Voss's career, and the consortium's funding, rest on a fabricated significance." },
+    "E18": { "name": "The funding call", "act": 4,
+      "initial": "A recorded consortium call about the renewal cycle.",
+      "truth": "€400 million, contingent on the Helios result, decided eleven days from now." },
+    "E19": { "name": "Motor current trace", "act": 2,
+      "initial": "Rook starts sequence three on Coll's order at 11:44:05.",
+      "truth": "The drive current rises 1.2 seconds before the order arrives. The relay delayed the audio; the sequence was already running on its timer." },
+    "E20": { "name": "Coll's final data", "act": 4,
+      "initial": "The eclipse observation completed and wrote to the archive.",
+      "truth": "The 1420.3 MHz feature is there, and it is real. Voss did not invent the signal. She only claimed it before she had it." }
+  }
+}
