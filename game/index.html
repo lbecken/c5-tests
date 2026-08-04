@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Man Who Called From Tomorrow</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text x='1' y='13' font-size='13'>&#9742;</text></svg>">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<audio id="dlg" preload="auto" crossorigin="anonymous"></audio>
+
+<!-- ── title ─────────────────────────────────────────────────────── -->
+<section id="title" class="screen on">
+  <div class="title-inner">
+    <p class="kicker">Municipal Emergency Coordination Centre — Ghent — night duty</p>
+    <h1>The Man Who<br>Called From Tomorrow</h1>
+    <p class="blurb">
+      At 21:13 a man telephones to report a murder that has not happened yet.
+      He knows the incident commander's private call sign. He knows what the
+      substation is about to do. He says he is calling at eight seventeen
+      tomorrow morning.<br><br>
+      You are the communications analyst on the night desk. Every impossible
+      call comes through your console. You have forty-seven minutes.
+    </p>
+    <p class="warn">Headphones strongly recommended. Some evidence is only audible.</p>
+    <div class="title-actions">
+      <button id="btn-begin" class="big">Open the line</button>
+      <button id="btn-continue" class="big ghost" hidden>Resume shift</button>
+    </div>
+    <p class="credits">A fair-play mystery. Everything you need to solve it is in the audio.</p>
+  </div>
+</section>
+
+<!-- ── console ───────────────────────────────────────────────────── -->
+<section id="console" class="screen">
+
+  <header id="topbar">
+    <div class="clock-wrap">
+      <span id="clock">21:13</span>
+      <span id="deadline">phase lock 22:00</span>
+    </div>
+    <div id="scene-title"></div>
+    <div class="topright">
+      <span id="channel-label" class="chan"></span>
+      <button id="btn-notebook" class="chip">Evidence <span id="ev-count">0</span></button>
+      <button id="btn-mixer" class="chip">Audio</button>
+    </div>
+  </header>
+
+  <main id="stage">
+    <div id="speaker-panel">
+      <div id="speaker-name">—</div>
+      <div id="speaker-role"></div>
+      <div id="meter"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    </div>
+
+    <div id="subtitle-wrap">
+      <div id="subtitle"></div>
+    </div>
+
+    <div id="interaction"></div>
+  </main>
+
+  <footer id="controls">
+    <button id="btn-replay" class="chip">↺ Replay line</button>
+    <button id="btn-replay-scene" class="chip">↺↺ Replay scene</button>
+    <button id="btn-skip" class="chip">▸▸ Skip</button>
+    <span id="seg-indicator"></span>
+    <button id="btn-transcript" class="chip right">Transcript</button>
+  </footer>
+
+  <aside id="notebook" class="panel">
+    <h2>Evidence <button class="close" data-close="notebook">×</button></h2>
+    <div id="notebook-body"></div>
+  </aside>
+
+  <aside id="transcript" class="panel">
+    <h2>Transcript <button class="close" data-close="transcript">×</button></h2>
+    <div id="transcript-body"></div>
+  </aside>
+
+  <aside id="mixer" class="panel">
+    <h2>Audio <button class="close" data-close="mixer">×</button></h2>
+    <label>Dialogue <input type="range" id="v-dlg" min="0" max="1.6" step="0.02" value="1"></label>
+    <label>Environment <input type="range" id="v-amb" min="0" max="1.2" step="0.02" value="0.55"></label>
+    <label>Effects <input type="range" id="v-sfx" min="0" max="1.4" step="0.02" value="0.8"></label>
+    <p class="mixnote">
+      The room around you is generated live — rain, ventilation, the array, the
+      clock. Turning the environment down will not hide anything you need, but
+      it will make the case quieter than it should be.
+    </p>
+  </aside>
+
+</section>
+
+<script src="js/data/characters.js"></script>
+<script src="js/data/evidence.js"></script>
+<script>const SCENES = [];</script>
+<script src="js/data/scenes_act1.js"></script>
+<script src="js/data/scenes_act2.js"></script>
+<script src="js/data/scenes_act3.js"></script>
+<script src="js/data/scenes_act4.js"></script>
+<script src="js/data/scenes_act5.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/engine.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

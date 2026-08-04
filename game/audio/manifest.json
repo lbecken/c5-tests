@@ -1,0 +1,2616 @@
+{
+ "model": "eleven_v3",
+ "format": "mp3_44100_128",
+ "generated": "2026-08-04T01:39:47.106Z",
+ "segments": {
+  "S01.0": {
+   "type": "audio",
+   "file": "S01.0.mp3",
+   "hash": "4d07206ef992",
+   "dur": 33.31,
+   "chars": 485,
+   "lines": [
+    {
+     "sp": "DISPATCH",
+     "text": "Six — I'm pushing something to your console. Line six. Male, adult, landline. He won't give a location.",
+     "weight": 103
+    },
+    {
+     "sp": "DISPATCH",
+     "text": "He's not distressed. That's what I don't like about him. He isn't distressed, he's... reading.",
+     "weight": 94
+    },
+    {
+     "sp": "RAO",
+     "text": "Reading what?",
+     "weight": 13
+    },
+    {
+     "sp": "DISPATCH",
+     "text": "A statement, ma'am. He says there's going to be a murder.",
+     "weight": 57
+    },
+    {
+     "sp": "RAO",
+     "text": "Then he's not a witness, he's a suspect. Six — take it. Record from the top. Everything on that console is evidence from the moment you open the line.",
+     "weight": 150
+    },
+    {
+     "sp": "DISPATCH",
+     "text": "Putting him through to you now.",
+     "weight": 31
+    }
+   ]
+  },
+  "S02.0": {
+   "type": "audio",
+   "file": "S02.0.mp3",
+   "hash": "9974c095ea17",
+   "dur": 46.01,
+   "chars": 768,
+   "lines": [
+    {
+     "sp": "JONAH",
+     "text": "My name is Jonah Vale. V, A, L, E. I'm a systems engineer at the Halcyon Institute on the Coupure. Please don't interrupt me — I have about ninety seconds of usable line and I can't get it back.",
+     "weight": 194
+    },
+    {
+     "sp": "JONAH",
+     "text": "At twenty-two hundred hours tonight, Doctor Mira Sayegh will die inside Studio B at the Institute. The room will be sealed. There will be nobody in it with her.",
+     "weight": 160
+    },
+    {
+     "sp": "JONAH",
+     "text": "I'm not threatening her. I'm telling you what happened.",
+     "weight": 55
+    },
+    {
+     "sp": "RAO",
+     "text": "What happened.",
+     "weight": 14
+    },
+    {
+     "sp": "JONAH",
+     "text": "Yes.",
+     "weight": 4
+    },
+    {
+     "sp": "RAO",
+     "text": "You're using the past tense about something forty-seven minutes from now.",
+     "weight": 73
+    },
+    {
+     "sp": "JONAH",
+     "text": "Because where I am it's Wednesday. It's eight seventeen in the morning and it has stopped raining. Is Detective Inspector Rao on this line? Kingfisher. Her call sign is Kingfisher, and I know that isn't in the phone book.",
+     "weight": 221
+    }
+   ]
+  },
+  "S03.0": {
+   "type": "audio",
+   "file": "S03.0.mp3",
+   "hash": "80e5612e4f89",
+   "dur": 43.37,
+   "chars": 749,
+   "lines": [
+    {
+     "sp": "RAO",
+     "text": "Where did you get that.",
+     "weight": 23
+    },
+    {
+     "sp": "JONAH",
+     "text": "From the incident log. Your incident log. The one that's being written right now, in that room, by the person I'm talking to.",
+     "weight": 125
+    },
+    {
+     "sp": "RAO",
+     "text": "That is not an answer that helps you.",
+     "weight": 37
+    },
+    {
+     "sp": "JONAH",
+     "text": "No. Here's one that does. In about eighteen seconds the Sint-Baafs substation is going to drop. You'll hear it before it reaches your board — it's mechanical, there's an arc, and it is loud. Your lights will dip and come back. The Institute stays up, because the Institute is on its own supply.",
+     "weight": 294
+    },
+    {
+     "sp": "JONAH",
+     "text": "Fourteen. Twelve.",
+     "weight": 17
+    },
+    {
+     "sp": "DISPATCH",
+     "text": "Six, is he giving us a—",
+     "weight": 23
+    },
+    {
+     "sp": "JONAH",
+     "text": "Three. Two.",
+     "weight": 11
+    },
+    {
+     "sp": "RAO",
+     "text": "...All right.",
+     "weight": 13
+    },
+    {
+     "sp": "RAO",
+     "text": "He's asking for me by a call sign four people know. Six — your console, your decision. Do I talk to him, or do you?",
+     "weight": 115
+    }
+   ]
+  },
+  "S04A.0": {
+   "type": "audio",
+   "file": "S04A.0.mp3",
+   "hash": "52443e531c4e",
+   "dur": 35.95,
+   "chars": 656,
+   "lines": [
+    {
+     "sp": "RAO",
+     "text": "This is Rao.",
+     "weight": 12
+    },
+    {
+     "sp": "JONAH",
+     "text": "Good. Thank you. Now please stop investigating me and start—",
+     "weight": 60
+    },
+    {
+     "sp": "RAO",
+     "text": "I'll decide what I do. You say she dies at ten. How.",
+     "weight": 52
+    },
+    {
+     "sp": "JONAH",
+     "text": "I don't know how.",
+     "weight": 17
+    },
+    {
+     "sp": "RAO",
+     "text": "You know my call sign. You don't know how she dies.",
+     "weight": 51
+    },
+    {
+     "sp": "JONAH",
+     "text": "I know what I was shown. She is on the floor at the foot of the console. There is blood on the near microphone — the one on the boom arm, left of the desk. And the door log says the door never opened. That is everything I have and I have spent my entire night trying to get it into that room.",
+     "weight": 292
+    },
+    {
+     "sp": "RAO",
+     "text": "Your night.",
+     "weight": 11
+    },
+    {
+     "sp": "JONAH",
+     "text": "My night. Yes.",
+     "weight": 14
+    },
+    {
+     "sp": "RAO",
+     "text": "Six. He's rehearsed. Log the time and keep hold of him — he's decided he doesn't like me.",
+     "weight": 89
+    }
+   ]
+  },
+  "S04B.0": {
+   "type": "audio",
+   "file": "S04B.0.mp3",
+   "hash": "6c35ce17c369",
+   "dur": 42.01,
+   "chars": 755,
+   "lines": [
+    {
+     "sp": "JONAH",
+     "text": "Thank you. You're the first person tonight who hasn't tried to keep me talking long enough to find me.",
+     "weight": 102
+    },
+    {
+     "sp": "JONAH",
+     "text": "I know how this sounds. I've had eleven hours to think about how it sounds. I sat in a corridor at the Institute all night working out what four facts I could give a stranger that would make them move.",
+     "weight": 201
+    },
+    {
+     "sp": "JONAH",
+     "text": "The substation was one. I'd rather not spend the others proving myself. I'd rather spend them on her.",
+     "weight": 101
+    },
+    {
+     "sp": "RAO",
+     "text": "He's good, Six. Note that he's good.",
+     "weight": 36
+    },
+    {
+     "sp": "JONAH",
+     "text": "She goes into Studio B at twenty-two hundred to shut the experiment down. That part is her own idea and you will not talk her out of it. Whatever else you do tonight — do not let anybody tell you that room is safe because it's empty.",
+     "weight": 233
+    },
+    {
+     "sp": "JONAH",
+     "text": "It was empty in mine, too.",
+     "weight": 26
+    }
+   ]
+  },
+  "S05.0": {
+   "type": "audio",
+   "file": "S05.0.mp3",
+   "hash": "4e203717d9d6",
+   "dur": 43.79,
+   "chars": 745,
+   "lines": [
+    {
+     "sp": "DECLAN",
+     "text": "Night desk, Boyle. Somebody wanted a trace on line six?",
+     "weight": 55
+    },
+    {
+     "sp": "RAO",
+     "text": "How long do you need.",
+     "weight": 21
+    },
+    {
+     "sp": "DECLAN",
+     "text": "None at all, it isn't hiding. That's rather the thing. Your caller is on a Halcyon Institute extension. Internal line forty-four.",
+     "weight": 129
+    },
+    {
+     "sp": "DECLAN",
+     "text": "Forty-four is the wall telephone in Studio B.",
+     "weight": 45
+    },
+    {
+     "sp": "RAO",
+     "text": "Say that again.",
+     "weight": 15
+    },
+    {
+     "sp": "DECLAN",
+     "text": "The man telling you there's going to be a murder in Studio B is telephoning you from inside Studio B.",
+     "weight": 101
+    },
+    {
+     "sp": "JONAH",
+     "text": "—it isn't what you think, please, don't send anyone in, just listen to me—",
+     "weight": 74
+    },
+    {
+     "sp": "RAO",
+     "text": "Okafor. Is there a person in that room.",
+     "weight": 39
+    },
+    {
+     "sp": "OKAFOR",
+     "text": "Negative. I have the camera up in front of me. The room is empty, the lights are off, and the door has not cycled since half past two this afternoon.",
+     "weight": 149
+    },
+    {
+     "sp": "RAO",
+     "text": "Then who is holding the phone.",
+     "weight": 30
+    }
+   ]
+  },
+  "S06.0": {
+   "type": "audio",
+   "file": "S06.0.mp3",
+   "hash": "dbe952230449",
+   "dur": 53.53,
+   "chars": 838,
+   "lines": [
+    {
+     "sp": "TANNOY",
+     "text": "Attention. The Institute is now under external direction. All personnel remain at your stations. Do not attempt to leave the building.",
+     "weight": 134
+    },
+    {
+     "sp": "OKAFOR",
+     "text": "Kingfisher, Okafor. Perimeter's set. Two on the lobby, two on the stairwell, one outside Studio B. Nobody goes through that door without you saying so.",
+     "weight": 151
+    },
+    {
+     "sp": "RAO",
+     "text": "Head count.",
+     "weight": 11
+    },
+    {
+     "sp": "OKAFOR",
+     "text": "Nineteen in the building. Sixteen accounted for on the ground floor. Doctor Sayegh is downstairs in the array hall, Hart is with her, and I am eight metres from a room that is making telephone calls.",
+     "weight": 199
+    },
+    {
+     "sp": "RAO",
+     "text": "Anyone by the name of Vale?",
+     "weight": 27
+    },
+    {
+     "sp": "OKAFOR",
+     "text": "Jonah Vale is on staff. Systems, third floor. He badged out at eighteen forty and he has not come back. I'm looking at the entry now. He's been gone three hours.",
+     "weight": 161
+    },
+    {
+     "sp": "RAO",
+     "text": "Then find out where he is. Because he is either at home asleep, or he is standing in a room I have got a man outside of.",
+     "weight": 120
+    }
+   ]
+  },
+  "S07.0": {
+   "type": "audio",
+   "file": "S07.0.mp3",
+   "hash": "7af013208229",
+   "dur": 91.85,
+   "chars": 1334,
+   "lines": [
+    {
+     "sp": "MIRA",
+     "text": "Inspector. I'm told a man has telephoned to say I'll be dead in thirty-eight minutes. I'd like to be efficient about this, because I have a machine to take apart.",
+     "weight": 162
+    },
+    {
+     "sp": "RAO",
+     "text": "You'll be taking it apart from the other side of the road.",
+     "weight": 58
+    },
+    {
+     "sp": "MIRA",
+     "text": "No.",
+     "weight": 3
+    },
+    {
+     "sp": "RAO",
+     "text": "Doctor—",
+     "weight": 7
+    },
+    {
+     "sp": "MIRA",
+     "text": "There are a hundred and forty megajoules sitting in a superconducting loop under your feet, Inspector, and it is held there by a timing array that has been running continuously for nine years. If you cut the power to this building, that energy does not politely stay where it is. It comes out through the array, and the array runs under the Coupure, and the Coupure has houses on it.",
+     "weight": 383
+    },
+    {
+     "sp": "MIRA",
+     "text": "At twenty-two hundred the array reaches phase lock. It's a coherence window about four seconds wide. I initiate a controlled collapse inside that window, or I wait eleven hours for the next one — and I am not leaving this thing running for another eleven hours. Not after tonight.",
+     "weight": 280
+    },
+    {
+     "sp": "RAO",
+     "text": "Then do it from your control room.",
+     "weight": 34
+    },
+    {
+     "sp": "MIRA",
+     "text": "There is exactly one console in this building that is not referenced to Echo's own clock, and it is the analogue desk in Studio B — because it was wired in nineteen sixty-one by men who had never heard of us. That is not sentiment. It's the only interlock the machine cannot lie to.",
+     "weight": 282
+    },
+    {
+     "sp": "RAO",
+     "text": "Who wrote that procedure?",
+     "weight": 25
+    },
+    {
+     "sp": "MIRA",
+     "text": "I did. With Hart. Eight weeks ago.",
+     "weight": 34
+    }
+   ]
+  },
+  "S08.0": {
+   "type": "audio",
+   "file": "S08.0.mp3",
+   "hash": "589fc4f0e9aa",
+   "dur": 91.15,
+   "chars": 1144,
+   "lines": [
+    {
+     "sp": "OKAFOR",
+     "text": "Kingfisher, Okafor. I'm opening Studio B. The log will show this and I want that on the record before I touch it.",
+     "weight": 113
+    },
+    {
+     "sp": "OKAFOR",
+     "text": "Six metres by four. Acoustic tile, floor to ceiling — you can hear it eating my voice. One door, reinforced. No windows. Ventilation duct, hundred and fifty millimetre, grilled at both ends, I can get two fingers through it.",
+     "weight": 224
+    },
+    {
+     "sp": "OKAFOR",
+     "text": "Analogue desk. Forty channels. There's dust sitting on the faders. Two microphones — one on a boom arm to the left, one fixed on the desk. Emergency telephone on the wall, handset in the cradle where it should be.",
+     "weight": 213
+    },
+    {
+     "sp": "RAO",
+     "text": "Anything on the surfaces.",
+     "weight": 25
+    },
+    {
+     "sp": "OKAFOR",
+     "text": "Nothing. It isn't wiped clean, it's just... not used. There's a wall clock above the door. Brass case, about so big. It is comfortably the loudest thing in here.",
+     "weight": 161
+    },
+    {
+     "sp": "RAO",
+     "text": "The loudest thing in a soundproofed room.",
+     "weight": 41
+    },
+    {
+     "sp": "OKAFOR",
+     "text": "Yes, ma'am.",
+     "weight": 11
+    },
+    {
+     "sp": "DECLAN",
+     "text": "Mister Okafor — do me a kindness and stop moving for ten seconds. I'd like the room without you in it.",
+     "weight": 102
+    },
+    {
+     "sp": "DECLAN",
+     "text": "...Lovely. That is going straight on the record and I may frame it.",
+     "weight": 67
+    },
+    {
+     "sp": "OKAFOR",
+     "text": "One more thing. There's a maintenance docket taped inside the door frame. Wall clock, recalibration. Signed today. Initials L. H.",
+     "weight": 129
+    }
+   ]
+  },
+  "S09.0": {
+   "type": "audio",
+   "file": "S09.0.mp3",
+   "hash": "1a1e04220a27",
+   "dur": 75.55,
+   "chars": 1090,
+   "lines": [
+    {
+     "sp": "LEONIE",
+     "text": "You want to know whether the voice is real. The answer is no, and I'm afraid that doesn't help you at all.",
+     "weight": 106
+    },
+    {
+     "sp": "LEONIE",
+     "text": "The channel carries about forty bits a second. Forty. You cannot put a human voice through forty bits a second. You can't put a fax through forty bits a second.",
+     "weight": 160
+    },
+    {
+     "sp": "RAO",
+     "text": "And yet.",
+     "weight": 8
+    },
+    {
+     "sp": "LEONIE",
+     "text": "And yet. Because it doesn't send the voice. It sends the residue — pitch contour, timing, a phoneme index, about a sentence's worth of shape — and then my model builds the rest of it back out of a stored profile.",
+     "weight": 212
+    },
+    {
+     "sp": "RAO",
+     "text": "A profile of what?",
+     "weight": 18
+    },
+    {
+     "sp": "LEONIE",
+     "text": "Of the speaker. Of that specific speaker. I have to have modelled you in advance — forty hours of clean audio, minimum. If I haven't, you don't come through badly. You come through as... ...as weather.",
+     "weight": 201
+    },
+    {
+     "sp": "RAO",
+     "text": "Who is enrolled?",
+     "weight": 16
+    },
+    {
+     "sp": "LEONIE",
+     "text": "Everyone on the project. It's in the ethics annexe, it was all consented, we sat in a booth for a week reading out newspapers. Fourteen people.",
+     "weight": 143
+    },
+    {
+     "sp": "RAO",
+     "text": "So whoever is telephoning us—",
+     "weight": 29
+    },
+    {
+     "sp": "LEONIE",
+     "text": "Is one of fourteen people, all of whom work in this building. Yes. I worked that out in the lift on the way up and I have not been enjoying it since.",
+     "weight": 149
+    }
+   ]
+  },
+  "S10.0": {
+   "type": "audio",
+   "file": "S10.0.mp3",
+   "hash": "337b2eeb083c",
+   "dur": 12.83,
+   "chars": 241,
+   "lines": [
+    {
+     "sp": "RAO",
+     "text": "Right. He said forty-seven minutes. We're twenty into it and I have three people queuing to tell you three different stories.",
+     "weight": 125
+    },
+    {
+     "sp": "RAO",
+     "text": "Six — pick two. I'd like to say pick all three, but I've been doing this a long time and we will not get the chance.",
+     "weight": 116
+    }
+   ]
+  },
+  "S11.0": {
+   "type": "audio",
+   "file": "S11.0.mp3",
+   "hash": "5ef4bfb625b3",
+   "dur": 58.18,
+   "chars": 1038,
+   "lines": [
+    {
+     "sp": "JONAH",
+     "text": "You want my morning. All right.",
+     "weight": 31
+    },
+    {
+     "sp": "JONAH",
+     "text": "I woke at six because every phone in my flat was going. By seven the Institute was full of your people. At about eight they let me as far as the corridor outside Studio B, and the door was standing open, and there was a photographer in there.",
+     "weight": 242
+    },
+    {
+     "sp": "JONAH",
+     "text": "She's on the floor at the foot of the console. There's blood on the near microphone, on the boom arm — she went into it on the way down. There is no wound. That's the part nobody could account for. No wound, no marks, nothing broken, door log clean, and the room sealed since half past two yesterday afternoon.",
+     "weight": 310
+    },
+    {
+     "sp": "RAO",
+     "text": "Then what makes it a murder and not a stroke?",
+     "weight": 45
+    },
+    {
+     "sp": "JONAH",
+     "text": "Because I know who put her in that room.",
+     "weight": 40
+    },
+    {
+     "sp": "RAO",
+     "text": "Who?",
+     "weight": 4
+    },
+    {
+     "sp": "JONAH",
+     "text": "...The procedure did. The shutdown procedure. She followed it exactly and it killed her, and everybody stood in that corridor calling it an accident.",
+     "weight": 149
+    },
+    {
+     "sp": "RAO",
+     "text": "The procedure she says she wrote herself.",
+     "weight": 41
+    },
+    {
+     "sp": "JONAH",
+     "text": "Inspector, I have four minutes of line left and you want to talk about paperwork. Get her out of the building.",
+     "weight": 110
+    }
+   ]
+  },
+  "S12.0": {
+   "type": "audio",
+   "file": "S12.0.mp3",
+   "hash": "1ef66c9fd168",
+   "dur": 51.7,
+   "chars": 722,
+   "lines": [
+    {
+     "sp": "RAO",
+     "text": "Doctor. Is this the first time your machine has telephoned anybody?",
+     "weight": 67
+    },
+    {
+     "sp": "MIRA",
+     "text": "No.",
+     "weight": 3
+    },
+    {
+     "sp": "RAO",
+     "text": "Go on.",
+     "weight": 6
+    },
+    {
+     "sp": "MIRA",
+     "text": "Three weeks ago. The fourth, ten past two in the morning. The Studio B extension rang through to my office, which it should not be able to do. A woman's voice told me the secondary coolant loop would fail on the Thursday at around six, and that I should look at valve nine.",
+     "weight": 273
+    },
+    {
+     "sp": "MIRA",
+     "text": "I looked at valve nine. The seat was cracked through. I replaced it. Nothing whatever happened on Thursday.",
+     "weight": 107
+    },
+    {
+     "sp": "RAO",
+     "text": "And you didn't report it.",
+     "weight": 25
+    },
+    {
+     "sp": "MIRA",
+     "text": "To whom, Inspector? \"The machine telephoned me in the night and I did as I was told.\" I have spent six years assuring a board that this project is not dangerous.",
+     "weight": 161
+    },
+    {
+     "sp": "MIRA",
+     "text": "I recognised the voice.",
+     "weight": 23
+    },
+    {
+     "sp": "RAO",
+     "text": "Whose was it?",
+     "weight": 13
+    },
+    {
+     "sp": "MIRA",
+     "text": "Mine.",
+     "weight": 5
+    }
+   ]
+  },
+  "S13.0": {
+   "type": "audio",
+   "file": "S13.0.mp3",
+   "hash": "565c2f1d3f6c",
+   "dur": 40.65,
+   "chars": 695,
+   "lines": [
+    {
+     "sp": "RAO",
+     "text": "The Studio B access log. This afternoon, this evening, all of it.",
+     "weight": 65
+    },
+    {
+     "sp": "OKAFOR",
+     "text": "It's clean.",
+     "weight": 11
+    },
+    {
+     "sp": "RAO",
+     "text": "Emeka.",
+     "weight": 6
+    },
+    {
+     "sp": "OKAFOR",
+     "text": "The log is accurate.",
+     "weight": 20
+    },
+    {
+     "sp": "DECLAN",
+     "text": "It's really not, though. Sorry. I've got the file up. Sequence numbers run contiguous, which is what he'd want you to look at — but the write timestamps don't. There's a rewrite at nineteen twenty this evening and something came out of the middle of it.",
+     "weight": 253
+    },
+    {
+     "sp": "RAO",
+     "text": "Mister Okafor.",
+     "weight": 14
+    },
+    {
+     "sp": "OKAFOR",
+     "text": "I would like to answer that when there are fewer people on the channel.",
+     "weight": 71
+    },
+    {
+     "sp": "RAO",
+     "text": "There is a woman in this building who has thirty minutes to live and you are negotiating about privacy.",
+     "weight": 103
+    },
+    {
+     "sp": "OKAFOR",
+     "text": "I am aware of the time, Inspector. I have been aware of the time since twenty past nine.",
+     "weight": 88
+    }
+   ]
+  },
+  "S14.0": {
+   "type": "audio",
+   "file": "S14.0.mp3",
+   "hash": "60656ac857c1",
+   "dur": 50.58,
+   "chars": 808,
+   "lines": [
+    {
+     "sp": "DECLAN",
+     "text": "While everyone's being candid. I've pulled the Institute's voicemail store — the warrant's in, don't look at me in that tone of voice. There's one from Monday you'll want.",
+     "weight": 171
+    },
+    {
+     "sp": "GRANT",
+     "text": "Elias Grant, Monday, for the file. Regarding the ministry audit on Thursday — I want the funding annexe and the whole of the two thousand and nineteen correspondence off the servers before anybody from the ministry sits down at a terminal. Not archived. Off.",
+     "weight": 258
+    },
+    {
+     "sp": "GRANT",
+     "text": "If Mira wants a fight about disclosure she may certainly have one. She can have it without documents. And the board does not need to hear the phrase \"human trials\" again. Not from her, and not from you.",
+     "weight": 202
+    },
+    {
+     "sp": "RAO",
+     "text": "Human trials.",
+     "weight": 13
+    },
+    {
+     "sp": "DECLAN",
+     "text": "That'll be the voice enrollment, most likely. Fourteen people reading out newspapers for a week.",
+     "weight": 96
+    },
+    {
+     "sp": "RAO",
+     "text": "Or it won't.",
+     "weight": 12
+    }
+   ]
+  },
+  "S15.0": {
+   "type": "audio",
+   "file": "S15.0.mp3",
+   "hash": "5733ebbfd15d",
+   "dur": 136.73,
+   "chars": 1840,
+   "lines": [
+    {
+     "sp": "DISPATCH",
+     "text": "Six — line six is still open and you have a second call arriving on the same extension. Forty-four again.",
+     "weight": 105
+    },
+    {
+     "sp": "DECLAN",
+     "text": "That isn't possible, the line's in use, you can't have two—",
+     "weight": 59
+    },
+    {
+     "sp": "FMIRA",
+     "text": "Analyst. Don't talk. Listen, and don't waste it, because I have paid a great deal for these seconds. My name is Mira Sayegh and I am calling you from tomorrow afternoon. Wednesday, about four.",
+     "weight": 192
+    },
+    {
+     "sp": "FMIRA",
+     "text": "Whatever the man on your other line has asked you to do — do the opposite of it. He is not trying to save me. He needs me dead tonight, because I am the only person who will ever give the order to take this thing apart.",
+     "weight": 219
+    },
+    {
+     "sp": "RAO",
+     "text": "Doctor Sayegh is forty metres below me. I am looking at her on a monitor.",
+     "weight": 73
+    },
+    {
+     "sp": "FMIRA",
+     "text": "Yes. I remember. I remember standing in the array hall while a Scottish policewoman said that about me.",
+     "weight": 103
+    },
+    {
+     "sp": "FMIRA",
+     "text": "So here is your night, Inspector. You will save me. You will be extremely pleased with yourselves and there will be a photograph. And nine weeks after that, the channel widens past its design bound and this city begins receiving telephone calls that it cannot answer.",
+     "weight": 267
+    },
+    {
+     "sp": "RAO",
+     "text": "Nine weeks. You said you were eighteen hours away.",
+     "weight": 50
+    },
+    {
+     "sp": "FMIRA",
+     "text": "I am. I know about the nine weeks because an hour ago I took a call from a woman with my voice who was standing a great deal further away than I am. It walks backwards, Inspector — eleven hours at a time, hand to hand, and by the time it reaches you it has been through six people. It doesn't stop, Inspector. That's the thing nobody has told you yet. It doesn't stop.",
+     "weight": 368
+    },
+    {
+     "sp": "FMIRA",
+     "text": "Saving me is necessary. It is not sufficient. Echo has to be collapsed cold — and I don't manage it, because by the time I understand that, the only man still holding the phase key is under six metres of concrete. I haven't watched that happen. She told me. The one standing further out.",
+     "weight": 287
+    },
+    {
+     "sp": "RAO",
+     "text": "Which man.",
+     "weight": 10
+    },
+    {
+     "sp": "FMIRA",
+     "text": "The one on your other line.",
+     "weight": 27
+    }
+   ]
+  },
+  "S16.0": {
+   "type": "audio",
+   "file": "S16.0.mp3",
+   "hash": "7262633a2cde",
+   "dur": 82.19,
+   "chars": 1310,
+   "lines": [
+    {
+     "sp": "DECLAN",
+     "text": "Right. I want to say this before anybody makes a decision, because I think it changes what all of you are doing.",
+     "weight": 112
+    },
+    {
+     "sp": "DECLAN",
+     "text": "Your first caller knew the Inspector's call sign. He knew the substation, to the second. And the woman just now — she knew the Inspector said \"I am looking at her on a monitor.\" She said she remembered it. She said that about four seconds after it was said.",
+     "weight": 257
+    },
+    {
+     "sp": "RAO",
+     "text": "Then she's listening to this room now.",
+     "weight": 38
+    },
+    {
+     "sp": "DECLAN",
+     "text": "No. No, that's the wrong shape entirely. She isn't listening. She's remembering. Which means she read it. Where does everything on that console go?",
+     "weight": 147
+    },
+    {
+     "sp": "DISPATCH",
+     "text": "The incident log.",
+     "weight": 17
+    },
+    {
+     "sp": "DECLAN",
+     "text": "And how long does an incident log live?",
+     "weight": 39
+    },
+    {
+     "sp": "DISPATCH",
+     "text": "Seven years.",
+     "weight": 12
+    },
+    {
+     "sp": "DECLAN",
+     "text": "So by half past eight tomorrow morning, every single thing Six types tonight is an exhibit. Timestamped. In a file, with her name on it, and his name on it, and every question anybody thought to ask.",
+     "weight": 199
+    },
+    {
+     "sp": "RAO",
+     "text": "...They're reading our paperwork.",
+     "weight": 33
+    },
+    {
+     "sp": "DECLAN",
+     "text": "They're reading tonight's paperwork tomorrow morning and telephoning it back at us. That is not prophecy, Inspector. That's homework.",
+     "weight": 133
+    },
+    {
+     "sp": "JONAH",
+     "text": "I was going to tell you that.",
+     "weight": 29
+    },
+    {
+     "sp": "DECLAN",
+     "text": "Course you were.",
+     "weight": 16
+    },
+    {
+     "sp": "RAO",
+     "text": "Six. If he's working from the log, then he knows what you ask and when you ask it. He's answered you early twice. So get off the script. Your console, your call — but make it something the log can't have.",
+     "weight": 204
+    }
+   ]
+  },
+  "S17A.0": {
+   "type": "audio",
+   "file": "S17A.0.mp3",
+   "hash": "008760398ed7",
+   "dur": 16.02,
+   "chars": 329,
+   "lines": [
+    {
+     "sp": "JONAH",
+     "text": "...Six?",
+     "weight": 7
+    },
+    {
+     "sp": "JONAH",
+     "text": "You're there. The line's open, I can hear the room. I can hear the rain on your window.",
+     "weight": 87
+    },
+    {
+     "sp": "JONAH",
+     "text": "All right. At twenty-one thirty-seven you ask me whether the ventilation duct can be reached from the roof space. You always ask about the duct, you ask it at thirty-seven, and I say—",
+     "weight": 183
+    }
+   ]
+  },
+  "S17A.1": {
+   "type": "beat",
+   "dur": 1.6,
+   "sp": "JONAH",
+   "direction": "[stops]"
+  },
+  "S17A.2": {
+   "type": "audio",
+   "file": "S17A.2.mp3",
+   "hash": "e1a58d883402",
+   "dur": 16.49,
+   "chars": 302,
+   "lines": [
+    {
+     "sp": "JONAH",
+     "text": "...You didn't ask.",
+     "weight": 18
+    },
+    {
+     "sp": "RAO",
+     "text": "Say that again, Mister Vale.",
+     "weight": 28
+    },
+    {
+     "sp": "JONAH",
+     "text": "The corridor I'm standing in is going to change. I don't know by how much. I don't— I don't know how much of it I get to keep.",
+     "weight": 126
+    },
+    {
+     "sp": "DECLAN",
+     "text": "There it is.",
+     "weight": 12
+    },
+    {
+     "sp": "RAO",
+     "text": "That's your proof, Six. He isn't describing tomorrow. He's bidding for it.",
+     "weight": 74
+    }
+   ]
+  },
+  "S17B.0": {
+   "type": "audio",
+   "file": "S17B.0.mp3",
+   "hash": "4160f254eddc",
+   "dur": 52.09,
+   "chars": 911,
+   "lines": [
+    {
+     "sp": "JONAH",
+     "text": "Yes — twenty-one thirty-seven, the ventilation duct. No. It's grilled at both ends and it dog-legs twice; you could not get a cat through it, let alone a person. Thank you. You're on time.",
+     "weight": 188
+    },
+    {
+     "sp": "RAO",
+     "text": "On time for what?",
+     "weight": 17
+    },
+    {
+     "sp": "JONAH",
+     "text": "For the shift. It's a long night, Inspector, that's all I—",
+     "weight": 58
+    },
+    {
+     "sp": "DECLAN",
+     "text": "Inspector, mark that. He has just thanked her for being punctual about a question.",
+     "weight": 82
+    },
+    {
+     "sp": "RAO",
+     "text": "Six, that's the same proof by the other road. It's a script, and we have been reading it to him beautifully.",
+     "weight": 108
+    },
+    {
+     "sp": "JONAH",
+     "text": "Then let me save you some of it. The maintenance docket taped inside the Studio B door frame — don't waste your minutes on it. It's routine. Every clock in that building gets one.",
+     "weight": 179
+    },
+    {
+     "sp": "DECLAN",
+     "text": "Nobody has mentioned a docket to you.",
+     "weight": 37
+    },
+    {
+     "sp": "JONAH",
+     "text": "...It's in the log.",
+     "weight": 19
+    },
+    {
+     "sp": "RAO",
+     "text": "It's in tomorrow's log, Mister Vale. It went into tonight's eleven minutes ago. Six — put a ring round that clock.",
+     "weight": 114
+    }
+   ]
+  },
+  "S18.0": {
+   "type": "audio",
+   "file": "S18.0.mp3",
+   "hash": "fffe92a4fdeb",
+   "dur": 64.42,
+   "chars": 1104,
+   "lines": [
+    {
+     "sp": "DECLAN",
+     "text": "I've been doing something extremely dull for six minutes and it has paid off, so nobody interrupt me.",
+     "weight": 101
+    },
+    {
+     "sp": "DECLAN",
+     "text": "Both calls carry a pre-echo. A ghost of the first syllable, sitting slightly ahead of the syllable. That's the reconstruction guessing before the residue lands — it's the model getting impatient.",
+     "weight": 195
+    },
+    {
+     "sp": "DECLAN",
+     "text": "Vale's ghost sits forty-one milliseconds ahead. Every utterance, every time, forty-one. Sayegh's sits at sixty-eight.",
+     "weight": 117
+    },
+    {
+     "sp": "RAO",
+     "text": "And that means?",
+     "weight": 15
+    },
+    {
+     "sp": "DECLAN",
+     "text": "The interval is fixed by the coherence state of the array at the moment of sending. Different interval, different phase state. And a different phase state is a—",
+     "weight": 160
+    },
+    {
+     "sp": "LEONIE",
+     "text": "—a different night. They're not from the same tomorrow. They can't be, it's not a matter of opinion. Oh. Oh, that isn't two people disagreeing about what happened. That's two worlds disagreeing about what's going to.",
+     "weight": 216
+    },
+    {
+     "sp": "RAO",
+     "text": "Can you tell me which one is the real one.",
+     "weight": 42
+    },
+    {
+     "sp": "LEONIE",
+     "text": "Neither of them is real yet. That's the entire—",
+     "weight": 47
+    },
+    {
+     "sp": "DECLAN",
+     "text": "That's the entire problem, yes.",
+     "weight": 31
+    },
+    {
+     "sp": "RAO",
+     "text": "Six. Log it in plain words so a jury could read it. Two callers. Two futures. Both of them want something from this room.",
+     "weight": 121
+    }
+   ]
+  },
+  "S19.0": {
+   "type": "audio",
+   "file": "S19.0.mp3",
+   "hash": "deb3a690dd38",
+   "dur": 6.59,
+   "chars": 96,
+   "lines": [
+    {
+     "sp": "RAO",
+     "text": "Twenty minutes. Two more, Six, and then I want you looking at that room and nothing else.",
+     "weight": 89
+    }
+   ]
+  },
+  "S20.0": {
+   "type": "audio",
+   "file": "S20.0.mp3",
+   "hash": "e3363b532e86",
+   "dur": 107.13,
+   "chars": 1156,
+   "lines": [
+    {
+     "sp": "OKAFOR",
+     "text": "You gave me fewer ears. I'll take that as a kindness and pay for it. This evening. Nineteen twenty.",
+     "weight": 99
+    },
+    {
+     "sp": "OKAFOR",
+     "text": "I opened Studio B. Doctor Sayegh went in ahead of me. I closed the door behind us both, and we were in that room for fifty minutes.",
+     "weight": 131
+    },
+    {
+     "sp": "RAO",
+     "text": "Doing what.",
+     "weight": 11
+    },
+    {
+     "sp": "OKAFOR",
+     "text": "Talking. And then not talking. I am forty-nine days divorced, Inspector. She is my employer. There is a clause in my contract about it and there is a clause in hers.",
+     "weight": 165
+    },
+    {
+     "sp": "OKAFOR",
+     "text": "An hour later I took the entry out of the access log. It took me four minutes and it is the most stupid thing I have done in eleven years of this work.",
+     "weight": 151
+    },
+    {
+     "sp": "RAO",
+     "text": "You've made yourself the only human being who could have done this.",
+     "weight": 67
+    },
+    {
+     "sp": "OKAFOR",
+     "text": "Yes. I understood that at about half past nine tonight, when a man on the telephone said the door log would be clean. I have been standing outside that room since, trying to decide when to say it.",
+     "weight": 196
+    },
+    {
+     "sp": "OKAFOR",
+     "text": "Inspector — one other thing, and I only have it because I was in there. The clock. When we were in that room at half seven tonight, the clock was ticking.",
+     "weight": 154
+    },
+    {
+     "sp": "RAO",
+     "text": "Clocks do.",
+     "weight": 10
+    },
+    {
+     "sp": "OKAFOR",
+     "text": "That one hadn't run in six years. I know, because I put it in a facilities report in twenty twenty-one and nobody ever came.",
+     "weight": 124
+    }
+   ]
+  },
+  "S21.0": {
+   "type": "audio",
+   "file": "S21.0.mp3",
+   "hash": "171f7f669a74",
+   "dur": 49.61,
+   "chars": 913,
+   "lines": [
+    {
+     "sp": "RAO",
+     "text": "Six. Before you get it from somebody with worse manners.",
+     "weight": 56
+    },
+    {
+     "sp": "RAO",
+     "text": "Two thousand and nineteen. There was a containment failure in the array hall downstairs. Official finding: one injured, one fatality, contractor error, file closed in eleven weeks.",
+     "weight": 180
+    },
+    {
+     "sp": "RAO",
+     "text": "The injured party was Doctor Sayegh. The fatality was a plant engineer called Tomas Rao. He was thirty-four.",
+     "weight": 108
+    },
+    {
+     "sp": "RAO",
+     "text": "He was my brother, and we had not spoken in two years, which is a thing I would very much like to undo and can't.",
+     "weight": 113
+    },
+    {
+     "sp": "RAO",
+     "text": "I asked for this posting. In writing. Three times. So when I sound like a woman who wants this building shut and the doors welded — that's because I am one.",
+     "weight": 156
+    },
+    {
+     "sp": "RAO",
+     "text": "I'm telling you because you are the one signing the log tonight. If this goes badly, somebody in a warm room is going to ask whether the officer in charge was impartial. She wasn't. She was competent. They are not the same thing, but tonight they'll have to do.",
+     "weight": 261
+    }
+   ]
+  },
+  "S22.0": {
+   "type": "audio",
+   "file": "S22.0.mp3",
+   "hash": "6ad5d9c85231",
+   "dur": 74.82,
+   "chars": 965,
+   "lines": [
+    {
+     "sp": "LEONIE",
+     "text": "You'll get this out of me eventually. I'd rather it was now, and I'd much rather it was to you than to her.",
+     "weight": 107
+    },
+    {
+     "sp": "LEONIE",
+     "text": "In March I ran the channel on my own at three in the morning, which you are not supposed to do. Thirty seconds of reach. Four words. I sent \"Can you hear me\" thirty seconds into my own past, into a receiver I was sitting directly in front of.",
+     "weight": 242
+    },
+    {
+     "sp": "LEONIE",
+     "text": "And thirty seconds before I sent it, the receiver produced four words.",
+     "weight": 70
+    },
+    {
+     "sp": "RAO",
+     "text": "The same four words.",
+     "weight": 20
+    },
+    {
+     "sp": "LEONIE",
+     "text": "No. It said: \"Yes. I always did.\"",
+     "weight": 33
+    },
+    {
+     "sp": "LEONIE",
+     "text": "And it wasn't my voice. It wasn't anyone's voice I have ever enrolled, and I have enrolled all fourteen of them personally. There is no profile in that system that produces that sound.",
+     "weight": 184
+    },
+    {
+     "sp": "LEONIE",
+     "text": "I sat in that room until half past five in the morning. And then I wrote it up as a reconstruction artifact, and I filed it, and I never told one living person. Everything that has happened tonight is downstream of me deciding not to be embarrassed.",
+     "weight": 249
+    }
+   ]
+  },
+  "S23.0": {
+   "type": "audio",
+   "file": "S23.0.mp3",
+   "hash": "71dbf84ad5c3",
+   "dur": 41.07,
+   "chars": 565,
+   "lines": [
+    {
+     "sp": "DECLAN",
+     "text": "Six. I've put the Studio B feed on your console and left it live. Room's empty, door's shut, nothing is happening in there at all.",
+     "weight": 130
+    },
+    {
+     "sp": "DECLAN",
+     "text": "And there is something sitting in the top of that band that I cannot put a name to.",
+     "weight": 83
+    },
+    {
+     "sp": "DECLAN",
+     "text": "I'm not going to tell you what I think it is, because if I say it first then everything you find afterwards is suggestion, and some barrister with good hair will say so in eight months' time. You've got the same tools I have. Isolate the band. Slow it down. Lift the quiet end.",
+     "weight": 277
+    },
+    {
+     "sp": "DECLAN",
+     "text": "Go on. I'll wait. It's not as though I'm going anywhere.",
+     "weight": 56
+    }
+   ]
+  },
+  "S23_SOLVED.0": {
+   "type": "audio",
+   "file": "S23_SOLVED.0.mp3",
+   "hash": "38f42ed390ec",
+   "dur": 61.86,
+   "chars": 871,
+   "lines": [
+    {
+     "sp": "DECLAN",
+     "text": "There. There it is. Hear it?",
+     "weight": 28
+    },
+    {
+     "sp": "DECLAN",
+     "text": "That is a fold-down. Something above the top of your hearing being mirrored back down into it by the sampling — an alias. Which means there is something above the top of your hearing, and it is in that room, and it is running right now.",
+     "weight": 236
+    },
+    {
+     "sp": "DECLAN",
+     "text": "And underneath it — wait for it — there. That tick. That is not the escapement. An escapement is a bit of bent metal and it wanders; it never lands twice in the same place. That thing is arriving on the same sample every single time. That's a relay. That is a circuit waking up and checking the time.",
+     "weight": 300
+    },
+    {
+     "sp": "RAO",
+     "text": "Checking the time for what.",
+     "weight": 27
+    },
+    {
+     "sp": "DECLAN",
+     "text": "For twenty-two hundred, I should think.",
+     "weight": 39
+    },
+    {
+     "sp": "RAO",
+     "text": "Okafor. Nobody opens that door. Not you, not me, not her. Six — we have got fifteen minutes and I think we have just found the murder weapon hanging above the door where everyone could see it.",
+     "weight": 192
+    }
+   ]
+  },
+  "S24.0": {
+   "type": "audio",
+   "file": "S24.0.mp3",
+   "hash": "1ad9675a5c69",
+   "dur": 76.91,
+   "chars": 1096,
+   "lines": [
+    {
+     "sp": "MIRA",
+     "text": "Why is a police officer reading my medical file, Inspector?",
+     "weight": 59
+    },
+    {
+     "sp": "RAO",
+     "text": "Because a man on my telephone says you die in a sealed room tonight with no wound anywhere on you, and I have run out of polite ways to get there.",
+     "weight": 146
+    },
+    {
+     "sp": "MIRA",
+     "text": "...Then you don't want the medical file. You want the two thousand and nineteen file. They're the same file.",
+     "weight": 108
+    },
+    {
+     "sp": "MIRA",
+     "text": "After the containment failure I had seizures. Temporal lobe. They didn't stop, and drugs didn't stop them. In twenty-twenty they put a responsive neurostimulator into my skull. It sits just here. It watches for the onset and it interrupts it, several hundred times a day, and I have had four years of an ordinary life because of it.",
+     "weight": 332
+    },
+    {
+     "sp": "RAO",
+     "text": "How is it configured?",
+     "weight": 21
+    },
+    {
+     "sp": "MIRA",
+     "text": "Over a short-range acoustic link. A technician holds a wand against my head and it talks to the device in a band just above hearing — it's how you avoid running a wire through the skin. There's nothing sinister about it, Inspector, half a million people—",
+     "weight": 254
+    },
+    {
+     "sp": "RAO",
+     "text": "What band.",
+     "weight": 10
+    },
+    {
+     "sp": "MIRA",
+     "text": "Twenty-two kilohertz.",
+     "weight": 21
+    },
+    {
+     "sp": "DECLAN",
+     "text": "Doctor Sayegh. Would you say that number again.",
+     "weight": 47
+    },
+    {
+     "sp": "MIRA",
+     "text": "...Twenty-two kilohertz. Why.",
+     "weight": 29
+    }
+   ]
+  },
+  "S25.0": {
+   "type": "audio",
+   "file": "S25.0.mp3",
+   "hash": "dea015081193",
+   "dur": 81.69,
+   "chars": 1247,
+   "lines": [
+    {
+     "sp": "DECLAN",
+     "text": "Right. Somebody stop me if I have this wrong, and I would genuinely love to have this wrong.",
+     "weight": 92
+    },
+    {
+     "sp": "DECLAN",
+     "text": "There is an oscillator in that clock and it has been there since half past two this afternoon. And it does nothing. I've had the feed for twenty-five minutes and it sits there doing absolutely nothing except tick and hum in the top of the band.",
+     "weight": 244
+    },
+    {
+     "sp": "LEONIE",
+     "text": "Because it isn't a clock crystal. A clock crystal free-runs — you switch it on and it goes. That thing is phase-referenced. It has nothing to lock to. There is nothing in that building for it to lock to until—",
+     "weight": 209
+    },
+    {
+     "sp": "RAO",
+     "text": "Until ten o'clock.",
+     "weight": 18
+    },
+    {
+     "sp": "LEONIE",
+     "text": "Until phase lock. At phase lock the array hands it a reference and it does whatever it was built to do, and it does it through a brass case, in a room with acoustic tile on all six surfaces, which is—",
+     "weight": 200
+    },
+    {
+     "sp": "DECLAN",
+     "text": "—which is a very good loudspeaker in a very quiet box.",
+     "weight": 54
+    },
+    {
+     "sp": "MIRA",
+     "text": "And I will be standing in the middle of it. At that exact second. Because the procedure says I have to be.",
+     "weight": 106
+    },
+    {
+     "sp": "RAO",
+     "text": "Doctor. You will not go anywhere near that room.",
+     "weight": 48
+    },
+    {
+     "sp": "MIRA",
+     "text": "Inspector, if I don't, a hundred and forty megajoules—",
+     "weight": 54
+    },
+    {
+     "sp": "RAO",
+     "text": "I have heard about the megajoules. I am going to hear about them at the inquest either way. Six — twelve minutes. Get me the person who put it in there.",
+     "weight": 152
+    }
+   ]
+  },
+  "S26.0": {
+   "type": "audio",
+   "file": "S26.0.mp3",
+   "hash": "6a7431a1af75",
+   "dur": 62.1,
+   "chars": 1069,
+   "lines": [
+    {
+     "sp": "RAO",
+     "text": "Miss Hart. The maintenance docket in that door frame has your initials on it.",
+     "weight": 77
+    },
+    {
+     "sp": "LEONIE",
+     "text": "Yes.",
+     "weight": 4
+    },
+    {
+     "sp": "RAO",
+     "text": "Say the rest.",
+     "weight": 13
+    },
+    {
+     "sp": "LEONIE",
+     "text": "This afternoon. About half two. I took the back off the clock. I replaced the timing crystal with a component I'd been sent. I put the back on. I signed the docket. Then I went downstairs and had a cheese sandwich.",
+     "weight": 214
+    },
+    {
+     "sp": "RAO",
+     "text": "Sent by whom.",
+     "weight": 13
+    },
+    {
+     "sp": "LEONIE",
+     "text": "Through the channel. A design file — forty bits a second, it took nine hours to come through and I sat with it the entire time like it was a kettle I was waiting on.",
+     "weight": 165
+    },
+    {
+     "sp": "LEONIE",
+     "text": "The note said the phase reference was drifting and this would hold it, and that if it wasn't in before the next lock we'd get a feedback event and lose the array and probably the hall. It was a good note. It was a really good note. It used my own variable names.",
+     "weight": 262
+    },
+    {
+     "sp": "RAO",
+     "text": "Who sent it.",
+     "weight": 12
+    },
+    {
+     "sp": "LEONIE",
+     "text": "Jonah. Jonah sent it.",
+     "weight": 21
+    },
+    {
+     "sp": "RAO",
+     "text": "Six. She has just confessed to installing a murder weapon, on an open channel, in a building with nineteen people in it and eleven minutes on the clock. Your console. Tell me what to do with her.",
+     "weight": 195
+    }
+   ]
+  },
+  "S27A.0": {
+   "type": "audio",
+   "file": "S27A.0.mp3",
+   "hash": "61f6a06835c1",
+   "dur": 34.1,
+   "chars": 583,
+   "lines": [
+    {
+     "sp": "RAO",
+     "text": "Constable — Miss Hart goes to the lobby. Caution her on the way.",
+     "weight": 64
+    },
+    {
+     "sp": "LEONIE",
+     "text": "No — no, I need to tell you what else was in the note—",
+     "weight": 54
+    },
+    {
+     "sp": "RAO",
+     "text": "You'll tell a solicitor.",
+     "weight": 24
+    },
+    {
+     "sp": "LEONIE",
+     "text": "There isn't time for a solicitor, there's ten minutes, there's TEN—",
+     "weight": 67
+    },
+    {
+     "sp": "OKAFOR",
+     "text": "She's out. Lobby, two officers with her.",
+     "weight": 40
+    },
+    {
+     "sp": "RAO",
+     "text": "Six. Log that as my order, not your advice. That's how it goes on the sheet and that's how it goes at the inquiry.",
+     "weight": 114
+    },
+    {
+     "sp": "DECLAN",
+     "text": "For what it's worth, Inspector — I've got her workstation open from here. If the file's on it, I'll have it without her. It'll just take me longer and I'll be ruder about it.",
+     "weight": 174
+    }
+   ]
+  },
+  "S27B.0": {
+   "type": "audio",
+   "file": "S27B.0.mp3",
+   "hash": "3c916981c9cf",
+   "dur": 55.7,
+   "chars": 810,
+   "lines": [
+    {
+     "sp": "LEONIE",
+     "text": "It's on my workstation. It's called phaseref underscore v four. I'm pushing it to your desk now, Mister Boyle, it's small, it's tiny, it's—",
+     "weight": 139
+    },
+    {
+     "sp": "DECLAN",
+     "text": "Got it. Oh, that's lovely work, that is. That's really— sorry. That was inappropriate.",
+     "weight": 86
+    },
+    {
+     "sp": "DECLAN",
+     "text": "Right. It's a phase-referenced oscillator with a drive stage hung off the output. The output goes to a piezo element bonded to a brass plate. And there's a gate on the whole thing, and the gate opens on a coherence reference.",
+     "weight": 225
+    },
+    {
+     "sp": "RAO",
+     "text": "In English, Mister Boyle.",
+     "weight": 25
+    },
+    {
+     "sp": "DECLAN",
+     "text": "It sleeps. It sleeps for as long as you like. And then the machine downstairs tells it that it's ten o'clock, and it screams — very high, very loud, and it keeps screaming for as long as the reference holds.",
+     "weight": 207
+    },
+    {
+     "sp": "LEONIE",
+     "text": "...At what frequency.",
+     "weight": 21
+    },
+    {
+     "sp": "DECLAN",
+     "text": "Twenty-two point one kilohertz. I'm sorry, Miss Hart.",
+     "weight": 53
+    }
+   ]
+  },
+  "S27B.1": {
+   "type": "beat",
+   "dur": 1.6,
+   "sp": "LEONIE",
+   "direction": "[a sound, not quite a word]"
+  },
+  "S27C.0": {
+   "type": "audio",
+   "file": "S27C.0.mp3",
+   "hash": "d9fd91310bf1",
+   "dur": 59.54,
+   "chars": 937,
+   "lines": [
+    {
+     "sp": "RAO",
+     "text": "Miss Hart. You put it in. Can you get it out?",
+     "weight": 45
+    },
+    {
+     "sp": "LEONIE",
+     "text": "Yes. Four screws and one connector. Ninety seconds. Less than that.",
+     "weight": 67
+    },
+    {
+     "sp": "RAO",
+     "text": "Mister Okafor, open the door. Hart goes in alone.",
+     "weight": 49
+    },
+    {
+     "sp": "OKAFOR",
+     "text": "Inspector — with respect — if that thing comes on while she's standing under it—",
+     "weight": 80
+    },
+    {
+     "sp": "RAO",
+     "text": "She hasn't got a stimulator in her head, Mister Okafor.",
+     "weight": 55
+    },
+    {
+     "sp": "DECLAN",
+     "text": "That we know of.",
+     "weight": 16
+    },
+    {
+     "sp": "RAO",
+     "text": "Thank you, Declan.",
+     "weight": 18
+    },
+    {
+     "sp": "LEONIE",
+     "text": "I'm at the clock. I've got the case off. It's warm. Why is it warm, it shouldn't be warm, there's nothing in here drawing—",
+     "weight": 122
+    },
+    {
+     "sp": "RAO",
+     "text": "Keep talking and keep working.",
+     "weight": 30
+    },
+    {
+     "sp": "LEONIE",
+     "text": "Four screws — three — — two—",
+     "weight": 28
+    },
+    {
+     "sp": "LEONIE",
+     "text": "...Did everyone hear it do that?",
+     "weight": 32
+    },
+    {
+     "sp": "DECLAN",
+     "text": "Yes. Keep going.",
+     "weight": 16
+    },
+    {
+     "sp": "LEONIE",
+     "text": "It's out. It's in my hand. It's still warm.",
+     "weight": 43
+    },
+    {
+     "sp": "JONAH",
+     "text": "What did you just do? What did she just DO — the corridor's— I can't— the door at the end of this corridor is not where it was—",
+     "weight": 127
+    }
+   ]
+  },
+  "S28.0": {
+   "type": "audio",
+   "file": "S28.0.mp3",
+   "hash": "59ce068522d9",
+   "dur": 6.17,
+   "chars": 117,
+   "lines": [
+    {
+     "sp": "RAO",
+     "text": "Mister Vale. The component in that clock reached Leonie Hart through your channel, with a note on it, over your name.",
+     "weight": 117
+    }
+   ]
+  },
+  "S28.1": {
+   "type": "beat",
+   "dur": 1.6,
+   "sp": "JONAH",
+   "direction": "[nothing]"
+  },
+  "S28.2": {
+   "type": "audio",
+   "file": "S28.2.mp3",
+   "hash": "ffe5586e4241",
+   "dur": 102.98,
+   "chars": 1711,
+   "lines": [
+    {
+     "sp": "RAO",
+     "text": "You told this room you didn't know how she dies.",
+     "weight": 48
+    },
+    {
+     "sp": "JONAH",
+     "text": "I said I didn't know how. I didn't say I didn't know what.",
+     "weight": 58
+    },
+    {
+     "sp": "RAO",
+     "text": "That is a lawyer's answer out of a man who has spent forty minutes saying he's trying to save her.",
+     "weight": 98
+    },
+    {
+     "sp": "JONAH",
+     "text": "Do you want to know what my Wednesday looks like, Inspector? I don't have one.",
+     "weight": 78
+    },
+    {
+     "sp": "JONAH",
+     "text": "In the night you are all so determined to protect — she lives. She walks out of Studio B at four minutes past ten and she is magnificent. She stands up in front of the board on the Thursday and she tells them every single thing, and on the Monday they start taking Echo apart.",
+     "weight": 276
+    },
+    {
+     "sp": "JONAH",
+     "text": "They do it in the wrong order. There is a containment failure in the array hall at eleven forty on the Tuesday morning. Six people. I'm in the second group, by the north stair. I'm the one they find last.",
+     "weight": 204
+    },
+    {
+     "sp": "RAO",
+     "text": "You're eleven hours ahead of me, Mister Vale. Next Tuesday is a week past the end of you.",
+     "weight": 89
+    },
+    {
+     "sp": "JONAH",
+     "text": "Yes. I don't remember dying, Inspector. Nobody remembers dying.",
+     "weight": 63
+    },
+    {
+     "sp": "JONAH",
+     "text": "It reached me the way everything reaches anybody in that building now. Eleven hours at a time, hand to hand, back down a line of people who were all trying to warn somebody about something. By the time it got as far as Wednesday morning it was four sentences and a list of names, and mine was the fourth one.",
+     "weight": 308
+    },
+    {
+     "sp": "JONAH",
+     "text": "I had eleven hours. Eleven hours of being a man who has been told, and one channel forty bits wide, and I used it.",
+     "weight": 114
+    },
+    {
+     "sp": "RAO",
+     "text": "You used it to kill her.",
+     "weight": 24
+    },
+    {
+     "sp": "JONAH",
+     "text": "I used it to not be dead. You keep saying murder because you are standing in the version where she's still alive.",
+     "weight": 113
+    },
+    {
+     "sp": "RAO",
+     "text": "I am standing in the only version there is.",
+     "weight": 43
+    },
+    {
+     "sp": "JONAH",
+     "text": "No. You're not. And that is the one thing in this building that I know for certain and not one of you does.",
+     "weight": 107
+    }
+   ]
+  },
+  "S28B.0": {
+   "type": "audio",
+   "file": "S28B.0.mp3",
+   "hash": "f2a0c7ad91c9",
+   "dur": 43.94,
+   "chars": 636,
+   "lines": [
+    {
+     "sp": "DECLAN",
+     "text": "Inspector, while everybody was having that conversation I did something boring, and I'd like to read it out because it is the single worst thing I have found tonight.",
+     "weight": 166
+    },
+    {
+     "sp": "DECLAN",
+     "text": "The shutdown procedure. The one that says Doctor Sayegh has to be stood at that desk at twenty-two hundred hours exactly. It was revised eight weeks ago. Revision four.",
+     "weight": 168
+    },
+    {
+     "sp": "MIRA",
+     "text": "By me. With Hart. I told you.",
+     "weight": 29
+    },
+    {
+     "sp": "DECLAN",
+     "text": "No, Doctor. You accepted it. There's a difference and it's all over the document metadata. Revision four didn't come off anyone's desk in that building. It came in through the channel on the ninth of June and it was handed to you as a stabilisation update.",
+     "weight": 256
+    }
+   ]
+  },
+  "S28B.1": {
+   "type": "beat",
+   "dur": 3,
+   "sp": "MIRA",
+   "direction": "[a long silence]"
+  },
+  "S28B.2": {
+   "type": "audio",
+   "file": "S28B.2.mp3",
+   "hash": "dde1a42e9ef1",
+   "dur": 70.59,
+   "chars": 1028,
+   "lines": [
+    {
+     "sp": "RAO",
+     "text": "Say what that means, Mister Boyle. Plainly.",
+     "weight": 43
+    },
+    {
+     "sp": "DECLAN",
+     "text": "It means somebody put a weapon in a room, and then wrote the piece of paper that would walk her into it, and then had that piece of paper delivered by a friend of hers so she'd never think to check it. The clock is only half of it. The other half is that she volunteers.",
+     "weight": 270
+    },
+    {
+     "sp": "MIRA",
+     "text": "...I have been arguing for eight weeks with anyone who tried to keep me out of that room. I thought it was courage.",
+     "weight": 115
+    },
+    {
+     "sp": "RAO",
+     "text": "And the rest of it. Grant. Okafor. Clear them or don't.",
+     "weight": 55
+    },
+    {
+     "sp": "DECLAN",
+     "text": "Cleared, both. Grant's shredding order is an audit dodge — funding annexe, ministry on Thursday, squalid and criminal and nothing whatever to do with a clock. And Mister Okafor edited a door log to hide a couple of hours this evening he'd rather nobody knew about, which was idiotic, and which is also the only independent proof anybody has of when that clock started running.",
+     "weight": 376
+    },
+    {
+     "sp": "RAO",
+     "text": "Wonderful. Two liars and neither of them is any use to me.",
+     "weight": 58
+    },
+    {
+     "sp": "OKAFOR",
+     "text": "I'm still outside the door, Inspector.",
+     "weight": 38
+    },
+    {
+     "sp": "RAO",
+     "text": "I know you are, Emeka. Stay there.",
+     "weight": 34
+    }
+   ]
+  },
+  "S29.0": {
+   "type": "audio",
+   "file": "S29.0.mp3",
+   "hash": "52ce967cf05c",
+   "dur": 90.73,
+   "chars": 1315,
+   "lines": [
+    {
+     "sp": "DECLAN",
+     "text": "Inspector. I've been through that design file properly now and I need to tell you something, and I need you to let me get to the end of it before you react.",
+     "weight": 156
+    },
+    {
+     "sp": "DECLAN",
+     "text": "Every toolchain leaves a stamp on what it builds. Compiler version, machine identifier, build time. It's the dullest end of forensics and it never lies, because nobody ever remembers it's there.",
+     "weight": 194
+    },
+    {
+     "sp": "DECLAN",
+     "text": "This file was built on Leonie Hart's workstation.",
+     "weight": 49
+    },
+    {
+     "sp": "RAO",
+     "text": "Then she has been—",
+     "weight": 18
+    },
+    {
+     "sp": "DECLAN",
+     "text": "Let me get to the end of it. It was built on her machine at oh seven forty-one tomorrow morning.",
+     "weight": 96
+    },
+    {
+     "sp": "LEONIE",
+     "text": "...That's not — I haven't —",
+     "weight": 27
+    },
+    {
+     "sp": "DECLAN",
+     "text": "No. You haven't. You will.",
+     "weight": 26
+    },
+    {
+     "sp": "RAO",
+     "text": "Put that in words I can write in a statement, Mister Boyle.",
+     "weight": 59
+    },
+    {
+     "sp": "DECLAN",
+     "text": "Tomorrow morning, twenty to eight, Leonie Hart sits down at that desk and works out what she installed this afternoon. She reverse-engineers it off the bench, and she writes it up properly, because that is what she does when she is frightened. And then it goes back down the channel — hop by hop, eleven hours at a time, the way everything in this case travels — until it lands on her desk this morning. And she installs it.",
+     "weight": 424
+    },
+    {
+     "sp": "RAO",
+     "text": "Then who designed it.",
+     "weight": 21
+    },
+    {
+     "sp": "DECLAN",
+     "text": "Nobody, Inspector. That's what I'm telling you. It hasn't got an author. It's only got a circumference.",
+     "weight": 103
+    },
+    {
+     "sp": "JONAH",
+     "text": "I told her it was mine. It seemed kinder than the truth.",
+     "weight": 56
+    }
+   ]
+  },
+  "S30.0": {
+   "type": "audio",
+   "file": "S30.0.mp3",
+   "hash": "02f27783cdb7",
+   "dur": 96.27,
+   "chars": 1289,
+   "lines": [
+    {
+     "sp": "DISPATCH",
+     "text": "Six — third call. Same extension. Forty-four.",
+     "weight": 45
+    },
+    {
+     "sp": "DECLAN",
+     "text": "Pre-echo is forty-one milliseconds. Forty-one, dead on. Inspector, that's his signature. Whoever this is, they are calling from his night.",
+     "weight": 138
+    },
+    {
+     "sp": "FLEONIE",
+     "text": "It's Leonie. It's— I know. I know exactly how that sounds. She's standing next to you. I remember standing next to me.",
+     "weight": 118
+    },
+    {
+     "sp": "FLEONIE",
+     "text": "It's twenty past eight in the morning here and I've been awake for twenty-six hours and I have just come off the telephone to a very kind man called Boyle who wanted to talk to me about a build stamp.",
+     "weight": 200
+    },
+    {
+     "sp": "FLEONIE",
+     "text": "I want to say something to her. To me. Is she— can she hear this?",
+     "weight": 65
+    },
+    {
+     "sp": "LEONIE",
+     "text": "I'm here.",
+     "weight": 9
+    },
+    {
+     "sp": "FLEONIE",
+     "text": "...You did it, love. Not on purpose. But your hands.",
+     "weight": 52
+    },
+    {
+     "sp": "FLEONIE",
+     "text": "And there is going to be a moment tonight where somebody offers you a way to have not done it. And you're going to take it. I need you to know that it doesn't work. I have tried it from this end all night long and it does not come out.",
+     "weight": 235
+    },
+    {
+     "sp": "RAO",
+     "text": "Miss Hart. Listen to me. The design. Where did you get it.",
+     "weight": 58
+    },
+    {
+     "sp": "FLEONIE",
+     "text": "This morning? I worked it out. Off the bench, in about four hours. And then I gave it to Jonah. Because he asked me for it, and he said he needed it for the inquiry.",
+     "weight": 165
+    },
+    {
+     "sp": "FLEONIE",
+     "text": "He wasn't lying, was he. He just never said which inquiry.",
+     "weight": 58
+    }
+   ]
+  },
+  "S31.0": {
+   "type": "audio",
+   "file": "S31.0.mp3",
+   "hash": "942ece7b80e1",
+   "dur": 109.14,
+   "chars": 1433,
+   "lines": [
+    {
+     "sp": "FMIRA",
+     "text": "Analyst. I have about ninety seconds of coherence and then I stop, and I would like to spend them usefully for once in my life.",
+     "weight": 127
+    },
+    {
+     "sp": "FMIRA",
+     "text": "You've found the clock. Good. Now hear the part I got wrong and paid for.",
+     "weight": 73
+    },
+    {
+     "sp": "FMIRA",
+     "text": "Taking the crystal out does not save anything. It saves me. It does not save the city, because the machine keeps running, and in nine weeks it will not need a clock or a crystal or a room.",
+     "weight": 188
+    },
+    {
+     "sp": "FMIRA",
+     "text": "There is a cold collapse. It's in the commissioning file, it has been sitting there since before any of us, and it is four steps. Write them down.",
+     "weight": 146
+    },
+    {
+     "sp": "FMIRA",
+     "text": "One. Drop the secondary loop to atmosphere. Two. Open the interlock at the analogue desk — yes, that room, there is no way around that and I am sorry. Three. Hold the array at reference through the lock window. Do not let it free-run. It has to be held while it comes down. Four. Pull the reference. Cold.",
+     "weight": 305
+    },
+    {
+     "sp": "RAO",
+     "text": "And step three needs what.",
+     "weight": 26
+    },
+    {
+     "sp": "FMIRA",
+     "text": "Step three needs the phase key. Sixteen digits, it changes at every lock, and I have not got it. In my night I never think to ask him for it, and by the following Tuesday there is nobody left to ask.",
+     "weight": 199
+    },
+    {
+     "sp": "FMIRA",
+     "text": "Analyst, listen. He will not give that key to a room that is trying to save me. He has spent his entire night making certain this room does not exist.",
+     "weight": 150
+    },
+    {
+     "sp": "FMIRA",
+     "text": "—I don't know how much longer this branch is— —you have to make him think he has won—",
+     "weight": 85
+    },
+    {
+     "sp": "DECLAN",
+     "text": "She's gone. That wasn't her hanging up.",
+     "weight": 39
+    }
+   ]
+  },
+  "S32.0": {
+   "type": "audio",
+   "file": "S32.0.mp3",
+   "hash": "b57cd41f7c41",
+   "dur": 28.9,
+   "chars": 465,
+   "lines": [
+    {
+     "sp": "RAO",
+     "text": "Three minutes. He is the only person alive — or otherwise — with that key, and he will only hand it to a room that is letting her die.",
+     "weight": 134
+    },
+    {
+     "sp": "DECLAN",
+     "text": "So we tell him the room is letting her die.",
+     "weight": 43
+    },
+    {
+     "sp": "RAO",
+     "text": "You want me to lie to a man to talk him into deleting himself.",
+     "weight": 62
+    },
+    {
+     "sp": "DECLAN",
+     "text": "I want a hundred and forty megajoules to still be in a hole in the ground at five past ten, Inspector. I'm not fussy about how.",
+     "weight": 127
+    },
+    {
+     "sp": "RAO",
+     "text": "Six. It's your console and it's your voice on the log. I'm not ordering this one.",
+     "weight": 81
+    }
+   ]
+  },
+  "S32A.0": {
+   "type": "audio",
+   "file": "S32A.0.mp3",
+   "hash": "0cf1c00e9d98",
+   "dur": 54.42,
+   "chars": 978,
+   "lines": [
+    {
+     "sp": "RAO",
+     "text": "Mister Vale. We're standing down. The perimeter holds where it is and Doctor Sayegh proceeds with the shutdown as written.",
+     "weight": 122
+    },
+    {
+     "sp": "JONAH",
+     "text": "...Thank you. Thank you. I know what that cost. I do know.",
+     "weight": 58
+    },
+    {
+     "sp": "RAO",
+     "text": "The shutdown as written needs the array held at reference through the window. She hasn't got the key for it. If she free-runs the lock she takes the hall out and there's no Wednesday for anybody, yours included.",
+     "weight": 211
+    },
+    {
+     "sp": "JONAH",
+     "text": "...Yes. Yes, she would need to hold it. She never did remember to ask for it.",
+     "weight": 77
+    },
+    {
+     "sp": "JONAH",
+     "text": "Four. Seven. Two. Two. Nine. One. Zero. Six. Three. Three. Eight. Five. Four. Zero. One. Nine.",
+     "weight": 94
+    },
+    {
+     "sp": "JONAH",
+     "text": "Tell her— ...No. Don't tell her anything. She'd know it was me.",
+     "weight": 63
+    },
+    {
+     "sp": "DECLAN",
+     "text": "Sixteen digits. Checksum's good. It's real.",
+     "weight": 43
+    },
+    {
+     "sp": "RAO",
+     "text": "Log the exact wording of that, Six. Every word of it, both sides. Somebody is going to want to read what we said to him.",
+     "weight": 120
+    }
+   ]
+  },
+  "S32B.0": {
+   "type": "audio",
+   "file": "S32B.0.mp3",
+   "hash": "c8220f9054e3",
+   "dur": 24.66,
+   "chars": 422,
+   "lines": [
+    {
+     "sp": "RAO",
+     "text": "Mister Vale. I'm going to be straight with you, because I don't believe anybody has been tonight, including us.",
+     "weight": 111
+    },
+    {
+     "sp": "RAO",
+     "text": "We can put her in that room, hold the array at reference and bring the whole thing down cold. Nobody dies in this building. But it needs your key. And if we use it, your night stops. All of it. You, that corridor, the woman who telephoned us at twenty past eight. It doesn't happen.",
+     "weight": 282
+    },
+    {
+     "sp": "RAO",
+     "text": "I'm asking you for it anyway.",
+     "weight": 29
+    }
+   ]
+  },
+  "S32B.1": {
+   "type": "beat",
+   "dur": 4.5,
+   "sp": "JONAH",
+   "direction": "[a very long silence; only the rain]"
+  },
+  "S32B.2": {
+   "type": "audio",
+   "file": "S32B.2.mp3",
+   "hash": "238454da83d6",
+   "dur": 33.55,
+   "chars": 569,
+   "lines": [
+    {
+     "sp": "JONAH",
+     "text": "...You're asking me to hand you the thing that un-happens me.",
+     "weight": 61
+    },
+    {
+     "sp": "RAO",
+     "text": "Yes.",
+     "weight": 4
+    },
+    {
+     "sp": "JONAH",
+     "text": "I've got a nephew. He's eleven. He's in the version where I'm alive, he's asleep about four streets from here, and in yours he just... has a different Tuesday. And nobody tells him.",
+     "weight": 181
+    },
+    {
+     "sp": "RAO",
+     "text": "I know.",
+     "weight": 7
+    },
+    {
+     "sp": "JONAH",
+     "text": "...No. No. I'm sorry. I have been dead once already this week and I am not going to do it politely.",
+     "weight": 99
+    },
+    {
+     "sp": "DECLAN",
+     "text": "He's gone. Line six isn't dead, it's just — it isn't anything.",
+     "weight": 62
+    },
+    {
+     "sp": "RAO",
+     "text": "Right. Then we do it without him. Six — two minutes and no key.",
+     "weight": 63
+    }
+   ]
+  },
+  "S33.0": {
+   "type": "audio",
+   "file": "S33.0.mp3",
+   "hash": "55180e2aa7a8",
+   "dur": 21.22,
+   "chars": 344,
+   "lines": [
+    {
+     "sp": "RAO",
+     "text": "Six. Before I give an order that either gets a woman killed or doesn't, I need what you've got. Four parts, on the record, in your own words. This is the bit that ends up read out in front of a coroner.",
+     "weight": 202
+    },
+    {
+     "sp": "RAO",
+     "text": "How does she die. Whose hands put it there. Who meant it. And what in God's name these telephone calls actually are.",
+     "weight": 116
+    },
+    {
+     "sp": "RAO",
+     "text": "Ninety seconds. Go.",
+     "weight": 19
+    }
+   ]
+  },
+  "VERDICT_STRONG.0": {
+   "type": "audio",
+   "file": "VERDICT_STRONG.0.mp3",
+   "hash": "6104c2b69852",
+   "dur": 29.78,
+   "chars": 510,
+   "lines": [
+    {
+     "sp": "RAO",
+     "text": "For the record. At twenty-one fifty-eight the analyst on duty gave me the following. Method — an oscillator concealed in the Studio B wall clock, triggered by the experiment itself at phase lock, lethal by way of the doctor's implant. Hands — Leonie Hart, without knowledge of what she was holding. Intent — Jonah Vale.",
+     "weight": 319
+    },
+    {
+     "sp": "RAO",
+     "text": "And the calls are four different tomorrows, arguing about which one of them is allowed to happen.",
+     "weight": 97
+    },
+    {
+     "sp": "RAO",
+     "text": "I have read a great many of these. That one is going to hold.",
+     "weight": 61
+    }
+   ]
+  },
+  "VERDICT_PARTIAL.0": {
+   "type": "audio",
+   "file": "VERDICT_PARTIAL.0.mp3",
+   "hash": "49f716d7e30b",
+   "dur": 17.53,
+   "chars": 275,
+   "lines": [
+    {
+     "sp": "RAO",
+     "text": "...Right. That's most of it.",
+     "weight": 28
+    },
+    {
+     "sp": "RAO",
+     "text": "It isn't all of it, and the piece you've got wrong is exactly the piece a barrister goes looking for first, because it's the piece that makes the rest of it optional.",
+     "weight": 166
+    },
+    {
+     "sp": "RAO",
+     "text": "It'll do for tonight. It will not do in March. Stand by.",
+     "weight": 56
+    }
+   ]
+  },
+  "VERDICT_WEAK.0": {
+   "type": "audio",
+   "file": "VERDICT_WEAK.0.mp3",
+   "hash": "c9bdd3cb5194",
+   "dur": 18.34,
+   "chars": 339,
+   "lines": [
+    {
+     "sp": "RAO",
+     "text": "...Six. I am going to log that the analyst on duty provided a theory, and I am not going to log what it was.",
+     "weight": 108
+    },
+    {
+     "sp": "RAO",
+     "text": "That isn't unkindness. That's me keeping your name out of a transcript that gets read out loud.",
+     "weight": 95
+    },
+    {
+     "sp": "RAO",
+     "text": "Now give me something to act on in the next forty seconds, or I act on nothing — and nothing has a body attached to it.",
+     "weight": 119
+    }
+   ]
+  },
+  "S34.0": {
+   "type": "audio",
+   "file": "S34.0.mp3",
+   "hash": "ab6b2a14b85e",
+   "dur": 7.06,
+   "chars": 94,
+   "lines": [
+    {
+     "sp": "RAO",
+     "text": "Right. Sixty seconds. Last thing, Six, and it's the only one that ever mattered.",
+     "weight": 80
+    },
+    {
+     "sp": "RAO",
+     "text": "What do we do.",
+     "weight": 14
+    }
+   ]
+  },
+  "END1_2200.0": {
+   "type": "audio",
+   "file": "END1_2200.0.mp3",
+   "hash": "9af0f0bdb2cb",
+   "dur": 32.66,
+   "chars": 433,
+   "lines": [
+    {
+     "sp": "TANNOY",
+     "text": "Phase lock in sixty seconds.",
+     "weight": 28
+    },
+    {
+     "sp": "MIRA",
+     "text": "I'm at the desk. Secondary loop is open. Interlock is open. It is very quiet in here.",
+     "weight": 85
+    },
+    {
+     "sp": "RAO",
+     "text": "Doctor—",
+     "weight": 7
+    },
+    {
+     "sp": "MIRA",
+     "text": "It's quite all right, Inspector. It's a little late to start being sentimental about it now.",
+     "weight": 92
+    },
+    {
+     "sp": "TANNOY",
+     "text": "Ten. Nine. Eight.",
+     "weight": 17
+    },
+    {
+     "sp": "MIRA",
+     "text": "Analyst. Six, is it? Thank you for taking it seriously. Most people wouldn't have.",
+     "weight": 82
+    },
+    {
+     "sp": "TANNOY",
+     "text": "Three. Two. One. Phase lock.",
+     "weight": 28
+    }
+   ]
+  },
+  "END1_2200.1": {
+   "type": "beat",
+   "dur": 1.6,
+   "sp": "MIRA",
+   "direction": "[a small sound; nothing dramatic at all]"
+  },
+  "END1_2200.2": {
+   "type": "audio",
+   "file": "END1_2200.2.mp3",
+   "hash": "02b14965b9e1",
+   "dur": 9.3,
+   "chars": 188,
+   "lines": [
+    {
+     "sp": "OKAFOR",
+     "text": "Open it — open the door — OPEN IT—",
+     "weight": 34
+    },
+    {
+     "sp": "DECLAN",
+     "text": "...The clock's stopped.",
+     "weight": 23
+    },
+    {
+     "sp": "RAO",
+     "text": "Time of death, twenty-two hundred hours. Log it, Six.",
+     "weight": 53
+    }
+   ]
+  },
+  "END1_STING.0": {
+   "type": "audio",
+   "file": "END1_STING.0.mp3",
+   "hash": "ec44ab1ec1e6",
+   "dur": 23.86,
+   "chars": 439,
+   "lines": [
+    {
+     "sp": "JONAH",
+     "text": "Six. I don't know whether you'll ever hear this. I think you will, actually. I think it's in the log.",
+     "weight": 101
+    },
+    {
+     "sp": "JONAH",
+     "text": "I wanted to say thank you. You did exactly what I remembered you doing. Every bit of it, right down to the pause before you answered.",
+     "weight": 133
+    },
+    {
+     "sp": "JONAH",
+     "text": "I'm having breakfast. That's all. That's the whole of what I wanted to tell you. I'm sitting down and I'm having breakfast.",
+     "weight": 123
+    },
+    {
+     "sp": "JONAH",
+     "text": "It's stopped raining.",
+     "weight": 21
+    }
+   ]
+  },
+  "END2_2200.0": {
+   "type": "audio",
+   "file": "END2_2200.0.mp3",
+   "hash": "f070726ac425",
+   "dur": 44.65,
+   "chars": 737,
+   "lines": [
+    {
+     "sp": "RAO",
+     "text": "Get her out. Now. Bodily if you have to.",
+     "weight": 40
+    },
+    {
+     "sp": "OKAFOR",
+     "text": "I have her. Doctor — walk. Walk with me.",
+     "weight": 40
+    },
+    {
+     "sp": "MIRA",
+     "text": "Inspector, the array — if it free-runs the lock without a hold on the reference—",
+     "weight": 80
+    },
+    {
+     "sp": "RAO",
+     "text": "Then the array can have a bad night. I've had one.",
+     "weight": 50
+    },
+    {
+     "sp": "TANNOY",
+     "text": "Phase lock.",
+     "weight": 11
+    },
+    {
+     "sp": "DECLAN",
+     "text": "...It went off. Twenty-two hundred exactly, full drive, into an empty room, for about four seconds. If she'd been standing at that desk she'd be on the floor.",
+     "weight": 158
+    },
+    {
+     "sp": "RAO",
+     "text": "And the array.",
+     "weight": 14
+    },
+    {
+     "sp": "MIRA",
+     "text": "...Holding. It's holding. It free-ran the window and it came through it. It's fine. Everything is fine.",
+     "weight": 103
+    },
+    {
+     "sp": "RAO",
+     "text": "Then that is a good night's work, and I'll take it.",
+     "weight": 51
+    },
+    {
+     "sp": "MIRA",
+     "text": "...Yes.",
+     "weight": 7
+    },
+    {
+     "sp": "MIRA",
+     "text": "It's still running, Inspector.",
+     "weight": 30
+    }
+   ]
+  },
+  "END2_STING.0": {
+   "type": "audio",
+   "file": "END2_STING.0.mp3",
+   "hash": "a5934eba10d4",
+   "dur": 26.42,
+   "chars": 442,
+   "lines": [
+    {
+     "sp": "DISPATCH",
+     "text": "Control — line one. Line four. Line— Six, I have got seven calls on the board and not one of them has a number attached to it.",
+     "weight": 126
+    },
+    {
+     "sp": "FMIRA",
+     "text": "—this is Sayegh, the date here is the fourteenth of—",
+     "weight": 52
+    },
+    {
+     "sp": "FLEONIE",
+     "text": "—please, whoever is listening, I don't know when you are—",
+     "weight": 57
+    },
+    {
+     "sp": "DISPATCH",
+     "text": "They're all giving different dates. Six, they're all giving different dates.",
+     "weight": 76
+    },
+    {
+     "sp": "RAO",
+     "text": "...How many.",
+     "weight": 12
+    },
+    {
+     "sp": "DISPATCH",
+     "text": "It's still climbing.",
+     "weight": 20
+    }
+   ]
+  },
+  "END3_GODARK.0": {
+   "type": "audio",
+   "file": "END3_GODARK.0.mp3",
+   "hash": "3f301625efe2",
+   "dur": 39.22,
+   "chars": 654,
+   "lines": [
+    {
+     "sp": "RAO",
+     "text": "Off the log. Six. You understand what you're asking me to authorise. If this goes wrong, there is no record that this room ever knew anything.",
+     "weight": 142
+    },
+    {
+     "sp": "DECLAN",
+     "text": "And if it goes right there's no record either, Inspector. That is rather the entire point. They are reading it. So stop writing it.",
+     "weight": 131
+    },
+    {
+     "sp": "RAO",
+     "text": "...Control, note by hand, on paper, in ink: at twenty-one fifty-nine the incident log for this console is suspended by my order. Not the analyst's. Mine.",
+     "weight": 153
+    },
+    {
+     "sp": "DISPATCH",
+     "text": "Noted. Console six is dark.",
+     "weight": 27
+    },
+    {
+     "sp": "RAO",
+     "text": "Right. Doctor Sayegh — you're going in, and I want you to know that I've been trying to close this building for six years and I would rather you came out of it.",
+     "weight": 160
+    }
+   ]
+  },
+  "END3_2200.0": {
+   "type": "audio",
+   "file": "END3_2200.0.mp3",
+   "hash": "fdd293466776",
+   "dur": 54.73,
+   "chars": 724,
+   "lines": [
+    {
+     "sp": "MIRA",
+     "text": "Secondary loop is open to atmosphere. Interlock open. Ready on the reference.",
+     "weight": 77
+    },
+    {
+     "sp": "DECLAN",
+     "text": "Key going in. Four, seven, two, two, nine, one, zero, six, three, three, eight, five, four, zero, one, nine.",
+     "weight": 108
+    },
+    {
+     "sp": "TANNOY",
+     "text": "Phase lock in ten.",
+     "weight": 18
+    },
+    {
+     "sp": "MIRA",
+     "text": "Holding.",
+     "weight": 8
+    },
+    {
+     "sp": "MIRA",
+     "text": "It's— it is fighting me, it wants to run, it wants to—",
+     "weight": 54
+    },
+    {
+     "sp": "DECLAN",
+     "text": "Hold it. Hold it. Hold—",
+     "weight": 23
+    },
+    {
+     "sp": "MIRA",
+     "text": "...It's cold. It's cold, and it's down.",
+     "weight": 39
+    },
+    {
+     "sp": "OKAFOR",
+     "text": "Door's open. She's walking out. She's walking out on her own.",
+     "weight": 61
+    },
+    {
+     "sp": "DECLAN",
+     "text": "Inspector. The recordings.",
+     "weight": 26
+    },
+    {
+     "sp": "RAO",
+     "text": "What about them.",
+     "weight": 16
+    },
+    {
+     "sp": "DECLAN",
+     "text": "Line six. The first call, the substation, all of it. It's noise. I have forty-seven minutes of a man's voice on a disk in front of me and it is turning into weather.",
+     "weight": 165
+    }
+   ]
+  },
+  "END3_STING.0": {
+   "type": "audio",
+   "file": "END3_STING.0.mp3",
+   "hash": "820813eeca8c",
+   "dur": 10.43,
+   "chars": 257,
+   "lines": [
+    {
+     "sp": "RAO",
+     "text": "Did we just save a life.",
+     "weight": 24
+    },
+    {
+     "sp": "RAO",
+     "text": "Or did we just spend a few thousand of them we're never going to meet.",
+     "weight": 70
+    },
+    {
+     "sp": "DECLAN",
+     "text": "...I don't know, Inspector. I only do the audio.",
+     "weight": 48
+    },
+    {
+     "sp": "CHILD",
+     "text": "I was here.",
+     "weight": 11
+    }
+   ]
+  }
+ }
+}

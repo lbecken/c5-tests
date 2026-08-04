@@ -1,0 +1,245 @@
+/* THE MAN WHO CALLED FROM TOMORROW — console */
+
+:root{
+  --bg:#0a0c0f;
+  --bg2:#0f1319;
+  --panel:#141a22;
+  --line:#243040;
+  --ink:#c9d4e0;
+  --dim:#7c8b9c;
+  --amber:#e2a03f;
+  --amber-dim:#8a6524;
+  --green:#6fbfa8;
+  --red:#c4614f;
+  --future:#c8703f;
+  --futureM:#7fc7e8;
+  --mono:'SF Mono',ui-monospace,'JetBrains Mono',Menlo,Consolas,monospace;
+  --sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  background:var(--bg);color:var(--ink);font-family:var(--sans);
+  overflow:hidden;-webkit-font-smoothing:antialiased;
+}
+body::after{ /* faint scanline haze; never over text legibility */
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:99;
+  background:repeating-linear-gradient(180deg,rgba(255,255,255,.012) 0 1px,transparent 1px 3px);
+}
+
+.screen{display:none;height:100%}
+.screen.on{display:flex}
+
+/* ── title ───────────────────────────────────────────────────────── */
+#title{
+  align-items:center;justify-content:center;
+  background:radial-gradient(ellipse at 50% 30%,#141b25 0%,#070a0d 70%);
+}
+.title-inner{max-width:660px;padding:40px;text-align:center}
+.kicker{
+  font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--amber-dim);margin-bottom:26px;
+}
+#title h1{
+  font-size:clamp(34px,6vw,58px);line-height:1.04;font-weight:300;letter-spacing:-.02em;
+  margin-bottom:28px;
+}
+.blurb{color:var(--dim);line-height:1.65;font-size:15px;margin-bottom:26px;text-align:left}
+.warn{
+  font-family:var(--mono);font-size:12px;color:var(--amber);
+  border:1px solid var(--amber-dim);border-radius:3px;padding:10px;margin-bottom:26px;
+}
+.title-actions{display:flex;gap:12px;justify-content:center;margin-bottom:26px}
+.credits{font-size:12px;color:#4c5966;font-style:italic}
+
+button{
+  font-family:var(--mono);font-size:13px;color:var(--ink);
+  background:var(--panel);border:1px solid var(--line);border-radius:3px;
+  padding:9px 14px;cursor:pointer;transition:.13s;
+}
+button:hover:not(:disabled){border-color:var(--amber);color:#fff;background:#1b232e}
+button:disabled{opacity:.35;cursor:not-allowed}
+button.big{padding:14px 28px;font-size:14px;letter-spacing:.06em}
+button.ghost{background:transparent}
+
+/* ── console layout ──────────────────────────────────────────────── */
+#console{flex-direction:column;position:relative}
+
+#topbar{
+  display:flex;align-items:center;gap:18px;
+  padding:12px 18px;border-bottom:1px solid var(--line);background:var(--bg2);
+  flex:0 0 auto;
+}
+.clock-wrap{display:flex;flex-direction:column;line-height:1.1}
+#clock{font-family:var(--mono);font-size:26px;color:var(--amber);letter-spacing:.04em}
+#deadline{font-family:var(--mono);font-size:10px;color:#5a6675;letter-spacing:.12em;text-transform:uppercase}
+#scene-title{
+  font-family:var(--mono);font-size:12px;color:var(--dim);letter-spacing:.16em;
+  text-transform:uppercase;flex:1;
+}
+.topright{display:flex;align-items:center;gap:8px}
+.chip{font-size:11px;padding:6px 10px;letter-spacing:.08em}
+.chan{
+  font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;
+  padding:5px 9px;border:1px solid var(--line);border-radius:3px;color:var(--dim);
+}
+.chan.future{color:var(--future);border-color:var(--future)}
+.chan.futureM{color:var(--futureM);border-color:var(--futureM)}
+
+/* ── stage ───────────────────────────────────────────────────────── */
+/* Centred vertically when there is room, top-aligned when there is not.
+ * justify-content:center on a scroll container pushes overflow past the top
+ * edge where it cannot be scrolled to; auto margins centre without that. */
+#stage{
+  flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;
+  padding:24px;gap:22px;overflow-y:auto;position:relative;
+}
+#stage > *:first-child{margin-top:auto}
+#stage > *:last-child{margin-bottom:auto}
+
+#speaker-panel{text-align:center;min-height:74px}
+#speaker-name{
+  font-family:var(--mono);font-size:15px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--amber);transition:color .3s;
+}
+#speaker-role{font-size:11px;color:#55616f;margin-top:4px;font-style:italic}
+#meter{display:flex;gap:3px;justify-content:center;margin-top:10px;height:12px}
+#meter i{width:3px;height:100%;background:#1e2732;border-radius:1px;transition:.1s}
+#meter.live i{background:var(--amber-dim)}
+#meter.live i:nth-child(odd){animation:pulse .5s infinite alternate}
+#meter.live i:nth-child(3n){animation:pulse .34s infinite alternate}
+#meter.live i:nth-child(4n){animation:pulse .62s infinite alternate}
+@keyframes pulse{from{transform:scaleY(.25);opacity:.5}to{transform:scaleY(1);opacity:1}}
+
+#subtitle-wrap{max-width:780px;min-height:120px;display:flex;align-items:center}
+#subtitle{
+  font-size:clamp(17px,2.1vw,23px);line-height:1.55;text-align:center;
+  transition:opacity .18s;
+}
+#subtitle.direction{color:#66747f;font-style:italic;font-size:16px}
+
+#interaction{width:100%;max-width:760px;display:flex;flex-direction:column;gap:10px}
+
+.choice{
+  display:block;width:100%;text-align:left;padding:15px 18px;
+  font-family:var(--sans);font-size:15px;line-height:1.4;
+  border-left:2px solid var(--line);
+}
+.choice:hover:not(:disabled){border-left-color:var(--amber);transform:translateX(3px)}
+.choice .hint{display:block;font-size:12.5px;color:var(--dim);margin-top:6px;font-style:italic}
+.choice.locked{opacity:.4}
+.choice.locked .hint{color:var(--red)}
+
+.prompt{
+  font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--amber-dim);text-align:center;margin-bottom:4px;
+}
+.taken{opacity:.32;pointer-events:none}
+.taken::after{content:' — done';color:var(--green);font-family:var(--mono);font-size:11px}
+
+/* ── analysis ────────────────────────────────────────────────────── */
+#analysis{
+  border:1px solid var(--line);border-radius:4px;padding:18px;background:var(--bg2);
+}
+#analysis h3{
+  font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--amber);margin-bottom:6px;font-weight:400;
+}
+#analysis .goal{font-size:13px;color:var(--dim);margin-bottom:14px;font-style:italic}
+.tools{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.tool{font-size:12px}
+.tool.on{background:#243444;border-color:var(--green);color:var(--green)}
+.analysis-actions{display:flex;gap:8px}
+.miss{color:var(--red);font-size:13px;margin-top:10px;font-style:italic}
+
+/* ── accusation ──────────────────────────────────────────────────── */
+#accusation{border:1px solid var(--amber-dim);border-radius:4px;padding:20px;background:var(--bg2)}
+#accusation h3{
+  font-family:var(--mono);font-size:13px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--amber);margin-bottom:14px;font-weight:400;
+  display:flex;justify-content:space-between;align-items:baseline;
+}
+#acc-timer{font-size:20px;color:var(--red)}
+.acc-q{margin-bottom:16px}
+.acc-q > p{font-size:14px;color:var(--ink);margin-bottom:8px}
+.acc-opts{display:flex;flex-direction:column;gap:5px}
+.acc-opt{
+  text-align:left;font-family:var(--sans);font-size:13.5px;padding:9px 12px;line-height:1.35;
+}
+.acc-opt.sel{border-color:var(--amber);background:#221b0f;color:#fff}
+#acc-submit{width:100%;margin-top:6px;padding:13px}
+
+/* ── endings ─────────────────────────────────────────────────────── */
+#ending-screen{max-width:720px;margin:0 auto;text-align:left}
+#ending-screen h2{
+  font-size:32px;font-weight:300;margin-bottom:6px;letter-spacing:-.01em;
+}
+#ending-screen .etag{
+  font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--amber-dim);margin-bottom:20px;
+}
+#ending-screen p{color:var(--dim);line-height:1.7;margin-bottom:14px;font-size:15px}
+.scorecard{border:1px solid var(--line);border-radius:4px;padding:16px;margin:20px 0}
+.scorecard h4{
+  font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--dim);margin-bottom:12px;font-weight:400;
+}
+.srow{display:flex;justify-content:space-between;gap:12px;padding:7px 0;border-top:1px solid #1a222c;font-size:13.5px}
+.srow:first-of-type{border-top:0}
+.srow .k{color:var(--dim);font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+.srow .v.correct{color:var(--green)}
+.srow .v.partial{color:var(--amber)}
+.srow .v.wrong{color:var(--red)}
+.missed{font-size:13px;color:var(--dim);line-height:1.6}
+.missed b{color:var(--ink);font-weight:500}
+
+/* ── controls ────────────────────────────────────────────────────── */
+#controls{
+  display:flex;align-items:center;gap:8px;padding:10px 18px;
+  border-top:1px solid var(--line);background:var(--bg2);flex:0 0 auto;
+}
+#seg-indicator{font-family:var(--mono);font-size:11px;color:#4c5966;margin-left:8px}
+.right{margin-left:auto}
+
+/* ── panels ──────────────────────────────────────────────────────── */
+.panel{
+  position:absolute;top:57px;bottom:47px;right:0;width:380px;max-width:88vw;
+  background:var(--panel);border-left:1px solid var(--line);
+  padding:18px;overflow-y:auto;transform:translateX(101%);transition:transform .22s;z-index:20;
+}
+.panel.open{transform:none}
+.panel h2{
+  font-family:var(--mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--amber);font-weight:400;margin-bottom:14px;
+  display:flex;justify-content:space-between;align-items:center;
+}
+.close{background:none;border:0;font-size:20px;color:var(--dim);padding:0 6px;line-height:1}
+.panel label{display:block;font-size:12px;color:var(--dim);margin-bottom:14px}
+.panel input[type=range]{width:100%;margin-top:6px;accent-color:var(--amber)}
+.mixnote{font-size:12px;color:#55616f;line-height:1.6;font-style:italic;margin-top:8px}
+
+.ev{border-left:2px solid var(--line);padding:9px 0 9px 12px;margin-bottom:12px}
+.ev.revealed{border-left-color:var(--green)}
+.ev .id{font-family:var(--mono);font-size:10px;color:#4c5966;letter-spacing:.1em}
+.ev .t{font-size:13.5px;color:var(--ink);margin:3px 0 5px}
+.ev .s{font-size:12.5px;color:var(--dim);line-height:1.55;font-style:italic}
+.ev .m{font-size:12.5px;color:var(--green);line-height:1.55;margin-top:6px}
+.ev-empty{font-size:13px;color:#4c5966;font-style:italic}
+
+#transcript-body .tl{padding:6px 0;font-size:13px;line-height:1.5;color:#5f6d7c}
+#transcript-body .tl.now{color:var(--ink)}
+#transcript-body .tl b{
+  font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--amber-dim);display:block;margin-bottom:2px;font-weight:400;
+}
+
+/* evidence flash */
+#ev-count.flash{color:var(--green);font-weight:700}
+
+@media (max-width:720px){
+  #topbar{flex-wrap:wrap;gap:10px}
+  #scene-title{order:3;width:100%;flex:none}
+  .panel{width:100%;top:0;bottom:0}
+  #stage{padding:16px}
+}
