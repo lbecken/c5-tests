@@ -96,6 +96,18 @@ const AU = {
                         : this.offset;
   },
 
+  async sting(name) {
+    // one-shot: klaxon, bolt, patch relay. Under the dialogue, never over it.
+    if (FAST) return;
+    try {
+      const buf = await this.buffer(`audio/sfx/${name}.mp3`);
+      const s = this.ctx.createBufferSource();
+      const g = this.ctx.createGain();
+      g.gain.value = 0.55;
+      s.buffer = buf; s.connect(g); g.connect(this.master); s.start(0);
+    } catch (e) { /* stings are decorative */ }
+  },
+
   async ambience(name) {
     if (this.ambName === name) return;
     this.ambName = name;
@@ -179,6 +191,7 @@ async function enterScene(id) {
   $('scene-title').textContent = sc.title || '';
   updateClock();
   AU.ambience(sc.amb === 'apartment' || sc.amb === 'line' ? 'line' : sc.amb);
+  if (sc.sting) AU.sting(sc.sting);
 
   $('transcript').innerHTML = '';
   $('transcript').classList.remove('done');

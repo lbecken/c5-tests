@@ -1,13 +1,13 @@
 {
  "s01_broadcast__00": {
-  "ratio": 1.0,
+  "ratio": 0.877,
   "note": "",
-  "heard": "Achtung, Achtung! Station 417. Wind south south west four. Cloud broken. Visibility three. Pressure 1149. Repeat: Pressure 1149. Message follows. Two seven four one nine nine. Two seven four one nine nine. The forecast is memory. Ends."
+  "heard": "Achtung, Achtung! Station 417. Wind south south west four. Cloud broken. Visibility three. Pressure 1149. Repeat: Pressure 1149. Message follows. 27 41 99 27 41 99. The forecast is memory. Ends."
  },
  "s02_brief__00": {
   "ratio": 0.951,
   "note": "",
-  "heard": "Examiner, you are connected. Annika Vogt, Federal Archive Liaison. I am going to be quick because the building has stopped being polite. Forty minutes ago, a shortwave receiver in this room recorded what you just heard. The identifier is Station four one seven. That station transmitted from the Eastern Sector between 1979 and 1989, and then it stopped, and everyone who cared about it died or retired. The receiver also triggered a continuity protocol that nobody here has been able to switch off. Glasshouse. We are sealed until the next transmission window closes. That window is twenty-eight minutes away. You are the examiner because you are the only person on this line who was not part of it. Please keep it that way"
+  "heard": "Examiner, you are connected. Annika Vogt, Federal Archive Liaison. I am going to be quick because the building has stopped being polite. Forty minutes ago, a shortwave receiver in this room recorded what you just heard. The identifier is station four one seven. That station transmitted from the eastern sector between 1979 and 1989, and then it stopped, and everyone who cared about it died or retired. The receiver also triggered a continuity protocol that nobody here has been able to switch off. Glasshouse. We are sealed until the next transmission window closes. That window is twenty-eight minutes away. You are the examiner because you are the only person on this line who was not part of it. Please keep it that way"
  },
  "s03_iris_phrase__00": {
   "ratio": 0.941,
@@ -32,7 +32,7 @@
  "s05_frayne_intro__00": {
   "ratio": 1.0,
   "note": "",
-  "heard": "Before you begin, I have given four statements about Peter Halloway. In nineteen eighty-three, in eighty-four, in ninety-one when it became fashionable, and in two thousand and nine to a committee that had already written its findings. They do not differ. Neither will this one. He was my officer. He was tired. Tiredness in that profession resembles a great many other things, and I am not required to have distinguished between them at the time. As to tonight, somebody has found a way to make a dead woman read the weather. That is a technical crime, not a historical one, and I would be grateful if you did not confuse the two"
+  "heard": "Before you begin, I have given four statements about Peter Halloway. In nineteen eighty-three, in eighty-four, in ninety-one, when it became fashionable, and in two thousand and nine, to a committee that had already written its findings. They do not differ. Neither will this one. He was my officer. He was tired. Tiredness in that profession resembles a great many other things, and I am not required to have distinguished between them at the time. As to tonight, somebody has found a way to make a dead woman read the weather. That is a technical crime, not a historical one, and I would be grateful if you did not confuse the two."
  },
  "s06_dorsey_intro__00": {
   "ratio": 1.0,
@@ -47,7 +47,7 @@
  "s09_tape83__00": {
   "ratio": 0.957,
   "note": "",
-  "heard": "Control, this is Weather Vane. Signal check. One, two, three. Wind, north northeast, two. Cloud, overcast. Visibility, eight. Pressure, zero nine nine one. Control, an administrative note while I have the channel. If this set is returned to stores without me, the fault is in the second stage and not the aerial. Somebody will blame the aerial. They always do. I have been asked to confirm my assessment of the courier problem. I confirm nothing. My assessment was wrong. I would like that recorded in exactly those words. Tell Rosalind the weather is worse than forecast. Tell her I said that. She'll know which part I mean. Weather Vane out."
+  "heard": "Control, this is Weather Vane. Signal check one, two, three. Wind north northeast two. Cloud overcast. Visibility eight. Pressure zero nine nine one. Control, an administrative note while I have the channel. If this set is returned to stores without me, the fault is in the second stage and not the aerial. Somebody will blame the aerial. They always do. I have been asked to confirm my assessment of the courier problem. I confirm nothing. My assessment was wrong. I would like that recorded in exactly those words. Tell Rosalind the weather is worse than forecast. Tell her I said that. She'll know which part I mean. Weather Vane out."
  },
  "s10_hub_investigate__00": {
   "ratio": 1.0,
@@ -75,24 +75,24 @@
   "heard": "I said I had never held it, which is true. I have never held that document in my hands. Oh, Gene. Rosalind, don't. Forty-three years, and he still passes like a man with counsel in the room. He was read the list, aloud. That is how the Americans took delivery of things they wished to be able to deny. That is a procedure, not a crime. It is a procedure that exists for exactly one purpose, and you have just described it to a review examiner on a recorded line. Do go on"
  },
  "s15_nagel_iv__00": {
-  "ratio": 1.0,
+  "ratio": 0.985,
   "note": "",
-  "heard": "The fourteenth. Yes, I was on shift. I have thought about that night more often than about my wedding, which my wife did not consider a compliment. I will play you something. It is not in your archive. It is not in our archive either because I did not put it there. Listen to the announcer, not the words. Now, she says it wrong. Nobody ever noticed. Visibility"
+  "heard": "The 14th. Yes, I was on shift. I have thought about that night more often than about my wedding, which my wife did not consider a compliment. I will play you something. It is not in your archive. It is not in our archive either because I did not put it there. Listen to the announcer, not the words. Now, she says it wrong. Nobody ever noticed. Visibility"
  },
  "s15_nagel_iv__01": {
   "ratio": 1.0,
   "note": "",
-  "heard": "Visibility three. Pressure zero four one seven."
+  "heard": "Visibility three. Pressure zero four one seven"
  },
  "s15_nagel_iv__02": {
   "ratio": 1.0,
   "note": "",
-  "heard": "There, you hear it? The stress on the front of the word. No trained announcer does that. It is a seam. The word was cut from two different afternoons and joined in the middle. That is what four-one-seven was. Not a woman reading the news. A library. She read lists, and we built sentences she never said. Who is we? Young men with razor blades and a great deal of time. It was the most beautiful work in the service, and they gave it to the ones who were no good at anything else"
+  "heard": "There, you hear it? The stress on the front of the word. No trained announcer does that. It is a seam. The word was cut from two different afternoons and joined in the middle. That is what Four One Seven was. Not a woman reading the news. A library. She read lists, and we built sentences she never said. Who is we? Young men with razor blades and a great deal of time. It was the most beautiful work in the service, and they gave it to the ones who were no good at anything else"
  },
  "s16_nagel_rhythm__00": {
   "ratio": 0.982,
   "note": "",
-  "heard": "Ah, now you are asking a real question. Your Halloway was cleverer than all of us. He knew we could forge any voice, any word, any number. So he did not authenticate the sound. He authenticated the silence. Between his phrases, three beats, two beats, five beats. Always. Never written, never spoken, never in any manual. A man breathing in a pattern. Three, two, five. It means something to you. The third of February, nineteen seventy-five. It\u2019s my birthday. He authenticated himself with my birthday. Then you may do something none of us could. You may listen to tonight, and you will know at once which parts of it are your father"
+  "heard": "Ah, now you are asking a real question. Your Halloway was cleverer than all of us. He knew we could forge any voice, any word, any number. So he did not authenticate the sound. He authenticated the silence. Between his phrases, three beats, two beats, five beats. Always. Never written, never spoken, never in any manual. A man breathing in a pattern. Three, two, five. It means something to you. The third of February, nineteen seventy-five. It\u2019s my birthday. He authenticated himself with my birthday. Then you may do something none of us could. You may listen to tonight, and you will know at once which parts of it are your father."
  },
  "s17_checkpoint__00": {
   "ratio": 0.976,
@@ -122,7 +122,7 @@
  "s17_checkpoint__05": {
   "ratio": 0.981,
   "note": "",
-  "heard": "And then thirty seconds of vehicle noise. And then the tape ends because the officer's shift ended. Play the second voice again. Dr. Halloway. I know what my father sounds like when he is frightened, Frau Vogt. That is not it. He is not frightened on that tape. He is deciding"
+  "heard": "And then 30 seconds of vehicle noise, and then the tape ends because the officer's shift ended. Play the second voice again. Dr. Halloway. I know what my father sounds like when he is frightened, Frau Vogt. That is not it. He is not frightened on that tape. He is deciding"
  },
  "s18_kroll_letter__00": {
   "ratio": 0.853,
@@ -137,12 +137,12 @@
  "s18_iris_cards__00": {
   "ratio": 1.0,
   "note": "",
-  "heard": "Nineteen eighty-four to nineteen ninety-one. Eight cards, posted from eight different cities, none of them the one he was in. Each one has a weather phrase in block capitals. Wind backing westerly. Fog on the low ground. The forecast is memory. As a child, I assumed it was a joke about English small talk. It is a substitution table. Eight cards, eight rows. He sent me the key to his own cipher, one line a year, at an age when I could not possibly understand it, to an address the Service did not know I lived at. You have had this since when? I have had eight birthday cards since I was seven, Frau Vogt. I have had a decryption key since about eleven o'clock this morning."
+  "heard": "Nineteen eighty-four to nineteen ninety-one. Eight cards, posted from eight different cities, none of them the one he was in. Each one has a weather phrase in block capitals. Wind backing westerly. Fog on the low ground. The forecast is memory. As a child, I assumed it was a joke about English small talk. It is a substitution table. Eight cards, eight rows. He sent me the key to his own cipher, one line a year, at an age when I could not possibly understand it, to an address the service did not know I lived at. You have had this since when? I have had eight birthday cards since I was seven, Frau Vogt. I have had a decryption key since about eleven o'clock this morning."
  },
  "s19_hub_cipher__00": {
   "ratio": 0.955,
   "note": "",
-  "heard": "Seventeen minutes. Dr. Halloway has the substitution table and the archive has everything else. Tell us what to do with the numbers"
+  "heard": "Seventeen minutes. Dr. Halloway has the substitution table, and the archive has everything else. Tell us what to do with the numbers"
  },
  "s20_impossible__00": {
   "ratio": 0.991,
@@ -157,7 +157,7 @@
  "s22_index__00": {
   "ratio": 0.98,
   "note": "",
-  "heard": "If the pressure values are not weather, they are numbers with nowhere to live. So give them somewhere. Frau Vogt, does this archive use four-digit box references? It uses the ministry's system. Four digits, then a page. One-one-four-nine would be... Box one-one-four-nine is sealed. Zero-nine-nine-one is sealed. Zero-four-one-seven is sealed. Examiner, all three of the pressure values from tonight are sealed boxes in a building that has been locked since ten o'clock. He is giving you the shelf number, and he has been giving it to you since 1984, and you were checking the barometer"
+  "heard": "If the pressure values are not weather, they are numbers with nowhere to live, so give them somewhere. Frau Vogt, does this archive use four-digit box references? It uses the ministry's system, four digits, then a page. One-one-four-nine would be... Box one-one-four-nine is sealed. Zero-nine-nine-one is sealed. Zero-four-one-seven is sealed. Examiner, all three of the pressure values from tonight are sealed boxes in a building that has been locked since ten o'clock. He is giving you the shelf number, and he has been giving it to you since 1984, and you were checking the barometer"
  },
  "s23_archive__00": {
   "ratio": 0.925,
@@ -207,12 +207,12 @@
  "s27_bench__bench_floor": {
   "ratio": 0.955,
   "note": "",
-  "heard": "There is a room under her. A tick. Every four seconds or so, absolutely regular, and once something heavy going past outside"
+  "heard": "There is a room under her. A tick. Every four seconds or so, absolutely regular, and once something heavy going past, outside."
  },
  "s27_bench__bench_compare": {
   "ratio": 0.896,
   "note": "",
-  "heard": "The '83 recordings were made in a treated studio. There is no radiator in Adlershof and there is no tram. Examiner. This room is not in 1983. This room is somewhere tonight"
+  "heard": "The '83 recordings were made in a treated studio. There is no radiator in Adlershof and there is no tram. Examiner: This room is not in 1983. This room is somewhere tonight"
  },
  "s28_library__00": {
   "ratio": 1.0,
@@ -227,7 +227,7 @@
  "s30_dorsey_admit__00": {
   "ratio": 1.0,
   "note": "",
-  "heard": "You want the ninth of March. All right, I'll give you the ninth of March, and then I'd like somebody to notice what it isn't. In March of eighty-three, there was a vote coming that would have put our people out of three cities. I needed a man in a political office to believe that the network was worth the trouble. So I read him nine cryptonyms. Not names, cryptonyms. You read nine cryptonyms to a politician. I read nine cryptonyms to a man with a safe and a clearance, and he repeated four of them to an aide who did not have either, and that aide talked at a dinner in Bonn, and eleven weeks later, four people were dead. I have known that since November of eighty-three. I did not sell anybody. I was careless in a building where careless is the same as murder, and I have spent forty-three years being extremely useful to make up for it. And Willi Kroll? Kroll was the shape the investigation was already making. I did not put him there. Did you take him out of it? No"
+  "heard": "You want the ninth of March. All right, I'll give you the ninth of March, and then I'd like somebody to notice what it isn't. In March of eighty-three, there was a vote coming that would have put our people out of three cities. I needed a man in a political office to believe that the network was worth the trouble. So I read him nine cryptonyms, not names, cryptonyms. You read nine cryptonyms to a politician. I read nine cryptonyms to a man with a safe and a clearance, and he repeated four of them to an aide who did not have either, and that aide talked at a dinner in Bonn, and eleven weeks later, four people were dead. I have known that since November of eighty-three. I did not sell anybody. I was careless in a building where careless is the same as murder, and I have spent forty-three years being extremely useful to make up for it. And Willi Kroll? Kroll was the shape the investigation was already making. I did not put him there. Did you take him out of it? No"
  },
  "s32_confession__00": {
   "ratio": 1.0,
@@ -247,7 +247,7 @@
  "s34_confront__00": {
   "ratio": 1.0,
   "note": "",
-  "heard": "You have gone quiet, examiner. In my experience, that means either you have understood something or you are about to embarrass yourself. Both are entertaining"
+  "heard": "You have gone quiet, Examiner. In my experience, that means either you have understood something or you are about to embarrass yourself. Both are entertaining"
  },
  "s34_confront__ch_seam_00": {
   "ratio": 1.0,
@@ -277,7 +277,7 @@
  "s34_confront__break_00": {
   "ratio": 0.97,
   "note": "",
-  "heard": "Forty-one years ago, they gave me a woman's voice in a box and told me to make her say whatever the service required. I was twenty-two. I was very good at it. In ninety, I was told to destroy her, and I signed the paper, and I did not do it. Everyone was destroying things that spring. I saved the only thing I had ever made properly. And then, Examiner, nothing happened for a very long time. And then people began to want voices again, different people, better paid. I did not know whose order I was carrying tonight. I have never known. That is the service they are buying. I was given nine seconds of text and a window, and I put her on the air one last time. I did help your father, Dr. Halloway. That was also true. A man can do one decent thing in 1983 and be a supplier in 2026. Nobody is a single sentence"
+  "heard": "Forty-one years ago, they gave me a woman's voice in a box and told me to make her say whatever the service required. I was twenty-two. I was very good at it. In ninety, I was told to destroy her, and I signed the paper, and I did not do it. Everyone was destroying things that spring. I saved the only thing I had ever made properly. And then, Examiner, nothing happened for a very long time. And then people began to want voices again. Different people, better paid. I did not know whose order I was carrying tonight. I have never known. That is the service they are buying. I was given nine seconds of text and a window, and I put her on the air one last time. I did help your father, Dr. Halloway. That was also true. A man can do one decent thing in 1983 and be a supplier in 2026. Nobody is a single sentence"
  },
  "s34_confront__fail__00": {
   "ratio": 1.0,
@@ -290,9 +290,9 @@
   "heard": "Three minutes. The finding goes on the record in three parts, and it goes on my authority, which means if you are wrong, I lose this building, and you lose rather more. Speak"
  },
  "s36_disclosure__00": {
-  "ratio": 0.973,
+  "ratio": 0.986,
   "note": "",
-  "heard": "Ninety seconds. The transmitter will carry whatever we give it. Everything in the file, nothing in the file, or the part that can be said without a name in it. Choose, Examiner. Whatever you send. Send all of him, not the useful half. He chained them together so that nobody could do to him what he did to Willy Kohl. If you unchain them to make him a martyr, you have learned nothing tonight"
+  "heard": "Ninety seconds. The transmitter will carry whatever we give it. Everything in the file, nothing in the file, or the part that can be said without a name in it. Choose, Examiner. Whatever you send. Send all of him, not the useful half. He chained them together so that nobody could do to him what he did to Willi Kohl. If you unchain them to make him a martyr, you have learned nothing tonight"
  },
  "s31_vogt_mother__00": {
   "ratio": 0.949,
@@ -300,14 +300,14 @@
   "heard": "Frau Vogt, you have been redacting this collection for four years. I have seen the version history. Nine hundred entries, all of them family names, all of them yours to approve. Yes. Why? Because in 1983, a woman in Adlershof read a list into a microphone 11 times, and she was not paid, and she was not asked, and she was told what would happen to her daughter if she declined. Ilse Vogt. Ilse Vogt. She died in 2004 in Pankow, having never once told me what she did. I found out from a card index. I took this posting 14 months later. So yes, I have been removing names. I have not removed one fact, one date, or one crime. I have removed the addresses of frightened people. If that ends my career, then a great many people in this story have paid more for less. It is the first true thing he has said. I did not know she had a daughter. You had her voice for 40 years, Herr Nagel. You never once wondered whose it was"
  },
  "end_forecast__00": {
-  "ratio": 0.992,
+  "ratio": 0.983,
   "note": "",
-  "heard": "Finding entered. Ulrich Nagel, insertion of a covert instruction into a civil broadcast. Gene Dorsey, unauthorized disclosure, March nineteen eighty-three. Willi Kroll, exonerated of espionage, unlawfully killed. Transmitting the redacted file. Bundespolizei took the courier on the east platform at four minutes past. The case held a one-time pad and a phone with one number in it. The number is disconnected. It has been disconnected since before the arrest. Of course it is. You have cut one wire out of a switchboard, Examiner. Do not mistake that for the end of the exchange. But it was the correct wire, and it has been forty-three years, and I find I am not sorry. They will make him a villain by Thursday, both of them. My father killed a frightened man at a border and then spent eight years posting the proof to a child, and there is no headline that holds both halves of that. But it is out, and it is whole, and Willi Kroll's sister is eighty-one and can read it tomorrow. That will do. That will have to do. Examiner, Herr Nagel has sent one further file from custody. It is not evidence. He has marked it in English, personal. Session four, nineteen eighty-one, between takes. I never cut this one because there was nothing in it I could use. Frau Vogt, I am too old to apologize usefully. Take it anyway"
+  "heard": "Finding entered. Ulrich Nagel, insertion of a covert instruction into a civil broadcast. Gene Dorsey, unauthorized disclosure, March nineteen eighty-three. Willi Kroll, exonerated of espionage, unlawfully killed. Transmitting the redacted file. Bundespolizei took the courier on the east platform at four minutes past. The case held a one-time pad and a phone with one number in it. The number is disconnected. It has been disconnected since before the arrest. Of course it is. You have cut one wire out of a switchboard, Examiner. Do not mistake that for the end of the exchange. But it was the correct wire, and it has been forty-three years, and I find I am not sorry. They will make him a villain by Thursday, both of them. My father killed a frightened man at a border and then spent eight years posting the proof to a child, and there is no headline that holds both halves of that. But it is out, and it is whole, and Willi Kroll's sister is eighty-one and can read it tomorrow. That will do. That will have to do. Examiner, Herr Nagel has sent one further file from custody. It is not evidence. He has marked it in English, personal. Session four, 1981, between takes. I never cut this one because there was nothing in it I could use. Frau Vogt, I am too old to apologize usefully. Take it anyway."
  },
  "end_forecast__01": {
   "ratio": 0.871,
   "note": "",
-  "heard": "Entirely unlike the station voice, slightly off mic. Is it still running? It is still running. Oh, one moment. My daughter has a concert this evening, and I have promised. So if we could possibly... Yes, sorry. Ready. Wind, south-southwest, four. Cloud, broken. Visibility, three."
+  "heard": "Entirely unlike the station voice, slightly off mic. Is it still running? It is still running. Oh, one moment. My daughter has a concert this evening, and I have promised. So if we could possibly... Yes, sorry. Ready. Wind, south-southwest, four. Cloud, broken. Visibility, three"
  },
  "end_forecast__coda__00": {
   "ratio": 1.0,
@@ -317,7 +317,7 @@
  "end_necessary_lie__00": {
   "ratio": 0.98,
   "note": "",
-  "heard": "The window has closed. Nothing was transmitted. The finding is sealed under the Continuity provision for ninety-nine years, which means all of us will be dead, and so will anyone who cared. Herr Nagel was collected at his flat at twenty past. There will be no charge. There will be an arrangement. The courier was allowed to board. And it is the most frightening thing, he says. You did the adult thing, Examiner, and nobody is ever going to tell you so. Four families went to bed tonight not knowing there was a decision about them. That's the whole job. That was always the whole job. Gene, if you thank the Examiner one more time, I shall come to Virginia. I have been given a copy. Personal use, not to be reproduced. Forty years, and my inheritance is a file I am not allowed to show anyone. He killed a man to keep six names quiet, and you have kept his name quiet to protect four more. And I cannot tell any longer whether that is the moral of the story or just the story repeating. Examiner, the carrier is still up. There is no modulation on it. There has been no modulation for six minutes. It is simply open, as though something is waiting to see whether we will say anything at all."
+  "heard": "The window has closed. Nothing was transmitted. The finding is sealed under the Continuity provision for ninety-nine years, which means all of us will be dead, and so will anyone who cared. Herr Nagel was collected at his flat at twenty past. There will be no charge. There will be an arrangement. The courier was allowed to board. And it is the most frightening thing, he says. You did the adult thing, Examiner, and nobody is ever going to tell you so. Four families went to bed tonight not knowing there was a decision about them. That's the whole job. That was always the whole job. Gene, if you thank the Examiner one more time, I shall come to Virginia. I have been given a copy. Personal use, not to be reproduced. Forty years, and my inheritance is a file I am not allowed to show anyone. He killed a man to keep six names quiet, and you have kept his name quiet to protect four more. And I cannot tell any longer whether that is the moral of the story or just the story repeating. Examiner, the carrier is still up. There is no modulation on it. There has been no modulation for six minutes. It is simply open, as though something is waiting, to see whether we will say anything at all."
  },
  "end_repeated__00": {
   "ratio": 1.0,
@@ -325,14 +325,14 @@
   "heard": "The window is open. The transmission is going out, and I cannot stop it from this room. Achtung. Station four one seven. Wind west two. Cloud overcast. Visibility one. Pressure one one four nine"
  },
  "end_repeated__01": {
-  "ratio": 1.0,
+  "ratio": 0.8,
   "note": "",
-  "heard": "Courier confirmed. Blue key destroyed. Glasshouse closed"
+  "heard": "Courier confirmed. Blue key destroyed. Glass house closed"
  },
  "end_repeated__02": {
   "ratio": 0.985,
   "note": "",
-  "heard": "The courier boarded at four minutes past. The case was opened at Erkner, and the pad had already been burned. The archive was seized at half past under the continuity provision. I am told my access ends at midnight. You named a person. You had four minutes and a room full of recordings, and you named a person because that is what everybody does. That is what my father did to Willi Kroll. It is 1983 again, and this time I watched it happen in real time on a conference line with the countdown showing. Good night, Examiner. Examiner, the station has not closed down. It is still transmitting. This is not in tonight's schedule. This is new material. Message follows. Review terminal seven four one nine. Examiner present. Examiner listening. Examiner logged. The forecast is memory. Ends"
+  "heard": "The courier boarded at four minutes past. The case was opened at Erkner, and the pad had already been burned. The archive was seized at half past under the continuity provision. I am told my access ends at midnight. You named a person. You had four minutes and a room full of recordings, and you named a person because that is what everybody does. That is what my father did to Willi Kroll. It is 1983 again, and this time I watched it happen in real time on a conference line with the countdown showing. Good night, Examiner. Examiner, the station has not closed down. It is still transmitting. This is not in tonight's schedule. This is new material. Message follows. Review terminal seven four one nine. Examiner present. Examiner listening. Examiner logged. The forecast is memory. Ends."
  },
  "s23b_rhythm_alt__00": {
   "ratio": 1.0,

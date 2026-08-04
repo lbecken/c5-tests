@@ -168,6 +168,24 @@ it builds a short-time envelope of the insert and inverts it, pushing the
 speech down and lifting the floor between phrases. The ticks are audible
 because they are there.
 
+## 6b. Environmental palette
+
+All of it generated procedurally in `production/beds.py` — no sample library,
+nothing fetched at runtime.
+
+| | |
+|---|---|
+| Shortwave | Carrier hiss, slow selective fading, a heterodyne whistle drifting past. The title screen tuner is live Web Audio: noise thins and the beat note falls as you close on 4.921 MHz. |
+| Machinery | Nagel's radiator and the 21 tram outside it (the clue); the vault's ventilation, mains hum and badge relays; Iris's fans and keyboard. |
+| Weather | Rain a long way off in Frayne's study under a mantel clock; rain and idling engines at the 1983 checkpoint. |
+| Alarms | A two-tone klaxon when the continuity protocol trips and again as the courier reaches the platform. |
+| Doors | A heavy magnetic bolt — motor, throw, seal settling — as the facility locks and as the sealed boxes are opened. |
+| Relays | A patch relay closing: the sound of being connected to the line. |
+| Media | Four distinct recording chains — 1983 tape, 1991 tape, 1981 reel, secure phone — so where a voice is coming from is audible before anyone says. |
+
+Ambience loops seamlessly in the browser and is separately mutable. Stings sit
+under dialogue, never over it.
+
 ## 7. Structure
 
 Five acts, hub-and-spoke, 40 scenes, ~42 minutes of authored audio of which a

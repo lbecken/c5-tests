@@ -195,3 +195,56 @@ AMBIENCE = {
     "shortwave": shortwave_bed, "checkpoint": checkpoint, "line": line_bed,
     "bench": vault, "tape83": line_bed, "apartment": line_bed,
 }
+
+
+# --- one-shot stings, played at scene entry ---------------------------------
+
+def alarm(seconds=3.2, seed=81):
+    """The continuity protocol tripping: a two-tone klaxon down a corridor."""
+    n = int(seconds * SR)
+    t = np.arange(n) / SR
+    # alternating pair, slightly detuned, with a long room tail
+    sw = (np.sign(np.sin(2 * np.pi * 0.9 * t)) + 1) / 2
+    f = 523 * sw + 392 * (1 - sw)
+    tone = np.sin(2 * np.pi * np.cumsum(f) / SR)
+    tone += 0.3 * np.sin(2 * np.pi * np.cumsum(f * 2.01) / SR)
+    env = np.minimum(1.0, t * 6) * np.exp(-np.maximum(0, t - seconds + 1.4) * 2.2)
+    body = tone * env * 0.5
+    tail = _lp1(_rng(seed).normal(0, 1, n), 0.9)
+    tail /= (np.abs(tail).max() + 1e-9)
+    return _lp1(body, 0.35) + tail * 0.05
+
+
+def door(seconds=2.4, seed=91):
+    """A heavy magnetic bolt: motor, throw, and the seal settling."""
+    n = int(seconds * SR)
+    t = np.arange(n) / SR
+    r = _rng(seed)
+    motor = (np.sin(2 * np.pi * 74 * t) + 0.4 * np.sin(2 * np.pi * 148 * t))
+    motor *= np.exp(-((t - 0.45) ** 2) / 0.09) * 0.35
+    i = int(0.95 * SR)
+    thud = np.zeros(n)
+    seg = np.arange(min(int(0.9 * SR), n - i)) / SR
+    thud[i:i + len(seg)] = (
+        np.sin(2 * np.pi * 58 * seg) * np.exp(-seg * 9) * 0.9
+        + r.normal(0, 1, len(seg)) * np.exp(-seg * 45) * 0.35)
+    hiss = _lp1(r.normal(0, 1, n), 0.6)
+    hiss /= (np.abs(hiss).max() + 1e-9)
+    seal = hiss * np.exp(-np.maximum(0, t - 1.5) * 3.0) * (t > 1.5) * 0.18
+    return motor + thud + seal
+
+
+def relay(seconds=1.1, seed=95):
+    """A patch relay closing - the sound of being connected to the line."""
+    n = int(seconds * SR)
+    r = _rng(seed)
+    out = np.zeros(n)
+    for at in (0.02, 0.19, 0.33):
+        i = int(at * SR)
+        seg = np.arange(min(int(0.14 * SR), n - i)) / SR
+        out[i:i + len(seg)] += (r.normal(0, 1, len(seg)) * np.exp(-seg * 180) * 0.6
+                                + np.sin(2 * np.pi * 900 * seg) * np.exp(-seg * 90) * 0.25)
+    return out
+
+
+STINGS = {"alarm": alarm, "door": door, "relay": relay}

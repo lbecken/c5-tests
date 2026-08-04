@@ -321,7 +321,7 @@ def emit():
         o = {k: v for k, v in s.items()
              if k in ("id", "act", "clock", "title", "amb", "next", "grants",
                       "sets", "hub", "bench", "confront", "theory",
-                      "disclosure", "ending", "ending_id", "req",
+                      "disclosure", "ending", "ending_id", "req", "sting",
                       "accuse_prompt", "questions", "options", "solo")}
         o["segments"] = [
             {"asset": f"{s['id']}__{i:02d}",

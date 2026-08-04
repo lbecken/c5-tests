@@ -319,6 +319,13 @@ def digest(asset):
 
 def build_ambience():
     os.makedirs(AMB, exist_ok=True)
+    sfx = f"{ROOT}/game/audio/sfx"
+    os.makedirs(sfx, exist_ok=True)
+    for name, fn in beds.STINGS.items():
+        x = fn()
+        x = x / (np.abs(x).max() + 1e-9) * 0.8
+        encode(x, f"{sfx}/{name}.mp3", bitrate="128k")
+        print(f"  sfx {name:12} {len(x)/SR:5.1f}s")
     for name, fn in beds.AMBIENCE.items():
         path = f"{AMB}/{name}.mp3"
         x = fn(24.0)

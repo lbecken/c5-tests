@@ -132,7 +132,7 @@ scene(
 )
 
 scene(
-    "s02_brief", act=1, clock=28, amb="vault",
+    "s02_brief", act=1, clock=28, amb="vault", sting="relay",
     title="Tempelhof, sub-level four",
     lines=[
         L("vogt",
@@ -215,7 +215,7 @@ scene(
 )
 
 scene(
-    "s04_roster", act=1, clock=26, amb="vault",
+    "s04_roster", act=1, clock=26, amb="vault", sting="door",
     title="Who is on the line",
     lines=[
         L("vogt",
@@ -1068,7 +1068,7 @@ scene(
 )
 
 scene(
-    "s23_archive", act=3, clock=14, amb="vault",
+    "s23_archive", act=3, clock=14, amb="vault", sting="door",
     title="Box 1149",
     lines=[
         L("vogt",
@@ -1570,7 +1570,7 @@ scene(
 )
 
 scene(
-    "s33_courier", act=4, clock=5, amb="vault",
+    "s33_courier", act=4, clock=5, amb="vault", sting="alarm",
     title="East platform",
     lines=[
         L("vogt",
@@ -2066,7 +2066,7 @@ scene(
 )
 
 scene(
-    "end_repeated", act=6, clock=0, amb="shortwave", ending=True,
+    "end_repeated", act=6, clock=0, amb="shortwave", ending=True, sting="alarm",
     title="Ending: You Have Repeated 1983",
     lines=[
         L("vogt",
